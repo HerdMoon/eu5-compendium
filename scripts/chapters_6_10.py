@@ -79,7 +79,7 @@ CHAPTERS_6_10 = [
   <li><strong>{T('liturgical_language','礼仪语言')}</strong>（如天主教固定拉丁语）：该语言全球 {T('language_power','语言力量')}（由采用国教士数与文化力决定）直接加减全国革新科研速率；</li>
   <li><strong>{T('market_language','市场语言')}</strong>（市场中心绝大多数市民使用的语言）。</li>
 </ul>
-<p><strong>{T('work_of_art','艺术品')} 与 {T('chivalric_order','勋贵骑士团')}</strong>：委托画家、作家、雕塑家或作曲家（在财政「投资文化」滑块喂钱）创作传世珍品，既能永久加威望与文化传统（战时地盘被占 10% 损毁、40% 被掠走！缺钱亦可折价 60% 卖给阶层），又能撑起本国文化影响。君主国可启用贵族专属的 <strong>勋贵骑士团</strong>，只要<strong>统治者本人入团且骑士团活跃</strong>即可开启全国军事与外交收益（邀请人物入团有 10 年冷却）。</p>
+<p><strong>{T('work_of_art','艺术品')}、{T('artist','艺术家')}体系与 {T('chivalric_order','勋贵骑士团')}（17 团）</strong>：按国家等级与革新解锁艺术家雇佣上限（王国 1 名 / 帝国 2 名），花费 <strong>10 威望</strong> 雇佣学者/画家/作家并拨给文化投资，即可耗资 <strong>经济基础 × 6</strong> 点名「委托创作」传世杰作（作家的职业常驻加成为全国识字 +0.05/月、思潮 +5%，科学家则直加 +5% 研究速度；战时首都/藏品地被占领有 10% 损毁、40% 遭劫走，急需现金亦可 6 折卖给阶层，名录库完整收录开局 161 件与事件 275 件艺术品）。君主国还可在特定地域成立贵族专属的 <strong>勋贵骑士团</strong>——只有当<strong>现任统治者本人加入且骑士团活跃</strong>时，才为国家提供常驻军事/外交修正（如匈牙利圣乔治骑士团加 +10% 贵族征召，成员自身另拿独立能力与威望，邀请入团冷却 10 年）。</p>
 """
             },
             {
@@ -119,9 +119,10 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
+            ("293 种宗教全表", "ledgers.html#religions"),
+            ("17 骑士团 & 圣地/艺术品名录", "directory.html#chivalric_orders"),
+            ("2,087 文化 & 528 语言全览", "directory.html#cultures"),
             ("文化与核心 50% 链路图", "map.html#culture_lang"),
-            ("双语官方文化宗教词典", "glossary.html"),
-            ("关键红线速览墙", "lab.html#redlines"),
         ],
     },
 
@@ -210,7 +211,7 @@ CHAPTERS_6_10 = [
                 "title": "05 · 历史局势（24项）、国家灾难（38项）、使命与全自动化开关建议",
                 "en": "Situations, Disasters, Missions & Automation Best Practices",
                 "html": f"""
-<p>在历史进程上，EU5 把全球风暴拆作全跨国共同介入的 <strong>24 项{T('situation','历史局势')}</strong>（百年战争、黑死病、宗教改革、西方大分裂、红巾军、意大利战争、小冰期、海盗黄金时代等）与仅盯着单国本月体征判定的 <strong>38 项{T('disaster','国家灾难')}</strong>（罗斯内战、宫廷与乡村、凤凰的命运等）。灾难常在特定条件（低稳定度、低正统、高厌战或极度阶层不满）满足时每月累加进度，爆发后只可通过完成整套脱困条件结束（部分国家使命在接取当日即“快照锁定”目标数值作为终点起点！）。</p>
+<p>在历史进程上，EU5 把全球风暴拆作全跨国共同介入的 <strong>24 项{T('situation','历史局势')}</strong>（百年战争、黑死病、宗教改革、西方大分裂、红巾军、意大利战争、小冰期、海盗黄金时代等）、<strong>4 类社会运动</strong>（新教与复兴浪潮等）以及仅盯着单国本月体征判定的 <strong>38 项{T('disaster','国家灾难')}</strong>（罗斯内战、宫廷与乡村、凤凰的命运、自由渴望等，另含全游戏 4,213 条国别历史事件与使命链——详见第 11 章专述）。以经典高危灾难 <strong>「帝国衰落（Decline of Empire）」</strong> 为例（1.4.9 已彻底移除了旧版维基所谓的自满条，直接硬判当前指标）：限独立<strong>帝国等级</strong>、稳定度为负且已过文艺复兴时代，当<strong>本土大区平均控制力跌破当代红线（四时代依次为 45% / 50% / 55% / 60%）</strong>，或未受容忍文化人口占比超过全国三分之一，一旦结束新升帝国保护期即按月检定爆发动荡！</p>
 
 <table class="data-table">
   <thead><tr><th>系统自动化模块</th><th>社区公认推荐开关</th><th>原因与关键风险规避</th></tr></thead>
@@ -235,8 +236,9 @@ CHAPTERS_6_10 = [
         },
         "quick_links": [
             ("24 项局势与 38 项灾难全典", "ledgers.html#situations_disasters"),
-            ("时代/思潮/殖民因果网络", "map.html#ages_research"),
-            ("全局 37 条核心红线", "lab.html#redlines"),
+            ("3,592 项时代革新全名录", "directory.html#advances"),
+            ("第 11 章 剧本、使命与 DLC", "ch11-scenarios-missions-dlc.html"),
+            ("第 12 章 自动化与 1.4.9 更新", "ch12-gameplay-automation-updates.html"),
         ],
     },
 
@@ -352,9 +354,10 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
+            ("401 种陆海军兵种全数值表", "ledgers.html#unit_types"),
+            ("18 项军队单位能力名录", "directory.html#unit_abilities"),
             ("接战概率 & 兵种混编校验器", "lab.html#calc"),
             ("军制、围城与后勤因果星图", "map.html#siege_logistics"),
-            ("37 条核心红线全表", "lab.html#redlines"),
         ],
     },
 
@@ -402,9 +405,9 @@ CHAPTERS_6_10 = [
                 "en": "Maritime Presence & The 90% Patrol Trap",
                 "html": f"""
 <p>对于跨海大国（如瑞典、威尼斯、热那亚、西班牙、奥斯曼、英国、大明/日本）而言，海域上的 <strong>{T('maritime_presence','海上存在')}（0–100%）</strong> 直接决定了你的外省港口是 80% 控制力的肥美印钞机，还是 0% 控制力的阶层自留地。在 1.4.9 中请注意区分：官方已调整说明明确将海上存在主要聚焦于 <strong>减少海路邻近度衰减</strong> 以及靠沿岸海上存在产生近岸市场的 {T('merchant_maritime_power','海上贸易优势')}（和平时期本国沿海港口自身即可缓慢恢复海存，而海军传统每 100 点直接再放大 +50% 海存增值速率）。</p>
-<div class="callout warn"><strong>社区实测最大坑：为什么自动巡逻总是掉海权、控制力上不去？</strong><br>
-<code>00_defines.txt</code> 第 2166 行明写着引擎规则：<code>PATROL_THE_SEAS_THRESHOLD = 90</code>！当你的自动化舰队把某一格海区刷到 <strong>90%</strong> 海上存在后，AI 就判定已达标并立刻启程去别处或回港停靠，随后海上存在立刻下跌、海路控制随之一落千丈。<br>
-<strong>正确高玩实操做法</strong>：放弃用一支庞大的混合主力跑全海自动巡逻——从船队里按每组 <strong>5–10 艘廉价轻型战舰（Light Ships）</strong> 分拆出多支纯轻船小分队，<strong>手动右键停泊并常驻在首都通往核心港口之间的每一个关键沿海海格上</strong>，就能将核心航道的海上存在永久锁死在 100%！（记得定期看船体损耗度适时轮换回港微修或补上护航抗海盗属性）。</div>
+<div class="callout warn"><strong>社区实测最大坑：为什么自动巡逻总是掉海权、控制力上不去？（1.4.9 口径核对）</strong><br>
+<code>00_defines.txt</code> 第 2166 行依然写着引擎定义常量：<code>PATROL_THE_SEAS_THRESHOLD = 90</code>（虽然 1.4.9 官方更新说明中将巡逻离开条件口头表述为 100%，但在脚本与本地实机巡逻验证彻底闭环前，仍强烈按 90 阈值防掉线处理）！当自动巡逻舰队到达目标门槛即启程离开或返港停靠，随后海上存在立刻下跌、海路控制随之一落千丈。<br>
+<strong>正确高玩实操做法</strong>：放弃用一支庞大的混合主力跑全海自动巡逻——从船队里按每组 <strong>5–10 艘廉价轻型战舰（Light Ships）</strong> 分拆出多支纯轻船小分队，<strong>手动右键停泊并常驻在首都通往核心港口之间的每一个关键沿海海格上</strong>，就能将核心航道的海上存在永久锁死在 100%！（海战按沉没与俘获分别结算；受损返回港内时自动取港口修与海上修二者中的较高速度回血）。</div>
 """
             },
             {
@@ -458,9 +461,10 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
+            ("78 种战争目标全表", "ledgers.html#wargoals"),
             ("113 种宣战理由全表", "ledgers.html#casus_belli"),
+            ("72 项和平条约名录", "directory.html#peace_treaties"),
             ("海权、封锁与和约因果星图", "map.html#navy_maritime"),
-            ("全站红线墙汇总", "lab.html#redlines"),
         ],
     },
 
@@ -502,7 +506,7 @@ CHAPTERS_6_10 = [
 • <strong>对方强国额外项</strong>：对方是 <strong>{T('great_power','列强')}（≥40 点列强积分）+1.0</strong>；对方是 <strong>{T('regional_power','区域强权')}（≥20 点，享列强半数加成且限对相邻区域行使列强行动）+0.5</strong>。<br>
 • <strong>{T('alliance_bloc','联盟集团')}饱和度</strong>：统计你所有现有同盟（每个列强盟友计 <strong>1.0</strong>、区域强权计 <strong>0.5</strong>）的权重总和——只要超过 <strong>1.0</strong>，超出值每多 1.0 就会给你的<strong>每一条</strong>有效同盟共同加上 <code>× 0.3</code> 容量惩戒！（超过容量立刻重挫威望与外交声誉）。
 </div>
-<p><em>此外注意 {T('ai_personality','国家性格')} 与 {T('ai_disposition','国家态度')}：AI 态度的警惕/恐慌切换均设防抖滞后带（0.15），且一旦好感或信任 ≥75 即倾向进入友好态。</em></p>
+<p><em>此外注意 {T('ai_personality','国家性格')} 与 {T('ai_disposition','国家态度')}：AI 态度的警惕/恐慌切换均设防抖滞后带（0.15），且一旦好感或信任 ≥75 即倾向进入友好态。另设 <strong>{T('betrothal','订婚')}</strong> 机制：两国可为未满 16 岁的皇室子女预先订下婚约，待双方同时跨过成年岁数且配偶、宗教与特质条件符合时自动转成正式王室联姻。</em></p>
 """
             },
             {
@@ -513,7 +517,7 @@ CHAPTERS_6_10 = [
 <p>其他国家的真实内政细节在 EU5 中并非免费敞开，而是默认藏在 <strong>{T('spy_network_fog','信息迷雾')}</strong> 之后：</p>
 <ul>
   <li><strong>潜伏与衰减</strong>：派遣外交官对目标建立 {T('spy_network','间谍网')} 基础速度每月 <strong>+1.0 点</strong>（宿敌与特质加速）；停止指派则按每月 <strong>−1.0 点</strong> 自然衰减。</li>
-  <li><strong>25 点情报分水岭（<code>INTEL_THRESHOLD_* = 25</code>）</strong>：一旦对敌国的间谍网跨过 <strong>25 点大关</strong>，你才能穿透迷雾看清目标<strong>所有地点的真实守军数、要塞等级、建筑槽位、补给上限、征召潜力、国库战备与陆海传统</strong>！与此同时，间谍网达到 25 点也正式激活每年 <strong>25% 暴露风险检定</strong>（被发现即受 12 个月冷却）。</li>
+  <li><strong>25 点情报分水岭与 1.4.9 开局状态说明</strong>：信息迷雾在 <code>00_defines.txt</code> 中原设 <strong>5 / 15 / 25</strong> 三档间谍网解锁门（分别看统筹能力 → 税收收入 → 全部地点守军/要塞等级/兵源），不过请注意 <strong>1.4.9 本机版本标准开局规则下默认将其开关整块注释，只保留常规战争迷雾视野规则</strong>；在开启该规则或特定模组下，25 点正式揭示军备数据并触发每年 <strong>25% 暴露风险检定</strong>（被发现即受 12 个月冷却）。至于界面残留文本中的「<strong>国家雄心（Ambitions）</strong>」，经核对 1.4.7–1.4.9 仅见界面提示文本、常规对局尚未定义可选雄心列表，实机行动统一在国家行动（Country Interactions）目录里发起。</li>
   <li><strong>三大地下开销</strong>：伪造标准宣战理由花费 <strong>20 点</strong>、资助叛乱（{T('supportrebels','支持叛军')}）花费 <strong>30 点</strong>、全境清零目标战争迷雾的「{T('infiltrate_administration','渗透行政系统')}」需要 <strong>50 点</strong>。</li>
 </ul>
 """
@@ -556,7 +560,11 @@ CHAPTERS_6_10 = [
   <li><strong>不收日常岁贡 + 主导国反转危机</strong>：刚由王室联姻落成的共主邦联只是共戴一君的防御联盟——被联统国 <strong>不向你交一般附庸税</strong>；更可怕的是如果后续被联统国国力反超了你，他会<strong>反客为主夺走联统主导权</strong>并接管整个邦联的外交！</li>
   <li><strong>「{T('union_integration_level','共主邦联整合等级')}」与落后小弟的「议会补课机制」</strong>：主导国在邦联面板每推动一级集中化政策，当时在列成员的整合等级统一 <code>+1</code>。等到推进最后终极合邦政策时，<strong>只有整合等级与主导国平级的被联统国才会一并吞并</strong>！如果你在中途又新增了一位晚入邦联的成员，它会自动卡在较低的成员等级——此时你<strong>必须在邦联页面召开专门的「邦联议会」并通过让它逐级追赶整合进度的议案</strong>，方能最终完整合并！</li>
 </ol>
-<p><strong>多元 {T('international_organization','国际组织')} 与五大世界霸权（{T('hegemony','Hegemons')}）</strong>：在 {T('holy_roman_empire','神圣罗马帝国')} 内部，列强（及区域成员）除投票选帝外，可通过历时 24 个月建立的 <strong>{T('imperial_circle','帝国行政圈')}</strong> 抱团发声（每单一行政圈投票权重封顶不超全帝国 <strong>35%</strong>），神罗皇帝还拥有耗损成员好感的「否决帝国议会（<code>overrule_imperial_diet</code>）」特权；在中华天朝体系中围绕 <strong>{T('celestial_authority_gc','天朝威仪')}</strong> 运作六部、圣旨、免贡与宝船远航。位列独立列强且经济/海军（至少 1 重战舰）/陆军/外交/主流文化影响单项居全球之首，即可摘得极具统治力的世界霸权冠冕。</p>
+<p><strong>多元 {T('international_organization','国际组织')}、地区权力斗争与五大世界霸权（{T('hegemony','Hegemons')}）</strong>：</p>
+<ul>
+  <li><strong>神罗 {T('imperial_circle','帝国行政圈')} 与皇帝权柄</strong>：候选地区内至少半数地点由帝国成员持有且经历 <strong>24 个月</strong> 窗口方可成圈；初始投票权 &lt;10 的小圈自动并入邻近较小行政圈，<strong>单一行政圈投票上限卡死全帝国 35%</strong>，活跃成员少于 2 国即转入休眠。神罗皇帝还可损耗成员好感强制「否决帝国议会（<code>overrule_imperial_diet</code>）」。</li>
+  <li><strong>意大利战争与直布罗陀海峡主权争霸</strong>：意大利战争按参战联盟领袖动态拉锯紧张度；伊比利亚与北非的「<strong>海峡之战（Battle for the Strait）</strong>」单独跟踪「<strong>格拉纳达主权（0–100，初值 50）</strong>」，每名盟友每月贡献 <code>clamp(0.01 + 列强分数 × 0.0004, 0.01, 0.05)</code> 推力，随后接续「<strong>黄金世纪（Golden Century）</strong>」欧洲/殖民优势角逐；中华天朝体系则围绕 <strong>{T('celestial_authority_gc','天朝威仪')}</strong> 运作六部、圣旨、免贡与宝船远航（另含 1.4.9 宝船按二时代重战舰重构、巴巴里福斯塔载兵 150 人与运宝船队五年冷却实则计入区域内属国金银产出）。位列独立列强且经济/海军（至少 1 重战舰）/陆军/外交/主流文化影响单项居全球之首，即可摘得极具统治力的世界霸权冠冕。</li>
+</ul>
 """
             },
         ],
@@ -570,9 +578,10 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
+            ("194 外交行动 & 37 国际组织", "ledgers.html#diplomatic_actions"),
             ("22 种属国属性全表", "ledgers.html#subject_types"),
+            ("178 决议 & 22 组织决议名录", "directory.html#decisions"),
             ("属国连通与强盟饱和演算器", "lab.html#calc"),
-            ("外交、敌意与邦联星图", "map.html#antagonism"),
         ],
     },
 ]

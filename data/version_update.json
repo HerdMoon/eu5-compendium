@@ -1,0 +1,556 @@
+{
+  "version": "1.4.9",
+  "officialChecksum": "3ed0",
+  "date": "2026-11-18",
+  "steamBuild": "26655995",
+  "previous": "1.4.7",
+  "checks": [
+    {
+      "version": "1.4.8",
+      "topic": "市民关税与贸易补贴",
+      "summary": "外国市民贸易的关税收入与补贴支出按全额结算；此前 1.4.7 样本继续作为历史记录保留。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "trade.html#border-charges"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "贸易路径与港口",
+      "summary": "港口装卸效率基础系数由 +100% 提高到 +200%，按港口适宜度缩放；同一路段的道路与河流贸易优惠分别选用。行政邻近度的港口修正保持 −50%。海上存在说明中的贸易作用已按官方公告移除。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "main_menu/common/static_modifiers/location.txt#harbor",
+        "research/refresh-paths.json"
+      ],
+      "confidence": "local-script-and-official",
+      "href": "trade.html#paths"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "三种路径账本分别核对",
+      "summary": "市场接入度、行政邻近度与国家商路各使用自己的路径参数。三套参数已分别核对，现有市场接入度与邻近度算例保持有效。",
+      "sources": [
+        "loading_screen/common/defines/00_defines.txt",
+        "research/refresh-paths.json",
+        "research/metric-map.json"
+      ],
+      "confidence": "local-script",
+      "href": "location-economy.html#proximity-network"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "Customs Houses 与 Agile Exportation",
+      "summary": "海关议会修正提供本国进口效率 +2%、外国从本市场出口效率 −5%；灵活出口革新改为本国出口效率 +2%。海关建筑本身保持原定义。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "main_menu/common/static_modifiers/country.txt#parl_customs_houses_mod",
+        "main_menu/common/script_values/default_values.txt#small_trade_efficiency_bonus",
+        "in_game/common/advances/ctype_buildings.txt#export_building_country_advance",
+        "in_game/common/building_types/market_buildings.txt#customs_house"
+      ],
+      "confidence": "local-script-and-official",
+      "href": "trade.html#sale-and-purchase"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "建筑支持量",
+      "summary": "升级工程按同一建筑统计支持量，修复了升级期间重复占用支持量的问题。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "industry-and-goods.html#industry-level-caps"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "道路及治理建筑",
+      "summary": "更新治理建筑的建造条件与道路施工说明，名录采用当前文件中的资格检查。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-and-root-refreshed-building-catalog",
+      "href": "location-economy.html#connections"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "塞哥维亚皇家铸币厂",
+      "summary": "塞哥维亚皇家铸币厂的拥有国获得铸币收入 +10%、免通胀铸币阈值 +2 个百分点；奖励由自动修正按地点所有权生效。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "in_game/common/auto_modifiers/castile.txt#cas_royal_mint_of_segovia_modifier"
+      ],
+      "confidence": "local-script-and-official",
+      "href": "finance.html#minting"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "市场特许权",
+      "summary": "市场特许权同时为集市与升级贸易建筑增加 3 级上限，保留市民容量与市场接入度加成。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "in_game/common/town_rights/00_traditions.txt#market_charter"
+      ],
+      "confidence": "local-script-and-official",
+      "href": "industry-and-goods.html#urban-rights"
+    },
+    {
+      "version": "1.4.8→1.4.9",
+      "topic": "非斯学校与识字率",
+      "summary": "两所非斯学校的最大识字率加成为 +2.5 个百分点；布伊纳尼亚学校采用 1.4.9 的思潮增长 +25% 倍率。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "in_game/common/building_types/unique_buildings.txt#monument_bou_inania_madrasa / monument_qarawiyyin"
+      ],
+      "confidence": "local-script-and-official",
+      "href": "ages-and-research.html#spread"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "食物腐坏提示",
+      "summary": "食物保存效率在腐坏修正之后单列显示；现有腐坏参数保持原值。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "main_menu/localization/english/interfaces_l_english.yml#FOOD_DECAY_PRESERVATION_TOTAL"
+      ],
+      "confidence": "local-script-and-official",
+      "href": "markets.html#food-allocation"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "饥荒解除",
+      "summary": "省份恢复食物供应后，饥荒修正正常解除。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "main_menu/common/static_modifiers/province.txt#province_starving"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "markets.html#food-allocation"
+    },
+    {
+      "version": "1.4.8→1.4.9",
+      "topic": "商品与人口需求",
+      "summary": "五份商品定义文件的哈希及 600 条人口商品需求记录与旧版一致，基准价格和每千人需求量保持原值。",
+      "sources": [
+        "research/patch-data-diff.json"
+      ],
+      "confidence": "root-verified-data-diff",
+      "href": "pop-demand.html"
+    },
+    {
+      "version": "1.4.8→1.4.9",
+      "topic": "其余经济界面与AI",
+      "summary": "补充贸易容量的单位收入与单位维护对比；同步记录市场库存、原产临时产出和交易界面修复。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-ui-ai",
+      "href": "trade.html#capacity-and-range"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "控制力内阁行动",
+      "summary": "地区级行动改为最大控制力 +5 个百分点、月增 +0.5；暗行御史改为 +12、+1.2。贵族义务行动替代通用省级行动，最终显示值继续乘内阁行动效率。",
+      "sources": [
+        "in_game/common/cabinet_actions/increase_control.txt#increase_control_province",
+        "in_game/common/cabinet_actions/increase_control_area.txt",
+        "in_game/common/cabinet_actions/send_secret_royal_inspectors.txt",
+        "in_game/common/cabinet_actions/noblesse_oblige_cabinet_action.txt",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-and-local-files",
+      "href": "characters-and-cabinet.html"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "官僚部门候选",
+      "summary": "通用官僚部门按国家拥有官僚席位进入候选，大都会首都提供的席位也可使用。",
+      "sources": [
+        "in_game/common/bureaucracies/generic.txt",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-and-local-files",
+      "href": "government-and-laws.html#bureaucracy"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "统一度与议会文化门槛",
+      "summary": "统一度按人数 × max（当地控制力，5%）加权；议会提升文化待遇采用与文化行动相同的人口门槛。",
+      "sources": [
+        "main_menu/localization/english/game_concepts_l_english.yml#game_concept_religious_unity_desc / game_concept_cultural_unity_desc",
+        "loading_screen/common/defines/00_defines.txt#POP_STATISTICS_MIN_CONTROL_WEIGHT",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "in_game/common/scripted_triggers/culture_triggers.txt",
+        "in_game/common/parliament_agendas/05_culture_tier_agendas.txt"
+      ],
+      "confidence": "official-and-local-files",
+      "href": "religion-and-belief.html#unity"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "历史首都",
+      "summary": "历史首都由事件、决议等特殊迁都产生，提供 80 点临近度源和 +10 个百分点最大控制力。手动迁都调整当前首都。",
+      "sources": [
+        "main_menu/localization/english/game_concepts_l_english.yml#game_concept_historical_capital_desc",
+        "main_menu/common/static_modifiers/location.txt#historical_capital",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-and-local-files",
+      "href": "country-and-rank.html#capital"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "修会繁荣度与社会价值热忱",
+      "summary": "垦殖者据点提供每月 +0.1 个百分点繁荣度；社会价值完全对齐时每轴最多贡献 6 点热忱目标，并按据点所属国家份额缩放。",
+      "sources": [
+        "in_game/common/religious_order_callings/00_monastic.txt#cultivators_calling",
+        "loading_screen/common/defines/00_defines.txt#RELIGIOUS_ORDER_SOCIETAL_VALUE_ZEAL_MAX",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-and-local-files",
+      "href": "orders-and-holdings.html#zeal"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "据点战时效果",
+      "summary": "修会据点在围城、封锁期间继续提供其修正。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-release-note",
+      "href": "orders-and-holdings.html#holdings"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "神秘主义—教法学",
+      "summary": "神秘主义与教法学两端的教士满意度加成移除，其余士气、改宗、研究和内阁效率效果按当前文件保留。",
+      "sources": [
+        "in_game/common/societal_values/00_default.txt",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-and-local-files",
+      "href": "government-and-laws.html#value-axes"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "难民目的地与中立文化",
+      "summary": "征服难民迁往前拥有国仍持有的合格首都；文化待遇中立的人口按正常待遇判断。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-release-note",
+      "href": "population.html"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "议会、邦联立法、婚配",
+      "summary": "议会旧诉求全部失效时按月刷新；邦联立法同步采用资深伙伴可访问的法律，婚配与订婚按当前资格和人物去留规则结算。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-release-note",
+      "href": "estates-and-parliament.html#parliament"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "继承与婚姻制度",
+      "summary": "更新女修道院长选举摄政、Veche／Judicate 继承及婚姻禁令的适用条件。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-release-note",
+      "href": "characters-and-cabinet.html#succession"
+    },
+    {
+      "version": "1.4.8 / 1.4.9",
+      "topic": "属国外交及持续权限",
+      "summary": "更新间接属国的核心外交、朝贡国战争介入、驻港权终止和外国建筑禁令的持续条件。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-release-note",
+      "href": "subjects.html#types"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "纳瓦拉扈从特权",
+      "summary": "纳瓦拉扈从特权提供重骑兵战力 +5%、战斗陆军传统 +100% 和贵族阶层力量 +25%，已同步到特权信息表。",
+      "sources": [
+        "dlc/D009_across_the_pillars/in_game/common/estate_privileges/d009_nobles_estate.txt#nav_mesnadero"
+      ],
+      "confidence": "local-file",
+      "href": "estate-privileges.html#entry-nav_mesnadero"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "时间步进与战斗参数",
+      "summary": "战斗区分按日与按小时两套时间步进，分别列出阶段长度、主动性、伤害和最短持续参数。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "main_menu/common/game_rules/00_game_rules.txt#tick_rate",
+        "loading_screen/common/defines/00_defines.txt#NCombat"
+      ],
+      "confidence": "official-and-local",
+      "href": "combat.html#engagement"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "战场部署、渡河和围城",
+      "summary": "预备队分配至各前线区段，每区段最多部署宽度的 125%；渡河等惩罚按实际移入部队判断，最终围城结果低于 1 时进入疾病档。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "loading_screen/common/defines/00_defines.txt#MAX_FRONTAGE_OVERSTACKING"
+      ],
+      "confidence": "official-engine-fix-and-local-parameter",
+      "href": "combat.html#terrain"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "兵团、征召与雇佣兵",
+      "summary": "合团经验按人数加权；海军征召要求港口，并更新骑士团、修会征召和雇佣兵的适用条件。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "armed-forces.html#recruit"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "马格里布军事平衡",
+      "summary": "三类马格里布部落骑兵征召比例降为 0.08，盖尔卜战争部落特权的征召规模加成改为 +10%。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "main_menu/common/script_values/default_values.txt#levy_maghrebi_tribal_cavalry_size"
+      ],
+      "confidence": "official-and-local",
+      "href": "armed-forces.html#recruit"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "探险与迁都",
+      "summary": "更新探险返程迁都及科尔特斯、皮萨罗生成征服者的行为说明。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "exploration-and-colonization.html#expeditions"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "黄金世纪与海峡局势",
+      "summary": "更新黄金世纪的官僚槽位、安达卢西亚工匠发展度及海峡局势的联盟、宣战与条约条件。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "dlc/D009_across_the_pillars/in_game/common/situations/golden_century.txt"
+      ],
+      "confidence": "official-and-local-partial",
+      "href": "expansion-mechanics.html#golden-century"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "局势与事件修复",
+      "summary": "同步百年战争、土耳其崛起、意大利战争和筹备宗教战争的目标与终局条件。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-engine-or-script-fix",
+      "href": "situations-and-events.html#regional"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "开局设定",
+      "summary": "开局国家与地区数据重新提取；记录瓦拉几亚首都、希贝尼克归属、塔贝尔巴拉人口及九处地点恢复马匹原料的更新。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-setup-change",
+      "href": "country-and-region-guide.html#regions"
+    },
+    {
+      "version": "1.4.8",
+      "topic": "和谈与AI",
+      "summary": "更新完全败北时的投降、三年无战斗白和提示和战争热情共同基础。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "warfare.html#peace"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "海军巡逻",
+      "summary": "每支巡逻舰队一次驻守一个海域，按 1.4.9 公告在存在度达到 100% 后离开；避开损耗海域并在明显受损后返修。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-engine-rule",
+      "href": "country-and-rank.html#maritime-presence"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "海战与修船",
+      "summary": "海战分别核算沉没与俘获；港内修理采用港口与海上修理速度中的较大值。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687"
+      ],
+      "confidence": "official-engine-fix",
+      "href": "armed-forces.html#navy"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "Ghuzat人口",
+      "summary": "Ghuzat 迁移六个月合计目标比例为来源省士兵的 25%、劳工的 15%，排除本国属国。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "dlc/D009_across_the_pillars/in_game/events/situations/golden_century_events.txt#golden_century_events.7"
+      ],
+      "confidence": "official-and-local",
+      "href": "expansion-mechanics.html#golden-century"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "Fusta与Baochuan",
+      "summary": "巴巴里福斯塔船基础运输能力为每艘 150 人；宝船改用第二时代重型舰模板及对应需求。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "in_game/common/unit_categories/10_navy_galley.txt",
+        "in_game/common/unit_types/3_naval_uniques_for_age_1_traditions.txt#n_barbary_fusta",
+        "in_game/common/unit_types/3_naval_uniques_for_age_2_renaissance.txt#n_baochuan",
+        "in_game/common/advances/2_ship_unlocks.txt#unlock_baochuan"
+      ],
+      "confidence": "official-and-local",
+      "href": "military-units.html#entry-n_barbary_fusta"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "征服者、殖民与运宝",
+      "summary": "征服者目的地受首都所在区域港口的海军范围限制；两类运宝探险分别使用五年冷却，并纳入区域内属国金银产出。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "in_game/common/generic_actions/conquistadors.txt",
+        "dlc/D009_across_the_pillars/in_game/common/expedition_types/d009_gold_fleet_nueva_espana.txt",
+        "dlc/D009_across_the_pillars/in_game/common/expedition_types/d009_gold_fleet_tierra_firme.txt"
+      ],
+      "confidence": "official-and-local",
+      "href": "exploration-and-colonization.html#expeditions"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "自由渴望灾难",
+      "summary": "自由渴望灾难新增持续严格超过 20 年的结束条件，保留其他结束途径。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "in_game/common/scripted_triggers/disaster_triggers.txt#aspiration_for_liberty_end_trigger"
+      ],
+      "confidence": "official-and-local",
+      "href": "situations-and-events.html#disasters"
+    },
+    {
+      "version": "1.4.8 / 1.4.9",
+      "topic": "成就条件",
+      "summary": "更新阿特拉斯成就的两种政体阈值，以及海峡成就对海军炮台的兼容条件。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643358975",
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "main_menu/common/achievements/d009_achievements.txt#endured_atlas",
+        "main_menu/common/achievements/standard_achievements.txt#getting_things_strait"
+      ],
+      "confidence": "official-and-local",
+      "href": "gameplay-and-interface.html#achievements"
+    },
+    {
+      "version": "1.4.9",
+      "topic": "人口支持叛乱",
+      "summary": "核对阶层叛乱的支持判定：加入与退出继续使用人口自身满意度。",
+      "sources": [
+        "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110423687",
+        "editorial/notes-core.json#rebel-support"
+      ],
+      "confidence": "existing-content-verified",
+      "href": "rebellions.html"
+    }
+  ],
+  "tableChanges": [
+    {
+      "id": "building_types",
+      "zh": "建筑",
+      "total": 501,
+      "changed_count": 8,
+      "changed": []
+    },
+    {
+      "id": "industry_types",
+      "zh": "产业",
+      "total": 8,
+      "changed_count": 0,
+      "changed": []
+    },
+    {
+      "id": "road_types",
+      "zh": "道路",
+      "total": 4,
+      "changed_count": 0,
+      "changed": []
+    },
+    {
+      "id": "laws",
+      "zh": "法律",
+      "total": 213,
+      "changed_count": 15,
+      "changed": []
+    },
+    {
+      "id": "estate_privileges",
+      "zh": "阶层特权",
+      "total": 331,
+      "changed_count": 18,
+      "changed": []
+    },
+    {
+      "id": "wargoals",
+      "zh": "战争目标",
+      "total": 78,
+      "changed_count": 1,
+      "changed": []
+    },
+    {
+      "id": "religions",
+      "zh": "宗教",
+      "total": 293,
+      "changed_count": 0,
+      "changed": []
+    },
+    {
+      "id": "government_types",
+      "zh": "政体",
+      "total": 5,
+      "changed_count": 0,
+      "changed": []
+    },
+    {
+      "id": "societal_values",
+      "zh": "社会价值观",
+      "total": 17,
+      "changed_count": 1,
+      "changed": []
+    },
+    {
+      "id": "unit_types",
+      "zh": "军事单位",
+      "total": 401,
+      "changed_count": 60,
+      "changed": []
+    }
+  ],
+  "unresolved": [
+    "港口装卸的完整函数、道路与河流的路线选择和距离取整由引擎处理。当前可核对脚本系数与官方行为说明，尚未进行完整商路成本实测。",
+    "1.4.9 官方公告移除了海上存在影响贸易的说明；本机英文概念文本仍包含这一旧说法。正文已按公告修正，原始本地化索引保留文件原文供追踪。",
+    "官方 1.4.9 描述巡逻离开条件为海上存在度 100%；本机 PATROL_THE_SEAS_THRESHOLD 仍为 90。正文按公告说明离开条件，两者的具体调用关系仍待连续实机巡逻验证。",
+    "按小时模式的数值按原始结算步列出；本轮尚未计时核对结算步与界面小时的对应。"
+  ]
+}

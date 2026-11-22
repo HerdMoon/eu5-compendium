@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人口商品需求矩阵 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="EU5 八大社会阶级对 75 种商品的基准消费量与环境解锁条件全矩阵">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/glossary-data.js"></script>
+  <script defer src="assets/search-index.js"></script>
+  <script defer src="assets/pop-demand-data.js"></script>
+  <script defer src="assets/app.js"></script>
+  <script defer src="assets/interactive.js"></script>
+</head>
+<body data-page="pop-demand">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="mobile-bar">
+    <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
+    <strong style="font-size:14px">人口商品需求矩阵</strong>
+    <div style="display:flex;gap:6px">
+      <button type="button" class="btn-pill" data-open-search>搜</button>
+      <button type="button" class="btn-pill" data-theme-toggle>☾</button>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+  <a href="index.html" class="brand-box">
+    <div class="brand-mark">V</div>
+    <div class="brand-meta">
+      <strong>欧陆风云 V · 图谱典</strong>
+      <small>EU5 1.4.9 · COMPENDIUM</small>
+    </div>
+  </a>
+  <div class="sidebar-controls">
+    <button type="button" class="btn-pill btn-search" data-open-search>
+      <span>秒查概念 / 数值</span>
+      <span class="kbd">Ctrl+K</span>
+    </button>
+    <button type="button" class="btn-pill" data-theme-toggle title="切换明暗主题">☾</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">枢纽与速查工具</div>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="pop-demand.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
+  </div>
+  <div class="sidebar-foot">
+    基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
+    底层校验：00_defines / 静态修正 / 本地化<br>
+    悬停正文中虚线术语可即时查看释义
+  </div>
+</aside>
+    <main id="main" class="main-area">
+      <div class="content-grid wide">
+        <div class="article-col">
+<section class="hero-banner">
+  <div class="eyebrow">POPULATION DEMAND MATRIX · 8 CLASSES × 75 GOODS</div>
+  <h1>八大社会阶级商品消费需求矩阵（600 项精细参数）</h1>
+  <p class="subtitle">基于游戏内 <code>in_game/common/goods_demand/pop_demands.txt</code> 与 <code>pop_types/00_default.txt</code> 抽取。精确展示贵族、教士、市民、农民、劳工、士兵、奴隶与部落民八大阶级对全游戏 75 种商品的基准需求、阶级倍率、基础价支出及冬季/地形/财富/识字触发门槛。</p>
+</section>
+
+<div id="pd-tabs" class="tab-bar"></div>
+
+<div class="filter-bar">
+  <input id="pd-search" class="input-ctrl" type="search" placeholder="搜索商品名、English 或冬夏/地形条件…">
+  <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;cursor:pointer">
+    <input id="pd-nonzero" type="checkbox" checked> 仅显示有基础需求的商品
+  </label>
+  <span id="pd-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
+</div>
+
+<div class="table-wrap">
+  <table class="data-table">
+    <thead id="pd-thead"></thead>
+    <tbody id="pd-tbody"></tbody>
+  </table>
+</div>
+</div>
+        
+      </div>
+    </main>
+  </div>
+  <div id="cmd-modal" class="cmd-backdrop" role="dialog" aria-modal="true" aria-label="全局快速检索">
+    <div class="cmd-dialog">
+      <div class="cmd-input-wrap">
+        <span style="color:var(--ink-muted);font-weight:700">⌘</span>
+        <input id="cmd-input" class="cmd-input" type="search" autocomplete="off" placeholder="输入中文概念、English、红线数字(如 75%、50%、90%)、内阁或阶层互动…">
+        <span class="kbd">ESC</span>
+      </div>
+      <div id="cmd-results" class="cmd-results"></div>
+    </div>
+  </div>
+</body>
+</html>

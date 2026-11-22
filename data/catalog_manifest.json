@@ -1,0 +1,529 @@
+[
+  {
+    "id": "starting-country-regions",
+    "zh": "1337 各地区国家名录",
+    "en": "Regional Country Directories in 1337",
+    "count": 87,
+    "pillar": "world"
+  },
+  {
+    "id": "starting-scenarios",
+    "zh": "1337 开局推荐场景",
+    "en": "1337 Recommended Scenarios",
+    "count": 11,
+    "pillar": "world"
+  },
+  {
+    "id": "industry_types",
+    "zh": "产业",
+    "en": "Industries",
+    "count": 8,
+    "pillar": "economy",
+    "ledger": "industry_types"
+  },
+  {
+    "id": "achievements",
+    "zh": "成就",
+    "en": "Achievements",
+    "count": 87,
+    "pillar": "world"
+  },
+  {
+    "id": "town_rights",
+    "zh": "城市权利",
+    "en": "Urban Rights",
+    "count": 75,
+    "pillar": "economy",
+    "ledger": "town_rights"
+  },
+  {
+    "id": "unit_abilities",
+    "zh": "单位能力",
+    "en": "Unit Abilities",
+    "count": 18,
+    "pillar": "military"
+  },
+  {
+    "id": "road_types",
+    "zh": "道路",
+    "en": "Roads",
+    "count": 4,
+    "pillar": "geography",
+    "ledger": "road_types"
+  },
+  {
+    "id": "location_ranks",
+    "zh": "地点等级",
+    "en": "Location Ranks",
+    "count": 4,
+    "pillar": "geography"
+  },
+  {
+    "id": "topography",
+    "zh": "地貌",
+    "en": "Topography",
+    "count": 22,
+    "pillar": "geography"
+  },
+  {
+    "id": "regional-countries",
+    "zh": "地区与开局国家",
+    "en": "Starting Countries by Region",
+    "count": 2351,
+    "pillar": "world"
+  },
+  {
+    "id": "child_educations",
+    "zh": "儿童教育",
+    "en": "Education",
+    "count": 6,
+    "pillar": "politics"
+  },
+  {
+    "id": "laws",
+    "zh": "法律",
+    "en": "Laws",
+    "count": 213,
+    "pillar": "politics",
+    "ledger": "laws"
+  },
+  {
+    "id": "law-options",
+    "zh": "法律下的政策",
+    "en": "Policies",
+    "count": 832,
+    "pillar": "politics"
+  },
+  {
+    "id": "advances",
+    "zh": "革新",
+    "en": "Advances",
+    "count": 3592,
+    "pillar": "culture"
+  },
+  {
+    "id": "bureaucracies",
+    "zh": "官僚机构",
+    "en": "Bureaucracies",
+    "count": 60,
+    "pillar": "politics",
+    "ledger": "bureaucracies"
+  },
+  {
+    "id": "country-events",
+    "zh": "国别与地区事件",
+    "en": "Country and Regional Events",
+    "count": 4213,
+    "pillar": "world"
+  },
+  {
+    "id": "international_organizations",
+    "zh": "国际组织",
+    "en": "International Organizations",
+    "count": 37,
+    "pillar": "diplomacy",
+    "ledger": "international_organizations"
+  },
+  {
+    "id": "country-definitions",
+    "zh": "国家与开局资料",
+    "en": "Country Definitions and Start Data",
+    "count": 2354,
+    "pillar": "world"
+  },
+  {
+    "id": "disasters",
+    "zh": "国家灾难",
+    "en": "Disasters",
+    "count": 38,
+    "pillar": "world",
+    "ledger": "situations_disasters"
+  },
+  {
+    "id": "country_interactions",
+    "zh": "国与国的行动",
+    "en": "Country Interactions",
+    "count": 147,
+    "pillar": "diplomacy"
+  },
+  {
+    "id": "peace_treaties",
+    "zh": "和约",
+    "en": "Peace Treaties",
+    "count": 72,
+    "pillar": "military"
+  },
+  {
+    "id": "diseases",
+    "zh": "疾病",
+    "en": "Diseases",
+    "count": 8,
+    "pillar": "geography"
+  },
+  {
+    "id": "heir_selections",
+    "zh": "继承制度",
+    "en": "Succession",
+    "count": 46,
+    "pillar": "politics"
+  },
+  {
+    "id": "building_types",
+    "zh": "建筑",
+    "en": "Buildings",
+    "count": 501,
+    "pillar": "economy",
+    "ledger": "building_types"
+  },
+  {
+    "id": "recipes",
+    "zh": "建筑生产与维护配方",
+    "en": "Production and Maintenance Methods",
+    "count": 346,
+    "pillar": "economy"
+  },
+  {
+    "id": "estate_actions",
+    "zh": "阶层互动",
+    "en": "Estate Interactions",
+    "count": 11,
+    "pillar": "politics",
+    "ledger": "estate_actions"
+  },
+  {
+    "id": "estate_privileges",
+    "zh": "阶层特权",
+    "en": "Estate Privileges",
+    "count": 331,
+    "pillar": "politics",
+    "ledger": "estate_privileges"
+  },
+  {
+    "id": "situations",
+    "zh": "局势",
+    "en": "Situations",
+    "count": 24,
+    "pillar": "world",
+    "ledger": "situations_disasters"
+  },
+  {
+    "id": "decisions",
+    "zh": "决议",
+    "en": "Decisions",
+    "count": 178,
+    "pillar": "world"
+  },
+  {
+    "id": "unit_types",
+    "zh": "军事单位",
+    "en": "Units",
+    "count": 401,
+    "pillar": "military",
+    "ledger": "unit_types"
+  },
+  {
+    "id": "game_rules",
+    "zh": "开局规则",
+    "en": "Game Rules",
+    "count": 31,
+    "pillar": "world"
+  },
+  {
+    "id": "historical-art",
+    "zh": "开局艺术品",
+    "en": "Starting Works of Art",
+    "count": 161,
+    "pillar": "culture"
+  },
+  {
+    "id": "formable-countries",
+    "zh": "可成立国家",
+    "en": "Formable Countries",
+    "count": 163,
+    "pillar": "world"
+  },
+  {
+    "id": "cabinet_actions",
+    "zh": "内阁行动",
+    "en": "Cabinet Actions",
+    "count": 81,
+    "pillar": "politics",
+    "ledger": "cabinet_actions"
+  },
+  {
+    "id": "rebel_demands",
+    "zh": "叛军要求",
+    "en": "Rebel Demands",
+    "count": 72,
+    "pillar": "politics"
+  },
+  {
+    "id": "chivalric_orders",
+    "zh": "骑士团",
+    "en": "Chivalric Orders",
+    "count": 17,
+    "pillar": "culture"
+  },
+  {
+    "id": "climates",
+    "zh": "气候",
+    "en": "Climate",
+    "count": 11,
+    "pillar": "geography"
+  },
+  {
+    "id": "character_interactions",
+    "zh": "人物互动",
+    "en": "Character Interactions",
+    "count": 34,
+    "pillar": "politics",
+    "ledger": "character_interactions"
+  },
+  {
+    "id": "traits",
+    "zh": "人物特质",
+    "en": "Traits",
+    "count": 150,
+    "pillar": "politics"
+  },
+  {
+    "id": "missions",
+    "zh": "任务组",
+    "en": "Missions",
+    "count": 11,
+    "pillar": "world"
+  },
+  {
+    "id": "goods",
+    "zh": "商品",
+    "en": "Goods",
+    "count": 75,
+    "pillar": "economy",
+    "ledger": "goods"
+  },
+  {
+    "id": "societal_values",
+    "zh": "社会价值观",
+    "en": "Societal Values",
+    "count": 17,
+    "pillar": "politics",
+    "ledger": "societal_values"
+  },
+  {
+    "id": "movements",
+    "zh": "社会运动",
+    "en": "Movements",
+    "count": 4,
+    "pillar": "politics"
+  },
+  {
+    "id": "gods",
+    "zh": "神祇",
+    "en": "Deities",
+    "count": 127,
+    "pillar": "culture"
+  },
+  {
+    "id": "holy_sites",
+    "zh": "圣地",
+    "en": "Holy Sites",
+    "count": 257,
+    "pillar": "culture"
+  },
+  {
+    "id": "age",
+    "zh": "时代",
+    "en": "Ages",
+    "count": 6,
+    "pillar": "culture"
+  },
+  {
+    "id": "event-art",
+    "zh": "事件中的具名艺术品",
+    "en": "Named Works Created by Events",
+    "count": 275,
+    "pillar": "culture"
+  },
+  {
+    "id": "subject_types",
+    "zh": "属国类型",
+    "en": "Subjects",
+    "count": 22,
+    "pillar": "diplomacy",
+    "ledger": "subject_types"
+  },
+  {
+    "id": "institution",
+    "zh": "思潮",
+    "en": "Institutions",
+    "count": 18,
+    "pillar": "culture"
+  },
+  {
+    "id": "expedition_types",
+    "zh": "探险类型",
+    "en": "Expeditions",
+    "count": 24,
+    "pillar": "culture"
+  },
+  {
+    "id": "diplomatic_actions",
+    "zh": "外交行动与关系",
+    "en": "Diplomatic Actions and Relations",
+    "count": 194,
+    "pillar": "diplomacy",
+    "ledger": "diplomatic_actions"
+  },
+  {
+    "id": "cultures",
+    "zh": "文化",
+    "en": "Cultures",
+    "count": 2087,
+    "pillar": "culture"
+  },
+  {
+    "id": "religious_aspects",
+    "zh": "信条",
+    "en": "Religious Aspects",
+    "count": 177,
+    "pillar": "culture"
+  },
+  {
+    "id": "religious_order_types",
+    "zh": "修会类型",
+    "en": "Religious Order Types",
+    "count": 3,
+    "pillar": "culture"
+  },
+  {
+    "id": "religious_order_callings",
+    "zh": "修会使命",
+    "en": "Religious Order Callings",
+    "count": 10,
+    "pillar": "culture"
+  },
+  {
+    "id": "casus_belli",
+    "zh": "宣战理由",
+    "en": "Casus Belli",
+    "count": 113,
+    "pillar": "military",
+    "ledger": "casus_belli"
+  },
+  {
+    "id": "artist_work",
+    "zh": "艺术品类型",
+    "en": "Works of Art",
+    "count": 22,
+    "pillar": "culture"
+  },
+  {
+    "id": "parliament_types",
+    "zh": "议会类型",
+    "en": "Parliament Types",
+    "count": 18,
+    "pillar": "politics"
+  },
+  {
+    "id": "parliament_agendas",
+    "zh": "议会议程",
+    "en": "Parliament Agendas",
+    "count": 147,
+    "pillar": "politics"
+  },
+  {
+    "id": "parliament_issues",
+    "zh": "议会议题",
+    "en": "Parliament Issues",
+    "count": 161,
+    "pillar": "politics"
+  },
+  {
+    "id": "encyclopedia",
+    "zh": "游戏百科词汇",
+    "en": "Encyclopedia",
+    "count": 745,
+    "pillar": "world"
+  },
+  {
+    "id": "languages",
+    "zh": "语言",
+    "en": "Languages",
+    "count": 528,
+    "pillar": "culture"
+  },
+  {
+    "id": "wargoals",
+    "zh": "战争目标",
+    "en": "War Goals",
+    "count": 78,
+    "pillar": "military",
+    "ledger": "wargoals"
+  },
+  {
+    "id": "government_reforms",
+    "zh": "政府改革",
+    "en": "Government Reforms",
+    "count": 379,
+    "pillar": "politics",
+    "ledger": "government_reforms"
+  },
+  {
+    "id": "government_types",
+    "zh": "政体",
+    "en": "Government Types",
+    "count": 5,
+    "pillar": "politics",
+    "ledger": "government_types"
+  },
+  {
+    "id": "vegetation",
+    "zh": "植被",
+    "en": "Vegetation",
+    "count": 7,
+    "pillar": "geography"
+  },
+  {
+    "id": "colonial_charter_goals",
+    "zh": "殖民特许状目标",
+    "en": "Colonial Charter Goals",
+    "count": 3,
+    "pillar": "culture"
+  },
+  {
+    "id": "religions",
+    "zh": "宗教",
+    "en": "Religions",
+    "count": 293,
+    "pillar": "culture",
+    "ledger": "religions"
+  },
+  {
+    "id": "religious_schools",
+    "zh": "宗教学派",
+    "en": "Religious Schools",
+    "count": 43,
+    "pillar": "culture"
+  },
+  {
+    "id": "religious_focuses",
+    "zh": "宗教重心",
+    "en": "Religious Focuses",
+    "count": 8,
+    "pillar": "culture"
+  },
+  {
+    "id": "resolutions",
+    "zh": "组织决议",
+    "en": "Resolutions",
+    "count": 22,
+    "pillar": "diplomacy"
+  },
+  {
+    "id": "wiki-concepts",
+    "zh": "Wiki 与游戏百科逐项对照",
+    "en": "Wiki concept concordance",
+    "count": 540,
+    "pillar": "world"
+  }
+]

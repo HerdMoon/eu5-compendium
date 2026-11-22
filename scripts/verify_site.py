@@ -19,9 +19,13 @@ EXPECTED_HTML = [
     "ch08-military-combat.html",
     "ch09-navy-war-peace.html",
     "ch10-diplomacy-subjects.html",
+    "ch11-scenarios-missions-dlc.html",
+    "ch12-gameplay-automation-updates.html",
     "map.html",
     "lab.html",
     "ledgers.html",
+    "pop-demand.html",
+    "directory.html",
     "glossary.html",
 ]
 
@@ -30,9 +34,19 @@ EXPECTED_JS = [
     "assets/interactive.js",
     "assets/graph-data.js",
     "assets/glossary-data.js",
-    "assets/ledgers-data.js",
+    "assets/pop-demand-data.js",
+    "assets/catalog-manifest.js",
     "assets/search-index.js",
     "assets/styles.css",
+]
+
+EXPECTED_22_LEDGERS = [
+    "building_types", "goods", "unit_types", "estate_privileges", "laws",
+    "government_reforms", "government_types", "road_types", "industry_types",
+    "societal_values", "estate_actions", "cabinet_actions", "character_interactions",
+    "bureaucracies", "town_rights", "subject_types", "diplomatic_actions",
+    "international_organizations", "casus_belli", "wargoals", "religions",
+    "situations_disasters",
 ]
 
 
@@ -57,6 +71,32 @@ def main() -> int:
     icons = list((DOCS / "assets" / "goods-icons").glob("*.webp"))
     if len(icons) < 75:
         errors.append(f"Expected >= 75 goods icons, found {len(icons)}")
+
+    # Verify all 22 modular ledger JS files
+    for lid in EXPECTED_22_LEDGERS:
+        lp = DOCS / "assets" / "ledgers" / f"{lid}.js"
+        if not lp.exists() or lp.stat().st_size == 0:
+            errors.append(f"Missing or empty modular ledger JS: {lp}")
+
+    # Verify all 72 modular catalog JS files and 23,216 total records
+    catalog_manifest = json.loads((DATA / "catalog_manifest.json").read_text(encoding="utf-8"))
+    if len(catalog_manifest) != 72:
+        errors.append(f"Expected 72 catalogs in catalog_manifest.json, found {len(catalog_manifest)}")
+    total_cat_recs = sum(c.get("count", 0) for c in catalog_manifest)
+    if total_cat_recs != 23216:
+        errors.append(f"Expected 23216 total catalog records, found {total_cat_recs}")
+    for cm in catalog_manifest:
+        cp = DOCS / "assets" / "catalogs" / f"{cm['id']}.js"
+        if not cp.exists() or cp.stat().st_size == 0:
+            errors.append(f"Missing or empty modular catalog JS: {cp}")
+
+    # Verify pop-demand-data.js (8 classes, 600 rows)
+    pd_raw = (DOCS / "assets" / "pop-demand-data.js").read_text(encoding="utf-8")
+    pd_obj = json.loads(pd_raw[pd_raw.index("{"):pd_raw.rindex("}") + 1])
+    pd_classes = pd_obj.get("classes", [])
+    pd_rows = sum(len(c.get("rows", [])) for c in pd_classes)
+    if len(pd_classes) != 8 or pd_rows != 600:
+        errors.append(f"Expected 8 pop-demand classes and 600 rows, found {len(pd_classes)} classes / {pd_rows} rows")
 
     # 2. Load JSON data
     glossary = json.loads((DATA / "glossary.json").read_text(encoding="utf-8"))
@@ -104,7 +144,9 @@ def main() -> int:
 
     # Runtime hash fragments handled dynamically by interactive.js / app.js (not static IDs)
     dynamic_routes = {
-        "ledgers.html": {"goods", "societal_values", "estate_actions", "cabinet_actions", "character_interactions", "subject_types", "bureaucracies", "town_rights", "casus_belli", "situations_disasters"},
+        "ledgers.html": set(EXPECTED_22_LEDGERS),
+        "directory.html": {cm["id"] for cm in catalog_manifest},
+        "pop-demand.html": {c["id"] for c in pd_classes},
         "glossary.html": glossary_ids,
         "map.html": {n["id"] for n in graph.get("nodes", [])},
         "lab.html": {"redlines", "calc", "troubleshoot"},
@@ -115,9 +157,11 @@ def main() -> int:
     raw_template_leaks = []
 
     for fname, txt in html_texts.items():
-        # Check raw template syntax leaks
+        # Check raw template syntax / None placeholder leaks
         if "{T(" in txt:
             raw_template_leaks.append((fname, "{T("))
+        if "None（" in txt or "总计 None" in txt:
+            raw_template_leaks.append((fname, "None placeholder"))
 
         # Check local hrefs
         for href in re.findall(r'href="([^"]+)"', txt):
@@ -134,8 +178,9 @@ def main() -> int:
                 dead_links.append((fname, href, "missing page"))
                 continue
             if frag:
-                static_ok = frag in html_ids[target_file]
-                dynamic_ok = frag in dynamic_routes.get(target_file, set())
+                frag_clean = frag.split("?")[0]
+                static_ok = frag_clean in html_ids[target_file]
+                dynamic_ok = frag_clean in dynamic_routes.get(target_file, set())
                 if not static_ok and not dynamic_ok:
                     dead_links.append((fname, href, f"missing anchor #{frag} in {target_file}"))
 

@@ -8,6 +8,7 @@ import os
 import re
 import sys
 from html import escape
+from urllib.parse import quote
 
 PROJ_DIR = r"C:\Users\seepath\.gemini\antigravity\scratch\eu5-compendium"
 SCRIPTS_DIR = os.path.join(PROJ_DIR, "scripts")
@@ -18,9 +19,10 @@ ASSETS_DIR = os.path.join(DOCS_DIR, "assets")
 sys.path.insert(0, SCRIPTS_DIR)
 from chapters_1_5 import CHAPTERS_1_5
 from chapters_6_10 import CHAPTERS_6_10
+from chapters_11_12 import CHAPTERS_11_12
 from svg_diagrams import CHAPTER_DIAGRAMS, build_home_svg
 
-ALL_CHAPTERS = CHAPTERS_1_5 + CHAPTERS_6_10
+ALL_CHAPTERS = CHAPTERS_1_5 + CHAPTERS_6_10 + CHAPTERS_11_12
 GLOSSARY_COUNT = 752
 
 
@@ -34,7 +36,9 @@ def build_sidebar(active_slug):
         ("index.html", "总览与导览 · Overview", "var(--accent)"),
         ("map.html", "交互概念因果星图 (36节点)", "var(--accent-2)"),
         ("lab.html", "红线墙 / 实算器 / 排障台", "var(--p-state)"),
-        ("ledgers.html", "10 大高频实战数据典", "var(--p-economy)"),
+        ("ledgers.html", "22 大核心速查表 (含501建筑)", "var(--p-economy)"),
+        ("pop-demand.html", "人口商品需求矩阵 (8阶级×75货)", "var(--p-territory)"),
+        ("directory.html", "全量 72 游戏名录库 (23,216条)", "var(--p-military)"),
         ("glossary.html", f"双语百科词典 ({GLOSSARY_COUNT}词条)", "var(--p-culture)"),
     ]
     pillar_colors = {
@@ -81,7 +85,7 @@ def build_sidebar(active_slug):
     {"".join(tool_links)}
   </div>
   <div class="nav-group">
-    <div class="nav-caption">六大支柱 · 十章体系精讲</div>
+    <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
     {"".join(ch_links)}
   </div>
   <div class="sidebar-foot">
@@ -264,43 +268,47 @@ def build_index(graph_bundle):
 </article>''')
 
     hot_questions = [
+        ("501 种建筑造价与岗位在哪查？", "ledgers.html#building_types"),
         ("为什么整合完还不是核心(Core)？", "ch01-territory-core.html#integration-core"),
         ("12 项阶层互动与市民无息抽水", "ch05-estates-rebels.html#estate-interactions"),
+        ("8 阶级各自消费哪些商品？", "pop-demand.html"),
         ("国库为何因「自动买粮」暴跌破产？", "ch02-population-food.html#food-chain"),
         ("自动海巡 90% 就跑怎么锁 100%？", "ch09-navy-war-peace.html#maritime-presence"),
-        ("81 项内阁行动瓶颈怎么排？", "ch04-government-cabinet.html#cabinet-actions"),
-        ("叛军起义要塞怎么全叛变了？", "lab.html#calc"),
-        ("高产工坊为何不进国库反喂阶层？", "ch03-economy-market-trade.html#wealth-to-treasury"),
-        ("如何用属国减半敌意(AE)与解 PU？", "ch10-diplomacy-subjects.html#subjects-annex"),
+        ("331 特权 / 213 法律 / 379 改革速查", "ledgers.html#estate_privileges"),
+        ("1.4.8–1.4.9 更新改了什么？", "ch12-gameplay-automation-updates.html#changelog-149"),
     ]
     hot_pills = "".join(f'<a href="{h}" class="btn-pill">{escape(q)}</a>' for q, h in hot_questions)
 
     main_html = f'''
 <section class="hero-banner">
-  <div class="eyebrow">EUROPA UNIVERSALIS V · MECHANICS COMPENDIUM</div>
-  <h1>欧陆风云 V · 系统图谱与速查典</h1>
-  <p class="subtitle">专为已经跨过基础扫盲、想彻底打通<strong>概念之间因果联结</strong>并随时<strong>按红线与名录反查实数</strong>的进阶玩家设计。全书基于本地 <strong>1.4.9 (Build 26655995 / 校验码 3ed0)</strong> 定义文件、静态修正与本地化重写梳理。</p>
+  <div class="eyebrow">EUROPA UNIVERSALIS V · MECHANICS COMPENDIUM · FULL EDITION</div>
+  <h1>欧陆风云 V · 系统图谱与全量速查典</h1>
+  <p class="subtitle">专为已经跨过基础扫盲、想彻底打通<strong>概念因果联结</strong>并随时<strong>按红线与全量底层名录反查实数</strong>的进阶玩家打造。全站完整覆盖 <strong>EU5 1.4.9 (Build 26655995 / 校验码 3ed0)</strong> 全游戏 33 类机制、<strong>501 建筑等 22 张精排数据表</strong>、<strong>8×75 人口消费矩阵</strong>与<strong>全部 72 类 23,216 条游戏名录</strong>。</p>
   <div class="hero-meta-row">
-    <span class="meta-chip">10 章因果精讲</span>
+    <span class="meta-chip">12 章全量机制精讲</span>
     <span class="meta-chip">36 节点交互依赖星图</span>
-    <span class="meta-chip">37 条决定胜负的红线常数</span>
-    <span class="meta-chip">4 合 1 实算模拟器</span>
-    <span class="meta-chip">10 大高频数据典 + {GLOSSARY_COUNT} 双语词条</span>
+    <span class="meta-chip">37 红线 + 4 合 1 实算器</span>
+    <span class="meta-chip">22 大精排表 (含 501 建筑 / 401 兵种)</span>
+    <span class="meta-chip">8 阶级×75 货需求 + 72 类 23,216 名录 + {GLOSSARY_COUNT} 双语词条</span>
   </div>
 </section>
 
-<div class="three-col">
+<div class="four-col">
   <a href="map.html" class="card" style="border-top:4px solid var(--accent-2);text-decoration:none;color:inherit">
     <h3>① 看懂系统连带：36 节点星图</h3>
-    <p>搞不清「控制力」「阶层金库」「市场接入度」「核心」互相谁影响谁？点一下节点直接亮出绿线原因与红线后果。</p>
+    <p>搞不清「控制力」「阶层金库」「市场接入度」「核心」互相谁影响谁？点一下节点亮出绿因红果。</p>
   </a>
   <a href="lab.html" class="card" style="border-top:4px solid var(--p-state);text-decoration:none;color:inherit">
-    <h3>② 秒查红线、演练实算与排障</h3>
-    <p>一站查尽 37 条核心红线（50%核心、25%征召、75%拆楼、90%海巡、100年破产信用），附四台交互实算器与 16 症状逆查表。</p>
+    <h3>② 秒查红线、实算与排障</h3>
+    <p>37 条硬常量红线、4 台交互实算器（财富分流 / 要塞倒戈 / 属国连通 / 接敌率）及 16 症状逆查表。</p>
   </a>
-  <a href="ledgers.html" class="card" style="border-top:4px solid var(--p-economy);text-decoration:none;color:inherit">
-    <h3>③ 极速翻查 10 大底层数据典</h3>
-    <p>75 带图商品、17 对社会价值观、12 阶层互动、81 内阁行动、34 角色互动、22 属国类型、60 官僚、75 城镇特权、113 宣战理由、24 局势与 38 灾难。</p>
+  <a href="ledgers.html#building_types" class="card" style="border-top:4px solid var(--p-economy);text-decoration:none;color:inherit">
+    <h3>③ 22 大精排数值表 (含 501 建筑)</h3>
+    <p>建筑 501、商品 75、兵种 401、特权 331、法律 213、改革 379、内阁 81、外交 194、宗教 293 支持排序展开。</p>
+  </a>
+  <a href="directory.html" class="card" style="border-top:4px solid var(--p-military);text-decoration:none;color:inherit">
+    <h3>④ 需求矩阵 &amp; 72 类 23,216 名录</h3>
+    <p>直通 <span style="color:var(--accent-2);font-weight:600">8×75 人口商品需求表</span> 与全部 72 项原盘名录（3,592 革新 / 4,213 事件 / 2,087 文化 / 163 成立国家）。</p>
   </a>
 </div>
 
@@ -313,11 +321,11 @@ def build_index(graph_bundle):
 </section>
 
 <div class="card" style="margin-bottom:24px">
-  <h3 style="margin-bottom:10px">玩家最高频「为什么……」一秒直达</h3>
+  <h3 style="margin-bottom:10px">玩家最高频「为什么 / 在哪查……」一秒直达</h3>
   <div style="display:flex;flex-wrap:wrap;gap:8px">{hot_pills}</div>
 </div>
 
-<h2 style="font-family:var(--font-serif);margin:0 0 14px">六大支柱 · 十章深度因果精讲</h2>
+<h2 style="font-family:var(--font-serif);margin:0 0 14px">六大支柱 · 十二章全量深度因果精讲</h2>
 <div class="chapter-grid">
   {"".join(ch_cards)}
 </div>
@@ -501,15 +509,15 @@ def build_lab_page(graph_bundle):
 def build_ledgers_page():
     main_html = '''
 <section class="hero-banner">
-  <div class="eyebrow">DATA COMPENDIUM · 1.4.9</div>
-  <h1>10 大高频实战数据速查典</h1>
-  <p class="subtitle">涵盖 75 种商品实值、17 对社会价值观轴线、12 项阶层互动与绝境求助、81 项内阁行动、34 项角色互动、22 种属国类型、60 官僚部门、75 城镇特权、113 宣战理由以及局势灾难总表，全部经由中文结构化清洗。</p>
+  <div class="eyebrow">DATA COMPENDIUM · 22 STRUCTURED LEDGERS · 1.4.9</div>
+  <h1>22 大核心实战数据速查表（含 501 建筑全表）</h1>
+  <p class="subtitle">完整囊括 <strong>501 建筑、75 实图商品、401 兵种单位、331 阶层特权、213 法律、379 政府改革、5 大政体、4 道路、8 产业政策、194 外交行动、37 国际组织、293 宗教、78 战争目标、113 宣战理由、81 内阁、60 官僚、75 城镇特权、34 角色互动、22 属国、17 价值观、12 阶层互动、24 局势与 38 灾难</strong>。全部支持按列点击排序、按需分片瞬时加载及展开源码明细。</p>
 </section>
 
-<div id="ledger-tabs" class="tab-bar"></div>
+<div id="ledger-tabs" class="tab-groups"></div>
 
 <div class="filter-bar">
-  <input id="ledger-search" class="input-ctrl" type="search" placeholder="输入中文名、英文名、ID 或数值效果过滤…">
+  <input id="ledger-search" class="input-ctrl" type="search" placeholder="输入中文名、英文名、ID、前置条件或效果数值过滤…">
   <select id="ledger-subfilter" class="select-ctrl"></select>
   <span id="ledger-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
 </div>
@@ -520,9 +528,72 @@ def build_ledgers_page():
     <tbody id="ledger-tbody"></tbody>
   </table>
 </div>
+<div id="ledger-pager" class="pager-bar" hidden></div>
 '''
-    html_out = wrap_page("高频实战数据典", "EU5 商品、社会价值观、阶层互动、内阁、角色、属国、官僚与宣战理由速查", "ledgers.html", "ledgers", main_html, scripts=("assets/ledgers-data.js",))
+    html_out = wrap_page("22 大核心数据速查表", "EU5 1.4.9 建筑501、兵种401、特权331、法律213、改革379、商品与外交全精排数据表", "ledgers.html", "ledgers", main_html)
     with open(os.path.join(DOCS_DIR, "ledgers.html"), "w", encoding="utf-8") as f:
+        f.write(html_out)
+
+
+def build_pop_demand_page():
+    main_html = '''
+<section class="hero-banner">
+  <div class="eyebrow">POPULATION DEMAND MATRIX · 8 CLASSES × 75 GOODS</div>
+  <h1>八大社会阶级商品消费需求矩阵（600 项精细参数）</h1>
+  <p class="subtitle">基于游戏内 <code>in_game/common/goods_demand/pop_demands.txt</code> 与 <code>pop_types/00_default.txt</code> 抽取。精确展示贵族、教士、市民、农民、劳工、士兵、奴隶与部落民八大阶级对全游戏 75 种商品的基准需求、阶级倍率、基础价支出及冬季/地形/财富/识字触发门槛。</p>
+</section>
+
+<div id="pd-tabs" class="tab-bar"></div>
+
+<div class="filter-bar">
+  <input id="pd-search" class="input-ctrl" type="search" placeholder="搜索商品名、English 或冬夏/地形条件…">
+  <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;cursor:pointer">
+    <input id="pd-nonzero" type="checkbox" checked> 仅显示有基础需求的商品
+  </label>
+  <span id="pd-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
+</div>
+
+<div class="table-wrap">
+  <table class="data-table">
+    <thead id="pd-thead"></thead>
+    <tbody id="pd-tbody"></tbody>
+  </table>
+</div>
+'''
+    html_out = wrap_page("人口商品需求矩阵", "EU5 八大社会阶级对 75 种商品的基准消费量与环境解锁条件全矩阵", "pop-demand.html", "pop-demand", main_html, scripts=("assets/pop-demand-data.js",))
+    with open(os.path.join(DOCS_DIR, "pop-demand.html"), "w", encoding="utf-8") as f:
+        f.write(html_out)
+
+
+def build_directory_page():
+    main_html = '''
+<section class="hero-banner">
+  <div class="eyebrow">FULL GAME DIRECTORY · 72 CATALOGS · 23,216 RECORDS</div>
+  <h1>全游戏 72 类底层名录完全典藏库（23,216 条）</h1>
+  <p class="subtitle">完整囊括原版游戏目录抽出的全部 <strong>72 个类别共 23,216 条定义</strong>——包含 <strong>3,592 时代革新、4,213 国别历史事件、2,354 国家开局资料、2,087 文化、832 法律政策、528 语言、346 建筑配方、178 决议、163 可成立国家、161 议题、150 特质、127 神祇、257 圣地、87 成就与 31 开局规则</strong> 等。所有列表按需分片毫秒懒加载并支持条件展开与源码溯源。</p>
+</section>
+
+<div id="dir-pillar-tabs" class="tab-bar"></div>
+<div id="dir-picker" class="catalog-picker"></div>
+
+<div id="dir-active-head" class="card" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;padding:12px 16px"></div>
+
+<div class="filter-bar">
+  <input id="dir-search" class="input-ctrl" type="search" placeholder="在当前名录中按中文名、English、ID、条件或文本筛选…">
+  <select id="dir-scope" class="select-ctrl"></select>
+  <span id="dir-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
+</div>
+
+<div class="table-wrap">
+  <table class="data-table">
+    <thead><tr><th>条目标题 / ID</th><th>适用口径</th><th>定义机制与前置触发条件</th><th>游戏源文件位置</th></tr></thead>
+    <tbody id="dir-tbody"></tbody>
+  </table>
+</div>
+<div id="dir-pager" class="pager-bar" hidden></div>
+'''
+    html_out = wrap_page("全游戏 72 类名录典藏库", "EU5 1.4.9 全游戏 72 大类别共 23,216 条完整数据结构化名录检索库", "directory.html", "directory", main_html, scripts=("assets/catalog-manifest.js",))
+    with open(os.path.join(DOCS_DIR, "directory.html"), "w", encoding="utf-8") as f:
         f.write(html_out)
 
 
@@ -550,19 +621,24 @@ def build_glossary_page(graph_bundle):
         f.write(html_out)
 
 
-def build_js_bundles(graph_bundle, glossary, ledgers):
+def build_js_bundles(graph_bundle, glossary):
     with open(os.path.join(ASSETS_DIR, "graph-data.js"), "w", encoding="utf-8") as f:
         f.write("window.__EU5_GRAPH__ = " + json.dumps(graph_bundle, ensure_ascii=False) + ";\n")
 
     with open(os.path.join(ASSETS_DIR, "glossary-data.js"), "w", encoding="utf-8") as f:
         f.write("window.__EU5_GLOSSARY__ = " + json.dumps(glossary, ensure_ascii=False) + ";\n")
 
-    with open(os.path.join(ASSETS_DIR, "ledgers-data.js"), "w", encoding="utf-8") as f:
-        f.write("window.__EU5_LEDGERS__ = " + json.dumps(ledgers, ensure_ascii=False) + ";\n")
+    old_ledgers_js = os.path.join(ASSETS_DIR, "ledgers-data.js")
+    if os.path.exists(old_ledgers_js):
+        os.remove(old_ledgers_js)
 
-    # Build global search index for Ctrl+K Command Palette
+    ledger_summary = load_json("rich_ledgers_summary.json")
+    catalog_manifest = load_json("catalog_manifest.json")
+    pd_summary = load_json("pop_demand_summary.json")
+
+    # Build comprehensive global search index for Ctrl+K Command Palette
     search_items = []
-    # Chapters & sections
+    # Chapters & sections (all 12)
     for ch in ALL_CHAPTERS:
         search_items.append({
             "title": f"{ch['num']} · {ch['title']}",
@@ -610,23 +686,59 @@ def build_js_bundles(graph_bundle, glossary, ledgers):
             "kw": t["cause"],
         })
 
-    # Ledger highlights
-    for k, lbl in [
+    # Pop-Demand class portals
+    for c in pd_summary:
+        search_items.append({
+            "title": f"人口消费矩阵：{c['zh']} ({c['en']})",
+            "sub": f"涵盖全部 {c['total']} 种商品消费参数（其中 {c['non_zero']} 种含基准需求）",
+            "href": f"pop-demand.html#{c['id']}",
+            "kind": "人口需求",
+            "kw": c["id"],
+        })
+
+    # All 72 Catalog portals
+    for cm in catalog_manifest:
+        search_items.append({
+            "title": f"全量名录：{cm['zh']} ({cm['en']} · {cm['count']} 条)",
+            "sub": f"原盘名录分类 {cm['id']}，点击立即按需载入筛选检索",
+            "href": f"directory.html#{cm['id']}",
+            "kind": "72名录入口",
+            "kw": cm["id"],
+        })
+
+    # All 22 rich ledgers records (2,995 entries incl. 501 buildings, 401 units, 331 privileges, etc.)
+    LEDGER_LABELS = [
+        ("building_types", "建筑"),
+        ("goods", "商品"),
+        ("unit_types", "军事单位"),
+        ("estate_privileges", "阶层特权"),
+        ("laws", "法律"),
+        ("government_reforms", "政府改革"),
+        ("government_types", "政体"),
+        ("road_types", "道路"),
+        ("industry_types", "产业政策"),
+        ("societal_values", "社会价值观"),
         ("estate_actions", "阶层互动"),
         ("cabinet_actions", "内阁行动"),
         ("character_interactions", "角色互动"),
-        ("subject_types", "属国类型"),
-        ("societal_values", "社会价值观"),
-        ("goods", "商品"),
         ("bureaucracies", "官僚部门"),
         ("town_rights", "城镇特权"),
+        ("subject_types", "属国类型"),
+        ("diplomatic_actions", "外交行动"),
+        ("international_organizations", "国际组织"),
         ("casus_belli", "宣战理由"),
-    ]:
-        for item in ledgers.get(k, []):
+        ("wargoals", "战争目标"),
+        ("religions", "宗教"),
+        ("situations_disasters", "局势灾难"),
+    ]
+    for k, lbl in LEDGER_LABELS:
+        for item in ledger_summary.get(k, []):
+            q_part = quote(item["zh"]) if item.get("zh") else ""
+            href = f"ledgers.html#{k}?q={q_part}" if q_part else f"ledgers.html#{k}"
             search_items.append({
-                "title": f"{item['zh']} ({item.get('en', item['id'])})",
-                "sub": f"{lbl} · {item.get('effect') or item.get('detail') or item.get('left_effects') or ''}"[:110],
-                "href": f"ledgers.html#{k}",
+                "title": f"{item['zh']} ({item.get('en') or item['id']})",
+                "sub": f"{lbl} · {item.get('sub', '')}",
+                "href": href,
                 "kind": lbl,
                 "kw": item["id"],
             })
@@ -654,15 +766,16 @@ def main():
 
     graph_bundle = load_json("graph_bundle.json")
     glossary = load_json("glossary.json")
-    ledgers = load_json("ledgers.json")
     GLOSSARY_COUNT = len(glossary)
 
-    build_js_bundles(graph_bundle, glossary, ledgers)
+    build_js_bundles(graph_bundle, glossary)
     build_chapters()
     build_index(graph_bundle)
     build_map_page(graph_bundle)
     build_lab_page(graph_bundle)
     build_ledgers_page()
+    build_pop_demand_page()
+    build_directory_page()
     build_glossary_page(graph_bundle)
 
     # Write GitHub Pages helper files

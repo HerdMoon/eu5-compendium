@@ -5,6 +5,7 @@ Extract clean, verified game data for EU5 Mechanics Compendium (1.4.9).
 - Never modifies anything outside C:/Users/seepath/.gemini/antigravity/scratch/eu5-compendium.
 """
 import glob
+from html.parser import HTMLParser
 import json
 import os
 import re
@@ -15,9 +16,14 @@ ATLAS_DIR = r"C:\Users\seepath\Documents\Codex\2026-11-02\x20\work\eu5-atlas"
 PROJ_DIR = r"C:\Users\seepath\.gemini\antigravity\scratch\eu5-compendium"
 DATA_DIR = os.path.join(PROJ_DIR, "data")
 ICONS_DST = os.path.join(PROJ_DIR, "docs", "assets", "goods-icons")
+LEDGERS_JS_DIR = os.path.join(PROJ_DIR, "docs", "assets", "ledgers")
+CATALOGS_JS_DIR = os.path.join(PROJ_DIR, "docs", "assets", "catalogs")
+ASSETS_DIR = os.path.join(PROJ_DIR, "docs", "assets")
 
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ICONS_DST, exist_ok=True)
+os.makedirs(LEDGERS_JS_DIR, exist_ok=True)
+os.makedirs(CATALOGS_JS_DIR, exist_ok=True)
 
 
 def parse_defines():
@@ -722,7 +728,388 @@ def extract_ledgers():
     return ledgers
 
 
+class _AtlasTbodyParser(HTMLParser):
+    """Parse structured tbody row pairs (summary row + detail dl row) from eu5-atlas HTML tables."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.tbodies = []
+        self._in_tbody = False
+        self._in_tr = False
+        self._cell_tag = None
+        self._in_cell = False
+        self._in_dt = False
+        self._in_dd = False
+        self._in_b = False
+        self._in_small_en = False
+        self._in_scope_badge = False
+        self._skip_toggle = False
+        self._cur_tbody = None
+        self._cur_tr = None
+        self._cur_cell = None
+        self._cur_dt = []
+        self._cur_dd = []
+
+    def handle_starttag(self, tag, attrs):
+        ad = dict(attrs)
+        if tag == "tbody":
+            self._in_tbody = True
+            self._cur_tbody = []
+        elif self._in_tbody and tag == "tr":
+            self._in_tr = True
+            self._cur_tr = {"cells": [], "details": []}
+        elif self._in_tr and tag in ("th", "td"):
+            self._cell_tag = tag
+            self._in_cell = True
+            self._cur_cell = {
+                "tag": tag,
+                "field": ad.get("data-field", ""),
+                "value": ad.get("data-value", ""),
+                "id": "",
+                "zh": [],
+                "en": [],
+                "scope": [],
+                "parts": [],
+            }
+        elif self._in_cell:
+            cls = ad.get("class", "")
+            if tag == "button" and "dir-item" in cls:
+                ctrl = ad.get("aria-controls", "")
+                if ctrl.startswith("detail-"):
+                    self._cur_cell["id"] = ctrl[len("detail-"):]
+            elif tag == "b" and self._cell_tag == "th":
+                self._in_b = True
+            elif tag == "small" and (ad.get("lang") == "en" or "dir-cell-en" in cls):
+                self._in_small_en = True
+                if "dir-cell-en" in cls:
+                    self._cur_cell["parts"].append(" · ")
+            elif tag == "span" and "scope-badge" in cls:
+                self._in_scope_badge = True
+            elif tag == "span" and "dir-toggle" in cls:
+                self._skip_toggle = True
+            elif tag == "br":
+                self._cur_cell["parts"].append(" / ")
+            elif tag == "dt":
+                self._in_dt = True
+                self._cur_dt = []
+            elif tag == "dd":
+                self._in_dd = True
+                self._cur_dd = []
+
+    def handle_endtag(self, tag):
+        if tag == "dt" and self._in_dt:
+            self._in_dt = False
+        elif tag == "dd" and self._in_dd:
+            self._in_dd = False
+            k = re.sub(r"\s+", " ", "".join(self._cur_dt)).strip()
+            v = re.sub(r"\s+", " ", "".join(self._cur_dd)).strip()
+            if k or v:
+                self._cur_tr["details"].append([k, v])
+        elif tag == "b" and self._in_b:
+            self._in_b = False
+        elif tag == "small" and self._in_small_en:
+            self._in_small_en = False
+        elif tag == "span":
+            if self._in_scope_badge:
+                self._in_scope_badge = False
+            if self._skip_toggle:
+                self._skip_toggle = False
+        elif self._in_cell and tag == self._cell_tag:
+            self._in_cell = False
+            self._cell_tag = None
+            self._cur_tr["cells"].append(self._cur_cell)
+        elif self._in_tr and tag == "tr":
+            self._in_tr = False
+            self._cur_tbody.append(self._cur_tr)
+        elif self._in_tbody and tag == "tbody":
+            self._in_tbody = False
+            self.tbodies.append(self._cur_tbody)
+
+    def handle_data(self, data):
+        if not self._in_cell or self._skip_toggle:
+            return
+        if self._in_dt:
+            self._cur_dt.append(data)
+            return
+        if self._in_dd:
+            self._cur_dd.append(data)
+            return
+        if self._in_b:
+            self._cur_cell["zh"].append(data)
+        elif self._in_small_en and self._cell_tag == "th":
+            self._cur_cell["en"].append(data)
+        elif self._in_scope_badge:
+            self._cur_cell["scope"].append(data)
+        else:
+            self._cur_cell["parts"].append(data)
+
+
+RICH_TABLE_SPECS = [
+    ("building_types", "buildings.html", ["group", "price", "jobs", "employees", "time", "ranks", "output"]),
+    ("unit_types", "military-units.html", ["category", "age", "unit_type", "troops", "combat_power", "cannons", "hull", "build_time"]),
+    ("estate_privileges", "estate-privileges.html", ["estate", "power_mod", "sat_eq", "effects"]),
+    ("laws", "laws.html", ["category", "target_scope", "policies_count", "impl_times", "groups"]),
+    ("government_reforms", "government-reforms.html", ["age", "government", "societal_req", "impl_years", "effects"]),
+    ("government_types", "government-types.html", ["gov_power", "default_estate", "heir_count", "noble_marriage", "gen_consorts"]),
+    ("road_types", "roads.html", ["level", "cost", "time", "move_cost", "market_cost", "prox_red"]),
+    ("industry_types", "industries.html", ["goods", "area_out", "pop_demand", "grant_cost"]),
+    ("diplomatic_actions", "diplomatic-actions.html", ["kind", "cost", "acceptance", "effect"]),
+    ("international_organizations", "international-organizations-table.html", ["group", "membership", "leadership", "instances", "war", "effects"]),
+    ("religions", "religions.html", ["group", "liturgical", "aspect_slots", "mechanics", "effects"]),
+    ("wargoals", "war-goals.html", ["goal_type", "ticking", "conquest_fac", "subjugation_fac", "antagonism_fac"]),
+]
+
+
+def _clean_cell_text(cell):
+    txt = "".join(cell["parts"]).strip()
+    txt = re.sub(r"\s+", " ", txt).strip()
+    txt = re.sub(r"\s*·\s*$", "", txt).strip()
+    return txt
+
+
+def extract_rich_ledgers_and_catalogs(base_ledgers):
+    # 1. Extract all 12 rich tables from eu5-atlas HTML and verify 1-to-1 length with catalog-data
+    rich_tables = {}
+    for cid, html_name, field_names in RICH_TABLE_SPECS:
+        html_path = os.path.join(ATLAS_DIR, "dist", html_name)
+        with open(html_path, encoding="utf-8") as f:
+            raw_html = f.read()
+        parser = _AtlasTbodyParser()
+        parser.feed(raw_html)
+        cat_recs = load_atlas_catalog(cid)
+        if len(parser.tbodies) != len(cat_recs):
+            raise RuntimeError(f"Row mismatch for {cid}: HTML tbodies={len(parser.tbodies)} vs catalog={len(cat_recs)}")
+        rows = []
+        for idx, tb in enumerate(parser.tbodies):
+            cat_rec = cat_recs[idx]
+            r0 = tb[0] if tb else {"cells": []}
+            r1 = tb[1] if len(tb) > 1 else {"details": []}
+            c0 = r0["cells"][0] if r0["cells"] else {}
+            rid = c0.get("id") or cat_rec["id"]
+            zh = re.sub(r"\s+", " ", "".join(c0.get("zh", []))).strip() or cat_rec.get("zh", rid)
+            en = re.sub(r"\s+", " ", "".join(c0.get("en", []))).strip() or cat_rec.get("en", rid)
+            scope = re.sub(r"\s+", " ", "".join(c0.get("scope", []))).strip() or cat_rec.get("scopeLabel", "通用 / General")
+            item = {
+                "id": rid,
+                "zh": zh,
+                "en": en,
+                "scope": scope,
+                "scope_code": cat_rec.get("scope", "general"),
+                "scopeConditions": cat_rec.get("scopeConditions", ""),
+                "source": cat_rec.get("source", ""),
+                "detail": cat_rec.get("detail", ""),
+                "detail_pairs": r1.get("details", []),
+            }
+            data_cells = r0["cells"][1:]
+            num_map = {}
+            for col_i, fname in enumerate(field_names):
+                cell = data_cells[col_i] if col_i < len(data_cells) else {"parts": [], "value": ""}
+                item[fname] = _clean_cell_text(cell) or "—"
+                if cell.get("value") not in (None, ""):
+                    try:
+                        num_map[fname] = float(cell["value"])
+                    except ValueError:
+                        pass
+            if num_map:
+                item["_num"] = num_map
+            rows.append(item)
+        rich_tables[cid] = rows
+        print(f"Parsed rich HTML table {cid}: {len(rows)} rows (1:1 verified)")
+
+    # 2. Prepare combined 22 modular ledger JS files under docs/assets/ledgers/<id>.js
+    situ_combined = list(base_ledgers.get("situations", [])) + list(base_ledgers.get("disasters", []))
+    all_22_ledgers = {
+        "building_types": rich_tables["building_types"],
+        "goods": base_ledgers["goods"],
+        "unit_types": rich_tables["unit_types"],
+        "estate_privileges": rich_tables["estate_privileges"],
+        "laws": rich_tables["laws"],
+        "government_reforms": rich_tables["government_reforms"],
+        "government_types": rich_tables["government_types"],
+        "road_types": rich_tables["road_types"],
+        "industry_types": rich_tables["industry_types"],
+        "societal_values": base_ledgers["societal_values"],
+        "estate_actions": base_ledgers["estate_actions"],
+        "cabinet_actions": base_ledgers["cabinet_actions"],
+        "character_interactions": base_ledgers["character_interactions"],
+        "bureaucracies": base_ledgers["bureaucracies"],
+        "town_rights": base_ledgers["town_rights"],
+        "subject_types": base_ledgers["subject_types"],
+        "diplomatic_actions": rich_tables["diplomatic_actions"],
+        "international_organizations": rich_tables["international_organizations"],
+        "casus_belli": base_ledgers["casus_belli"],
+        "wargoals": rich_tables["wargoals"],
+        "religions": rich_tables["religions"],
+        "situations_disasters": situ_combined,
+    }
+    assert len(all_22_ledgers) == 22, f"Expected 22 ledgers, got {len(all_22_ledgers)}"
+
+    ledger_summary = {}
+    for lid, rows in all_22_ledgers.items():
+        js_path = os.path.join(LEDGERS_JS_DIR, f"{lid}.js")
+        with open(js_path, "w", encoding="utf-8") as f:
+            f.write(f"window.__EU5_LEDGER_REGISTER__({json.dumps(lid)}, {json.dumps(rows, ensure_ascii=False)});\n")
+        # Save compact search projection (id, zh, en, subtext) for search-index.js builder
+        ledger_summary[lid] = [
+            {
+                "id": r.get("id", ""),
+                "zh": r.get("zh", ""),
+                "en": r.get("en", ""),
+                "sub": (
+                    r.get("effect") or r.get("effects") or r.get("group") or r.get("category")
+                    or r.get("estate") or r.get("goal_type") or r.get("left_effects")
+                    or r.get("detail") or ""
+                )[:90],
+            }
+            for r in rows
+        ]
+
+    with open(os.path.join(DATA_DIR, "rich_ledgers_summary.json"), "w", encoding="utf-8") as f:
+        json.dump(ledger_summary, f, ensure_ascii=False)
+    print(f"Exported 22 lazy ledger bundles to docs/assets/ledgers/ (total rows={sum(len(v) for v in all_22_ledgers.values())})")
+
+    # 3. Export all 72 catalogs (23,216 records) into docs/assets/catalogs/<id>.js
+    cm_path = os.path.join(ATLAS_DIR, "dist", "catalog-manifest.js")
+    with open(cm_path, encoding="utf-8") as f:
+        cm_txt = f.read()
+    manifest = json.loads(re.search(r"window\.catalogueManifest\s*=\s*(\[.*\])", cm_txt, re.S).group(1))
+
+    pillar_assign = {
+        "location_ranks": "geography", "topography": "geography", "vegetation": "geography",
+        "climates": "geography", "diseases": "geography", "road_types": "geography",
+        "building_types": "economy", "recipes": "economy", "goods": "economy",
+        "industry_types": "economy", "town_rights": "economy", "populations": "economy",
+        "government_types": "politics", "government_reforms": "politics", "laws": "politics",
+        "law-options": "politics", "bureaucracies": "politics", "cabinet_actions": "politics",
+        "societal_values": "politics", "estate_actions": "politics", "estate_privileges": "politics",
+        "heir_selections": "politics", "character_interactions": "politics", "child_educations": "politics",
+        "traits": "politics", "parliament_types": "politics", "parliament_agendas": "politics",
+        "parliament_issues": "politics", "rebel_demands": "politics", "movements": "politics",
+        "cultures": "culture", "languages": "culture", "religions": "culture",
+        "religious_aspects": "culture", "religious_schools": "culture", "religious_focuses": "culture",
+        "religious_order_types": "culture", "religious_order_callings": "culture",
+        "gods": "culture", "holy_sites": "culture", "artist_work": "culture",
+        "historical-art": "culture", "event-art": "culture", "chivalric_orders": "culture",
+        "age": "culture", "institution": "culture", "advances": "culture",
+        "expedition_types": "culture", "colonial_charter_goals": "culture",
+        "unit_types": "military", "unit_abilities": "military", "casus_belli": "military",
+        "wargoals": "military", "peace_treaties": "military",
+        "diplomatic_actions": "diplomacy", "country_interactions": "diplomacy",
+        "subject_types": "diplomacy", "international_organizations": "diplomacy",
+        "resolutions": "diplomacy",
+        "starting-scenarios": "world", "starting-country-regions": "world",
+        "regional-countries": "world", "country-definitions": "world",
+        "formable-countries": "world", "situations": "world", "disasters": "world",
+        "decisions": "world", "missions": "world", "country-events": "world",
+        "achievements": "world", "game_rules": "world", "encyclopedia": "world", "wiki-concepts": "world",
+    }
+
+    ledger_map = {
+        "building_types": "building_types", "goods": "goods", "unit_types": "unit_types",
+        "estate_privileges": "estate_privileges", "laws": "laws",
+        "government_reforms": "government_reforms", "government_types": "government_types",
+        "road_types": "road_types", "industry_types": "industry_types",
+        "societal_values": "societal_values", "estate_actions": "estate_actions",
+        "cabinet_actions": "cabinet_actions", "character_interactions": "character_interactions",
+        "bureaucracies": "bureaucracies", "town_rights": "town_rights",
+        "subject_types": "subject_types", "diplomatic_actions": "diplomatic_actions",
+        "international_organizations": "international_organizations",
+        "casus_belli": "casus_belli", "wargoals": "wargoals", "religions": "religions",
+        "situations": "situations_disasters", "disasters": "situations_disasters",
+    }
+
+    total_cat_recs = 0
+    manifest_out = []
+    for entry in manifest:
+        cid = entry["id"]
+        src_js = os.path.join(ATLAS_DIR, "dist", "catalog-data", f"{cid}.js")
+        with open(src_js, encoding="utf-8") as f:
+            raw_js = f.read()
+        obj = json.loads(re.search(r"window\.atlasRegister\((\{.*\})\)", raw_js, re.S).group(1))
+        recs = obj.get("records", [])
+        total_cat_recs += len(recs)
+
+        dst_js = os.path.join(CATALOGS_JS_DIR, f"{cid}.js")
+        with open(dst_js, "w", encoding="utf-8") as f:
+            f.write(f"window.__EU5_CATALOG_REGISTER__({json.dumps(cid)}, {json.dumps(obj, ensure_ascii=False)});\n")
+
+        m_item = {
+            "id": cid,
+            "zh": entry["zh"],
+            "en": entry["en"],
+            "count": len(recs),
+            "pillar": pillar_assign.get(cid, "world"),
+        }
+        if cid in ledger_map:
+            m_item["ledger"] = ledger_map[cid]
+        manifest_out.append(m_item)
+
+    with open(os.path.join(DATA_DIR, "catalog_manifest.json"), "w", encoding="utf-8") as f:
+        json.dump(manifest_out, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(ASSETS_DIR, "catalog-manifest.js"), "w", encoding="utf-8") as f:
+        f.write("window.__EU5_CATALOG_MANIFEST__ = " + json.dumps(manifest_out, ensure_ascii=False) + ";\n")
+    print(f"Exported {len(manifest_out)} modular catalogs to docs/assets/catalogs/ (total records={total_cat_recs})")
+
+    # 4. Export Population Goods Demand Matrix (8 classes x 75 goods = 600 rows)
+    pd_src = os.path.join(ATLAS_DIR, "dist", "pop-demand-data.json")
+    with open(pd_src, encoding="utf-8") as f:
+        pd = json.load(f)
+    total_pd_rows = 0
+    pd_summary = []
+    for cls_obj in pd.get("classes", []):
+        non_zero = 0
+        for row in cls_obj.get("rows", []):
+            icon_p = os.path.join(ICONS_DST, f"{row['id']}.webp")
+            row["icon"] = f"assets/goods-icons/{row['id']}.webp" if os.path.exists(icon_p) else ""
+            if (row.get("baseDemand") or 0) > 0 or (row.get("classBaseDemand") or 0) > 0:
+                non_zero += 1
+        total_pd_rows += len(cls_obj.get("rows", []))
+        pd_summary.append({
+            "id": cls_obj["id"],
+            "zh": cls_obj["zh"],
+            "en": cls_obj["en"],
+            "upper": cls_obj.get("upper", False),
+            "total": len(cls_obj.get("rows", [])),
+            "non_zero": non_zero,
+        })
+
+    with open(os.path.join(ASSETS_DIR, "pop-demand-data.js"), "w", encoding="utf-8") as f:
+        f.write("window.__EU5_POP_DEMAND__ = " + json.dumps(pd, ensure_ascii=False) + ";\n")
+    with open(os.path.join(DATA_DIR, "pop_demand_summary.json"), "w", encoding="utf-8") as f:
+        json.dump(pd_summary, f, ensure_ascii=False, indent=2)
+    print(f"Exported pop-demand-data.js ({len(pd.get('classes', []))} classes, {total_pd_rows} total rows)")
+
+    # 5. Export compact Version Update data (1.4.8 -> 1.4.9) for Chapter 12
+    vu_src = os.path.join(ATLAS_DIR, "dist", "version-update-data.json")
+    with open(vu_src, encoding="utf-8") as f:
+        vu = json.load(f)
+    manifest_zh = {m["id"]: m["zh"] for m in manifest_out}
+    vu_clean = {
+        "version": vu.get("version"),
+        "officialChecksum": vu.get("officialChecksum"),
+        "date": vu.get("date"),
+        "steamBuild": vu.get("steamBuild"),
+        "previous": vu.get("previous"),
+        "checks": vu.get("checks", []),
+        "tableChanges": [
+            {
+                "id": tc.get("id"),
+                "zh": tc.get("zh") or manifest_zh.get(tc.get("id", ""), tc.get("id", "")),
+                "total": tc.get("count", tc.get("total", 0)),
+                "changed_count": len(tc.get("changed", [])) if isinstance(tc.get("changed"), list) else tc.get("changed", 0),
+                "changed": tc.get("changed", [])[:10] if isinstance(tc.get("changed"), list) else [],
+            }
+            for tc in vu.get("tableChanges", [])
+        ],
+        "unresolved": vu.get("unresolved", []),
+    }
+    with open(os.path.join(DATA_DIR, "version_update.json"), "w", encoding="utf-8") as f:
+        json.dump(vu_clean, f, ensure_ascii=False, indent=2)
+    print(f"Exported version_update.json ({len(vu_clean['checks'])} checks, {len(vu_clean['tableChanges'])} tableChanges)")
+
+
 if __name__ == "__main__":
     defs = parse_defines()
     extract_glossary(defs)
-    extract_ledgers()
+    base_ledgers = extract_ledgers()
+    extract_rich_ledgers_and_catalogs(base_ledgers)

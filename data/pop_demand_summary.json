@@ -1,0 +1,66 @@
+[
+  {
+    "id": "nobles",
+    "zh": "贵族",
+    "en": "Nobles",
+    "upper": true,
+    "total": 75,
+    "non_zero": 53
+  },
+  {
+    "id": "clergy",
+    "zh": "教士",
+    "en": "Clerics",
+    "upper": true,
+    "total": 75,
+    "non_zero": 40
+  },
+  {
+    "id": "burghers",
+    "zh": "市民",
+    "en": "Burghers",
+    "upper": true,
+    "total": 75,
+    "non_zero": 43
+  },
+  {
+    "id": "soldiers",
+    "zh": "士兵",
+    "en": "Soldiers",
+    "upper": false,
+    "total": 75,
+    "non_zero": 27
+  },
+  {
+    "id": "laborers",
+    "zh": "劳工",
+    "en": "Laborers",
+    "upper": false,
+    "total": 75,
+    "non_zero": 26
+  },
+  {
+    "id": "peasants",
+    "zh": "农民",
+    "en": "Peasants",
+    "upper": false,
+    "total": 75,
+    "non_zero": 25
+  },
+  {
+    "id": "tribesmen",
+    "zh": "部落民",
+    "en": "Tribesmen",
+    "upper": false,
+    "total": 75,
+    "non_zero": 1
+  },
+  {
+    "id": "slaves",
+    "zh": "奴隶",
+    "en": "Slaves",
+    "upper": false,
+    "total": 75,
+    "non_zero": 14
+  }
+]

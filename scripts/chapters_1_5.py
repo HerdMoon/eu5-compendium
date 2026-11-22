@@ -68,7 +68,8 @@ CHAPTERS_1_5 = [
 <ul>
   <li><strong>不可通行地、荒地与「走廊（Corridor）」</strong>：普通 {T('impassable','荒地')} 既不能拥有也不能通行，但特殊地貌 <strong>{T('corridor','走廊')}</strong> 虽然同样无人居住、不可宣称所有权，却允许 {T('army','陆军')} 直接穿越调动。</li>
   <li><strong>海洋、洋流与航运加速</strong>：{T('sea_current','洋流')} 会令顺流舰队加速、逆流减速；带狭窄（Narrows）地形的海格还会阻隔海格间的 {T('fow','战争迷雾视野')}。</li>
-  <li><strong>冬季等级与「{T('frozen','封冻')}」冰封机制</strong>：根据南北半球（北半球约一月、南半球约六月），气候限制当地可达到的最大 {T('winter_level','冬季等级')}（无冬/轻冬/常冬/严冬）。严重寒冬会让建造停工，连续严冬更有 <strong>20%</strong> 概率将浅海封冻成冰面——此时陆军可直接踏冰行军并传递更高控制力，但港口内的舰队将被彻底搁浅。入春解冻概率高达 <strong>40%</strong>，若解冻瞬间大军仍在冰格行军，将遭遇毁灭性冰沉减员！</li>
+  <li><strong>冬季等级与「{T('frozen','封冻')}」冰封机制</strong>：根据南北半球（北半球约一月、南半球约六月），气候限制当地可达到的最大 {T('winter_level','冬季等级')}（无冬/轻冬/常冬/严冬）。严重寒冬会让建造停工（普通冬减建速 −50%），连续严冬至少进入第二周后有 <strong>20%</strong> 概率将浅海封冻成冰面——此时陆军可直接踏冰行军并传递更高控制力，但港口内的舰队将被彻底搁浅。入春解冻概率高达 <strong>40%</strong>，若解冻瞬间大军仍在冰格行军，将遭遇毁灭性冰沉减员！</li>
+  <li><strong>海岸港口公式与火山 / 地震天灾</strong>：所有沿海地点白获 <strong>+25% 人口容量、+5% 补给上限与 +10% 月度发展度增长</strong>；市场路径经港口的跨水陆额外距离按 <code>0.02 × (1 − {T('natural_harbor_suitability','天然港口区位度')})</code> 缩放。火山四档喷发当场扣减 <strong>10%/20%/30%/50%</strong> 本地各阶层人口，却也留下持续 <strong>20/50/70/100 年</strong> 的肥沃火山土壤（原产扩建耗时 <strong>−25%</strong>）；地震亦按震中税基规模结算救灾支出与灾后修复事件。</li>
 </ul>
 """
             },
@@ -151,7 +152,7 @@ CHAPTERS_1_5 = [
 </div>
 <p>在 <strong>1.4.9 版本</strong> 中，行政邻近度与市场接入度分别走独立路径账本：</p>
 <ul>
-  <li><strong>陆路降损</strong>：平原顺畅、山地/崎岖/密林惩罚极重（地形减速保底系数 0.25）；修建更高等级 {T('road','道路')}、提升本地 {T('development','发展度')}，以及把社会价值观推向<strong>中央集权</strong>（满极点 +20% 邻近传播）或<strong>陆权倾向</strong>均可大幅压低每步扣分。</li>
+  <li><strong>陆路降损与 4 级道路演进</strong>：平原顺畅、山地/崎岖/密林惩罚极重（地形减速保底系数 0.25）；修建 <strong>{T('road','道路')}</strong>（砾石道路→柏油道路→近代道路→铁路，移速成本依次 −25% 到更低并叠高市场与邻近度通达性，完整数值见速查典）、提升本地 {T('development','发展度')}，以及把社会价值观推向<strong>中央集权</strong>（满极点 +20% 邻近传播）或<strong>陆权倾向</strong>均可大幅压低每步扣分。</li>
   <li><strong>海路降损（海洋高速走廊）</strong>：跨海传播仰仗沿岸海域的 <strong>{T('maritime_presence','海上存在')}</strong>、节点 {T('harbor_capacity','港口容量')}（基于天然港口区位度叠加码头建筑，在 1.4.9 中港口对行政邻近度的装卸扣费修正为 <strong>−50%</strong>，而贸易路径港口效率基数上调至 +200%）以及社会价值观<strong>海权倾向</strong>。没有港口的海岸上岸会承受巨额损耗。</li>
 </ul>
 """
@@ -193,9 +194,10 @@ CHAPTERS_1_5 = [
 """
         },
         "quick_links": [
+            ("4 级道路数据对照表", "ledgers.html#road_types"),
             ("城镇特权 75 项速查", "ledgers.html#town_rights"),
+            ("地貌/气候/植被名录", "directory.html#topography"),
             ("控制力与税基分流模拟", "lab.html#calc"),
-            ("36 节点因果星图", "map.html#control"),
         ],
     },
 
@@ -235,7 +237,7 @@ CHAPTERS_1_5 = [
   <li><strong>六大社会阶级与政治分层</strong>：上层阶级（{T('nobles','贵族')}、{T('clergy','教士')}、{T('burghers','市民')}）与下层阶级（{T('peasants','平民')}、{T('slaves','奴隶')}），外加在 RGO 中劳动的 {T('rgo_pops','劳工与奴隶')} 与士兵池。城镇规模越大、<strong>{T('peasant_enfranchisement','自主权 / 平民赋权')}</strong> 越高，平民从地点财富中留给自己的份额就越多（自主权越低，越多的平民份额会被贵族抽走）。</li>
   <li><strong>晋升（Promotion）与「有厂无工」铁律</strong>：当新建工坊、兵营或教堂提供空缺岗位时，只能由当地的 <strong>平民</strong> 逐月向上晋升填补，且<strong>必须至少属于「相容文化（Tolerated Culture）」</strong>（受忽视文化与受歧视文化人群严禁晋升为教士、市民或贵族！）。可用正 {T('stability','稳定度')}（+稳定%/100 加速）、高 {T('control','控制力')} 及 ADM 内阁行动「<strong>促进人口升级（<code>pop_promote_action</code>）</strong>」加快补员。</li>
   <li><strong>雇佣制度（Employment System）</strong>：国家可在制度行动中切换地点填补空缺工人的优先级（优先高盈利建筑、平均分配或先保特定战略设施），应对人口紧张期的用工荒。</li>
-  <li><strong>识字率（{T('literacy','Literacy')}）双刃剑</strong>：全国人口平均识字率越高，{T('research_progress','研究进度')} 越快；但高识字人口对生活必需品匮乏与高市价极其敏感，商品缺货涨价时会更剧烈地压低其 {T('pop_satisfaction','人群满意度')}。</li>
+  <li><strong>识字率（{T('literacy','Literacy')}）与 8 阶级商品消费</strong>：全国人口平均识字率越高，{T('research_progress','研究进度')} 越快；同时贵族、教士、市民、农民、劳工、士兵、奴隶与部落民八大阶级各有专属商品需求表（<code>需求量 = 基准加项 × 阶级倍率 × 公共系数 × 气候/地形修正</code>），且高财富、发展度与识字门槛会不断解锁新消费需求，一旦缺货涨价将直接重挫 {T('pop_satisfaction','人群满意度')}（8 阶级 × 75 商品完整数值矩阵已单列专页速查）。</li>
 </ul>
 """
             },
@@ -248,7 +250,9 @@ CHAPTERS_1_5 = [
 <ol>
   <li><strong>征服后 12 个月逃亡潮 & 25 年拓殖拉力（1.4.9 精确参数）</strong>：当一块地刚被征服易主，原住民若在新宗主国沦为受歧视文化/宗教，最初 <strong>12 个月</strong>（<code>POST_CONQUEST_EMIGRATION_MONTHS = 12</code>）会按 <strong>2.0 倍外逃速率</strong> 向未被歧视的原母国逃亡；与此同时，新占领地会立刻对拥有者产生高达 <strong>3.0 倍</strong>（<code>1 + SETTLER_PULL_BASE 2.0</code>）的本土人口移民吸引力，在随后 <strong>25 年</strong>（<code>SETTLER_PULL_RAMP_YEARS = 25</code>）内线性衰减至正常值。</li>
   <li><strong>特许殖民地跨市迁徙</strong>：打破同市场限制，但<strong>严格限定只能从本国「核心（Core）」地点向海外特许殖民地输送人群</strong>。</li>
-  <li><strong>{T('disease','疫病')} 爆发与 {T('disease_resistance','防疫能力')}</strong>：黑死病、天花等疫病先通过商路、边境与军队驻扎传播覆盖地点，再在各自结算周期按当前传播比例与死亡率消减人群及宫廷角色。防疫抗性上限为 60%（<code>MAX_INTRINSIC_DISEASE_RESISTANCE = 0.6</code>），高人口密度大都市在黑死病阶段死伤最为惨重（亦可用内阁/局势行动「躲避黑死病」止损）。</li>
+  <li><strong>{T('disease_outbreak','疫病引擎')}（存在度、抗性与三大流行病对比）</strong>：所有 8 种 {T('disease','疫病')} 按各地点「存在度」、当前 {T('disease_resistance','防疫能力')}（天然上限 60%，<code>MAX_INTRINSIC_DISEASE_RESISTANCE = 0.6</code>）与病种独立结算间隔扣减人口与宫廷人物。重点规则如下：<br>
+  • <strong>黑死病（腺鼠疫）与埃及瘟疫</strong>：历史模式下 1346 年 1 月起每月 20%、10 月起 100% 检定爆发，首次局势结束后腺鼠疫仍保有每月 <strong>0.5%</strong>（年均约 5.84%）随机再生成率；埃及瘟疫则在黑死病结束后独立保有每月 <strong>2.5%</strong> 生成率（亦可用内阁或局势行动「躲避黑死病」隔离保命）。<br>
+  • <strong>环境型地方病（疟疾）与美洲大瘟疫</strong>：疟疾月随机生成率为 <strong>0</strong>，专走<strong>每 10–15 日</strong>一次的环境地点结算，但在<strong>大陆性、极地与副极地气候中环境感染率彻底归零</strong>（完美解释莫斯科/北欧为何天然免疫疟疾）。</li>
 </ol>
 """
             },
@@ -298,8 +302,9 @@ CHAPTERS_1_5 = [
 """
         },
         "quick_links": [
+            ("8 阶级×75 商品需求矩阵", "pop-demand.html"),
+            ("8 大疫病完整档案", "directory.html#diseases"),
             ("75 种商品食物值全表", "ledgers.html#goods"),
-            ("粮食与人口因果网络", "map.html#food_system"),
             ("省买粮与用工荒排障", "lab.html#troubleshoot"),
         ],
     },
@@ -340,6 +345,7 @@ CHAPTERS_1_5 = [
   <li><strong>建筑盈利、停工与补贴机制</strong>：生产类建筑月利润 =（产出市价总值 − 原料市价成本）× {T('market_access','市场接入度')} × 雇佣比例 × (1 + {T('production_efficiency','生产效率')})。若亏损且未由政府开启 <strong>{T('subsidy','建筑补贴')}</strong>，建筑每月解雇 <strong>10%</strong> 工人直至自动停工；非生产类基础设施（如要塞、医院、大学、码头）则每月消耗市场商品并扣取政府 <strong>建筑维护费</strong>（受投入物价与王室力量影响）。</li>
   <li><strong>扩建波动性（{T('expansion_volatility','Expansion Volatility')}）防破产预览</strong>：扩建新一级工坊会同时抬高本地市场对投入原料的采购需求、压低对产成品的售价。UI 在扩建悬停时提前测算未来 6 个月价格滑落曲线——这是社区防踩坑「IKEA-maxxing（同一城市连点十级家具厂直接亏穿停产）」的关键仪表盘。</li>
   <li><strong>建筑投产度（{T('establishment','Establishment')}）机制</strong>：在投产爬坡规则启用时，新建筑须先积累超过 <strong>50%</strong> 投产度才能摆脱产能折扣并享满额运转（随后投产度越满越额外馈赠最高 <strong>+15%</strong> 生产效率，即超出部分 × 30%）；停工建筑每月倒扣投产度。</li>
+  <li><strong>全国 {T('employment_system','雇佣制度')}（缺工排序）、选址硬限与 8 大产业政策</strong>：同一地点有多种建筑争抢同类工人时，需按全国雇佣制度（基础换制费 <strong>10 稳定度</strong>）决定招工次序：「均等雇佣」按比例分摊、「先到先就业」按建设顺序、<strong>「利润最高优先」</strong>按潜在利润分配（其中后两类的优先变体额外给资源增产设施 <strong>+20,000</strong> 排序加分）。特定治理/特色建筑（如执达署限非海外乡村且每地限 1 级）还同时受地点名额与全国总上限约束（1.4.8 修复了升级替换期间重复计占建筑支持量的问题）；同时可在国家界面花费政治影响力为地区扶持纺织、军械等 <strong>8 项产业政策</strong> 放大地区产出与全国需求（501 种建筑与 346 项配方均已在速查典与名录库完整收录）。</li>
 </ul>
 """
             },
@@ -417,9 +423,10 @@ CHAPTERS_1_5 = [
 """
         },
         "quick_links": [
+            ("501 种建筑全表", "ledgers.html#building_types"),
+            ("8 项产业政策表", "ledgers.html#industry_types"),
+            ("346 项建筑生产与维护配方", "directory.html#recipes"),
             ("75 种商品图标与数值全典", "ledgers.html#goods"),
-            ("地点财富→税基实时模拟器", "lab.html#calc"),
-            ("税基与信誉因果星图", "map.html#wealth_tax"),
         ],
     },
 
@@ -457,6 +464,7 @@ CHAPTERS_1_5 = [
 <p>在 EU5 中，“国家怎么存在”与“国家怎么统治”是两个正交维度：</p>
 <ul>
   <li><strong>五类国家存在形态</strong>：① <strong>{T('settled_country','定居国家')}</strong>（依地点存续）；② <strong>{T('extraterritorial_country','地产/建筑国家')}</strong>（靠跨国建筑存续，如银行家族、修会、汉萨商业行会）；③ <strong>{T('society_of_pops','游群社会')}</strong>（靠游牧或部落人群存续）；④ <strong>{T('army_based','兵团国家')}</strong> 与 ⑤ <strong>{T('navy_based','舰队国家')}</strong>（可拥有领土，但赖以维系的陆军或舰队覆灭即告灭亡）。</li>
+  <li><strong>{T('country_rank','国家等级')}、{T('hegemony','国际霸权')}与{T('victory_card','胜利卡')}</strong>：按体量、强国积分（区域强权 ≥20 / 列强 ≥40）与外交声望晋升为伯爵国/公国/王国/帝国，依次扩充内阁席位、外交容量与艺术家名额；列强榜首还能角逐经济/海军/陆军/外交/文化五大霸权冠冕，并在游戏后半程围绕「地区支配（≥2/3 地点）」竞逐高额胜利卡得分。</li>
   <li><strong>五大政体与专属 {T('government_power','政府影响力')}（0–100）</strong>：君主制 → <strong>{T('legitimacy','正统性')}</strong>；共和国 → <strong>{T('republican_tradition','共和传统')}</strong>（连任消耗传统，跌破危险线可能变独裁）；神权制 → <strong>{T('devotion','奉献度')}</strong>；草原游牧 → <strong>{T('horde_unity','游牧团结')}</strong>（靠劫掠省份维持）；部落 → <strong>{T('tribal_cohesion','部落凝聚力')}</strong>。</li>
   <li><strong>切忌混淆三大政治数值</strong>：<strong>政府影响力（0–100）</strong> 衡量统治合法性；<strong>{T('political_influence','政治影响力')}（0–100 上限）</strong> 是执行改革/设法律/换内阁/授特权的月度行动点数（统治者能力 + 内阁平均能力月产，且存量每 1 点微弱加快全国阶层满意度回升）；<strong>{T('stability','稳定度')}（−100 至 +100）</strong> 向 0 衰减，负责承担宣战、撤特权与换法律代价。</li>
 </ul>
@@ -476,7 +484,7 @@ CHAPTERS_1_5 = [
                 "title": "03 · 法律、政府改革与「官僚部门固化（Entrenchment）」双刃剑",
                 "en": "Laws, Reforms & Bureaucracy Entrenchment",
                 "html": f"""
-<p>一国通常初始仅有 <strong>1 个</strong>普通 {T('government_reform','政府改革')} 槽位（只能持有 1 项决定核心特征的「{T('major_reform','主要改革')}」）；改革、{T('law','法律')} 下的 {T('policy','政策')} 若带有实施期，效果会随实施进度渐进生效，切记更换政策基准代价通常消耗高达 100 稳定度（除非走议会途径免稳换法）。</p>
+<p>一国通常初始仅有 <strong>1 个</strong>普通 {T('government_reform','政府改革')} 槽位（只能持有 1 项决定核心特征的「{T('major_reform','主要改革')}」，全游戏共 379 项改革、5 大政体）；{T('law','法律')} 下的 {T('policy','政策')}（共计 <strong>213 项法律、832 项政策选项</strong>）若带有实施期（Implementation Time，通常 2–5 年），效果会随实施进度线性渐进生效，切记更换政策基准代价通常消耗高达 100 稳定度（除非走议会途径免稳换法）。</p>
 <p><strong>极易踩坑的新增系统：60 种{T('bureaucracy','官僚部门')}与{T('entrenchment','固化度')}</strong>：</p>
 <ul>
   <li>政府可通过行动（<code>add_bureaucracy_action</code>）建立如「税务委员会」、「法典院」等行政分支部门，它们均包含<strong>常驻修正、正面修正、负面修正</strong>三组效果。</li>
@@ -490,7 +498,7 @@ CHAPTERS_1_5 = [
                 "title": "04 · 统治者能力、儿童培育与 34 项角色互动全景",
                 "en": "Character Abilities, Education & 34 Character Interactions",
                 "html": f"""
-<p>统治者个人三维能力直接为全国家带来可观全局光环：<strong>每 1 点 ADM</strong> = <code>+0.25%</code> 王室力量 + <code>+0.2%</code> 建造效率；<strong>每 1 点 DIP</strong> = <code>+0.05</code> 外交声誉 + <code>+0.1%</code> 阶层满意度均衡；<strong>每 1 点 MIL</strong> = <code>+0.1%</code> 陆海军士气。所有皇室后代自 <strong>3 岁</strong> 开启教育（平衡教育全能力 +0.50；偏科教育通用 +0.25 + 指定科 +0.75；每月有 55% 几率随天赋提升点数），<strong>16 岁</strong> 成年正式可任职。</p>
+<p>统治者个人三维能力直接为全国家带来可观全局光环：<strong>每 1 点 ADM</strong> = <code>+0.25%</code> 王室力量 + <code>+0.2%</code> 建造效率；<strong>每 1 点 DIP</strong> = <code>+0.05</code> 外交声誉 + <code>+0.1%</code> 阶层满意度均衡；<strong>每 1 点 MIL</strong> = <code>+0.1%</code> 陆海军士气。所有皇室与宫廷后代自 <strong>3 岁</strong> 可选配 <strong>6 种儿童教育路线</strong>（如平衡教育全能力 +0.50；偏科教育通用 +0.25 + 指定科 +0.75；每月有 55% 几率随天赋提升点数），<strong>16 岁</strong> 成年正式可任职；其后在 <strong>46 种{T('heir_selection','继承法')}</strong> 下角逐王位，并携带影响统治与带兵的 <strong>150 种人物特质</strong>（各类特质、继承制与教育名录均已收入名录库）。</p>
 
 <table class="data-table">
   <thead><tr><th>互动领域</th><th>关键角色互动（共 34 项，详见速查典）</th><th>核心底层机制与社区实战避坑</th></tr></thead>
@@ -530,9 +538,10 @@ CHAPTERS_1_5 = [
 """
         },
         "quick_links": [
+            ("213 项法律 & 379 项政府改革", "ledgers.html#laws"),
             ("81 项内阁行动三系筛选", "ledgers.html#cabinet_actions"),
-            ("34 项角色互动全列表", "ledgers.html#character_interactions"),
-            ("17 对社会价值观与 60 官僚部门", "ledgers.html#societal_values"),
+            ("34 角色互动 & 60 官僚 & 5 政体", "ledgers.html#character_interactions"),
+            ("46 继承制与 832 政策名录", "directory.html#heir_selections"),
         ],
     },
 
@@ -582,7 +591,7 @@ CHAPTERS_1_5 = [
                 "title": "02 · 阶层金库、4 倍造价私有建筑与「阶层建筑」清除术",
                 "en": "Estate Gold Pools, Private Buildings & Regiments",
                 "html": f"""
-<p>各阶层并非纸面符号，每个阶层都有自己的独立真金白银账户（{T('estate_tax_base','阶层税基')} 免税余款 + 低控制地点偷走的 {T('uncontrolled_wealth','未受控财富')} + 阶层贷款收回的利息 + 玩家贿赂款）。阶层用这些资金满足消费后，若月度 <strong>{T('wealth_impact','财富影响（收入÷支出）')}</strong> 高于 100% 且心情好，会<strong>花 4 倍价格（<code>ESTATE_MAX_PRICE_MULTIPLIER = 4</code>）帮你修建赚钱 RGO、道路与公共建筑</strong>；</p>
+<p>各阶层并非纸面符号，每个阶层都有自己的独立真金白银账户（{T('estate_tax_base','阶层税基')} 免税余款 + 低控制地点偷走的 {T('uncontrolled_wealth','未受控财富')} + 阶层贷款收回的利息 + 玩家贿赂款）。每月底阶层会生成一张「<strong>消费购物清单</strong>」，未全额税走的财富与高满足消费将在<strong>次月正式转化为市场上的实盘采购需求</strong>（直接推升奢华商品或消费品市场目标价格）；若月度 <strong>{T('wealth_impact','财富影响（收入÷支出）')}</strong> 高于 100% 且心情好，他们会<strong>花 4 倍价格（<code>ESTATE_MAX_PRICE_MULTIPLIER = 4</code>）帮你修建赚钱 RGO、道路与公共建筑</strong>；</p>
 <p>但一旦阶层陷入高消费危机或低满意度，他们会<strong>停止造公共经济楼，转向专挑控制力低于 75% 的边地狂造「{T('estate_building','阶层建筑')}」</strong>——不产任何国家税收，专门给你扣各种全国 Debuff 并疯狂膨胀他们的阶层政治力量！</p>
 <ul>
   <li><strong>阶层私人团（{T('private_regiment','Private Regiments')}）</strong>：一旦拥有《贵族私军》等特权且阶层金库大于维护费 2 倍，阶层会自掏腰包招私人部队，王室战时可调用「征用私兵」借来用（不掉你的人力池！），但若该阶层触发内战，<strong>这些借来的私人团会立刻在战场上就地倒戈</strong>。</li>
@@ -629,7 +638,7 @@ CHAPTERS_1_5 = [
 • <strong>撤销时（极度危险！）</strong>：目标阶层立刻重摔 <code>−25% − 3 × Δ</code>，外加消耗按其阶层权势缩放的大笔稳定度！<br>
 &nbsp;&nbsp;<em>算例：撤掉一项 +10% 均衡的特权，该阶层瞬间狂掉 25 + 30 = <strong>55%</strong> 满意度——几乎必然将其从 70% 一脚踹进 15%，同时触发「<25% 拒出征召」与「内战急行军」！</em>
 </div>
-<p><strong>{T('parliament','议会')}周期与过关算法</strong>：常规国家两次议会间隔须超过 <strong>59 整月</strong>，会期 <strong>180 天</strong>（议会地点如被占领直接流产），表决门槛为 <strong>50% 支持度</strong>。开会起始支持度 = <strong>王室力量份额 × 0.5 + 提案阶层力量份额（若非常忠诚）</strong>。除了通过核心议案（如大笔税收、扩大征兵、低代价修法/拿 CB）外，议会还可用支持度花销去强行换法律避开 −100 稳定度重罚。</p>
+<p><strong>{T('parliament','议会')}周期、18 种{T('parliament_type','议会类型')}与过关算法</strong>：不同政体解锁对应议会制（147 项议会议程与 161 项{T('parliament_issue','议会议案')}已收入全量名录库）。常规国家两次议会间隔须超过 <strong>59 整月</strong>，会期 <strong>180 天</strong>（议会地点如被占领直接流产），表决门槛为 <strong>50% 支持度</strong>。开会起始支持度 = <strong>王室力量份额 × 0.5 + 提案阶层力量份额（若非常忠诚）</strong>。除了通过核心议案（如大笔税收、扩大征兵、低代价修法/拿 CB）外，议会还可用支持度花销去强行换法律避开 −100 稳定度重罚。</p>
 """
             },
             {
@@ -645,7 +654,7 @@ CHAPTERS_1_5 = [
       <code>要塞留存朝廷忠诚概率(%) = 50(基础) + 30 × 阶层满意度 + 10(本地叛乱度&lt;3) + 10(为主流文化) + 10(为国教) − 15(守军阶层与叛军同类) − 20(叛乱进度已超过 80%!)</code>
     </div>
   </li>
-  <li><strong>三项叛乱干预按键</strong>：① <strong>收买叛军（<code>negotiate_rebels_buy_off</code>）</strong> 花钱压下进度；② <strong>同意要求（<code>negotiate_rebels_accept_demands</code>）</strong> 妥协换停战；③ <strong>激起反叛（<code>provoke_rebels</code>）</strong>——社区高玩最常用的神技：在进度跨过 <strong>80% 要塞减分线之前</strong> 提前把军阵摆在关键要塞与山头主动点引爆，全歼反贼后直接彻底消弭隐患！</li>
+  <li><strong>三项叛乱干预按键、72 项叛军要求与{T('civil_war','内战')}触发</strong>：① <strong>收买叛军（<code>negotiate_rebels_buy_off</code>）</strong> 花钱压下进度；② <strong>同意要求（<code>negotiate_rebels_accept_demands</code>）</strong> 妥协换停战（所有 72 项叛军要求名录决定妥协后的降控、独立或改法代价）；③ <strong>激起反叛（<code>provoke_rebels</code>）</strong>——社区高玩最常用的神技：在进度跨过 <strong>80% 要塞减分线之前</strong> 提前把军阵摆在关键要塞与山头主动点引爆，全歼反贼后直接彻底消弭隐患！若叛军源自阶层权力崩盘并跨入公开内战，外加借出的该阶层私人团立刻倒戈。</li>
 </ul>
 """
             },
@@ -660,9 +669,10 @@ CHAPTERS_1_5 = [
 """
         },
         "quick_links": [
+            ("331 项阶层特权全表", "ledgers.html#estate_privileges"),
             ("12 项阶层互动完整数值表", "ledgers.html#estate_actions"),
+            ("161 议题 & 72 叛军要求名录", "directory.html#parliament_issues"),
             ("叛军爆发要塞倒戈检定实算器", "lab.html#calc"),
-            ("阶层力量与金库因果网络", "map.html#estate_pool"),
         ],
     },
 ]
