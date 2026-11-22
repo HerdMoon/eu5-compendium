@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>交互概念因果星图 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="36个EU5核心机制节点因果依存交互图">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/glossary-data.js"></script>
+  <script defer src="assets/search-index.js"></script>
+  <script defer src="assets/graph-data.js"></script>
+  <script defer src="assets/app.js"></script>
+  <script defer src="assets/interactive.js"></script>
+</head>
+<body data-page="map">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="mobile-bar">
+    <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
+    <strong style="font-size:14px">交互概念因果星图</strong>
+    <div style="display:flex;gap:6px">
+      <button type="button" class="btn-pill" data-open-search>搜</button>
+      <button type="button" class="btn-pill" data-theme-toggle>☾</button>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+  <a href="index.html" class="brand-box">
+    <div class="brand-mark">V</div>
+    <div class="brand-meta">
+      <strong>欧陆风云 V · 图谱典</strong>
+      <small>EU5 1.4.9 · COMPENDIUM</small>
+    </div>
+  </a>
+  <div class="sidebar-controls">
+    <button type="button" class="btn-pill btn-search" data-open-search>
+      <span>秒查概念 / 数值</span>
+      <span class="kbd">Ctrl+K</span>
+    </button>
+    <button type="button" class="btn-pill" data-theme-toggle title="切换明暗主题">☾</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">枢纽与速查工具</div>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link active"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>10 大高频实战数据典</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">六大支柱 · 十章体系精讲</div>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a>
+  </div>
+  <div class="sidebar-foot">
+    基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
+    底层校验：00_defines / 静态修正 / 本地化<br>
+    悬停正文中虚线术语可即时查看释义
+  </div>
+</aside>
+    <main id="main" class="main-area">
+      <div class="content-grid wide">
+        <div class="article-col">
+<section class="hero-banner">
+  <div class="eyebrow">INTERACTIVE CAUSAL ATLAS</div>
+  <h1>全游戏 36 核心概念因果关系星图</h1>
+  <p class="subtitle">点击图中任意概念卡片，即可高亮其<strong>所有直接上游决定因素（绿色）</strong>与<strong>直接下游受影响系统（红色）</strong>，查看精确公式与红线警告，并直达对应精讲小节。</p>
+</section>
+
+<div class="filter-bar">
+  <label for="map-pillar-filter" style="font-size:13px;font-weight:700">按系统支柱筛选高亮：</label>
+  <select id="map-pillar-filter" class="select-ctrl"><option value="all">显示全部六大支柱 (36 个核心枢纽节点)</option><option value="territory">仅突出：疆域与控制</option><option value="economy">仅突出：人口、市场与财政</option><option value="state">仅突出：政府、内阁与阶层</option><option value="culture">仅突出：文化、信仰与科技</option><option value="military">仅突出：军事、海权与和约</option><option value="diplomacy">仅突出：外交、属国与秩序</option></select>
+  <span style="font-size:12.5px;color:var(--ink-muted)">提示：图内可横向拖动或滚轮浏览；按下 <span class="kbd">Ctrl+K</span> 也能秒搜节点</span>
+</div>
+
+<div class="map-layout">
+  <div class="map-canvas-box">
+    <svg id="map-svg" viewBox="0 0 1380 795" class="map-svg" role="img" aria-label="EU5核心概念依赖星图"></svg>
+  </div>
+  <aside id="map-detail" class="map-detail">
+    <h3>全景交互星图指南</h3>
+    <p style="font-size:13.5px;color:var(--ink-muted)">请在左侧点击任意概念节点（如 <strong>核心领土</strong>、<strong>控制力</strong>、<strong>三级粮食链</strong>、<strong>阶层金库与私建</strong> 或 <strong>敌意与包围网</strong>），这里会立刻展开该系统的完整输入输出关系链。</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
+      <a href="#core" class="btn-pill">核心领土</a>
+      <a href="#control" class="btn-pill">控制力</a>
+      <a href="#food_system" class="btn-pill">三级粮食链</a>
+      <a href="#estate_actions" class="btn-pill">阶层互动</a>
+      <a href="#navy_maritime" class="btn-pill">海上存在(90%)</a>
+      <a href="#antagonism" class="btn-pill">敌意包围网</a>
+    </div>
+  </aside>
+</div>
+</div>
+        
+      </div>
+    </main>
+  </div>
+  <div id="cmd-modal" class="cmd-backdrop" role="dialog" aria-modal="true" aria-label="全局快速检索">
+    <div class="cmd-dialog">
+      <div class="cmd-input-wrap">
+        <span style="color:var(--ink-muted);font-weight:700">⌘</span>
+        <input id="cmd-input" class="cmd-input" type="search" autocomplete="off" placeholder="输入中文概念、English、红线数字(如 75%、50%、90%)、内阁或阶层互动…">
+        <span class="kbd">ESC</span>
+      </div>
+      <div id="cmd-results" class="cmd-results"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,4947 @@
+{
+  "goods": [
+    {
+      "id": "clay",
+      "zh": "黏土",
+      "en": "Clay",
+      "group": "原材料 (RGO)",
+      "method": "采集",
+      "price": 0.5,
+      "food": 0.0,
+      "transport": 2.0,
+      "base": 0.01,
+      "icon": "assets/goods-icons/clay.webp"
+    },
+    {
+      "id": "sand",
+      "zh": "沙砾",
+      "en": "Sand",
+      "group": "原材料 (RGO)",
+      "method": "采集",
+      "price": 0.5,
+      "food": 0.0,
+      "transport": 2.0,
+      "base": 0.0065,
+      "icon": "assets/goods-icons/sand.webp"
+    },
+    {
+      "id": "coal",
+      "zh": "煤炭",
+      "en": "Coal",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 2.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/coal.webp"
+    },
+    {
+      "id": "iron",
+      "zh": "铁",
+      "en": "Iron",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/iron.webp"
+    },
+    {
+      "id": "copper",
+      "zh": "铜",
+      "en": "Copper",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/copper.webp"
+    },
+    {
+      "id": "goods_gold",
+      "zh": "黄金",
+      "en": "Gold",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 8.0,
+      "food": 0.0,
+      "transport": 2.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/goods_gold.webp"
+    },
+    {
+      "id": "silver",
+      "zh": "白银",
+      "en": "Silver",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 6.0,
+      "food": 0.0,
+      "transport": 2.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/silver.webp"
+    },
+    {
+      "id": "stone",
+      "zh": "石料",
+      "en": "Stone",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 1.0,
+      "food": 0.0,
+      "transport": 2.0,
+      "base": 0.006,
+      "icon": "assets/goods-icons/stone.webp"
+    },
+    {
+      "id": "tin",
+      "zh": "锡",
+      "en": "Tin",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/tin.webp"
+    },
+    {
+      "id": "lead",
+      "zh": "铅",
+      "en": "Lead",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/lead.webp"
+    },
+    {
+      "id": "silk",
+      "zh": "丝绸",
+      "en": "Silk",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/silk.webp"
+    },
+    {
+      "id": "dyes",
+      "zh": "染料",
+      "en": "Dyes",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/dyes.webp"
+    },
+    {
+      "id": "incense",
+      "zh": "熏香",
+      "en": "Incense",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 2.5,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/incense.webp"
+    },
+    {
+      "id": "tea",
+      "zh": "茶叶",
+      "en": "Tea",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/tea.webp"
+    },
+    {
+      "id": "cocoa",
+      "zh": "可可",
+      "en": "Cocoa",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/cocoa.webp"
+    },
+    {
+      "id": "coffee",
+      "zh": "咖啡",
+      "en": "Coffee",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/coffee.webp"
+    },
+    {
+      "id": "fiber_crops",
+      "zh": "纤维作物",
+      "en": "Fiber Crops",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/fiber_crops.webp"
+    },
+    {
+      "id": "ivory",
+      "zh": "象牙",
+      "en": "Ivory",
+      "group": "原材料 (RGO)",
+      "method": "狩猎",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/ivory.webp"
+    },
+    {
+      "id": "lumber",
+      "zh": "木材",
+      "en": "Lumber",
+      "group": "原材料 (RGO)",
+      "method": "林业",
+      "price": 1.5,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.005,
+      "icon": "assets/goods-icons/lumber.webp"
+    },
+    {
+      "id": "salt",
+      "zh": "盐",
+      "en": "Salt",
+      "group": "原材料 (RGO)",
+      "method": "采集",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/salt.webp"
+    },
+    {
+      "id": "medicaments",
+      "zh": "药物",
+      "en": "Medicaments",
+      "group": "原材料 (RGO)",
+      "method": "采集",
+      "price": 1.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/medicaments.webp"
+    },
+    {
+      "id": "gems",
+      "zh": "宝石",
+      "en": "Gems",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/gems.webp"
+    },
+    {
+      "id": "pearls",
+      "zh": "珍珠",
+      "en": "Pearls",
+      "group": "原材料 (RGO)",
+      "method": "采集",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/pearls.webp"
+    },
+    {
+      "id": "amber",
+      "zh": "琥珀",
+      "en": "Amber",
+      "group": "原材料 (RGO)",
+      "method": "采集",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/amber.webp"
+    },
+    {
+      "id": "saltpeter",
+      "zh": "硝石",
+      "en": "Saltpeter",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/saltpeter.webp"
+    },
+    {
+      "id": "alum",
+      "zh": "明矾",
+      "en": "Alum",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/alum.webp"
+    },
+    {
+      "id": "wine",
+      "zh": "葡萄酒",
+      "en": "Wine",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/wine.webp"
+    },
+    {
+      "id": "elephants",
+      "zh": "大象",
+      "en": "Elephants",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 5.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/elephants.webp"
+    },
+    {
+      "id": "camels",
+      "zh": "骆驼",
+      "en": "Camels",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 3.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/camels.webp"
+    },
+    {
+      "id": "marble",
+      "zh": "大理石",
+      "en": "Marble",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 3.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/marble.webp"
+    },
+    {
+      "id": "mercury",
+      "zh": "水银",
+      "en": "Mercury",
+      "group": "原材料 (RGO)",
+      "method": "采矿",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/mercury.webp"
+    },
+    {
+      "id": "saffron",
+      "zh": "藏红花",
+      "en": "Saffron",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/saffron.webp"
+    },
+    {
+      "id": "pepper",
+      "zh": "胡椒",
+      "en": "Pepper",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/pepper.webp"
+    },
+    {
+      "id": "cloves",
+      "zh": "丁香",
+      "en": "Cloves",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/cloves.webp"
+    },
+    {
+      "id": "chili",
+      "zh": "辣椒",
+      "en": "Chili",
+      "group": "原材料 (RGO)",
+      "method": "农牧",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/chili.webp"
+    },
+    {
+      "id": "cotton",
+      "zh": "棉花",
+      "en": "Cotton",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/cotton.webp"
+    },
+    {
+      "id": "sugar",
+      "zh": "糖",
+      "en": "Sugar",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/sugar.webp"
+    },
+    {
+      "id": "tobacco",
+      "zh": "烟草",
+      "en": "Tobacco",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/tobacco.webp"
+    },
+    {
+      "id": "tar",
+      "zh": "焦油",
+      "en": "Tar",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/tar.webp"
+    },
+    {
+      "id": "porcelain",
+      "zh": "瓷器",
+      "en": "Porcelain",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/porcelain.webp"
+    },
+    {
+      "id": "naval_supplies",
+      "zh": "船具",
+      "en": "Naval Supplies",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/naval_supplies.webp"
+    },
+    {
+      "id": "firearms",
+      "zh": "火器",
+      "en": "Firearms",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/firearms.webp"
+    },
+    {
+      "id": "cannons",
+      "zh": "火炮",
+      "en": "Cannon",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 4.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/cannons.webp"
+    },
+    {
+      "id": "weaponry",
+      "zh": "武器",
+      "en": "Weaponry",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/weaponry.webp"
+    },
+    {
+      "id": "glass",
+      "zh": "玻璃",
+      "en": "Glass",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/glass.webp"
+    },
+    {
+      "id": "steel",
+      "zh": "钢",
+      "en": "Steel",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/steel.webp"
+    },
+    {
+      "id": "cloth",
+      "zh": "布匹",
+      "en": "Cloth",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/cloth.webp"
+    },
+    {
+      "id": "fine_cloth",
+      "zh": "精纺品",
+      "en": "Fine Cloth",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 6.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/fine_cloth.webp"
+    },
+    {
+      "id": "liquor",
+      "zh": "烈酒",
+      "en": "Liquor",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 2.5,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/liquor.webp"
+    },
+    {
+      "id": "beer",
+      "zh": "啤酒",
+      "en": "Beer",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/beer.webp"
+    },
+    {
+      "id": "paper",
+      "zh": "纸张",
+      "en": "Paper",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 2.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/paper.webp"
+    },
+    {
+      "id": "books",
+      "zh": "书籍",
+      "en": "Books",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/books.webp"
+    },
+    {
+      "id": "jewelry",
+      "zh": "珠宝",
+      "en": "Jewelry",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/jewelry.webp"
+    },
+    {
+      "id": "leather",
+      "zh": "皮革",
+      "en": "Leather",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/leather.webp"
+    },
+    {
+      "id": "tools",
+      "zh": "工具",
+      "en": "Tools",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/tools.webp"
+    },
+    {
+      "id": "masonry",
+      "zh": "砖块",
+      "en": "Masonry",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 1.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/masonry.webp"
+    },
+    {
+      "id": "lacquerware",
+      "zh": "漆器",
+      "en": "Lacquerware",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 5.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/lacquerware.webp"
+    },
+    {
+      "id": "pottery",
+      "zh": "陶器",
+      "en": "Pottery",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 1.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/pottery.webp"
+    },
+    {
+      "id": "furniture",
+      "zh": "家具",
+      "en": "Furniture",
+      "group": "制成品 (工坊)",
+      "method": "produced",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/furniture.webp"
+    },
+    {
+      "id": "wild_game",
+      "zh": "野味",
+      "en": "Wild Game",
+      "group": "制成品 (工坊)",
+      "method": "狩猎",
+      "price": 1.0,
+      "food": 3.5,
+      "transport": 0.5,
+      "base": 0.0,
+      "icon": "assets/goods-icons/wild_game.webp"
+    },
+    {
+      "id": "fur",
+      "zh": "毛皮",
+      "en": "Fur",
+      "group": "制成品 (工坊)",
+      "method": "狩猎",
+      "price": 2.0,
+      "food": 2.0,
+      "transport": 0.25,
+      "base": 0.0,
+      "icon": "assets/goods-icons/fur.webp"
+    },
+    {
+      "id": "fish",
+      "zh": "鱼类",
+      "en": "Fish",
+      "group": "制成品 (工坊)",
+      "method": "采集",
+      "price": 1.0,
+      "food": 5.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/fish.webp"
+    },
+    {
+      "id": "wheat",
+      "zh": "小麦",
+      "en": "Wheat",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 8.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/wheat.webp"
+    },
+    {
+      "id": "maize",
+      "zh": "玉米",
+      "en": "Maize",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 8.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/maize.webp"
+    },
+    {
+      "id": "rice",
+      "zh": "稻米",
+      "en": "Rice",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 10.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/rice.webp"
+    },
+    {
+      "id": "millet",
+      "zh": "杂谷",
+      "en": "Sturdy Grains",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 5.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/millet.webp"
+    },
+    {
+      "id": "legumes",
+      "zh": "豆类",
+      "en": "Legumes",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 5.0,
+      "transport": 2.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/legumes.webp"
+    },
+    {
+      "id": "potato",
+      "zh": "马铃薯",
+      "en": "Potatoes",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 8.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/potato.webp"
+    },
+    {
+      "id": "livestock",
+      "zh": "牲畜",
+      "en": "Livestock",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.5,
+      "food": 8.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/livestock.webp"
+    },
+    {
+      "id": "wool",
+      "zh": "羊毛",
+      "en": "Wool",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 2.5,
+      "food": 3.0,
+      "transport": 1.0,
+      "base": 0.00025,
+      "icon": "assets/goods-icons/wool.webp"
+    },
+    {
+      "id": "horses",
+      "zh": "马匹",
+      "en": "Horses",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 3.0,
+      "food": 2.0,
+      "transport": 2.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/horses.webp"
+    },
+    {
+      "id": "olives",
+      "zh": "橄榄",
+      "en": "Olives",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 4.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/olives.webp"
+    },
+    {
+      "id": "fruit",
+      "zh": "水果",
+      "en": "Fruit",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 1.0,
+      "food": 4.0,
+      "transport": 2.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/fruit.webp"
+    },
+    {
+      "id": "beeswax",
+      "zh": "蜂蜡",
+      "en": "Beeswax",
+      "group": "制成品 (工坊)",
+      "method": "农牧",
+      "price": 2.0,
+      "food": 2.5,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/beeswax.webp"
+    },
+    {
+      "id": "slaves_goods",
+      "zh": "奴隶",
+      "en": "Slaves",
+      "group": "制成品 (工坊)",
+      "method": "special",
+      "price": 3.0,
+      "food": 0.0,
+      "transport": 1.0,
+      "base": 0.0,
+      "icon": "assets/goods-icons/slaves_goods.webp"
+    }
+  ],
+  "societal_values": [
+    {
+      "id": "centralization_vs_decentralization",
+      "zh": "中央集权 vs 地方分权",
+      "en": "Centralization vs Decentralization",
+      "category": "国家治理",
+      "left_pole": "中央集权",
+      "right_pole": "地方分权",
+      "left_effects": "王室力量 +50%；附属国的忠诚度 −20 点",
+      "right_effects": "阶层满意度均衡点 +5 个百分点；附属国的忠诚度 +30 点",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "traditionalist_vs_innovative",
+      "zh": "守旧 vs 创新",
+      "en": "Traditionalist vs Innovative",
+      "category": "社会与经济",
+      "left_pole": "守旧",
+      "right_pole": "创新",
+      "left_effects": "文化传统 +100%；接纳思潮花费 +200%",
+      "right_effects": "最大识字率 +10 个百分点；接纳思潮花费 −50%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "spiritualist_vs_humanist",
+      "zh": "属灵 vs 人文",
+      "en": "Spiritualist vs Humanist",
+      "category": "社会与经济",
+      "left_pole": "属灵",
+      "right_pole": "人文",
+      "left_effects": "人口皈依速度 +50%；人口同化速度 −50%",
+      "right_effects": "人口皈依速度 −50%；人口同化速度 +50%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "aristocracy_vs_plutocracy",
+      "zh": "贵族政治 vs 财阀政治",
+      "en": "Aristocracy vs Plutocracy",
+      "category": "国家治理",
+      "left_pole": "贵族政治",
+      "right_pole": "财阀政治",
+      "left_effects": "贵族阶层力量 +50%；宫廷支出效率 −25%",
+      "right_effects": "市民阶层力量 +50%；宫廷支出效率 +50%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "serfdom_vs_free_subjects",
+      "zh": "农奴制 vs 自由民",
+      "en": "Serfdom vs Free Subjects",
+      "category": "社会与经济",
+      "left_pole": "农奴制",
+      "right_pole": "自由民",
+      "left_effects": "原料生产产出 +20%；农民自主权 −33 个百分点",
+      "right_effects": "人口升级速度 +100%；农民自主权 +33 个百分点",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "mercantilism_vs_free_trade",
+      "zh": "重商主义 vs 自由贸易",
+      "en": "Mercantilism vs Free Trade",
+      "category": "社会与经济",
+      "left_pole": "重商主义",
+      "right_pole": "自由贸易",
+      "left_effects": "最高关税 +50 个百分点；市场保护 +50%",
+      "right_effects": "市民贸易容量 +100%；市场保护 −25%",
+      "era": "第 4 时代 · 宗教改革"
+    },
+    {
+      "id": "belligerent_vs_conciliatory",
+      "zh": "好战姿态 vs 亲善姿态",
+      "en": "Belligerent vs Conciliatory",
+      "category": "军事与对外",
+      "left_pole": "好战姿态",
+      "right_pole": "亲善姿态",
+      "left_effects": "战争分数效率 +25%；宣战理由制造速度 +33%",
+      "right_effects": "外交声誉 +4 点；宣战理由制造速度 −33%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "quality_vs_quantity",
+      "zh": "注重质量 vs 注重数量",
+      "en": "Quality vs Quantity",
+      "category": "军事与对外",
+      "left_pole": "注重质量",
+      "right_pole": "注重数量",
+      "left_effects": "军事战术 +0.1 点；陆军主动性 +25%",
+      "right_effects": "征召规模 +50%；陆军主动性 −25%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "offensive_vs_defensive",
+      "zh": "聚焦进攻 vs 聚焦防御",
+      "en": "Offensive vs Defensive",
+      "category": "军事与对外",
+      "left_pole": "聚焦进攻",
+      "right_pole": "聚焦防御",
+      "left_effects": "围城能力 +10%；要塞防御 −50%",
+      "right_effects": "要塞维护效率 +40%；要塞防御 +50%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "land_vs_naval",
+      "zh": "陆权主义 vs 海权主义",
+      "en": "Land vs Naval",
+      "category": "军事与对外",
+      "left_pole": "陆权主义",
+      "right_pole": "海权主义",
+      "left_effects": "陆上贸易效率 +20%；海上贸易效率 −66%",
+      "right_effects": "陆上贸易效率 −40%；海上贸易效率 +20%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "capital_economy_vs_traditional_economy",
+      "zh": "资本经济 vs 传统经济",
+      "en": "Capital Economy vs Traditional Economy",
+      "category": "社会与经济",
+      "left_pole": "资本经济",
+      "right_pole": "传统经济",
+      "left_effects": "加工生产效率 +10%；食物产出 −20%",
+      "right_effects": "原料生产产出 +20%；食物产出 +10%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "individualism_vs_communalism",
+      "zh": "个人主义 vs 集体主义",
+      "en": "Individualism vs Communalism",
+      "category": "社会与经济",
+      "left_pole": "个人主义",
+      "right_pole": "集体主义",
+      "left_effects": "陆军士气 +10%；海军士气 +10%",
+      "right_effects": "人口加入叛军的阈值 −5 个百分点；撤销特权花费 −50%",
+      "era": "第 1 时代 · 传统"
+    },
+    {
+      "id": "outward_vs_inward",
+      "zh": "注重外务 vs 注重内政",
+      "en": "Outward vs Inward",
+      "category": "军事与对外",
+      "left_pole": "注重外务",
+      "right_pole": "注重内政",
+      "left_effects": "力量投射 +5 点；外交容量 +33%",
+      "right_effects": "王室力量 +25%；每月控制力 +0.5 个百分点/月",
+      "era": "第 3 时代 · 发现"
+    },
+    {
+      "id": "sinicized_vs_unsinicized",
+      "zh": "汉化 vs 去汉化",
+      "en": "Sinicized vs Unsinicized",
+      "category": "国别与宗教",
+      "left_pole": "汉化",
+      "right_pole": "去汉化",
+      "left_effects": "立法效率 +25%；每月研究进度 +10%",
+      "right_effects": "威望衰减 −0.2 个百分点；维稳效率 +66%",
+      "era": "第 1 时代"
+    },
+    {
+      "id": "absolutism_vs_liberalism",
+      "zh": "专制主义 vs 自由主义",
+      "en": "Absolutism vs Liberalism",
+      "category": "国家治理",
+      "left_pole": "专制主义",
+      "right_pole": "自由主义",
+      "left_effects": "王室力量 +100%；政治影响力获取 +25%",
+      "right_effects": "文化容量 +20%；政治影响力获取 +25%",
+      "era": "第 5 时代 · 专制主义"
+    },
+    {
+      "id": "mysticism_vs_jurisprudence",
+      "zh": "隐义主义 vs 教法主义",
+      "en": "Mysticism vs Jurisprudence",
+      "category": "国别与宗教",
+      "left_pole": "隐义主义",
+      "right_pole": "教法主义",
+      "left_effects": "陆军士气 +10%；人口皈依速度 +10%",
+      "right_effects": "每月研究进度 +10%；内阁效率 +10%",
+      "era": "第 1 时代"
+    },
+    {
+      "id": "latinization_vs_hellenization",
+      "zh": "拉丁化 vs 罗马派",
+      "en": "Latinitas vs Rōmanismós",
+      "category": "国别与宗教",
+      "left_pole": "拉丁化",
+      "right_pole": "罗马派",
+      "left_effects": "预期外交支出 −20%；出售效率 +5%",
+      "right_effects": "维稳效率 +40%；正统信仰容忍度 +0.5 点",
+      "era": "第 1 时代"
+    }
+  ],
+  "estate_actions": [
+    {
+      "id": "ask_for_extra_levies",
+      "zh": "要求扩大征召",
+      "en": "Ask for Extra Levies",
+      "kind": "紧急互动 / Emergency",
+      "target": "任一税基>0.01的本国阶层。",
+      "cost": "25政治影响力＋缩放金币（系数4）；目标满意度−12.5个百分点。防御战两项费用与满意度损失均减半。",
+      "effect": "全国陆军征召规模+15%，持续12个月。",
+      "cooldown": "独立5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "extraordinary_taxes",
+      "zh": "征收特别税",
+      "en": "Levy Extraordinary Taxes",
+      "kind": "紧急互动 / Emergency",
+      "target": "税基>0.01的本国阶层；天主教国家的教士除外。",
+      "cost": "25政治影响力；目标满意度−12.5个百分点。防御战费用与满意度损失均减半。",
+      "effect": "目标阶层最高税率+10个百分点，持续12个月；实际税率按税收滑块执行。",
+      "cooldown": "独立5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "ask_clergy_for_legitimacy",
+      "zh": "请求神职者支持",
+      "en": "Request Clerical Endorsement",
+      "kind": "紧急互动 / Emergency",
+      "target": "教士；须有统治者，且该统治者尚未获得背书。",
+      "cost": "25政治影响力＋缩放金币（系数6）；教士满意度−7.5个百分点。防御战价格减半。",
+      "effect": "正统性+15；记录本统治者已获得教士背书。",
+      "cooldown": "五项阶层求助共享5年；每位统治者仅一次。",
+      "scope": "事件或特殊解锁 / Special unlock"
+    },
+    {
+      "id": "ask_nobility_for_diplomats",
+      "zh": "请求贵族使节",
+      "en": "Request Noble Envoys",
+      "kind": "紧急互动 / Emergency",
+      "target": "贵族。",
+      "cost": "30政治影响力＋缩放金币（系数2）；贵族满意度−10个百分点。防御战价格减半。",
+      "effect": "现有外交官+5。",
+      "cooldown": "五项阶层求助共享5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "ask_burghers_for_loan",
+      "zh": "请求紧急拨款",
+      "en": "Request Emergency Grant",
+      "kind": "紧急互动 / Emergency",
+      "target": "市民；市民金库至少10金币。",
+      "cost": "40政治影响力；市民满意度−15个百分点。防御战价格减半。",
+      "effect": "从市民金库转入国库min(6×单笔阶层贷款规模,市民金库×50%)金币。",
+      "cooldown": "五项阶层求助共享5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "ask_commoners_for_stability",
+      "zh": "向平民求助",
+      "en": "Appeal to the Commoners",
+      "kind": "紧急互动 / Emergency",
+      "target": "平民或齐米，选一方。",
+      "cost": "40政治影响力；目标满意度−15个百分点。防御战价格减半。",
+      "effect": "稳定度增加10×(1+0.005×农奴制—自由民轴数值)，范围5～15。",
+      "cooldown": "五项阶层求助共享5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "ask_tribes_for_manpower",
+      "zh": "号召部落武装",
+      "en": "Call the Tribes to Arms",
+      "kind": "紧急互动 / Emergency",
+      "target": "部落或哥萨克，选一方；全国月人力收入须>0。",
+      "cost": "15政治影响力＋缩放金币（系数6）；目标满意度−20个百分点。防御战价格减半。",
+      "effect": "增加相当于12个月全国人力收入的人力。",
+      "cooldown": "五项阶层求助共享5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "call_emergency_parliament",
+      "zh": "召开紧急议会",
+      "en": "Call Emergency Parliament",
+      "kind": "紧急互动 / Emergency",
+      "target": "选择议会议题；国家正在战争、有议会制度、当前没有会期，且距上次召开不超过59个月。",
+      "cost": "正统性−10、政治影响力−10。",
+      "effect": "在首都立即召开选定议题的议会；起始支持＝议会基础支持＋非恒忠提案阶层的力量份额。",
+      "cooldown": "独立5年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "press_estate_private_regiments_action",
+      "zh": "征用私兵",
+      "en": "Press Private Regiments",
+      "kind": "紧急互动 / Emergency",
+      "target": "有待命私人团的本国阶层；国家须有贵族私军或哥萨克私军特权。",
+      "cost": "正统性−10、政治影响力−15。",
+      "effect": "将目标阶层的待命私人团征入国家军队。",
+      "cooldown": "独立3年。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "bribe_estate",
+      "zh": "贿赂阶层",
+      "en": "Bribe the Estate",
+      "kind": "阶层互动 / Estate interaction",
+      "target": "任一税基>0.01的本国阶层；国库足以支付。",
+      "cost": "金币＝目标阶层税基×12。",
+      "effect": "目标当前满意度+10个百分点；支付的金币转入该阶层金库。",
+      "cooldown": "无独立冷却。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "perform_reduction",
+      "zh": "削减阶层力量",
+      "en": "Perform Reduction",
+      "kind": "阶层互动 / Estate interaction",
+      "target": "有阶层建筑、力量<90%、当前满意度>50%的本国阶层。",
+      "cost": "目标当前满意度基础−50个百分点，受拆楼满意度影响修正。",
+      "effect": "国库获得目标税基×2金币，阶层金库减少同额；摧毁最多min(20,2+本国地点数÷20)座合格阶层建筑，大教堂除外。",
+      "cooldown": "无独立冷却。",
+      "scope": "通用 / General"
+    },
+    {
+      "id": "sell_work_of_art_to_estates",
+      "zh": "向阶层出售艺术品",
+      "en": "Sell Work of Art to Estates",
+      "kind": "阶层互动 / Estate interaction",
+      "target": "本国非无价、非帝国御宝且未损毁的艺术品",
+      "cost": "永久销毁所选艺术品，失去其威望与文化传统增益",
+      "effect": "国库立即获得该艺术品价格 60% 的金币",
+      "cooldown": "无独立冷却",
+      "scope": "通用 / General"
+    }
+  ],
+  "cabinet_actions": [
+    {
+      "id": "spread_philhellenism",
+      "zh": "推广亲希腊主义",
+      "en": "Spread Philhellenism",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "文化影响力 +10%、研究进度 +5%，推动罗马化。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_variable unlock_spread_philhellenism_variable、已启用扩展包 d008_fate_of_the_phoenix）；执行条件（任意一项（宫廷语言 希腊语、文化（文化属于 罗马）））"
+    },
+    {
+      "id": "encourage_latin_militarism",
+      "zh": "鼓励拉丁军国主义",
+      "en": "Encourage Latin Militarism",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "陆军维护效率 +5%、月陆军传统 +0.05，推动拉丁化。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_variable encourage_latin_militarism_variable、已启用扩展包 d008_fate_of_the_phoenix）；执行条件（任意一项（宫廷语言 拉丁语、文化（文化属于 意大利）））"
+    },
+    {
+      "id": "aid_constantinople",
+      "zh": "优先发展君士坦丁堡",
+      "en": "Aid Constantinople",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "君士坦丁堡月发展度 +0.005、年人口增长 +0.05 个百分点、升级能力 +5 人/月。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_variable byz_unlocked_constantinople_cabinet_action、君士坦丁堡（首都 是、所有者 root））；执行条件（has_variable byz_unlocked_constantinople_cabinet_action、君士坦丁堡（首都 是、所有者 root））"
+    },
+    {
+      "id": "alleviate_concerns",
+      "zh": "缓解忧虑",
+      "en": "Alleviate Concerns",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "敌意（Antagonism）衰减 +0.1。",
+      "scope": "通用",
+      "conditions": "执行条件（has_countries_with_timed_antagonism 是）"
+    },
+    {
+      "id": "appease_estate",
+      "zh": "安抚阶层",
+      "en": "Appease Estate",
+      "ability": "DIP",
+      "target": "阶层 Estate",
+      "effect": "选定阶层满意度月恢复 +0.10 个百分点、均衡 +2.5 个百分点。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "aptekarsky",
+      "zh": "药房衙门",
+      "en": "Aptekarsky",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "目标省各地疫病抗性 +5%、月繁荣度 +0.2 个百分点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（解锁衙门内阁行动 是、has_variable aptekarsky_prikaz_established）；执行条件（any_province（省份中的任一地点（integration_level 核心、count all、has_any_disease_present 是）））"
+    },
+    {
+      "id": "assimilate_area",
+      "zh": "同化地区",
+      "en": "Assimilate Area",
+      "ability": "DIP",
+      "target": "文化 Culture、地区 Area",
+      "effect": "同化能力 +20 人/月、移民吸引力 −0.2。",
+      "scope": "通用",
+      "conditions": "可见条件（允许同化地区 是、地点数 > 0）；执行条件（文化统一度 < 0.95）"
+    },
+    {
+      "id": "bironovshchina",
+      "zh": "擢升外籍顾问集团",
+      "en": "Promote Council of the Empire",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "内阁人物产生的阶层力量 −25%、外交声誉 +2，改变外务倾向并减缓稳定衰减。",
+      "scope": "通用",
+      "conditions": "可见条件（has_unlocked_cabinet_action_trigger（类型 擢升外籍顾问集团））"
+    },
+    {
+      "id": "bolshogo_dvortsa",
+      "zh": "内宫衙门",
+      "en": "Bolshogo Dvortsa",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "月宗教影响力 +0.5、宫廷支出效率 +10%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（解锁衙门内阁行动 是、has_variable bolshogo_dvortsa_prikaz_established）"
+    },
+    {
+      "id": "increase_bureaucratic_entrenchment",
+      "zh": "加快官僚体制固化",
+      "en": "Accelerate Bureaucratic Entrenchment",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "官僚部门固化速度 +10%。",
+      "scope": "通用",
+      "conditions": "可见条件（任意官僚部门（count > 0））"
+    },
+    {
+      "id": "bolster_bureaucratic_efficiency",
+      "zh": "降低官僚部门维护费",
+      "en": "Reduce Bureaucratic Upkeep",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "官僚部门维护成本 −5%。",
+      "scope": "通用",
+      "conditions": "可见条件（任意官僚部门（官僚部门维护花费 > 0））"
+    },
+    {
+      "id": "byz_extensive_conscription",
+      "zh": "大规模征兵",
+      "en": "Extensive Conscription",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "人力 +10%、陆军补员效率 +4%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（允许大规模征兵 是）；执行条件（at_war 是、any_country_at_war_with（religion.group != root.religion.group））"
+    },
+    {
+      "id": "cab_diplomatic_corps",
+      "zh": "支持外交使团",
+      "en": "Diplomatic Corps",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "外交容量 +20%、月外交官 +0.2。",
+      "scope": "通用",
+      "conditions": "可见条件（允许支持外交使团 是）"
+    },
+    {
+      "id": "cab_naval_focus",
+      "zh": "支持海权",
+      "en": "Maritime Support",
+      "ability": "MIL",
+      "target": "地区 Area",
+      "effect": "目标地点海上存在与港口容量增加。",
+      "scope": "通用",
+      "conditions": "可见条件（允许支持海权 是）"
+    },
+    {
+      "id": "change_societal_values",
+      "zh": "改变社会价值观",
+      "en": "Change Societal Values",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "按所选方向推动社会价值观，基础月变化 0.1。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "counter_espionage_action",
+      "zh": "反间谍",
+      "en": "Counterespionage",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "反间谍行动效率 +50%。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "develop_province",
+      "zh": "开发省份",
+      "en": "Develop Province",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "省内地点月发展度 +0.0025。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0）"
+    },
+    {
+      "id": "diplomatic_endeavors",
+      "zh": "外交努力",
+      "en": "Diplomatic Endeavors",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "外交声誉 +2、改善关系效率 +25%。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "direct_domestic_migration",
+      "zh": "国内定向迁徙",
+      "en": "Direct Domestic Migration",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "选来源与目的地，在国内定向转移合资格居民。",
+      "scope": "通用",
+      "conditions": "可见条件（is_rebel_country 否）；执行条件（总人口 >= 5）"
+    },
+    {
+      "id": "encourage_migration",
+      "zh": "鼓励移民",
+      "en": "Encourage Migration",
+      "ability": "ADM",
+      "target": "地点 Location",
+      "effect": "全国迁移速度 +50%，目标地点移民吸引力 +1。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0）"
+    },
+    {
+      "id": "expel_people",
+      "zh": "驱逐人群",
+      "en": "Expel People",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "目标吸引力 −2、迁移平值与速度增加，并开放农民和劳工迁移。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0）"
+    },
+    {
+      "id": "form_new_culture",
+      "zh": "培育新文化",
+      "en": "Foster New Culture",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "培育新文化，实施期间推动创新。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（排除（is_dominant_country_of 文化））；执行条件（in_civil_war 否、任意一项（国家等级 王国、国家等级 帝国）、若（以下条件成立（is_ai 是）、文化（排除（has_culture_with_tag native_american_tag））、任意一项（全部条件（is_colonial_subject 是、is_disloyal_subject 是））））"
+    },
+    {
+      "id": "frustrate_annexation",
+      "zh": "阻挠吞并",
+      "en": "Frustrate Annexation",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "敌对外交吞并效率 −20%。",
+      "scope": "通用",
+      "conditions": "可见条件（任意一项（为属国 是、is_being_annexed 是））；执行条件（is_being_annexed 是、任意一项（为属国 否、is_disloyal_subject 否）、排除（任何内阁职位（has_cabinet_action 是、内阁行动 宣告认可法权）））"
+    },
+    {
+      "id": "gaituguiliu_policy",
+      "zh": "改土归流政策",
+      "en": "Gǎitǔguīliú Policy",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "同化速度 +10%、吞并速度 +20%、月天朝威仪 +0.01。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（存在 天朝、天朝（international_organization_has_leader 是、领袖国 root、组织实行的政策 改土归流））"
+    },
+    {
+      "id": "gather_acllas",
+      "zh": "选拔太阳贞女",
+      "en": "Aclla Recruitment",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "选拔太阳贞女，实施期间教士满意度均衡 +5 点。",
+      "scope": "通用",
+      "conditions": "可见条件（启用下嫁太阳贞女 是）"
+    },
+    {
+      "id": "mediate_co_princes",
+      "zh": "调解双元首关系",
+      "en": "Mediate between the Co-Princes",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "改善关系效率 +10%、月威望 +0.05。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 安道尔）；执行条件（已启用扩展包 海格力斯之柱（D009）、已采用改革 共治公国结构）"
+    },
+    {
+      "id": "increase_control_province",
+      "zh": "提高省份控制力",
+      "en": "Increase Province Control",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "最大控制力 +10 点，控制力月增长 +1 点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（地点数 > 0、启用派遣暗行御史 否、排除（已采用改革 贵族义务）、存在 low_control_best_tax_base）；执行条件（任意一项（is_active 是、any_province（province_average_control < define:NCountry|LOW_CONTROL_THRESHOLD_FOR_BEST_TAX）））"
+    },
+    {
+      "id": "increase_control_area",
+      "zh": "提高地区控制力",
+      "en": "Increase Area Control",
+      "ability": "ADM",
+      "target": "地区 Area",
+      "effect": "地点修正：最大控制力 +5%；每月控制力 +0.5%；progress：selected_area（value area_average_control(scope:actor)）",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0、启用派遣暗行御史 否、存在 low_control_best_tax_base）；执行条件（任意一项（is_active 是、any_province（province_average_control < define:NCountry|LOW_CONTROL_THRESHOLD_FOR_BEST_TAX）））"
+    },
+    {
+      "id": "integrate_area",
+      "zh": "整合地区",
+      "en": "Integrate Area",
+      "ability": "MIL",
+      "target": "地区 Area",
+      "effect": "省级整合速度平值 +1.0，覆盖地区内本国目标。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0、任意一项（已解锁革新 改良整合行政、可使用整合地区内阁行动 是））；执行条件（any_province（省份中的任一地点（integration_level 征服）））"
+    },
+    {
+      "id": "integrate_province",
+      "zh": "整合省份",
+      "en": "Integrate Province",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "省级整合速度平值 +1.0，推进征服地点到已整合。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0、排除（已解锁革新 改良整合行政））"
+    },
+    {
+      "id": "ispolneniya_zakonov",
+      "zh": "执法衙门",
+      "en": "Ispolneniya Zakonov",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "立法效率 +10%、全国每月控制力 +0.5 点。",
+      "scope": "通用",
+      "conditions": "可见条件（解锁衙门内阁行动 是）"
+    },
+    {
+      "id": "kazenny",
+      "zh": "御库衙门",
+      "en": "Kazenny",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "税收效率 +0.01、邻近度效率 +5%。",
+      "scope": "通用",
+      "conditions": "可见条件（解锁衙门内阁行动 是）"
+    },
+    {
+      "id": "kbo_pop_promote_action",
+      "zh": "平等融合",
+      "en": "Egalitarian Integration",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "升级能力 +2 人/月、同化能力 +20 人/月；歧视文化征召规模 +10%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_variable serf_social_integration_variable、地点数 > 0）"
+    },
+    {
+      "id": "kbo_sharia_courts",
+      "zh": "执行沙里亚法管理",
+      "en": "Enforce Sharī'ah Administration",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "全国改宗能力 +25 人/月、最大识字率 +5 点，推动守旧。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_variable enable_sharia_courts_cabinet_action_variable）"
+    },
+    {
+      "id": "lat_reintegrate_province",
+      "zh": "重新整合君士坦丁堡",
+      "en": "Reintegrate the Constantinople",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "整合拉丁帝国宣称范围内的征服地点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（重新整合省份内阁行动 是）；执行条件（提示条件（any_province（省份中的任一地点（处于指定地理范围 拉丁帝国宣称疆域、integration_level 征服））））"
+    },
+    {
+      "id": "lit_promote_catholicism",
+      "zh": "推广天主教",
+      "en": "Promote Catholicism",
+      "ability": "MIL",
+      "target": "宗教 Religion、省份 Province",
+      "effect": "本地改宗能力 +100 人/月。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（地点数 > 0、has_variable lit_enable_conversion_to_catholicism_variable）；执行条件（宗教统一度 < 1、任意一项（禁止贵族皈依 否、禁止市民皈依 否、禁止教士皈依 否、禁止农民皈依 否））"
+    },
+    {
+      "id": "maintain_trunk_road_cabinet_action",
+      "zh": "维护大干道",
+      "en": "Maintain Grand Trunk Road",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "道路建造时间 −15%，降低道路造价中的首都距离影响。",
+      "scope": "通用",
+      "conditions": "可见条件（has_unlocked_cabinet_action_trigger（类型 维护大干道））"
+    },
+    {
+      "id": "merge_culture_group",
+      "zh": "统合文化组",
+      "en": "Unify Culture Group",
+      "ability": "ADM",
+      "target": "文化组 Culture Group",
+      "effect": "统合文化组，实施期间推动中央集权。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（文化（has_any_culture_group 是、is_merged_culture_group 否、any_culture_group（is_already_merged 否）））；执行条件（is_dominant_country_of 文化）"
+    },
+    {
+      "id": "militarize_country",
+      "zh": "军事化国家",
+      "en": "Militarize Country",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "训练度 +5%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已采用改革 普鲁士君主制）"
+    },
+    {
+      "id": "mlo_restore_kingdom_lombardy",
+      "zh": "整合伦巴第宣称",
+      "en": "Integrate Lombard Claims",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "整合伦巴第宣称，地点繁荣恢复 +2.5%、年人口增长 +0.1 点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（国家标签 米兰、has_variable lombard_ambitions_variable）；执行条件（any_province（地区（任意一项（当前对象 伦巴第、当前对象 艾米利亚‑罗马涅、当前对象 皮埃蒙特、当前对象 利古里亚‑科西嘉、当前对象 威尼托‑弗留利、当前对象 托斯卡纳））、省份中的任一地点（integration_level 征服）））"
+    },
+    {
+      "id": "promote_religious_reformation",
+      "zh": "推广纳瓦特尔宗教改革",
+      "en": "Promote Nahua Reformation",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "纳瓦特尔宗教改革月进度 +0.1。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（宗教（has_religious_focuses 是））；执行条件（任意一项（active_religious_focus 独尊双生之主、active_religious_focus 赐能守护神祇、active_religious_focus 设立蛇女职位、active_religious_focus 扩大军役贵族、active_religious_focus 推崇尚武精神、active_religious_focus 发动鲜花战争、active_religious_focus 实行律法改革、active_religious_focus 扩大献祭规模））"
+    },
+    {
+      "id": "noblesse_oblige_cabinet_action",
+      "zh": "贵族义务",
+      "en": "Noblesse Oblige",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "最大控制力 +10 点、每月控制力 +1 点，贵族满意度均衡 +5 点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已采用改革 贵族义务、地点数 > 0、启用派遣暗行御史 否、存在 low_control_best_tax_base）；执行条件（任意一项（is_active 是、any_province（province_average_control < define:NCountry|LOW_CONTROL_THRESHOLD_FOR_BEST_TAX）））"
+    },
+    {
+      "id": "office_of_new_converts",
+      "zh": "监督新皈依者办公室",
+      "en": "Office of New Converts",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "全国改宗能力 +10 人/月、异教容忍 −3，推动好战姿态。",
+      "scope": "通用",
+      "conditions": "可见条件（喀山（has_location_modifier 监督新皈依者办公室））；执行条件（喀山（已有建筑 东正教修道院、has_location_modifier 监督新皈依者办公室））"
+    },
+    {
+      "id": "oma_bolster_omani_navy",
+      "zh": "增强海军",
+      "en": "Bolster Navy",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "海上贸易优势 +20%、船具产出 +10%。",
+      "scope": "通用",
+      "conditions": "可见条件（has_unlocked_cabinet_action_trigger（类型 增强海军））"
+    },
+    {
+      "id": "oma_zanzibar_integration",
+      "zh": "整合斯瓦希里省份",
+      "en": "Integrate Swahili Province",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "以行政能力整合斯瓦希里海岸的省份。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_unlocked_cabinet_action_trigger（类型 整合斯瓦希里省份）、地点数 > 0、any_province（省份中的任一地点（integration_level 征服、区域 斯瓦希里海岸）））"
+    },
+    {
+      "id": "pacify_population",
+      "zh": "安抚人口",
+      "en": "Pacify Population",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "本地叛乱度 −20 点、加入叛军门槛 −5 点、退出门槛 −10 点。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0）；执行条件（any_province（省份中的任一地点（平均满意度 < 0.7）））"
+    },
+    {
+      "id": "peasant_labor_rights_action",
+      "zh": "监督劳工权益",
+      "en": "Oversee Labor Rights",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "月繁荣度 +0.1 点、月识字率 +0.1 点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已采用改革 劳工权益保障、地点数 > 0）；执行条件（any_province（省份中的任一地点（integration_level 核心、count all）））"
+    },
+    {
+      "id": "pop_promote_action",
+      "zh": "鼓励城市化",
+      "en": "Encourage Urbanization",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "本地人口升级能力 +5 人/月，支持城市职业填充。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（排除（has_variable serf_social_integration_variable）、地点数 > 0）"
+    },
+    {
+      "id": "posolsky",
+      "zh": "使节衙门",
+      "en": "Posolsky",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "外交声誉 +2、吞并速度 +20%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（解锁衙门内阁行动 是、has_variable posolsky_prikaz_established）"
+    },
+    {
+      "id": "promote_culture",
+      "zh": "同化人群",
+      "en": "Assimilate Pops into our Culture",
+      "ability": "DIP",
+      "target": "文化 Culture、省份 Province",
+      "effect": "本地同化能力 +40 人/月、吸引力 −0.15。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0）；执行条件（文化统一度 < 1）"
+    },
+    {
+      "id": "promote_religion",
+      "zh": "改变省份信仰",
+      "en": "Convert Province",
+      "ability": "MIL",
+      "target": "宗教 Religion、省份 Province",
+      "effect": "本地改宗能力 +40 人/月、吸引力 −0.15。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（地点数 > 0、排除（启用宗教法庭 是））；执行条件（宗教统一度 < 1、若（以下条件成立（具有国家修正 sco_the_first_congregation）、排除（宗教 天主教））、任意一项（禁止贵族皈依 否、禁止市民皈依 否、禁止教士皈依 否、禁止农民皈依 否））"
+    },
+    {
+      "id": "establish_religious_court",
+      "zh": "建立宗教裁判庭",
+      "en": "Establish Religious Court",
+      "ability": "MIL",
+      "target": "宗教 Religion、省份 Province",
+      "effect": "本地改宗能力 +100 人/月。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（地点数 > 0、启用宗教法庭 是）；执行条件（宗教统一度 < 1、若（以下条件成立（具有国家修正 sco_the_first_congregation）、排除（宗教 天主教））、任意一项（禁止贵族皈依 否、禁止市民皈依 否、禁止教士皈依 否、禁止农民皈依 否））"
+    },
+    {
+      "id": "pru_deal_with_robber_barons",
+      "zh": "解决强盗贵族",
+      "en": "Deal With the Robber Barons",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "处理目标省的强盗贵族状态。",
+      "scope": "通用",
+      "conditions": "可见条件（any_province（has_province_modifier PRU_robber_barons））"
+    },
+    {
+      "id": "razryadny",
+      "zh": "军务衙门",
+      "en": "Razryadny",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "补给站容量 +200、陆军传统衰减减少。",
+      "scope": "通用",
+      "conditions": "可见条件（解锁衙门内阁行动 是）"
+    },
+    {
+      "id": "rebel_crackdown",
+      "zh": "镇压叛乱",
+      "en": "Rebel Crackdown",
+      "ability": "MIL",
+      "target": "叛军派系 Rebels",
+      "effect": "指定叛军月进度 −0.25 个百分点。",
+      "scope": "通用",
+      "conditions": "执行条件（num_rebels > 0）"
+    },
+    {
+      "id": "recovery_effort",
+      "zh": "专注恢复",
+      "en": "Recovery Effort",
+      "ability": "DIP",
+      "target": "省份 Province",
+      "effect": "本地荒废恢复 +5%、年度人口增长 +0.1 点。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0）"
+    },
+    {
+      "id": "reduce_inflation",
+      "zh": "降低通货膨胀",
+      "en": "Reduce Inflation",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "通胀每月 −0.025 个百分点。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "reduce_war_exhaustion",
+      "zh": "安抚厌战度",
+      "en": "Reduce War Exhaustion",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "厌战度每月 −0.05。",
+      "scope": "通用",
+      "conditions": "执行条件（厌战度 > 0）"
+    },
+    {
+      "id": "reduced_paperwork",
+      "zh": "精简文书工作",
+      "en": "Reduced Paperwork",
+      "ability": "ADM",
+      "target": "地区 Area",
+      "effect": "目标加工生产效率 +0.01。",
+      "scope": "通用",
+      "conditions": "可见条件（允许精简文书工作 是）"
+    },
+    {
+      "id": "reform_taxation_system",
+      "zh": "改革税制",
+      "en": "Reform Taxation System",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "重整危机中的税制，实施期间月天朝威仪 +0.05。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（任何正在发生的灾难（disaster_type crisis_of_the_chinese_dynasty）、排除（has_variable revised_tax_code_variable）、排除（具有国家修正 chi_renewed_taxation_system_modifier））；执行条件（任意一项（is_active 是、is_during_bankruptcy 否））"
+    },
+    {
+      "id": "send_people_to_colonial_charter",
+      "zh": "充实特许殖民地",
+      "en": "Boost Colonial Charter",
+      "ability": "ADM",
+      "target": "省份 Province、殖民特许 Colonial Charter",
+      "effect": "把选定来源人口送入一张殖民特许。",
+      "scope": "通用",
+      "conditions": "可见条件（is_rebel_country 否）；执行条件（总人口 >= 5、has_colonial_charters 是）"
+    },
+    {
+      "id": "send_people_to_the_colonies",
+      "zh": "向殖民属国迁移人口",
+      "en": "Send People to the Colonies",
+      "ability": "ADM",
+      "target": "省份 Province、国家 Country",
+      "effect": "把来源人口迁向殖民附属国。",
+      "scope": "通用",
+      "conditions": "可见条件（is_rebel_country 否）；执行条件（总人口 >= 5、任何附属国（is_subject_type 殖民领、count > 0））"
+    },
+    {
+      "id": "send_secret_royal_inspectors",
+      "zh": "派遣暗行御史",
+      "en": "Send Secret Royal Inspectors",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "最大控制力 +12 个百分点、控制力月增 +1.2 个百分点。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0、启用派遣暗行御史 是）"
+    },
+    {
+      "id": "settle_the_frontier",
+      "zh": "开拓边疆",
+      "en": "Settle the Frontier",
+      "ability": "ADM",
+      "target": "预设省份 Province Definition、省份 Province、人物 Character",
+      "effect": "推进边疆定居与领土取得。",
+      "scope": "通用",
+      "conditions": "可见条件（地点数 > 0、任意一项（国家类型 地点、国家类型 陆军））"
+    },
+    {
+      "id": "settle_tribesmen",
+      "zh": "促进部落民定居",
+      "en": "Settle Tribesmen",
+      "ability": "MIL",
+      "target": "省份 Province",
+      "effect": "部落民转为农民速度 +500%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（地点数 > 0、部落民 > 0）；执行条件（若（以下条件成立（已采用改革 授权阿卜杜勒·瓦德）、排除（已采用改革 授权阿卜杜勒·瓦德））、若（以下条件成立（已授予阶层特权 阿拉伯部落特权）、排除（已授予阶层特权 阿拉伯部落特权）））"
+    },
+    {
+      "id": "soldiers_as_workforce",
+      "zh": "以兵代工",
+      "en": "Soldiers as Workforce",
+      "ability": "MIL",
+      "target": "地区 Area",
+      "effect": "本地建造速度 +33%。",
+      "scope": "通用",
+      "conditions": "可见条件（允许以兵代工 是）"
+    },
+    {
+      "id": "sow_disloyalty",
+      "zh": "煽动不忠",
+      "en": "Sow Disloyalty",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "本国作为附属国，对宗主国忠诚度 −30。",
+      "scope": "通用",
+      "conditions": "可见条件（为属国 是）；执行条件（属国忠诚 > 0）"
+    },
+    {
+      "id": "stabilize_country",
+      "zh": "稳定国家",
+      "en": "Stabilize Country",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "稳定度投资 +0.05。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "streltsy",
+      "zh": "射击军衙门",
+      "en": "Streltsy",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "月陆军传统 +0.05、反间谍效率 +20%。",
+      "scope": "通用",
+      "conditions": "可见条件（解锁衙门内阁行动 是）"
+    },
+    {
+      "id": "strengthen_government",
+      "zh": "强化政府",
+      "en": "Strengthen Government",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "本国适用的正统性、共和传统、奉献度、游牧团结或部落凝聚力每月 +0.10。",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "stroganov_influences",
+      "zh": "斯特罗加诺夫影响力",
+      "en": "Stroganov Influences",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "盐产出 +25%、月正统性 +0.1，推动财阀政治。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（has_variable 斯特罗加诺夫影响力）；执行条件（dynasty_exists 斯特罗加诺夫、任何内阁成员（宗族 斯特罗加诺夫））"
+    },
+    {
+      "id": "study_institutions",
+      "zh": "推广思潮",
+      "en": "Foster Institutions",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "本地思潮增长 +50%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（地点数 > 0）；执行条件（排除（政体 部落））"
+    },
+    {
+      "id": "support_patriarchate",
+      "zh": "支持牧首区",
+      "en": "Support Patriarchate",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "月宗教影响力 +0.1。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（宗教 东正教）"
+    },
+    {
+      "id": "swe_slash_and_burn_new_farms",
+      "zh": "在北部或东部垦荒",
+      "en": "Support New Farms in North or East",
+      "ability": "ADM",
+      "target": "省份 Province",
+      "effect": "年度人口增长 +2 点、月发展度 +0.01、移民吸引力 +0.25。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（任意一项（当前或曾用国家标签 瑞典、当前或曾用国家标签 芬兰））"
+    },
+    {
+      "id": "taluqdar_tax_collection",
+      "zh": "向土司收税",
+      "en": "Taluqdar Tax Collection",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "平民最高与最低税率各 +15 点、贵族均衡 +10 点、贵族力量 +50%。",
+      "scope": "通用",
+      "conditions": "可见条件（可以向土司收税 是）"
+    },
+    {
+      "id": "tyranny_of_the_capital_action",
+      "zh": "弹压阶层",
+      "en": "Align Estate",
+      "ability": "DIP",
+      "target": "阶层 Estate",
+      "effect": "选定阶层恢复与均衡提升，该类叛军月进度 −0.5 点。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已采用改革 首都专政）"
+    },
+    {
+      "id": "cas_pressure_andalusi_court",
+      "zh": "施压安达卢斯宫廷",
+      "en": "Pressure the Andalusi Court",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "海峡局势中的卡斯蒂利亚影响力每月 +0.25。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、is_situation_active 海峡之战、海峡之战（has_variable 对格拉纳达的影响）、当前或曾用国家标签 卡斯蒂利亚、country_exists 格拉纳达）；执行条件（is_situation_active 海峡之战、country_exists 格拉纳达、均不满足（为其属国 格拉纳达、为其属国 摩洛哥）、排除（any_country_at_war_with（当前或曾用国家标签 格拉纳达）））"
+    },
+    {
+      "id": "proclaim_pase_foral",
+      "zh": "宣告认可法权",
+      "en": "Proclaim the Pase Foral",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "敌对吞并效率 −20%，降低对宗主的忠诚。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、文化 巴斯克、任意一项（为属国 是、is_junior_partner 是））；执行条件（已授予阶层特权 审查法权、排除（任何内阁职位（has_cabinet_action 是、内阁行动 阻挠吞并）））"
+    },
+    {
+      "id": "summon_santa_hermandad",
+      "zh": "召集圣兄弟会",
+      "en": "Summon the Santa Hermandad",
+      "ability": "MIL",
+      "target": "全国 Country",
+      "effect": "人力 +5%、陆军士气 +5%。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙）、已采用改革 圣兄弟会）"
+    },
+    {
+      "id": "gra_promote_sovereignty",
+      "zh": "促进我们的主权",
+      "en": "Promote Our Sovereignty",
+      "ability": "ADM",
+      "target": "全国 Country",
+      "effect": "海峡局势中的格拉纳达主权每月 +0.2。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、is_situation_active 海峡之战、当前或曾用国家标签 格拉纳达）"
+    },
+    {
+      "id": "mor_cultivate_andalusi_influence",
+      "zh": "培养安达卢斯影响",
+      "en": "Cultivate Andalusi Influence",
+      "ability": "DIP",
+      "target": "全国 Country",
+      "effect": "海峡局势中的摩洛哥对格拉纳达影响力每月 +0.25。",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、is_situation_active 海峡之战、海峡之战（has_variable 对格拉纳达的影响）、当前或曾用国家标签 摩洛哥、country_exists 格拉纳达）；执行条件（is_situation_active 海峡之战、country_exists 格拉纳达、均不满足（为其属国 格拉纳达、为其属国 卡斯蒂利亚）、排除（any_country_at_war_with（当前或曾用国家标签 格拉纳达）））"
+    }
+  ],
+  "character_interactions": [
+    {
+      "id": "assign_despot",
+      "zh": "任命为专制公",
+      "en": "Assign as Despótēs",
+      "detail": "message 是。on_own_nation 是。价格 任命为专制公花费。可见条件（scope:actor（has_or_had_tag 拜占庭、has_dlc d008_fate_of_the_phoenix））。可用条件（scope:actor（has_ruler 是、ruler（has_dynasty 是）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（当前或曾用国家标签 拜占庭、已启用扩展包 d008_fate_of_the_phoenix））；执行条件（actor（has_ruler 是、统治者（has_dynasty 是）））"
+    },
+    {
+      "id": "compose_strategikon",
+      "zh": "撰写《战略书》",
+      "en": "Compose Stratēgikòn",
+      "detail": "message 是。on_own_nation 是。价格 撰写《战略书》花费。可见条件（scope:actor（has_or_had_tag 拜占庭、has_dlc d008_fate_of_the_phoenix））。可用条件（scope:actor（has_ruler 是、ruler（age_in_years > 35、军事能力 >= 75））、条件（text 我们的统治者尚未在其有生之年写下过《战略书》））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（当前或曾用国家标签 拜占庭、已启用扩展包 d008_fate_of_the_phoenix））；执行条件（actor（has_ruler 是、统治者（age_in_years > 35、军事能力 >= 75））、提示条件（actor.ruler（排除（has_variable compose_strategikon_variable））））"
+    },
+    {
+      "id": "abdicate",
+      "zh": "退位",
+      "en": "Abdicate",
+      "detail": "message 是。is_consort_action 否。on_own_nation 是。价格 退位花费。可用条件（scope:actor（has_heir 是））",
+      "scope": "通用",
+      "conditions": "执行条件（actor（has_heir 是））"
+    },
+    {
+      "id": "aclla_distribution",
+      "zh": "下嫁太阳贞女",
+      "en": "Marry Aclla",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可见条件（scope:actor（modifier:can_use_aclla_distribution 是））",
+      "scope": "通用",
+      "conditions": "可见条件（actor（启用下嫁太阳贞女 是））"
+    },
+    {
+      "id": "adapt_culture_for_ruler",
+      "zh": "接受本地文化",
+      "en": "Adapt to Local Culture",
+      "detail": "message 是。on_own_nation 是。可见条件（scope:actor（ruler（文化 != actor.culture、拥有者 actor）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（统治者（文化 != actor.culture、所有者 actor）））"
+    },
+    {
+      "id": "adapt_religion_for_ruler",
+      "zh": "采用国教",
+      "en": "Adopt State Religion",
+      "detail": "中文名据游戏英文标题译出。message 是。on_own_nation 是",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（任意一项（统治者（can_adopt_religion_of_country（国家 actor））、继承人（can_adopt_religion_of_country（国家 actor）））））"
+    },
+    {
+      "id": "appoint_as_heir",
+      "zh": "指定为继承人",
+      "en": "Appoint as Heir",
+      "detail": "message 是。on_own_nation 是。价格 指定继承人花费。可见条件（scope:actor（政体 君主国、继承法 宠嗣继承制、has_ruler 是））。可用条件（scope:actor（稳定度 >= 20、政府影响力 >= 15））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（政体 君主国、继承法 宠嗣继承制、has_ruler 是））；执行条件（actor（稳定度 >= 20、政府影响力 >= 15））"
+    },
+    {
+      "id": "tur_appoint_dragoman",
+      "zh": "任命为大翻译官",
+      "en": "Assign as Dragoman",
+      "detail": "message 是。on_own_nation 是。可见条件（scope:actor（has_unlocked_character_interaction_trigger（类型 任命为大翻译官）））",
+      "scope": "通用",
+      "conditions": "可见条件（actor（has_unlocked_character_interaction_trigger（类型 任命为大翻译官）））；执行条件（actor（排除（国内的任何角色（has_character_modifier dragoman_modifier））））"
+    },
+    {
+      "id": "assign_familial_governor",
+      "zh": "任命家族总督",
+      "en": "Assign Familial Governor",
+      "detail": "on_own_nation 是。message 否。可见条件（scope:actor（has_reform 哈夫斯家族总督、is_subject 否））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（已采用改革 哈夫斯家族总督、为属国 否））"
+    },
+    {
+      "id": "assign_governor",
+      "zh": "授予赐封领地",
+      "en": "Grant Governorship",
+      "detail": "on_own_nation 是。message 是。可见条件（scope:actor（modifier:can_assign_governors 是）、scope:recipient（is_female 否））。可用条件（scope:actor（稳定度 >= 0））",
+      "scope": "通用",
+      "conditions": "可见条件（actor（允许授予赐封领地 是）、recipient（is_female 否））；执行条件（actor（稳定度 >= 0））"
+    },
+    {
+      "id": "assume_fort_command",
+      "zh": "接手地区防务",
+      "en": "Assume Fort Command",
+      "detail": "message 是。on_own_nation 是。可见条件（scope:actor（at_war 是、modifier:can_assume_fort_command 是））",
+      "scope": "通用",
+      "conditions": "可见条件（actor（at_war 是、允许接手地区防务 是））"
+    },
+    {
+      "id": "banish_character",
+      "zh": "驱逐",
+      "en": "Banish",
+      "detail": "on_own_nation 是。message 是。可见条件（scope:actor（任一（modifier:can_banish_characters 是、has_variable vij_tamil_rebellion）））。可用条件（scope:actor（政府影响力 >= 50、稳定度 >= 0））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（任意一项（启用驱逐角色 是、若（以下条件成立（has_variable kor_mongol_aristocrats）、kor_mongol_aristocrats > 0）、has_variable vij_tamil_rebellion）））；执行条件（actor（政府影响力 >= 50、稳定度 >= 0））"
+    },
+    {
+      "id": "choose_theologian_duelist",
+      "zh": "选择神学辩论者",
+      "en": "Choose Theologian Debater",
+      "detail": "message 是。is_consort_action 否。on_own_nation 是。可见条件（条件（text choose_theologian_duelist_ct、scope:actor（has_variable can_choose_theologian_for_duel）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（提示条件（actor（has_variable can_choose_theologian_for_duel）））"
+    },
+    {
+      "id": "commission_art",
+      "zh": "委托制作艺术品",
+      "en": "Commission Art",
+      "detail": "message 是。is_consort_action 否。on_own_nation 是。价格 委托制作艺术品花费",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "castrate_character",
+      "zh": "阉割",
+      "en": "Castrate",
+      "detail": "message 是。on_own_nation 是。价格 阉割花费。可见条件（has_dlc d008_fate_of_the_phoenix、scope:actor（继承法 拜占庭继承制））。可用条件（scope:actor（has_ruler 是））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、actor（继承法 拜占庭继承制））；执行条件（actor（has_ruler 是））"
+    },
+    {
+      "id": "blind_character",
+      "zh": "致盲",
+      "en": "Blind",
+      "detail": "message 是。on_own_nation 是。价格 致盲花费。可见条件（has_dlc d008_fate_of_the_phoenix、scope:actor（继承法 拜占庭继承制））。可用条件（scope:actor（has_ruler 是））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、actor（继承法 拜占庭继承制））；执行条件（actor（has_ruler 是））"
+    },
+    {
+      "id": "dismiss_artist",
+      "zh": "遣散艺术家",
+      "en": "Dismiss Artist",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可用条件（scope:actor（prestige（参数 -10、multiply -1）））",
+      "scope": "通用",
+      "conditions": "执行条件（actor（威望（value -10、multiply -1）））"
+    },
+    {
+      "id": "dismiss_prince",
+      "zh": "罢免王公",
+      "en": "Dismiss Prince",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可见条件（scope:actor（继承法 卫彻选举制））。可用条件（scope:actor（任一（政府影响力 >= 10、稳定度 < 0）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（继承法 卫彻选举制））；执行条件（actor（任意一项（政府影响力 >= 10、稳定度 < 0）））"
+    },
+    {
+      "id": "ennoble",
+      "zh": "封为贵族",
+      "en": "Ennoble",
+      "detail": "message 是。on_own_nation 是。价格 封为贵族花费。可用条件（scope:actor（country_can_ennoble_trigger 是））",
+      "scope": "通用",
+      "conditions": "执行条件（actor（country_can_ennoble_trigger 是））"
+    },
+    {
+      "id": "execute_character",
+      "zh": "处决",
+      "en": "Execute",
+      "detail": "on_own_nation 是。message 是。可见条件（scope:actor（modifier:can_execute_characters 是））。可用条件（scope:actor（政府影响力 >= 50、稳定度 > 0））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（启用处决角色 是））；执行条件（actor（政府影响力 >= 50、稳定度 > 0））"
+    },
+    {
+      "id": "grant_cabinet_right",
+      "zh": "授予内阁权利",
+      "en": "Grant Cabinet Right",
+      "detail": "message 是。on_own_nation 是。价格 授予内阁权利花费",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "make_regent_ruler",
+      "zh": "即位",
+      "en": "Take the Throne",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可见条件（scope:actor（has_regent 是、均不满足（regency_type ?= 手足相残、regency_type ?= 裁判庭秘密会议、regency_type ?= 马穆鲁克继承程序、regency_type ?= 教宗选举秘密会议、regency_type ?= 领主摄政、regency_type ?= 探险摄政）））。可用条件（scope:actor（has_heir 否、has_any_possible_disaster 否、has_any_active_disaster 否））",
+      "scope": "通用",
+      "conditions": "可见条件（actor（has_regent 是、均不满足（regency_type 手足相残、regency_type 裁判庭秘密会议、regency_type 马穆鲁克继承程序、regency_type 教宗选举秘密会议、regency_type 领主摄政、regency_type 探险摄政）））；执行条件（actor（has_heir 否、has_any_possible_disaster 否、has_any_active_disaster 否））"
+    },
+    {
+      "id": "marry_lowborn",
+      "zh": "与出身卑微者结婚",
+      "en": "Marry a Lowborn",
+      "detail": "is_consort_action 是。on_own_nation 是。message 是。可见条件（scope:actor（任一（政体 神权国、modifier:care_about_producing_heirs 是、继承法 执政团选举制）））。可用条件（scope:actor（modifier:forbid_marrying_lowborn 否、NAND（政体 神权国、modifier:clergy_estate_cannot_marry 是）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（任意一项（政体 神权国、王室联姻 是、继承法 执政团选举制）））；执行条件（actor（禁止与出身卑微角色结婚 否、NAND（政体 神权国、宗教（group 基督教）、教士角色不能结婚 是）））"
+    },
+    {
+      "id": "move_child_to_court",
+      "zh": "移动儿童到我们的宫廷",
+      "en": "Move Child to Our Court",
+      "detail": "on_other_nation 是。message 是。可见条件（scope:actor（政体 君主国、has_ruler 是））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（政体 君主国、has_ruler 是））"
+    },
+    {
+      "id": "join_foreign_order_of_chivalry",
+      "zh": "加入外国骑士团",
+      "en": "Join Foreign Order of Chivalry",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可见条件（scope:actor（modifier:is_pope 否、religion.group 基督教、any_country_with_chivalric_order（has_different_order_of_chivalry actor）））。可用条件（scope:actor（条件（text 在过去10年内没有其他角色加入骑士团。）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（是教宗 否、religion.group 基督教、any_country_with_chivalric_order（has_different_order_of_chivalry actor）））；执行条件（actor（提示条件（排除（has_variable 在过去10年内没有其他角色加入骑士团。））））"
+    },
+    {
+      "id": "invite_to_order_of_chivalry",
+      "zh": "邀请加入骑士团",
+      "en": "Invite to Order of Chivalry",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可见条件（scope:actor（启用勋贵骑士团 是））。可用条件（scope:actor（条件（text 在过去10年内没有其他角色加入骑士团。）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（has_chivalric_order 是））；执行条件（actor（提示条件（排除（has_variable 在过去10年内没有其他角色加入骑士团。））））"
+    },
+    {
+      "id": "pap_reassign_cleric",
+      "zh": "重新指派神职人员",
+      "en": "Reassign Cleric",
+      "detail": "message 是。可见条件（scope:actor（modifier:can_reassign_cleric 是、宗教 天主教））。可用条件（situation:western_schism（situation_is_active 否）、scope:actor（num_of_diplomats >= pap_reassign_cleric_diplomatic_actions_cost））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（启用重新指派神职人员 是、宗教 天主教））；执行条件（西方教会大分裂（situation_is_active 否）、actor（num_of_diplomats >= pap_reassign_cleric_diplomatic_actions_cost））"
+    },
+    {
+      "id": "pardon",
+      "zh": "赦免",
+      "en": "Pardon",
+      "detail": "on_own_nation 是。message 是。价格 赦免花费",
+      "scope": "通用",
+      "conditions": ""
+    },
+    {
+      "id": "prefection",
+      "zh": "赋予女性继承权",
+      "en": "Prefection",
+      "detail": "on_own_nation 是。message 是。可见条件（scope:actor（政体 君主国、文化 匈牙利））。可用条件（scope:actor（\"estate_power(estate_type:crown_estate)\" >= 0.5））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（政体 君主国、文化 匈牙利））；执行条件（actor（estate_power(estate_type:crown_estate) >= 0.5））"
+    },
+    {
+      "id": "promote_to_head_of_cabinet",
+      "zh": "晋升为内阁首脑",
+      "en": "Promote to Head of the Cabinet",
+      "detail": "message 是。on_own_nation 是。价格 晋升内阁首脑。可用条件（scope:actor（country_can_promote_head_of_cabinet 是））",
+      "scope": "通用",
+      "conditions": "执行条件（actor（country_can_promote_head_of_cabinet 是、排除（任何内阁成员（是内阁首脑 是））））"
+    },
+    {
+      "id": "resign_as_grand_master",
+      "zh": "辞去大团长之职",
+      "en": "Resign as Grandmaster",
+      "detail": "is_consort_action 否。on_own_nation 是。message 是。可见条件（scope:actor（政体 神权国、has_reform 军事修会））。可用条件（scope:actor（威望 > 20））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（政体 神权国、已采用改革 军事修会））；执行条件（actor（威望 > 20））"
+    },
+    {
+      "id": "seppuku",
+      "zh": "切腹自尽",
+      "en": "Commit Seppuku",
+      "detail": "on_own_nation 是。message 是。可见条件（scope:actor（religion（has_purity 是）））。可用条件（scope:actor（has_ruler 是））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（宗教（has_purity 是）））；执行条件（actor（has_ruler 是））"
+    },
+    {
+      "id": "take_the_vows",
+      "zh": "誓发终身愿",
+      "en": "Take the Vows",
+      "detail": "message 是。on_own_nation 是。可见条件（scope:actor（宗教 天主教））。可用条件（scope:actor（任一（has_ruler 是）））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（宗教 天主教））；执行条件（actor（任意一项（has_ruler 是、全部条件（has_regent 是、继承法 女修道院院长选举））））"
+    },
+    {
+      "id": "cas_appoint_adelantado_mayor",
+      "zh": "任命边境大先遣官",
+      "en": "Appoint the Adelantado Mayor de la Frontera",
+      "detail": "message 是。on_own_nation 是。价格 任命大先遣官花费。可见条件（scope:actor（has_dlc d009_across_the_pillars、is_situation_active 海峡之战、has_or_had_tag 卡斯蒂利亚））。可用条件（scope:actor（has_policy 先遣官制））",
+      "scope": "特殊解锁",
+      "conditions": "可见条件（actor（已启用扩展包 海格力斯之柱（D009）、is_situation_active 海峡之战、当前或曾用国家标签 卡斯蒂利亚、海峡之战（若（以下条件成立（has_variable 对格拉纳达的影响）、对格拉纳达的影响 <= -25）、否则（恒定结果 否））））；执行条件（actor（现行政策 先遣官制））"
+    }
+  ],
+  "subject_types": [
+    {
+      "id": "pronoia",
+      "zh": "普罗尼亚",
+      "en": "Prónoia",
+      "level": "3",
+      "subject_pays": "普罗尼亚军赋",
+      "diplo_cost_scale": "0.75",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "0.5",
+      "annex_min_years": "20",
+      "annex_min_opinion": "190",
+      "source": "in_game/common/subject_types/D008_pronoia.txt#pronoia"
+    },
+    {
+      "id": "appanage",
+      "zh": "封邑",
+      "en": "Appanage",
+      "level": "3",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0.25",
+      "strength_vs_overlord": "-0.40",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "1",
+      "annex_min_years": "15",
+      "annex_min_opinion": "190",
+      "source": "in_game/common/subject_types/appanage.txt#appanage"
+    },
+    {
+      "id": "colonial_nation",
+      "zh": "殖民领",
+      "en": "Colonial Nation",
+      "level": "1",
+      "subject_pays": "colonial",
+      "diplo_cost_scale": "0.5",
+      "strength_vs_overlord": "-0.05",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/colonial_nation.txt#colonial_nation"
+    },
+    {
+      "id": "conquistador",
+      "zh": "征服者",
+      "en": "Conquistador",
+      "level": "1",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0.1",
+      "strength_vs_overlord": "-0.1",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "1",
+      "annex_min_years": "20",
+      "annex_min_opinion": "150",
+      "source": "in_game/common/subject_types/conquistador.txt#conquistador"
+    },
+    {
+      "id": "dominion",
+      "zh": "自治领",
+      "en": "Dominion",
+      "level": "3",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0.5",
+      "strength_vs_overlord": "-0.25",
+      "same_ruler": "是",
+      "can_annex": "可吞并",
+      "annex_speed": "1",
+      "annex_min_years": "50",
+      "annex_min_opinion": "150",
+      "source": "in_game/common/subject_types/dominion.txt#dominion"
+    },
+    {
+      "id": "familial_governor",
+      "zh": "家族总督",
+      "en": "Familial Governor",
+      "level": "3",
+      "subject_pays": "familial_governor",
+      "diplo_cost_scale": "0.75",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/familial_governor.txt#familial_governor"
+    },
+    {
+      "id": "fiefdom",
+      "zh": "采邑",
+      "en": "Fiefdom",
+      "level": "3",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "1.0",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "是",
+      "can_annex": "可吞并",
+      "annex_speed": "1",
+      "annex_min_years": "10",
+      "annex_min_opinion": "150",
+      "source": "in_game/common/subject_types/fiefdom.txt#fiefdom"
+    },
+    {
+      "id": "hanseatic_member",
+      "zh": "汉萨同盟成员",
+      "en": "Member of the Hansa",
+      "level": "2",
+      "subject_pays": "hanseatic_member_cost",
+      "diplo_cost_scale": "0.25",
+      "strength_vs_overlord": "-0.25",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/hanseatic_member.txt#hanseatic_member"
+    },
+    {
+      "id": "imperial_free_city",
+      "zh": "帝国自由市",
+      "en": "Imperial Free City",
+      "level": "1",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0",
+      "strength_vs_overlord": "-0.33",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/hre.txt#imperial_free_city"
+    },
+    {
+      "id": "direct_imperial_free_city",
+      "zh": "直属帝国自由市",
+      "en": "Direct Imperial Free City",
+      "level": "2",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0",
+      "strength_vs_overlord": "-0.2",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "2",
+      "annex_min_years": "10",
+      "annex_min_opinion": "150",
+      "source": "in_game/common/subject_types/hre.txt#direct_imperial_free_city"
+    },
+    {
+      "id": "march",
+      "zh": "卫戍国",
+      "en": "March",
+      "level": "1",
+      "subject_pays": "边疆伯爵领（减免贡赋）",
+      "diplo_cost_scale": "1.0",
+      "strength_vs_overlord": "-1",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/march.txt#march"
+    },
+    {
+      "id": "samanta",
+      "zh": "三曼多",
+      "en": "Sāmanta",
+      "level": "1",
+      "subject_pays": "萨曼塔藩属贡赋",
+      "diplo_cost_scale": "1",
+      "strength_vs_overlord": "-0.25",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/samanta.txt#samanta"
+    },
+    {
+      "id": "maha_samanta",
+      "zh": "摩诃三曼多",
+      "en": "Mahā-Sāmanta",
+      "level": "2",
+      "subject_pays": "maha_samanta",
+      "diplo_cost_scale": "1",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "2",
+      "annex_min_years": "10",
+      "annex_min_opinion": "125",
+      "source": "in_game/common/subject_types/samanta.txt#maha_samanta"
+    },
+    {
+      "id": "pradhana_maha_samanta",
+      "zh": "般达那‑摩诃三曼多",
+      "en": "Pradhāna-Mahā-Sāmanta",
+      "level": "1",
+      "subject_pays": "pradhana_maha_samanta",
+      "diplo_cost_scale": "1",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/samanta.txt#pradhana_maha_samanta"
+    },
+    {
+      "id": "secessionists",
+      "zh": "归并国",
+      "en": "Secessionists",
+      "level": "3",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0",
+      "strength_vs_overlord": "-0.1",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "5",
+      "annex_min_years": "0",
+      "annex_min_opinion": "150",
+      "source": "in_game/common/subject_types/secessionists.txt#secessionists"
+    },
+    {
+      "id": "state_bank",
+      "zh": "国属银行",
+      "en": "State Bank",
+      "level": "2",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "1",
+      "strength_vs_overlord": "-0.1",
+      "same_ruler": "是",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/state_bank.txt#state_bank"
+    },
+    {
+      "id": "trade_company",
+      "zh": "贸易公司",
+      "en": "Trade Company",
+      "level": "1",
+      "subject_pays": "trade_company",
+      "diplo_cost_scale": "0.5",
+      "strength_vs_overlord": "-0.1",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/trade_company.txt#trade_company"
+    },
+    {
+      "id": "tributary",
+      "zh": "朝贡国",
+      "en": "Tributary",
+      "level": "0",
+      "subject_pays": "朝贡贡金",
+      "diplo_cost_scale": "0.2",
+      "strength_vs_overlord": "-0.25",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/tributary.txt#tributary"
+    },
+    {
+      "id": "tusi",
+      "zh": "土司",
+      "en": "Tǔsī",
+      "level": "1",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "0.15",
+      "strength_vs_overlord": "-0.1",
+      "same_ruler": "否",
+      "can_annex": "不可直接吞并",
+      "annex_speed": "0",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/tusi.txt#tusi"
+    },
+    {
+      "id": "uc_bey",
+      "zh": "乌奇贝伊",
+      "en": "Uç Bey",
+      "level": "2",
+      "subject_pays": "uc_bey_pays",
+      "diplo_cost_scale": "1.25",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "1",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "in_game/common/subject_types/uc_bey.txt#uc_bey"
+    },
+    {
+      "id": "vassal",
+      "zh": "附庸",
+      "en": "Vassal",
+      "level": "2",
+      "subject_pays": "基础附庸贡赋",
+      "diplo_cost_scale": "1.0",
+      "strength_vs_overlord": "-0.5",
+      "same_ruler": "否",
+      "can_annex": "可吞并",
+      "annex_speed": "1",
+      "annex_min_years": "10",
+      "annex_min_opinion": "150",
+      "source": "in_game/common/subject_types/vassal.txt#vassal"
+    },
+    {
+      "id": "taifa",
+      "zh": "泰法",
+      "en": "Ṭā'ifa",
+      "level": "—",
+      "subject_pays": "见细则",
+      "diplo_cost_scale": "—",
+      "strength_vs_overlord": "—",
+      "same_ruler": "—",
+      "can_annex": "—",
+      "annex_speed": "—",
+      "annex_min_years": "—",
+      "annex_min_opinion": "—",
+      "source": "dlc/D009_across_the_pillars/in_game/common/subject_types/d009_taifa.txt#taifa"
+    }
+  ],
+  "bureaucracies": [
+    {
+      "id": "nomos_empsychos_bureaucracy",
+      "zh": "在世之法",
+      "en": "Nómos Émpsychos",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））。可用条件（uses_government_power 正统性）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））；执行条件（uses_government_power 正统性）"
+    },
+    {
+      "id": "honorary_titles_bureaucracy",
+      "zh": "荣誉官衔",
+      "en": "Honorary Titles",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））"
+    },
+    {
+      "id": "court_eunuchs_bureaucracy",
+      "zh": "宫廷宦官",
+      "en": "Court Eunuchs",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））"
+    },
+    {
+      "id": "ritualistic_court_bureaucracy",
+      "zh": "礼仪宫廷",
+      "en": "Ritualistic Court",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））"
+    },
+    {
+      "id": "sixty_books_of_the_basilika_bureaucracy",
+      "zh": "巴西利卡法典",
+      "en": "Books of the Basiliká",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））"
+    },
+    {
+      "id": "romanitas_bureaucracy",
+      "zh": "罗马传承",
+      "en": "Romanitas",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））。可用条件（任一（全部（has_societal_value 拉丁化 vs 罗马派、societal_value:latinization_vs_hellenization < -50）、拥有 罗马））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））；执行条件（任意一项（全部条件（has_societal_value 拉丁化 vs 罗马派、拉丁化 vs 罗马派 < -50）、拥有 罗马））"
+    },
+    {
+      "id": "imperial_senate_bureaucracy",
+      "zh": "帝国元老院",
+      "en": "Imperial Senate",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））"
+    },
+    {
+      "id": "kephalai_bureaucracy",
+      "zh": "法令集成",
+      "en": "Kephalai",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））。可用条件（任一（条件（text 我们已经成功渡过了凤凰的命运灾难、has_variable won_fate_of_the_phoenix_disaster_variable）、全部（has_or_had_tag 特拉比松、拥有 君士坦丁堡）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））；执行条件（任意一项（提示条件（has_variable won_fate_of_the_phoenix_disaster_variable）、全部条件（当前或曾用国家标签 特拉比松、拥有 君士坦丁堡）））"
+    },
+    {
+      "id": "magister_militum_bureaucracy",
+      "zh": "统帅府",
+      "en": "Strategarchia",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、全部（has_or_had_tag 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））。可用条件（条件（text has_unlocked_bureaucracy_via_flavor_byz_31_tt、has_reform 现代帝国陆军））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、全部条件（当前或曾用国家标签 特拉比松、has_variable tre_unlocked_byz_bureaucracies）））；执行条件（提示条件（已采用改革 现代帝国陆军））"
+    },
+    {
+      "id": "themata_bureaucracy",
+      "zh": "军区",
+      "en": "Thémata",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、has_or_had_tag 特拉比松））。可用条件（任一（has_reform 腐化的军区制））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、当前或曾用国家标签 特拉比松））；执行条件（任意一项（排除（任意官僚部门（官僚部门类型 统帅府））、已采用改革 腐化的军区制））"
+    },
+    {
+      "id": "allelengyon_bureaucracy",
+      "zh": "联保税制",
+      "en": "Allelengyon",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、has_or_had_tag 特拉比松））。可用条件（任一（条件（text 我们已经成功渡过了凤凰的命运灾难、has_variable won_fate_of_the_phoenix_disaster_variable）、全部（has_or_had_tag 特拉比松、拥有 君士坦丁堡）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 d008_fate_of_the_phoenix、任意一项（当前或曾用国家标签 拜占庭、当前或曾用国家标签 特拉比松））；执行条件（任意一项（提示条件（has_variable won_fate_of_the_phoenix_disaster_variable）、全部条件（当前或曾用国家标签 特拉比松、拥有 君士坦丁堡）））"
+    },
+    {
+      "id": "central_secretariat_bureaucracy",
+      "zh": "中书省",
+      "en": "Central Secretariat",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_or_had_tag 中华）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（当前或曾用国家标签 大元（中华））"
+    },
+    {
+      "id": "imperial_censorate_bureaucracy",
+      "zh": "都察院",
+      "en": "Imperial Censorate",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_or_had_tag 中华）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（当前或曾用国家标签 大元（中华））"
+    },
+    {
+      "id": "six_boards_bureaucracy",
+      "zh": "六部",
+      "en": "Six Boards",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_or_had_tag 中华）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（当前或曾用国家标签 大元（中华））"
+    },
+    {
+      "id": "grand_secretariat_bureaucracy",
+      "zh": "内阁大学士",
+      "en": "Grand Secretariat",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_or_had_tag 中华）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（当前或曾用国家标签 大元（中华））"
+    },
+    {
+      "id": "board_of_revenue_bureaucracy",
+      "zh": "税务委员会",
+      "en": "Board of Revenue",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "privy_council_bureaucracy",
+      "zh": "枢密院",
+      "en": "Privy Council",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "audit_bureau_bureaucracy",
+      "zh": "审计署",
+      "en": "Audit Bureau",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "colonial_office_bureaucracy",
+      "zh": "殖民部门",
+      "en": "Colonial Office",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "admiralty_board_bureaucracy",
+      "zh": "海军委员会",
+      "en": "Admiralty Board",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "foreign_ministry_bureaucracy",
+      "zh": "外交部",
+      "en": "Foreign Ministry",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "trade_commission_bureaucracy",
+      "zh": "贸易委员会",
+      "en": "Trade Commission",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "war_council_bureaucracy",
+      "zh": "战争委员会",
+      "en": "War Council",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "ordnance_board_bureaucracy",
+      "zh": "军械局",
+      "en": "Board of Ordnance",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "commissariat_bureaucracy",
+      "zh": "军需委员会",
+      "en": "Commissariat",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（max_bureaucracy_slots > 0）",
+      "scope": "通用",
+      "conditions": "可见条件（max_bureaucracy_slots > 0）"
+    },
+    {
+      "id": "bayt_al_mal_bureaucracy",
+      "zh": "贝特马尔",
+      "en": "Bayt al-Māl",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "hisba_bureaucracy",
+      "zh": "市监",
+      "en": "Ḥisba",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "mazalim_court_bureaucracy",
+      "zh": "马扎林法庭",
+      "en": "Maẓālim Court",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "diwan_al_insha_bureaucracy",
+      "zh": "诏令院",
+      "en": "Dīwān al-Inšā'",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "barid_bureaucracy",
+      "zh": "驿传所",
+      "en": "Barīd",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "diwan_al_hajj_bureaucracy",
+      "zh": "朝觐事务署",
+      "en": "Dīwān al-Ḥajj",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "diwan_al_jund_bureaucracy",
+      "zh": "军册局",
+      "en": "Dīwān al-Jund",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "shurat_bureaucracy",
+      "zh": "舍身军",
+      "en": "The Šurāh",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_policy 制度化舍身、宗教 伊巴德派）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（现行政策 制度化舍身、宗教 伊巴德派）"
+    },
+    {
+      "id": "shurta_bureaucracy",
+      "zh": "舍身军",
+      "en": "Shurṭa",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（religion.group 伊斯兰教）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（religion.group 伊斯兰教）"
+    },
+    {
+      "id": "dar_al_tiraz_bureaucracy",
+      "zh": "御锦织造局",
+      "en": "Dār al-Ṭirāz",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 摩洛哥、has_or_had_tag 格拉纳达））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 摩洛哥、当前或曾用国家标签 格拉纳达））"
+    },
+    {
+      "id": "qadi_al_jamaa_bureaucracy",
+      "zh": "总教法官",
+      "en": "Qāḍī al-Jamā'a",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 摩洛哥、has_or_had_tag 格拉纳达））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 摩洛哥、当前或曾用国家标签 格拉纳达））"
+    },
+    {
+      "id": "ghuzat_mujahidin_bureaucracy",
+      "zh": "圣战军",
+      "en": "Al-Ḡuzāt al-Mujāhidīn",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 格拉纳达）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 格拉纳达）"
+    },
+    {
+      "id": "diwan_al_mustakhlas_bureaucracy",
+      "zh": "内帑司",
+      "en": "Dīwān al-Mustaḵlaṣ",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 格拉纳达）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 格拉纳达）"
+    },
+    {
+      "id": "wulat_al_thughur_bureaucracy",
+      "zh": "边塞都督",
+      "en": "Wulāt al-Ṯuḡūr",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 格拉纳达）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 格拉纳达）"
+    },
+    {
+      "id": "makhzan_bureaucracy",
+      "zh": "中央行署",
+      "en": "Al-Maḵzan",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 摩洛哥）。可用条件（已解锁革新 中央行署）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 摩洛哥）；执行条件（已解锁革新 中央行署）"
+    },
+    {
+      "id": "marinid_madaris_bureaucracy",
+      "zh": "经教院",
+      "en": "Ri'āyat al-Madāris",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 摩洛哥）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 摩洛哥）"
+    },
+    {
+      "id": "diwan_al_qawafil_bureaucracy",
+      "zh": "商驼院",
+      "en": "Dīwān al-Qawāfil",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 摩洛哥）。可用条件（已解锁革新 跨撒哈拉贸易）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 摩洛哥）；执行条件（已解锁革新 跨撒哈拉贸易）"
+    },
+    {
+      "id": "mozabite_azzaba_bureaucracy",
+      "zh": "长老会",
+      "en": "'Azzāba Council",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、文化 姆扎卜、宗教 伊巴德派）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、文化 姆扎卜、宗教 伊巴德派）"
+    },
+    {
+      "id": "diwan_al_gharb_bureaucracy",
+      "zh": "西部院",
+      "en": "Dīwān al-Ḡarb",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 摩洛哥、religion.group 伊斯兰教）。可用条件（region:iberia_region（any_ownable_location_in_region（top_owner root、percent >= 0.20）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 摩洛哥、religion.group 伊斯兰教）；执行条件（伊比利亚（any_ownable_location_in_region（top_owner root、percent >= 0.2）））"
+    },
+    {
+      "id": "dawa_bureaucracy",
+      "zh": "宣教部",
+      "en": "Dīwān al-Daʿwa",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、modifier:allow_dawa_bureaucracy_modifier 是）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、允许宣教部 是）"
+    },
+    {
+      "id": "spa_council_of_state_bureaucracy",
+      "zh": "国务委员会",
+      "en": "Consejo de Estado",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政）"
+    },
+    {
+      "id": "spa_council_of_finance_bureaucracy",
+      "zh": "统管财政院",
+      "en": "Consejo de Hacienda",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙）、has_reform 咨议会行政）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙）、已采用改革 咨议会行政）"
+    },
+    {
+      "id": "spa_council_of_inquisition_bureaucracy",
+      "zh": "最高宗教裁判所委员会",
+      "en": "Consejo de la Suprema Inquisición",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政）"
+    },
+    {
+      "id": "spa_council_of_indies_bureaucracy",
+      "zh": "西印度委员会",
+      "en": "Consejo de las Indias",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政、any_subject（is_subject_type 殖民领））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政、任何附属国（is_subject_type 殖民领））"
+    },
+    {
+      "id": "spa_council_of_crusade_bureaucracy",
+      "zh": "十字军管辖署",
+      "en": "Consejo de Cruzada",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政、has_estate_privilege 圣十字军诏书、宗教 天主教、条件（text 使用设立十字军管辖署。决议建立十字军管辖署。、has_variable decision_taken_to_establish_council_of_crusade））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政、已授予阶层特权 圣十字军诏书、宗教 天主教、提示条件（has_variable decision_taken_to_establish_council_of_crusade））"
+    },
+    {
+      "id": "spa_council_of_military_orders_bureaucracy",
+      "zh": "军事修会委员会",
+      "en": "Consejo de las Órdenes",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政、宗教 天主教、条件（text 使用没收骑士团地产决议建立军事修会委员会。、has_variable decision_taken_to_establish_council_of_military_orders））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政、宗教 天主教、提示条件（has_variable decision_taken_to_establish_council_of_military_orders））"
+    },
+    {
+      "id": "spa_council_of_castile_bureaucracy",
+      "zh": "卡斯蒂利亚管辖署",
+      "en": "Consejo de Castilla",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（scripted_geography:castile_geography（any_ownable_location_in_scripted_geography（拥有者 root、count >= 120））、has_reform 御前最高枢密院、条件（text established_the_council_of_castile_tt、has_variable decision_taken_to_establish_the_council_of_castile））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（卡斯蒂利亚王冠领（any_ownable_location_in_scripted_geography（所有者 root、count >= 120））、已采用改革 御前最高枢密院、提示条件（has_variable decision_taken_to_establish_the_council_of_castile））"
+    },
+    {
+      "id": "spa_council_of_aragon_bureaucracy",
+      "zh": "阿拉贡管辖署",
+      "en": "Consejo de Aragón",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政、scripted_geography:aragon_geography（any_ownable_location_in_scripted_geography（拥有者 root、count >= 50）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政、阿拉贡王冠领（any_ownable_location_in_scripted_geography（所有者 root、count >= 50）））"
+    },
+    {
+      "id": "spa_council_of_portugal_bureaucracy",
+      "zh": "葡萄牙管辖署",
+      "en": "Conselho de Portugal",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 卡斯蒂利亚、has_or_had_tag 西班牙））。可用条件（has_reform 咨议会行政、scripted_geography:portugal_geography（any_ownable_location_in_scripted_geography（拥有者 root、count >= 40）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 卡斯蒂利亚、当前或曾用国家标签 西班牙））；执行条件（已采用改革 咨议会行政、葡萄牙（any_ownable_location_in_scripted_geography（所有者 root、count >= 40）））"
+    },
+    {
+      "id": "spa_council_of_italy_bureaucracy",
+      "zh": "意大利管辖署",
+      "en": "Consejo de Italia",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 西班牙、situation:italian_wars（任一（situation_is_active 是、situation_has_ended 是）））。可用条件（has_reform 咨议会行政、region:italy_region（any_ownable_location_in_region（拥有者 root、count >= 30）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 西班牙、意大利战争（任意一项（situation_is_active 是、situation_has_ended 是）））；执行条件（已采用改革 咨议会行政、意大利（any_ownable_location_in_region（所有者 root、count >= 30）））"
+    },
+    {
+      "id": "spa_council_of_flanders_bureaucracy",
+      "zh": "佛兰德管辖署",
+      "en": "Consejo de Flandes",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 西班牙）。可用条件（has_reform 咨议会行政、scripted_geography:spanish_netherlands_geography（any_ownable_location_in_scripted_geography（拥有者 root、count >= 30）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 西班牙）；执行条件（已采用改革 咨议会行政、西属尼德兰（any_ownable_location_in_scripted_geography（所有者 root、count >= 30）））"
+    },
+    {
+      "id": "spa_viceroy_bureaucracy",
+      "zh": "总督委员会",
+      "en": "Bureau of the Viceroy",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、is_subject_type 殖民领、any_overlord_or_above（any_current_bureaucracy（官僚部门类型 西印度委员会）））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、is_subject_type 殖民领、任何宗主国或以上（任意官僚部门（官僚部门类型 西印度委员会）））"
+    },
+    {
+      "id": "por_desembargo_do_paco_bureaucracy",
+      "zh": "王宫枢密院",
+      "en": "Desembargo do Paço",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 葡萄牙）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 葡萄牙）"
+    },
+    {
+      "id": "por_mesa_da_consciencia_e_ordens_bureaucracy",
+      "zh": "良知及骑士团委员会",
+      "en": "Mesa da Consciência e Ordens",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 葡萄牙）。可用条件（宗教 天主教、条件（text 通过设立良知及骑士团委员会决议设立良知及骑士团委员会。、has_variable decision_taken_to_establish_mesa_da_consciencia_e_ordens））",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、当前或曾用国家标签 葡萄牙）；执行条件（宗教 天主教、提示条件（has_variable decision_taken_to_establish_mesa_da_consciencia_e_ordens））"
+    },
+    {
+      "id": "nav_diputacion_navarra_bureaucracy",
+      "zh": "纳瓦拉代表院",
+      "en": "Diputación de Navarra",
+      "detail": "implementation_price 官僚部门设立花费。maintenance_price 官僚部门维持花费。removal_price 官僚部门移除花费。可见条件（has_dlc d009_across_the_pillars、任一（has_or_had_tag 纳瓦拉、is_basque_spain 是）、文化 巴斯克）。可用条件（has_reform 纳瓦拉议会）",
+      "scope": "国别/特殊",
+      "conditions": "可见条件（已启用扩展包 海格力斯之柱（D009）、任意一项（当前或曾用国家标签 纳瓦拉、is_basque_spain 是）、文化 巴斯克）；执行条件（已采用改革 纳瓦拉议会）"
+    }
+  ],
+  "town_rights": [
+    {
+      "id": "royal_market_rights",
+      "zh": "大市场权",
+      "en": "Grand Market Rights",
+      "detail": "地点修正（集市建筑等级 5、市场升级建筑等级 5、市民贸易容量 40%、市场接入度 15%）。可用条件（目标地点（均不满足（已有城市特权 特贸港、已有城市特权 大特贸港、已有城市特权 自由市宪章）））",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_staple_rights",
+      "zh": "大特贸港",
+      "en": "Grand Staple Port",
+      "detail": "地点修正（集市建筑等级 8、市场升级建筑等级 8、港口容量 0.3、本地海上存在 0.15、本地市民阶层力量 75%）。可用条件（目标地点（须为港口、均不满足（已有城市特权 市场特许、已有城市特权 大市场权、已有城市特权 自由市宪章）））",
+      "scope": "通用"
+    },
+    {
+      "id": "staple_port",
+      "zh": "特贸港",
+      "en": "Staple Port",
+      "detail": "优先升级型号 大特贸港。地点修正（集市建筑等级 5、港口容量 0.2、本地海上存在 0.1、本地市民阶层力量 50%）。可用条件（目标地点（须为港口、均不满足（已有城市特权 市场特许、已有城市特权 大市场权、已有城市特权 自由市宪章）））",
+      "scope": "通用"
+    },
+    {
+      "id": "granary_town",
+      "zh": "粮储镇",
+      "en": "Granary Town",
+      "detail": "可用条件（目标地点（取反（已有城市特权 帝国粮仓）））。地点修正（食品保存效率 25%、本地食物容量 50%、移民吸引力 -0.25）",
+      "scope": "通用"
+    },
+    {
+      "id": "market_charter",
+      "zh": "市场特许",
+      "en": "Market Charter",
+      "detail": "优先升级型号 大市场权。地点修正（集市建筑等级 3、市场升级建筑等级 3、市民贸易容量 25%、市场接入度 10%）。可用条件（目标地点（均不满足（已有城市特权 特贸港、已有城市特权 大特贸港、已有城市特权 自由市宪章）））",
+      "scope": "通用"
+    },
+    {
+      "id": "free_town_charter",
+      "zh": "自由市宪章",
+      "en": "Free Town Charter",
+      "detail": "地点修正（移民吸引力 0.25、贸易容量 20%、本地每月繁荣度 0.1%、本地市民阶层力量 50%、本地王室力量 -50%）。可用条件（目标地点（均不满足（已有城市特权 市场特许、已有城市特权 大市场权、已有城市特权 特贸港、已有城市特权 大特贸港）））",
+      "scope": "通用"
+    },
+    {
+      "id": "fortress_town",
+      "zh": "要塞城镇",
+      "en": "Fortress Town",
+      "detail": "地点修正（驻军规模 0.3、要塞防御 25%、每月人力 20%、本地贵族阶层力量 25%、本地市民阶层力量 -25%、士兵岗位容量 200 人）",
+      "scope": "通用"
+    },
+    {
+      "id": "mining_charter",
+      "zh": "矿业特许状",
+      "en": "Mining Charter",
+      "detail": "地点修正（最大原产雇佣规模 35%、农民自主权 -10%、加工生产效率 -0.05、原料生产产出 10%）。可用条件（目标地点（条件（text 产出矿物类原材料或内陆盐）、均不满足（已有城市特权 矿业社区特许经营、已有城市特权 上位矿业权、已有城市特权 下位矿业权、已有城市特权 新布尔多采矿权）））",
+      "scope": "通用"
+    },
+    {
+      "id": "plantation_charter",
+      "zh": "种植园特许状",
+      "en": "Plantation Charter",
+      "detail": "地点修正（最大原产雇佣规模 35%、农民自主权 -15%、加工生产效率 -0.05、原料生产产出 10%）。可用条件（is_subject 是、属国类型 殖民领、目标地点（条件（text 拥有种植园或香料原材料）））",
+      "scope": "通用"
+    },
+    {
+      "id": "studium_privileges",
+      "zh": "学府城镇",
+      "en": "Studium Privileges",
+      "detail": "地点修正（本地每月识字率 0.05%、本地人口升级速度 % 20%、本地思潮增长 20%、加工生产效率 -0.05）。可用条件（目标地点（条件（text 地点等级为城市或大都市）））",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_tooling_rights",
+      "zh": "工艺装备专营",
+      "en": "Tooling Rights",
+      "detail": "is_specialization 是。地点修正（本地工具产出 30%、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_jewelry_rights",
+      "zh": "珠宝专营",
+      "en": "Jewelry Rights",
+      "detail": "is_specialization 是。地点修正（本地珠宝产出 20%、珠宝行会建筑等级 10、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_naval_rights",
+      "zh": "船用物资专营",
+      "en": "Naval Supplies Rights",
+      "detail": "is_specialization 是。可用条件（条件（text 在过去10年间尚未强制撤销过一项城镇特权。））。地点修正（本地船具产出 30%、本地焦油产出 30%、加工生产效率 -0.05）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "royal_textile_rights",
+      "zh": "织造专营",
+      "en": "Textile Rights",
+      "detail": "is_specialization 是。地点修正（本地布匹产出 20%、本地精纺品产出 20%、本地染料产出 20%、加工生产效率 -0.05）。可用条件（目标地点（取反（已有城市特权 佛兰德毛纺）））",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_weaponry_rights",
+      "zh": "军械专营",
+      "en": "Weaponry Rights",
+      "detail": "is_specialization 是。地点修正（本地武器产出 20%、本地火器产出 20%、本地火炮产出 20%、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_book_rights",
+      "zh": "刊物专营",
+      "en": "Printing Rights",
+      "detail": "is_specialization 是。地点修正（本地纸张产出 20%、本地书籍产出 20%、本地染料产出 20%、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_artisan_rights",
+      "zh": "手工制品专营",
+      "en": "Artisan Rights",
+      "detail": "is_specialization 是。地点修正（家具产出 20%、陶器产出 20%、本地皮革产出 20%、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_brewing_rights",
+      "zh": "酿造品专营",
+      "en": "Spirituous Rights",
+      "detail": "is_specialization 是。地点修正（本地烈酒产出 20%、本地啤酒产出 20%、本地葡萄酒产出 20%、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_masonry_rights",
+      "zh": "建材专营",
+      "en": "Masonry Rights",
+      "detail": "is_specialization 是。地点修正（砖块产出 25%、本地玻璃产出 25%、加工生产效率 -0.05）",
+      "scope": "通用"
+    },
+    {
+      "id": "tooling_charter",
+      "zh": "工艺装备特许",
+      "en": "Tooling Charter",
+      "detail": "优先升级型号 工艺装备专营。is_specialization 是。地点修正（本地工具产出 15%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "jewelry_charter",
+      "zh": "珠宝特许",
+      "en": "Jewelry Charter",
+      "detail": "优先升级型号 珠宝专营。is_specialization 是。地点修正（本地珠宝产出 10%、珠宝行会建筑等级 5、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "naval_charter",
+      "zh": "船用物资特许",
+      "en": "Naval Supplies Charter",
+      "detail": "优先升级型号 船用物资专营。is_specialization 是。地点修正（本地船具产出 15%、本地焦油产出 15%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "textile_charter",
+      "zh": "织造特许",
+      "en": "Textile Charter",
+      "detail": "优先升级型号 织造专营。is_specialization 是。地点修正（本地布匹产出 10%、本地精纺品产出 10%、本地染料产出 10%、加工生产效率 -0.025）。可用条件（目标地点（取反（已有城市特权 佛兰德毛纺）））",
+      "scope": "通用"
+    },
+    {
+      "id": "weaponry_charter",
+      "zh": "军械特许",
+      "en": "Weaponry Charter",
+      "detail": "优先升级型号 军械专营。is_specialization 是。地点修正（本地武器产出 10%、本地火器产出 10%、本地火炮产出 10%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "book_charter",
+      "zh": "刊物特许",
+      "en": "Printing Charter",
+      "detail": "优先升级型号 刊物专营。is_specialization 是。地点修正（本地纸张产出 10%、本地书籍产出 10%、本地染料产出 10%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "artisan_charter",
+      "zh": "手工制品特许",
+      "en": "Artisan Charter",
+      "detail": "优先升级型号 手工制品专营。is_specialization 是。地点修正（家具产出 10%、陶器产出 10%、本地皮革产出 10%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "brewing_charter",
+      "zh": "酿造品特许",
+      "en": "Spirituous Charter",
+      "detail": "优先升级型号 酿造品专营。is_specialization 是。地点修正（本地烈酒产出 10%、本地啤酒产出 10%、本地葡萄酒产出 10%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "masonry_charter",
+      "zh": "建材特许",
+      "en": "Masonry Charter",
+      "detail": "优先升级型号 建材专营。is_specialization 是。地点修正（砖块产出 12%、本地玻璃产出 12%、加工生产效率 -0.025）",
+      "scope": "通用"
+    },
+    {
+      "id": "royal_free_cities_town_rights",
+      "zh": "王室自由市特权",
+      "en": "Royal Free City Rights",
+      "detail": "kept_at_conquest 否。地点修正（本地贵族阶层力量 -50%、农民自主权 10%）。国家修正（贵族议程影响 -10%）。可见条件（tag 匈牙利）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "bohemian_royal_cities_town_rights",
+      "zh": "王室直辖市特权",
+      "en": "Royal City Rights",
+      "detail": "kept_at_conquest 否。地点修正（本地贵族阶层力量 -50%、农民自主权 10%）。国家修正（贵族阶层满意度均衡点 -0.025）。可见条件（culture（has_culture_group 波希米亚））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "swedish_city_rights",
+      "zh": "贸易独占市镇权",
+      "en": "Stadsrättigheter",
+      "detail": "kept_at_conquest 否。地点修正（市民贸易容量 100%、贸易容量 25%、原产扩建时间 100%）。可见条件（has_or_had_tag 瑞典）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "norwegian_city_rights",
+      "zh": "市集市镇权",
+      "en": "Kjøpstad Rights",
+      "detail": "kept_at_conquest 否。地点修正（市民贸易容量 100%、本地市场保护 10%、市场接入度 20%）。国家修正（商人维护效率 -2.5%）。可见条件（has_or_had_tag 挪威）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "flemish_cloth_industries_right",
+      "zh": "佛兰德毛纺",
+      "en": "Flemish Cloth Industry",
+      "detail": "is_specialization 是。kept_at_conquest 否。地点修正（纺织工行会建筑等级 5、裁缝行会建筑等级 5、市民贸易容量 25%、贸易容量 25%、加工生产效率 -0.05）。可用条件（目标地点（取反（已有城市特权 织造专营）））",
+      "scope": "通用"
+    },
+    {
+      "id": "ville_franche_town_rights",
+      "zh": "自由城镇权",
+      "en": "Ville Franche Rights",
+      "detail": "kept_at_conquest 否。地点修正（农民自主权 10%、本地人口容量 % 20%、加工生产效率 -0.05）。可见条件（culture（has_culture_group 法兰西）、modifier:allow_ville_franche_town_rights 是）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "borgo_franco_town_rights",
+      "zh": "自治城乡权",
+      "en": "Borgo Franco Rights",
+      "detail": "kept_at_conquest 否。地点修正（市民贸易容量 25%、农民自主权 10%、加工生产效率 -0.05）。可见条件（culture（has_culture_group 意大利））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "agrarian_community_town_right",
+      "zh": "宗教自由宪章",
+      "en": "Charter of Religious Freedom",
+      "detail": "地点修正（本地食物产出 % 0.10、最大原产雇佣规模 50%、本地人口皈依速度 % -100%）。可见条件（has_reform 多族群农耕社群）。可用条件（目标地点（条件（text 生产小麦、玉米、稻米、杂谷、豆类、马铃薯、牲畜、橄榄、水果或蜂蜡）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "enlightened_leadership_reform_town_right",
+      "zh": "平民议会权",
+      "en": "Commoner Council Rights",
+      "detail": "地点修正（本地农民最大识字率 10%、本地劳工最大识字率 10%、本地士兵最大识字率 10%、本地每月繁荣度 0.1%、本地农民阶层力量 100%）。可见条件（has_reform 开明参政）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "scandinavian_fishing_privileges",
+      "zh": "渔业特许经营",
+      "en": "Fiskeriprivilegier",
+      "detail": "kept_at_conquest 否。地点修正（每月水手 10%、本地海上存在 0.1、最大原产雇佣规模 50%）。国家修正（扩建收集场花费 5%）。可用条件（目标地点（须为港口））",
+      "scope": "通用"
+    },
+    {
+      "id": "scandinavian_bergslag_privileges",
+      "zh": "矿业社区特许经营",
+      "en": "Bergslagsprivilegier",
+      "detail": "is_specialization 是。kept_at_conquest 否。地点修正（最大原产雇佣规模 50%、本地工具产出 10%、农民自主权 5%、原产扩建时间 50%）。国家修正（扩建矿场花费 5%）。可用条件（目标地点（取反（已有城市特权 工艺装备专营）、取反（已有城市特权 矿业特许状）、任一（原材料 铁、原材料 铜、原材料 白银、原材料 铅）））",
+      "scope": "通用"
+    },
+    {
+      "id": "scandinavian_tar_privileges",
+      "zh": "松焦油特许经营",
+      "en": "Tjärprivilegier",
+      "detail": "is_specialization 是。kept_at_conquest 否。地点修正（本地焦油产出 20%、本地船具产出 20%、农民自主权 5%、加工生产效率 -0.05）。可用条件（目标地点（取反（已有城市特权 船用物资专营）））",
+      "scope": "通用"
+    },
+    {
+      "id": "scandinavian_thing_rights",
+      "zh": "庭会司法特许状",
+      "en": "Tingsrätt",
+      "detail": "kept_at_conquest 否。地点修正（本地王室力量 -20%、最大控制力 10%、移民吸引力 0.3）",
+      "scope": "通用"
+    },
+    {
+      "id": "magdeburg_rights_town_rights",
+      "zh": "马格德堡权利",
+      "en": "Magdeburg Rights",
+      "detail": "kept_at_conquest 否。地点修正（移民吸引力 0.2、贸易容量 25%、本地人口同化速度 -50%）。国家修正（立法效率 -5%）。可见条件（capital（区域 北德意志）、modifier:allow_magdeburg_rights_town_rights 是）。可用条件（目标地点（均不满足（已有城市特权 纽伦堡特权、已有城市特权 库尔姆城镇权）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "lubeck_town_rights",
+      "zh": "吕贝克权利",
+      "en": "Lübeck Rights",
+      "detail": "kept_at_conquest 否。地点修正（本地海上存在 0.1、港口容量 0.2、集市建筑等级 10）。国家修正（市民议程影响 -10%）。可见条件（culture（has_culture_group 德意志））。可用条件（目标地点（须为港口、均不满足（已有城市特权 特贸港、已有城市特权 马格德堡权利、已有城市特权 纽伦堡特权、已有城市特权 库尔姆城镇权）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "nuremberg_rights_town_rights",
+      "zh": "纽伦堡特权",
+      "en": "Nuremberg Rights",
+      "detail": "kept_at_conquest 否。地点修正（移民吸引力 0.2、加工生产效率 0.01、本地人口同化速度 -50%）。国家修正（立法效率 -5%）。可见条件（capital（区域 南德意志）、modifier:allow_nuremberg_rights_town_rights 是）。可用条件（目标地点（均不满足（已有城市特权 马格德堡权利、已有城市特权 库尔姆城镇权）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "upper_bergregal",
+      "zh": "上位矿业权",
+      "en": "Upper Bergregal",
+      "detail": "kept_at_conquest 否。地点修正（最大原产雇佣规模 100%、移民吸引力 0.1、原产扩建时间 50%、农民自主权 -20%）。国家修正（扩建矿场花费 10%）。可见条件（has_policy 国家控制开采作业）。可用条件（目标地点（取反（已有城市特权 矿业特许状）、条件（text 生产白银、黄金、宝石或内陆盐）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "lower_bergregal",
+      "zh": "下位矿业权",
+      "en": "Lower Bergregal",
+      "detail": "kept_at_conquest 否。地点修正（最大原产雇佣规模 100%、移民吸引力 0.1、农民自主权 -20%、本地贵族阶层力量 50%）。国家修正（扩建矿场花费 5%）。可见条件（has_policy 国家控制开采作业）。可用条件（目标地点（取反（已有城市特权 矿业特许状）、条件（text 生产铁、铜、铅、锡、明矾、大理石、水银、煤炭、石料或硝石）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "stapelrecht_town_rights",
+      "zh": "帝国自由市基本权利",
+      "en": "Free Imperial City Staple Rights",
+      "detail": "kept_at_conquest 否。地点修正（集市建筑等级 10、本地每月发展度 0.002）。国家修正（商人维护效率 -2.5%）。可见条件（international_organization:hre（country_has_special_status（类型 帝国自由市、国家 root）））。可用条件（目标地点（is_port 否））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "kulm_town_rights",
+      "zh": "库尔姆城镇权",
+      "en": "Kulm Rights",
+      "detail": "kept_at_conquest 否。地点修正（移民吸引力 0.33、农民自主权 10%、本地人口同化速度 -25%、本地王室力量 -25%）。可见条件（modifier:allow_kulm_town_rights 是）。可用条件（目标地点（均不满足（已有城市特权 马格德堡权利、已有城市特权 纽伦堡特权）））",
+      "scope": "通用"
+    },
+    {
+      "id": "novi_fori_town_rights",
+      "zh": "新兴市镇权",
+      "en": "Novi Fori Rights",
+      "detail": "kept_at_conquest 否。地点修正（农民自主权 10%、移民吸引力 0.2、本地人口同化速度 -20%、本地人口皈依速度 % -20%）。可见条件（modifier:allow_novi_fori_town_rights 是）。可用条件（目标地点（均不满足（已有城市特权 马格德堡权利、已有城市特权 纽伦堡特权、已有城市特权 库尔姆城镇权）））",
+      "scope": "通用"
+    },
+    {
+      "id": "novo_brdo_charter",
+      "zh": "新布尔多采矿权",
+      "en": "Novo Brdo Mining Rights",
+      "detail": "kept_at_conquest 否。地点修正（最大原产雇佣规模 50%、农民自主权 -10%、本地每月繁荣度 0.1%）。国家修正（立法效率 -10%）。可见条件（has_policy 新布尔多采矿法）。可用条件（目标地点（取反（已有城市特权 矿业特许状）、条件（text 产出矿物类原材料或内陆盐）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "borough_customals",
+      "zh": "自治镇习惯法",
+      "en": "Borough Custumals",
+      "detail": "kept_at_conquest 否。地点修正（本地人口升级速度 % 20%、本地最大识字率 5%、原产扩建时间 100%）。可见条件（culture（has_culture_group 不列颠））。可用条件（目标地点（取反（已有城市特权 庄园惯例法）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "manorial_customals",
+      "zh": "庄园惯例法",
+      "en": "Manorial Custumals",
+      "detail": "kept_at_conquest 否。地点修正（本地食物产出 % 0.25、食物腐坏 -0.1%、农民自主权 -10%）。可见条件（culture（has_culture_group 不列颠））。可用条件（目标地点（取反（已有城市特权 自治镇习惯法）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "foros_extensos_town_rights",
+      "zh": "广域市镇权",
+      "en": "Foros Extensos",
+      "detail": "kept_at_conquest 否。地点修正（每月人力 10%、本地征召规模 10%、士兵岗位容量 50 人、本地贵族阶层力量 50%）。可见条件（任一（has_or_had_tag 葡萄牙、文化 葡萄牙））。可用条件（目标地点（均不满足（已有城市特权 司法法典、已有城市特权 王室法典、已有城市特权 通用法典、已有城市特权 阿拉贡法典、已有城市特权 巴塞罗那习惯法、已有城市特权 巴伦西亚法典）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "fuero_juzgo_town_rights",
+      "zh": "司法法典",
+      "en": "Fuero Juzgo",
+      "detail": "kept_at_conquest 否。地点修正（移民吸引力 0.2、农民自主权 5%、建筑建造效率 -10%）。可见条件（任一（has_or_had_tag 莱昂、has_or_had_tag 卡斯蒂利亚））。可用条件（目标地点（任一（地区 莱昂、地区 埃斯特雷马杜拉、地区 托莱多、地区 穆尔西亚、优势文化 阿斯图尔‑莱昂）、均不满足（已有城市特权 广域市镇权、已有城市特权 王室法典、已有城市特权 通用法典、已有城市特权 阿拉贡法典、已有城市特权 巴塞罗那习惯法、已有城市特权 巴伦西亚法典）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "fuero_real_town_rights",
+      "zh": "王室法典",
+      "en": "Fuero Real",
+      "detail": "kept_at_conquest 否。地点修正（本地王室力量 50%、本地叛乱度 10%）。可见条件（has_or_had_tag 卡斯蒂利亚）。可用条件（目标地点（均不满足（已有城市特权 广域市镇权、已有城市特权 司法法典、已有城市特权 通用法典、已有城市特权 阿拉贡法典、已有城市特权 巴塞罗那习惯法、已有城市特权 巴伦西亚法典）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "fuero_general_town_rights",
+      "zh": "通用法典",
+      "en": "Fuero General",
+      "detail": "kept_at_conquest 否。地点修正（贵族叛乱度 -10%、市民叛乱度 -10%、建筑建造效率 20%、平民叛乱度 20%）。可见条件（任一（has_or_had_tag 纳瓦拉、文化 巴斯克）、culture（has_culture_group 伊比利亚））。可用条件（目标地点（均不满足（已有城市特权 广域市镇权、已有城市特权 司法法典、已有城市特权 王室法典、已有城市特权 阿拉贡法典、已有城市特权 巴塞罗那习惯法、已有城市特权 巴伦西亚法典）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "fuero_de_aragon_town_rights",
+      "zh": "阿拉贡法典",
+      "en": "Fueros de Aragón",
+      "detail": "kept_at_conquest 否。地点修正（贵族叛乱度 -10%、农民自主权 10%、本地贵族阶层力量 50%）。可见条件（任一（has_or_had_tag 阿拉贡、文化 阿拉贡））。可用条件（目标地点（任一（地区 阿拉贡、优势文化 阿拉贡）、均不满足（已有城市特权 广域市镇权、已有城市特权 司法法典、已有城市特权 王室法典、已有城市特权 通用法典、已有城市特权 巴塞罗那习惯法、已有城市特权 巴伦西亚法典）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "usatges_de_barcelona_town_rights",
+      "zh": "巴塞罗那习惯法",
+      "en": "Usatges de Barcelona",
+      "detail": "kept_at_conquest 否。地点修正（贵族叛乱度 -10%、市民叛乱度 -10%、农民自主权 -10%）。可见条件（任一（has_or_had_tag 阿拉贡、has_or_had_tag 加泰罗尼亚、文化 加泰罗尼亚））。可用条件（目标地点（任一（地区 加泰罗尼亚、地区 巴利阿里群岛）、均不满足（已有城市特权 广域市镇权、已有城市特权 司法法典、已有城市特权 王室法典、已有城市特权 通用法典、已有城市特权 阿拉贡法典、已有城市特权 巴伦西亚法典）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "furs_de_valencia_town_rights",
+      "zh": "巴伦西亚法典",
+      "en": "Furs de Valencia",
+      "detail": "kept_at_conquest 否。地点修正（本地叛乱度 -10%、最大原产雇佣规模 50%、本地人口同化速度 -50%、本地人口皈依速度 % -50%）。可见条件（任一（has_or_had_tag 阿拉贡、has_or_had_tag 加泰罗尼亚、文化 加泰罗尼亚））。可用条件（目标地点（地区 巴伦西亚、均不满足（已有城市特权 广域市镇权、已有城市特权 司法法典、已有城市特权 王室法典、已有城市特权 通用法典、已有城市特权 阿拉贡法典、已有城市特权 巴塞罗那习惯法）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "ara_consulate_sea_town_rights",
+      "zh": "海事法庭",
+      "en": "Consulate of the Sea",
+      "detail": "kept_at_conquest 否。地点修正（市民贸易容量 100%、贸易容量 100%、本地叛乱度 -25%、本地每月繁荣度 0.1%、本地市民阶层力量 50%、本地王室力量 -50%）。可见条件（modifier:unlocked_consulate_sea_town_right 是）。可用条件（条件（text 区域内没有地点拥有海事法庭城镇特权））",
+      "scope": "通用"
+    },
+    {
+      "id": "imperial_breadbasket_rights",
+      "zh": "帝国粮仓",
+      "en": "Imperial Breadbasket",
+      "detail": "kept_at_conquest 否。可见条件（任一（has_or_had_tag 拜占庭、has_or_had_tag 罗马））。可用条件（目标地点（取反（已有城市特权 粮储镇）、条件（text 地点等级为城市或大都市）、条件（text 拥有一座至少5级的谷仓）））。地点修正（本地食物容量 1000、本地每月繁荣度 0.2%、本地人口增长 0.2%、本地人口食物消耗 20%）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "constantinopolitan_silk_monopoly_rights",
+      "zh": "君士坦丁堡丝绸垄断",
+      "en": "Silk Monopoly of Constantinople",
+      "detail": "is_specialization 是。kept_at_conquest 否。可见条件（任一（has_or_had_tag 拜占庭、has_or_had_tag 罗马））。可用条件（目标地点（条件（text 地点为君士坦丁堡且原材料得到完全升级、this 君士坦丁堡、is_full_expanded_rgo 是）））。地点修正（本地丝绸产出 50%、本地布匹产出 25%、本地精纺品产出 10%、农民自主权 -10%）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "scholai_literacy_rights",
+      "zh": "学术特权",
+      "en": "Scholai Privileges",
+      "detail": "kept_at_conquest 否。可见条件（任一（culture（has_culture_group 罗马）、culture_group_percentage_in_country（文化组 罗马、参数 > 0.25）））。可用条件（目标地点（dominant_culture（has_culture_group 罗马）、has_building 大学、发展度 >= 20））。地点修正（本地每月识字率 0.05%、本地思潮增长 30%、本地人口升级速度 % 25%、加工生产效率 -0.05）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "municipia_privilegia",
+      "zh": "自治市特权",
+      "en": "Municipia Privileges",
+      "detail": "kept_at_conquest 否。可见条件（has_dlc d008_fate_of_the_phoenix、任一（has_or_had_tag 拜占庭、has_or_had_tag 罗马））。可用条件（条件（text municipia_privilegia_latin_tt））。地点修正（加工生产效率 0.01、本地拉丁复兴运动增长修正 15%、本地文化影响力 2、人口加入叛军的阈值 20%）",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "iberian_aljama_charter",
+      "zh": "阿尔哈马宪章",
+      "en": "Aljama Charter",
+      "detail": "kept_at_conquest 否。地点修正（本地异教人群皈依速度% -50%、最大原产雇佣规模 15%）。可见条件（has_dlc d009_across_the_pillars、religion.group 基督教、culture（has_culture_group 伊比利亚））。可用条件（has_estate_privilege 穆德哈尔社区、目标地点（优势宗教 逊尼派））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "mozarab_charter_town_rights",
+      "zh": "莫萨拉布特许状",
+      "en": "Mozarab Charter",
+      "detail": "kept_at_conquest 否。地点修正（本地叛乱度 -10%、本地分离主义 -20%、本地异教人群皈依速度% -50%）。可见条件（has_dlc d009_across_the_pillars、religion.group 伊斯兰教、culture（has_culture_group 伊比利亚））。可用条件（has_estate_privilege 自然人法权、目标地点（dominant_religion.group 基督教、均不满足（已有城市特权 安达卢斯人重新定居、已有城市特权 黄金时代移居）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "andalusi_resettlement_golden_age_town_rights",
+      "zh": "黄金时代移居",
+      "en": "Golden Age Resettlement",
+      "detail": "kept_at_conquest 否。地点修正（移民吸引力 0.4、加工生产效率 0.025、本地叛乱度 10%）。可见条件（has_dlc d009_across_the_pillars、religion.group 伊斯兰教、任一（文化 安达卢斯、has_accepted_culture 安达卢斯）、global_var:battle_for_the_strait_winner_country（this root））。可用条件（目标地点（区域 伊比利亚、取反（优势文化 安达卢斯）、均不满足（已有城市特权 莫萨拉布特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "andalusi_resettlement_town_rights",
+      "zh": "安达卢斯人重新定居",
+      "en": "Andalusi Resettlement",
+      "detail": "优先升级型号 黄金时代移居。kept_at_conquest 否。地点修正（移民吸引力 0.2、加工生产效率 0.01、本地叛乱度 10%）。可见条件（has_dlc d009_across_the_pillars、religion.group 伊斯兰教、任一（文化 安达卢斯、has_accepted_culture 安达卢斯））。可用条件（目标地点（区域 伊比利亚、取反（优势文化 安达卢斯）、均不满足（已有城市特权 莫萨拉布特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "andalusi_refugee_town_rights",
+      "zh": "安达卢斯难民特许状",
+      "en": "Andalusi Refugee Charter",
+      "detail": "kept_at_conquest 否。地点修正（移民吸引力 0.2、加工生产效率 0.01、本地人口同化速度 -50%）。可见条件（has_dlc d009_across_the_pillars、modifier:allow_andalusi_refugee_town_rights 是、取反（global_var:battle_for_the_strait_winner_country（religion.group 伊斯兰教）））。可用条件（目标地点（\"culture_percentage(culture:andalusi)\" > 0、均不满足（已有城市特权 麦地那宪章、已有城市特权 姆扎卜五城、已有城市特权 部落集市特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "medina_charter_town_rights",
+      "zh": "麦地那宪章",
+      "en": "Medina Charter",
+      "detail": "kept_at_conquest 否。地点修正（最大控制力 5%、新建筑建造效率 -10%）。可见条件（has_dlc d009_across_the_pillars、任一（culture（has_culture_group 马格里布）、culture（has_culture_group 阿马齐格）））。可用条件（目标地点（均不满足（已有城市特权 姆扎卜五城、已有城市特权 安达卢斯难民特许状、已有城市特权 部落集市特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "mzab_pentapolis_town_rights",
+      "zh": "姆扎卜五城",
+      "en": "Mzab Pentapolis",
+      "detail": "kept_at_conquest 否。地点修正（市民叛乱度 -10%、市场接入度 10%、移民吸引力 0.15、本地人口同化速度 -50%）。可见条件（has_dlc d009_across_the_pillars、文化 姆扎卜）。可用条件（目标地点（均不满足（已有城市特权 麦地那宪章、已有城市特权 安达卢斯难民特许状、已有城市特权 部落集市特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "tribal_souk_town_rights",
+      "zh": "部落集市特许状",
+      "en": "Tribal Souk Charter",
+      "detail": "kept_at_conquest 否。地点修正（市场接入度 15%、移民吸引力 0.1、部落叛乱度 -10%、最大控制力 -2%）。可见条件（has_dlc d009_across_the_pillars、任一（culture（has_culture_group 马格里布）、culture（has_culture_group 阿马齐格）））。可用条件（目标地点（any_pop（雇员工种 部落民）、均不满足（已有城市特权 麦地那宪章、已有城市特权 姆扎卜五城、已有城市特权 安达卢斯难民特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "taifa_al_rais_town_rights",
+      "zh": "雷斯泰法",
+      "en": "Taifa of the Reïs",
+      "detail": "kept_at_conquest 否。地点修正（每月水手 0.01、本地海上存在 0.1、本地叛乱度 10%）。可见条件（has_dlc d009_across_the_pillars、任一（culture（has_culture_group 马格里布）、has_or_had_tag 摩洛哥））。可用条件（目标地点（须为港口、均不满足（已有城市特权 麦地那宪章、已有城市特权 姆扎卜五城、已有城市特权 安达卢斯难民特许状、已有城市特权 部落集市特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "sale_arsenal_town_rights",
+      "zh": "萨累兵工厂",
+      "en": "Salé Arsenal",
+      "detail": "kept_at_conquest 否。地点修正（每月水手 0.025、本地市民阶层力量 50%、舰船建造队列 2、本地王室力量 -25%）。可见条件（has_dlc d009_across_the_pillars、has_or_had_tag 摩洛哥）。可用条件（目标地点（this 塞拉、均不满足（已有城市特权 麦地那宪章、已有城市特权 姆扎卜五城、已有城市特权 安达卢斯难民特许状、已有城市特权 部落集市特许状）））",
+      "scope": "国别/特殊"
+    },
+    {
+      "id": "guich_charter_town_rights",
+      "zh": "杰什特许",
+      "en": "Guich Charter",
+      "detail": "kept_at_conquest 否。地点修正（每月人力 0.01、部落阶层力量 100%、本地可招募军团 是、最大控制力 -2%）。可见条件（has_dlc d009_across_the_pillars、任一（culture（has_culture_group 马格里布）、has_or_had_tag 摩洛哥））。可用条件（目标地点.region 马格里布）",
+      "scope": "国别/特殊"
+    }
+  ],
+  "casus_belli": [
+    {
+      "id": "cb_none",
+      "zh": "无宣战理由",
+      "en": "No Casus Belli",
+      "detail": "无宣战理由（高稳耗/高敌意）。战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_war_from_event",
+      "zh": "事件战争",
+      "en": "War From Event",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_subject_broke_free",
+      "zh": "重新降服属国",
+      "en": "Subject Broke Free",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_insulted_us",
+      "zh": "报复侮辱",
+      "en": "Insulted Us",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_rebel_support",
+      "zh": "支持叛军",
+      "en": "Supported Rebels",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_declined_call_to_arms",
+      "zh": "拒绝战争召唤",
+      "en": "Declined Call to Arms",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_denied_military_access",
+      "zh": "拒绝军事通行",
+      "en": "Denied Military Access",
+      "detail": "战争目标：demand_military_access",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_following_through_on_threat",
+      "zh": "兑现开战威胁",
+      "en": "Following Through On Threat",
+      "detail": "cut_down_in_size_cb 是。允许和约释放地区。战争目标：conquer_province",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_destroyed_building",
+      "zh": "报复摧毁建筑",
+      "en": "Destroyed Buildings",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_trade_war_triggered",
+      "zh": "贸易战争",
+      "en": "Trade War",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_border_war",
+      "zh": "边界争端",
+      "en": "Border Feud",
+      "detail": "战争目标：take_border",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_religious_conformance",
+      "zh": "宗教统一",
+      "en": "Religious Conformance",
+      "detail": "年数 25。战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_annex",
+      "zh": "吞并",
+      "en": "Annex",
+      "detail": "年数 15。战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_maritime_dominance",
+      "zh": "支配海洋",
+      "en": "Maritime Dominance",
+      "detail": "战争目标：船具",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_destabilized_our_state",
+      "zh": "破坏我国稳定",
+      "en": "Destabilized Our State",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_livonian_wars",
+      "zh": "利沃尼亚战争",
+      "en": "Livonian War",
+      "detail": "战争目标：superiority_livonian_wars",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_hafsid_civil_war",
+      "zh": "哈夫斯冲突",
+      "en": "Hafsid Conflict",
+      "detail": "战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_claim_timurids",
+      "zh": "宣称帖木儿领地",
+      "en": "Claim Timurid Realm",
+      "detail": "战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_dlh_invasion_of_china",
+      "zh": "入侵中国",
+      "en": "Invasion of China",
+      "detail": "战争目标：superiority_claim_china",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_reclaim_andalucia",
+      "zh": "重建安达卢西亚",
+      "en": "Restoration of Andalusia",
+      "detail": "战争目标：superiority_reclaim_andalucia",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_sco_invade_england",
+      "zh": "入侵英格兰",
+      "en": "Incursion into England",
+      "detail": "战争目标：superiority_sco_invade_england",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_subjugation",
+      "zh": "降服",
+      "en": "Subjugation",
+      "detail": "年数 15。战争目标：take_capital_subjugation",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_scaligeri_war",
+      "zh": "斯卡拉战争",
+      "en": "Scaliger War",
+      "detail": "additional_war_enthusiasm 0.5。cut_down_in_size_cb 是。允许和约释放地区。allow_separate_peace 否。战争目标：superiority_coalition_scaliger_war",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_iw_annexation",
+      "zh": "意大利联盟臣服",
+      "en": "Italian League Subjugation",
+      "detail": "战争目标：take_capital_subjugation",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_restore_roman_borders",
+      "zh": "恢复罗马疆界",
+      "en": "Restore Roman Borders",
+      "detail": "speed 10。战争目标：superiority_restore_roman_borders",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_anti_piracy",
+      "zh": "反海盗战争",
+      "en": "Anti-Piracy War",
+      "detail": "贸易 是。no_spy_network_cost 是。speed 15。战争目标：船具",
+      "scope": "通用"
+    },
+    {
+      "id": "attack_threat",
+      "zh": "进攻有威胁的宿敌",
+      "en": "Attack Threatening Rival",
+      "detail": "战争目标：superiority_rival",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_beaver_wars",
+      "zh": "强制确保毛皮供应",
+      "en": "Seize Fur Supply",
+      "detail": "speed 6。战争目标：superiority_beaver_war",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_break_free_tatar_yoke",
+      "zh": "挣脱鞑靼枷锁",
+      "en": "Break free from the Tatar Yoke",
+      "detail": "战争目标：superiority。additional_war_enthusiasm_attacker 0.75",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_recover_defaulted_debt",
+      "zh": "收回违约债务",
+      "en": "Recover Defaulted Debt",
+      "detail": "战争目标：recover_defaulted_debt_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_iw_challenge_league_leadership",
+      "zh": "挑战联盟领导权",
+      "en": "Challenge for League Leadership",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_claim_throne",
+      "zh": "宣称王位",
+      "en": "Claim Throne",
+      "detail": "年数 15。战争目标：take_capital_claim_throne",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_coalition",
+      "zh": "包围网",
+      "en": "Coalition",
+      "detail": "战争目标：superiority_coalition。additional_war_enthusiasm_attacker 0.25。can_expire 否。cut_down_in_size_cb 是。允许和约释放地区。allow_separate_peace 否",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_colonial_conflict",
+      "zh": "殖民冲突",
+      "en": "Colonial Conflict",
+      "detail": "战争目标：船具",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_colony_war",
+      "zh": "殖民地战争",
+      "en": "Colony War",
+      "detail": "战争目标：take_capital_colony_war",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_conquer_enemy",
+      "zh": "摧毁敌人",
+      "en": "Destroy Enemy",
+      "detail": "战争目标：superiority_rival",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_conquer_province",
+      "zh": "宣称省份",
+      "en": "Claims on Province",
+      "detail": "年数 15。战争目标：conquer_province",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_crusade",
+      "zh": "十字军",
+      "en": "Crusade",
+      "detail": "年数 25。allow_white_peace 否。战争目标：crusade_conquest。allow_ports_for_reach_ai 是。additional_war_enthusiasm 0.1",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_crush_hussitism",
+      "zh": "粉碎胡斯派",
+      "en": "Crush Hussitism",
+      "detail": "允许和约释放地区。战争目标：superiority_heretic",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_cut_down_in_size",
+      "zh": "削减领土",
+      "en": "Cut Down in Size",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_deus_vult",
+      "zh": "宗教战争",
+      "en": "Religious War",
+      "detail": "年数 25。战争目标：religious_conquer_province",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_disloyal_subject",
+      "zh": "驯服属国",
+      "en": "Disloyal Subject",
+      "detail": "allow_wars_on_own_subjects 是。战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_disrupting_trade",
+      "zh": "损害贸易",
+      "en": "Disrupting Trade",
+      "detail": "贸易 是。战争目标：船具",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_dissolve_tatar_yoke",
+      "zh": "解除鞑靼枷锁",
+      "en": "Dissolve the Tatar Yoke",
+      "detail": "战争目标：dissolve_tatar_yoke_wargoal。additional_war_enthusiasm_attacker 0.25",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_excommunication",
+      "zh": "被绝罚的统治者",
+      "en": "Excommunicated Ruler",
+      "detail": "战争目标：excommunication_conquest",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_expansion_into_the_steppes",
+      "zh": "向草原扩张",
+      "en": "Expansion into the Steppes",
+      "detail": "speed 25。战争目标：superiority_against_hordes",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_exploration",
+      "zh": "探索扩张",
+      "en": "Exploration",
+      "detail": "show_tags_in_ui 是。战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_fabricated_conquer_province",
+      "zh": "伪造省份宣称",
+      "en": "Dubious Claims on Province",
+      "detail": "年数 15。战争目标：fabricated_conquer_province",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_flower_wars",
+      "zh": "鲜花战争",
+      "en": "Flower Wars",
+      "detail": "战争目标：superiority_flower_wars",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_force_migration",
+      "zh": "强制迁徙",
+      "en": "Force Migration",
+      "detail": "战争目标：superiority_force_migration",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_gag_force_country_into_faction",
+      "zh": "强迫加入我们的派系",
+      "en": "Force into our Faction",
+      "detail": "战争目标：take_capital_gag_force_country_into_faction",
+      "scope": "通用"
+    },
+    {
+      "id": "great_northern_conflict",
+      "zh": "大北方战争",
+      "en": "Great Northern Conflict",
+      "detail": "战争目标：great_northern_conflict_conquest",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_hegemon",
+      "zh": "推翻霸权",
+      "en": "Take Down Hegemon",
+      "detail": "战争目标：take_capital_imperial",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_hegemon_ultimatum",
+      "zh": "霸权最后通牒",
+      "en": "Hegemon Ultimatum",
+      "detail": "战争目标：take_capital_enforce_hegemon_demands",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_heretic",
+      "zh": "清除异端",
+      "en": "Cleanse Heresy",
+      "detail": "年数 25。战争目标：superiority_heretic",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_high_kingship_overthrow",
+      "zh": "推翻至高王",
+      "en": "Overthrow High King",
+      "detail": "can_expire 否。战争目标：high_kingship_superiority_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_high_kingship_reclamation",
+      "zh": "夺回至高王国的土地",
+      "en": "Reclaim High Kingship Land",
+      "detail": "can_expire 否。战争目标：high_kingship_reclamation_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_high_kingship_subjugate",
+      "zh": "降服至高王国成员",
+      "en": "Subjugate High Kingship Member",
+      "detail": "战争目标：high_kingship_subjugate_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_horde_vs_civ",
+      "zh": "游牧扩张",
+      "en": "Horde Expansion",
+      "detail": "战争目标：superiority_horde",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_raiding_retaliation",
+      "zh": "报复劫掠",
+      "en": "Raiding Retaliation",
+      "detail": "战争目标：superiority_raiding",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_liberate_hre_member",
+      "zh": "解放帝国领土",
+      "en": "Imperial Liberation",
+      "detail": "cut_down_in_size_cb 是。allow_separate_peace 否。additional_war_enthusiasm_attacker 0.25。允许和约释放地区。战争目标：take_capital_liberate_hre_member",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_humiliate",
+      "zh": "羞辱",
+      "en": "Humiliate",
+      "detail": "战争目标：humiliate",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_humiliate_rival",
+      "zh": "羞辱宿敌",
+      "en": "Humiliate Rival",
+      "detail": "战争目标：humiliate",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_hundred_years_war",
+      "zh": "夺取法兰西王位",
+      "en": "Conquer the Throne of France",
+      "detail": "战争目标：hundred_years_war_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_hundred_years_war_fra",
+      "zh": "捍卫法兰西王位",
+      "en": "Defend the Throne of France",
+      "detail": "战争目标：hundred_years_war_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_unify_ilkahante",
+      "zh": "统一伊儿汗国",
+      "en": "Unify the Īlkhānān",
+      "detail": "speed 10。战争目标：unify_ilkhanate_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_false_ilkhan_claimant",
+      "zh": "降服伪汗",
+      "en": "Refuse the False Claimant",
+      "detail": "speed 10。战争目标：false_ilkhan_claimant_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_shed_shackles_of_the_ilkahante",
+      "zh": "脱离伊儿汗国枷锁",
+      "en": "Shed the Shackles of the Īlkhānān",
+      "detail": "speed 10。战争目标：shed_shackles_of_ilkhanate_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_imperial_ban",
+      "zh": "帝国取缔令",
+      "en": "Imperial Ban",
+      "detail": "cut_down_in_size_cb 是。additional_war_enthusiasm_attacker 0.25。允许和约释放地区。战争目标：imperial_ban_conquer_province",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_imperialism",
+      "zh": "帝国主义",
+      "en": "Imperialism",
+      "detail": "年数 25。战争目标：take_capital_imperial",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_independence_war",
+      "zh": "争取独立",
+      "en": "Independence",
+      "detail": "战争目标：independence",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_secure_italy",
+      "zh": "夺取意大利",
+      "en": "Secure Italy",
+      "detail": "战争目标：secure_italy_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_jihad",
+      "zh": "吉哈德",
+      "en": "Jihād",
+      "detail": "年数 25。allow_white_peace 否。战争目标：jihad_conquest。additional_war_enthusiasm 0.1",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_lat_reconquest",
+      "zh": "拉丁帝国再征服",
+      "en": "Latin Reconquest",
+      "detail": "年数 25。战争目标：superiority_lat_reconquest",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_league_of_public_weal",
+      "zh": "公益同盟",
+      "en": "League of the Public Weal",
+      "detail": "战争目标：league_of_public_weal_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_lodi_claims",
+      "zh": "罗第王朝征服",
+      "en": "Lōdī Claims",
+      "detail": "战争目标：take_capital_lodi_claims",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_make_tributary",
+      "zh": "收为朝贡国",
+      "en": "Make Tributary",
+      "detail": "年数 15。战争目标：take_capital_tributary",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_nanbokuchou",
+      "zh": "南北朝时代",
+      "en": "Nanbokuchō Jidai",
+      "detail": "speed 10。max_warscore_from_battles 100。战争目标：nanbokuchou_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_nationalist",
+      "zh": "民族主义",
+      "en": "Nationalist",
+      "detail": "战争目标：take_province_nationalist",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_native_subjugation",
+      "zh": "征服原住民",
+      "en": "Native Subjugation",
+      "detail": "战争目标：superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_parliament_conquer_province",
+      "zh": "议会批准省份宣称",
+      "en": "Parliament Approved Claims on Province",
+      "detail": "战争目标：parliament_conquer_province",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_prevent_annexation",
+      "zh": "阻止吞并",
+      "en": "Prevent Annexation",
+      "detail": "战争目标：take_capital_prevent_annexation",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_push_back_colonizers",
+      "zh": "把殖民者赶下海",
+      "en": "Push Back Colonizers",
+      "detail": "战争目标：superiority_push_back_colonizers",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_red_turban_rebellions",
+      "zh": "红巾军起义",
+      "en": "Red Turban Rebellions",
+      "detail": "additional_war_enthusiasm_attacker 0.75。speed 10。战争目标：red_turban_rebellions_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_red_turban_rebellions_rein_in_rebels",
+      "zh": "清剿贼寇",
+      "en": "Rein in the Rebels",
+      "detail": "additional_war_enthusiasm_defender 0.75。speed 10。战争目标：red_turban_rebellions_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_red_turban_rebellions_against_other_rebels",
+      "zh": "逐鹿一方",
+      "en": "Regional Supremacy",
+      "detail": "speed 8。战争目标：red_turban_rebellions_against_other_rebels_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_religious_superiority",
+      "zh": "宗教霸权",
+      "en": "Religious Superiority",
+      "detail": "additional_war_enthusiasm 0.6。战争目标：religious_superiority_wargoal。blocks_unconditional_surrender 是",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_resist_annexation",
+      "zh": "反抗吞并",
+      "en": "Resist Annexation",
+      "detail": "additional_war_enthusiasm_attacker 0.4。战争目标：independence_annexing_me",
+      "scope": "通用"
+    },
+    {
+      "id": "crush_the_revolution_cb",
+      "zh": "镇压革命",
+      "en": "Crush the Revolution",
+      "detail": "no_cb 否。speed 10。additional_war_enthusiasm 0.1。战争目标：take_capital_imperial",
+      "scope": "通用"
+    },
+    {
+      "id": "spread_the_revolution_cb",
+      "zh": "传播革命",
+      "en": "Spread the Revolution",
+      "detail": "no_cb 否。speed 10。additional_war_enthusiasm 0.1。战争目标：take_capital_imperial",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_take_shogunate",
+      "zh": "夺取幕府之位",
+      "en": "Take the Shogunate",
+      "detail": "speed 10。战争目标：take_shogunate_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_sengoku",
+      "zh": "战国时代",
+      "en": "Sengoku Jidai",
+      "detail": "speed 10。战争目标：sengoku_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_japanese_clan_expand_authority",
+      "zh": "声张威势",
+      "en": "Expand Clan Authority",
+      "detail": "speed 10。max_warscore_from_battles 100。战争目标：clan_expansion_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_japanese_clan_rebel_against_shogunate_authority",
+      "zh": "反抗征夷大将军权威",
+      "en": "Rebel Against the Shōgun Authority",
+      "detail": "speed 10。max_warscore_from_battles 100。战争目标：clan_expansion_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_shogunate_reassert_authority",
+      "zh": "重申征夷大将军权威",
+      "en": "Reassert Shōgun Authority",
+      "detail": "speed 10。max_warscore_from_battles 100。战争目标：clan_expansion_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_slave_raiding",
+      "zh": "劫掠奴隶",
+      "en": "Slave Raiding",
+      "detail": "speed 8.0。战争目标：humiliate",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_sound_toll_exemptions_broken",
+      "zh": "打破海峡通行费豁免权",
+      "en": "Sound Tolls Exemptions Broken",
+      "detail": "战争目标：take_capital_sound_toll",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_tariff_dispute",
+      "zh": "关税争端",
+      "en": "Tariff Dispute",
+      "detail": "中文名据游戏英文标题译出。贸易 是。战争目标：enforce_tariff_exemption",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_timurs_conquests",
+      "zh": "帖木儿征服",
+      "en": "Timur's Conquest",
+      "detail": "战争目标：timurs_war_superiority",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_trade_conflict",
+      "zh": "贸易争端",
+      "en": "Trade Conflict",
+      "detail": "贸易 是。战争目标：船具",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_tribal_feud",
+      "zh": "部落争霸",
+      "en": "Tribal Feud",
+      "detail": "战争目标：take_province_tribal_feud",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_chinese_unification",
+      "zh": "统一中国",
+      "en": "Unify China",
+      "detail": "speed 8。allow_wars_on_own_subjects 是。战争目标：superiority_chinese_unification",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_claim_mandate_of_heaven",
+      "zh": "宣称天命",
+      "en": "Claim Mandate of Heaven",
+      "detail": "speed 10。战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_jurchen_unification",
+      "zh": "统一部落联盟",
+      "en": "Unite the Confederation",
+      "detail": "can_expire 否。战争目标：jurchen_unification_wargoal",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_union_independence",
+      "zh": "脱离联统",
+      "en": "Union Independence",
+      "detail": "战争目标：defend_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_union_war_for_seniority",
+      "zh": "争夺主导地位",
+      "en": "War for Seniority",
+      "detail": "战争目标：take_capital",
+      "scope": "通用"
+    },
+    {
+      "id": "cb_partition",
+      "zh": "肢解",
+      "en": "Partition",
+      "detail": "战争目标：partition_superiority。speed 10",
+      "scope": "局势/特殊"
+    },
+    {
+      "id": "cb_restore_ummayad_caliphate",
+      "zh": "恢复伍麦叶哈里发国疆域",
+      "en": "Restore the Umayyad Caliphate Borders",
+      "detail": "speed 10。战争目标：restore_ummayad_caliphate",
+      "scope": "局势/特殊"
+    },
+    {
+      "id": "cb_grand_alliance",
+      "zh": "大同盟",
+      "en": "Grand Alliance",
+      "detail": "战争目标：grand_alliance_superiority。additional_war_enthusiasm_attacker 0.25。can_expire 否。cut_down_in_size_cb 是。允许和约释放地区。allow_separate_peace 否",
+      "scope": "局势/特殊"
+    },
+    {
+      "id": "cb_reconquer_iberia",
+      "zh": "收复伊比利亚",
+      "en": "Reconquest of Iberia",
+      "detail": "战争目标：reconquer_iberia。speed 10",
+      "scope": "局势/特殊"
+    },
+    {
+      "id": "cb_demand_andalusi_submission",
+      "zh": "要求 格拉纳达 臣服",
+      "en": "Demand the Submission of Granada",
+      "detail": "年数 15。战争目标：demand_andalusi_submission。speed 10。max_warscore_from_battles 75",
+      "scope": "局势/特殊"
+    },
+    {
+      "id": "cb_free_the_mudejar",
+      "zh": "解放穆德哈尔",
+      "en": "Free the Mudéjar",
+      "detail": "战争目标：take_province_free_the_mudejar",
+      "scope": "局势/特殊"
+    },
+    {
+      "id": "cb_claim_throne_of_naples",
+      "zh": "宣称 那不勒斯 王位",
+      "en": "Claim Throne of Naples",
+      "detail": "战争目标：take_capital",
+      "scope": "局势/特殊"
+    }
+  ],
+  "situations": [
+    {
+      "id": "black_death",
+      "zh": "黑死病",
+      "en": "Black Death",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "colonial_revolution",
+      "zh": "殖民地独立革命",
+      "en": "Colonial Revolution",
+      "kind": "历史局势",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.01"
+    },
+    {
+      "id": "columbian_exchange",
+      "zh": "哥伦布大交换",
+      "en": "Columbian Exchange",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "council_of_trent",
+      "zh": "脱利腾大公会议",
+      "en": "Council of Trent",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 0.1。国际组织类型 天主教会。voters council_of_trent_voters"
+    },
+    {
+      "id": "fall_of_delhi",
+      "zh": "德里的衰亡",
+      "en": "Fall of Delhi",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 0.02。决心 德里的衰亡。voters fall_of_delhi_voters"
+    },
+    {
+      "id": "golden_age_of_piracy",
+      "zh": "海盗黄金时代",
+      "en": "Golden Age of Piracy",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "great_pestilence",
+      "zh": "大瘟疫",
+      "en": "Great Pestilence",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "guelphs_and_ghibellines",
+      "zh": "归尔甫派和吉伯林派",
+      "en": "Guelphs and Ghibellines",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "voters guelphs_and_ghibellines_voters。每月触发检定权重 1"
+    },
+    {
+      "id": "hundred_years_war",
+      "zh": "百年战争",
+      "en": "Hundred Years' War",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "hussite_wars",
+      "zh": "胡斯战争",
+      "en": "Hussite Wars",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "italian_wars",
+      "zh": "意大利战争",
+      "en": "Italian Wars",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "little_ice_age",
+      "zh": "小冰期",
+      "en": "Little Ice Age",
+      "kind": "历史局势",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "nanbokuchou",
+      "zh": "南北朝时代",
+      "en": "Nanbokuchō Jidai",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1。决心 南北朝时代。voters nanbokuchou_voters"
+    },
+    {
+      "id": "red_turban_rebellions",
+      "zh": "红巾军起义",
+      "en": "Red Turban Rebellions",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "reformation",
+      "zh": "宗教改革",
+      "en": "The Reformation",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 0.04"
+    },
+    {
+      "id": "rise_of_the_ottomans",
+      "zh": "土耳其人的崛起",
+      "en": "Rise of the Turks",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "rise_of_timur",
+      "zh": "帖木儿的崛起",
+      "en": "Rise of Timur",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "sengoku",
+      "zh": "战国时代",
+      "en": "Sengoku Jidai",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 0.5"
+    },
+    {
+      "id": "the_revolution",
+      "zh": "人民起义",
+      "en": "People's Uprising",
+      "kind": "历史局势",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "treaty_of_tordesillas",
+      "zh": "缔约地点条约",
+      "en": "Treaty of treaty location",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 0。custom_description GetTreatyOfToredesillasDesc"
+    },
+    {
+      "id": "war_of_religions",
+      "zh": "宗教战争",
+      "en": "War of Religions",
+      "kind": "历史局势",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.1"
+    },
+    {
+      "id": "western_schism",
+      "zh": "西方教会大分裂",
+      "en": "Western Schism",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 0.5。决心 西方教会大分裂。国际组织类型 天主教会"
+    },
+    {
+      "id": "battle_for_the_strait",
+      "zh": "海峡之战",
+      "en": "Battle for the Strait",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    },
+    {
+      "id": "golden_century",
+      "zh": "黄金世纪",
+      "en": "Golden Century",
+      "kind": "历史局势",
+      "scope": "特定触发",
+      "detail": "每月触发检定权重 1"
+    }
+  ],
+  "disasters": [
+    {
+      "id": "fate_of_the_phoenix",
+      "zh": "凤凰的命运",
+      "en": "Fate of the Phoenix",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。效果（雇佣雇佣兵签约花费 50%、官僚部门维护效率 20%、宣战理由制造速度 20%）"
+    },
+    {
+      "id": "ambrosian_republic_disaster",
+      "zh": "金色安布罗斯共和国",
+      "en": "Golden Ambrosian Republic",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。效果（阶层满意度均衡点 -0.1、维稳效率 -25%）"
+    },
+    {
+      "id": "aspiration_for_liberty",
+      "zh": "渴望自由",
+      "en": "Aspiration for Liberty",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。效果（阶层满意度均衡点 -0.25、稳定度投资 -0.1）"
+    },
+    {
+      "id": "byzantine_succession_crisis",
+      "zh": "拜占庭继承危机",
+      "en": "Byzantine Succession Crisis",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。效果（每月觊觎者叛军增长 1%、王室力量 -20%、阶层满意度均衡点 -0.2、阶层满意度衰减 2%、禁止释放附属国 是）"
+    },
+    {
+      "id": "castilian_civil_war",
+      "zh": "卡斯蒂利亚内战",
+      "en": "Castilian Civil War",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.5。单局仅触发一次。效果（每月觊觎者叛军增长 1%、王室力量 -20%、阶层满意度均衡点 -0.15、禁止释放附属国 是）"
+    },
+    {
+      "id": "ciompi_revolt",
+      "zh": "褴褛汉叛乱",
+      "en": "Ciompi Revolt",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。ends_on_regime_change 是。效果（市民阶层满意度均衡点 -0.05、农民阶层满意度均衡点 -0.05、羊毛产出 -20%、丝绸产出 -20%、精纺品产出 -20%）"
+    },
+    {
+      "id": "coup_attempt",
+      "zh": "政变企图",
+      "en": "Coup Attempt",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.01。效果（王室力量 -25%、内阁效率 -20%、宫廷支出效率 -20%）"
+    },
+    {
+      "id": "court_and_country",
+      "zh": "宫廷与外省",
+      "en": "Court and Country",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。效果（阶层满意度均衡点 -0.1、人口加入叛军的阈值 10%）"
+    },
+    {
+      "id": "crisis_of_faith",
+      "zh": "信仰危机",
+      "en": "Crisis of Faith",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "效果（每月宗教影响力 -0.20、王室力量 -20%、教士阶层满意度均衡点 -0.15、阶层满意度均衡点 -0.05、每月教士叛军增长 0.5%、禁止释放附属国 是）"
+    },
+    {
+      "id": "crisis_of_the_chinese_dynasty",
+      "zh": "中华中华的国家头衔的危机",
+      "en": "Crisis of the China",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。效果（每月天朝威仪 -0.05、每月厌战度 0.1、每月叛乱增长 1%、每月通胀 0.1%）"
+    },
+    {
+      "id": "crisis_of_the_sayfawa_dynasty",
+      "zh": "赛法瓦王朝危机",
+      "en": "Crisis of the Sayfawa Dynasty",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。效果（阶层满意度均衡点 -0.05、每月正统性 -0.3、每月叛乱增长 1.5%、王室力量 -20%）"
+    },
+    {
+      "id": "curse_of_stefan_uros_iii",
+      "zh": "斯特凡·乌罗斯的诅咒",
+      "en": "Curse of Stefan Urosh",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。效果（每月觊觎者叛军增长 2.5%、每月分离主义叛军增长 2.5%、每月正统性 -0.25）"
+    },
+    {
+      "id": "death_of_hayan_wuruk",
+      "zh": "哈奄·武禄之死",
+      "en": "Death of Hayam Wuruk",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。效果（附属国的忠诚度 -10、预期外交支出 2.5%）"
+    },
+    {
+      "id": "decline_of_empire",
+      "zh": "自满而衰",
+      "en": "Decline of Empire",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。效果（阶层满意度均衡点 -0.15、每月叛乱增长 0.3%、银行利率 5%、人力 -30%、军团招募速度 -30%、训练度 -10%、陆军士气 -10%、思潮增长 -50%）"
+    },
+    {
+      "id": "decline_of_majapahit",
+      "zh": "满者伯夷的衰落",
+      "en": "The Decline of Majapahit",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。效果（力量投射 -15、人口皈依速度 % -25%、人力 -30%、军团招募速度 -30%、训练度 -10%、陆军士气 -10%、思潮增长 -50%、雇佣兵规模 -50%）"
+    },
+    {
+      "id": "decline_of_mali",
+      "zh": "马里的衰落",
+      "en": "The Decline of Mali",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。单局仅触发一次。效果（阶层满意度均衡点 -0.25、每月叛乱增长 0.3%、银行利率 5%、人力 -30%、军团招募速度 -30%、训练度 -10%、陆军士气 -10%、思潮增长 -50%）"
+    },
+    {
+      "id": "dissolution_of_delhi",
+      "zh": "德里的解体",
+      "en": "The Dissolution of Delhi",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。效果（每月叛乱增长 2%、阶层满意度均衡点 -0.05、稳定度投资 -0.1、人力 -30%、军团招募速度 -30%、训练度 -10%、陆军士气 -10%、思潮增长 -50%）"
+    },
+    {
+      "id": "english_civil_war",
+      "zh": "英国内战",
+      "en": "The English Civil War",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "单局仅触发一次。ends_on_regime_change 是。效果（人口加入叛军的阈值 5%、每月叛乱增长 1%、每月厌战度 0.15、人力 -33%）"
+    },
+    {
+      "id": "french_wars_religion",
+      "zh": "法兰西宗教战争",
+      "en": "French Wars of Religion",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。效果（教士阶层满意度均衡点 -0.5、每月厌战度 0.15、教士阶层力量 100%、允许教士迁移 是）"
+    },
+    {
+      "id": "hook_and_cod_wars",
+      "zh": "鱼钩派与鳕鱼派战争",
+      "en": "The Hook and Cod Wars",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。效果（每月叛乱增长 2%、王室力量 -20%、阶层满意度均衡点 -0.025）"
+    },
+    {
+      "id": "horde_civil_war",
+      "zh": "部落内战",
+      "en": "Horde Civil War",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。效果（训练度 -10%、王室力量 -20%、阶层满意度均衡点 -0.025、统治者死亡时的游牧团结变化 50、每月游牧团结 0.05、附属国的忠诚度 -10）"
+    },
+    {
+      "id": "muscovite_succession_war",
+      "zh": "莫斯科继承战争",
+      "en": "Muscovite War of Succession",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。效果（每月正统性 -0.1、维稳效率 -25%）"
+    },
+    {
+      "id": "oligarchic_capture",
+      "zh": "寡头攫取",
+      "en": "Oligarchic Capture",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "效果（立法效率 -20%、王室力量 -20%、阶层满意度均衡点 -0.15、内阁效率 -20%、每月贵族叛军增长 0.5%、每月市民叛军增长 0.5%、禁止释放附属国 是）"
+    },
+    {
+      "id": "peasants_war",
+      "zh": "农民战争",
+      "en": "Peasants' War",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.03。效果（禁止农民同化 是、禁止农民皈依 是、农民阶层满意度均衡点 -0.25）"
+    },
+    {
+      "id": "reform_society",
+      "zh": "重塑社会",
+      "en": "Reform Society",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。效果（每月中央集权倾向 0.33、每月叛乱增长 0.5%、吞并速度 50%）"
+    },
+    {
+      "id": "religious_turmoil",
+      "zh": "宗教动乱",
+      "en": "Religious Turmoil",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。效果（异端容忍度 -2）"
+    },
+    {
+      "id": "revolution_disaster",
+      "zh": "大革命",
+      "en": "Revolution!",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.01。效果（人口脱离叛军的阈值 10%、稳定度投资 -1）"
+    },
+    {
+      "id": "revolutionary_chaos",
+      "zh": "革命混乱",
+      "en": "Revolutionary Chaos",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。效果（每月共和传统 -0.2）"
+    },
+    {
+      "id": "rise_of_the_szlachta",
+      "zh": "什拉赫塔的崛起",
+      "en": "Rise of the Szlachta",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.02。单局仅触发一次。效果（阶层满意度均衡点 -0.1、每月贵族政治倾向 0.05、每月正统性 -0.25）"
+    },
+    {
+      "id": "savonarola_disaster",
+      "zh": "萨伏那洛拉的崛起",
+      "en": "The Rise of Savonarola",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。效果（阶层满意度均衡点 -0.25、每月守旧倾向 0.2、稳定度投资 -0.2）"
+    },
+    {
+      "id": "sinicization_disaster",
+      "zh": "中华的影响",
+      "en": "The Influence of China",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.01。效果（每月部落凝聚力 -0.25、每月正统性 -0.25、每月共和传统 -0.25、每月奉献度 -0.25、每月叛乱增长 0.5%、阶层满意度均衡点 -0.15）"
+    },
+    {
+      "id": "struggle_for_royal_power",
+      "zh": "王权之争",
+      "en": "Struggle for Royal Power",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。效果（贵族阶层满意度均衡点 -0.5、贵族阶层满意度衰减 2.5%）"
+    },
+    {
+      "id": "succession_crisis",
+      "zh": "继承危机",
+      "en": "Succession Crisis",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.01。效果（每月觊觎者叛军增长 1%、王室力量 -20%、阶层满意度均衡点 -0.15、禁止释放附属国 是）"
+    },
+    {
+      "id": "time_of_troubles",
+      "zh": "大动乱时代",
+      "en": "Time of Troubles",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.1。单局仅触发一次。效果（每月正统性 -0.3、食物产出 % -0.25、阶层满意度均衡点 -0.25）"
+    },
+    {
+      "id": "turmoil_in_brandenburg",
+      "zh": "勃兰登堡的动荡",
+      "en": "Turmoil in Brandenburg",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。单局仅触发一次。效果（最大控制力 -10%、每月控制力 -0.05%、每月正统性 -0.02）"
+    },
+    {
+      "id": "twilight_of_the_tsardom",
+      "zh": "沙皇国的黄昏",
+      "en": "Twilight of the Tsardom",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。单局仅触发一次。效果（阶层满意度均衡点 -0.25、每月叛乱增长 0.3%、每月控制力 -0.05%、人力 -30%、军团招募速度 -30%、训练度 -10%、陆军士气 -10%、思潮增长 -50%）"
+    },
+    {
+      "id": "war_of_the_aragonese_union_disaster",
+      "zh": "联盟之战",
+      "en": "War of the Union",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 1。效果（阶层满意度均衡点 -0.05、每月正统性 -0.1、维稳效率 -50%、每月贵族叛军增长 0.2%、每月市民叛军增长 0.2%）"
+    },
+    {
+      "id": "war_of_the_roses",
+      "zh": "玫瑰战争",
+      "en": "War of the Roses",
+      "kind": "国家灾难",
+      "scope": "通用",
+      "detail": "每月触发检定权重 0.05。单局仅触发一次。效果（每月觊觎者叛军增长 1%、每月正统性 -0.2）"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>红线墙与实算排障台 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="EU5 1.4.9 核心常量红线、4合1交互实算器、16高频症状排障表">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/glossary-data.js"></script>
+  <script defer src="assets/search-index.js"></script>
+  <script defer src="assets/graph-data.js"></script>
+  <script defer src="assets/app.js"></script>
+  <script defer src="assets/interactive.js"></script>
+</head>
+<body data-page="lab">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="mobile-bar">
+    <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
+    <strong style="font-size:14px">红线墙与实算排障台</strong>
+    <div style="display:flex;gap:6px">
+      <button type="button" class="btn-pill" data-open-search>搜</button>
+      <button type="button" class="btn-pill" data-theme-toggle>☾</button>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+  <a href="index.html" class="brand-box">
+    <div class="brand-mark">V</div>
+    <div class="brand-meta">
+      <strong>欧陆风云 V · 图谱典</strong>
+      <small>EU5 1.4.9 · COMPENDIUM</small>
+    </div>
+  </a>
+  <div class="sidebar-controls">
+    <button type="button" class="btn-pill btn-search" data-open-search>
+      <span>秒查概念 / 数值</span>
+      <span class="kbd">Ctrl+K</span>
+    </button>
+    <button type="button" class="btn-pill" data-theme-toggle title="切换明暗主题">☾</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">枢纽与速查工具</div>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>10 大高频实战数据典</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">六大支柱 · 十章体系精讲</div>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a>
+  </div>
+  <div class="sidebar-foot">
+    基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
+    底层校验：00_defines / 静态修正 / 本地化<br>
+    悬停正文中虚线术语可即时查看释义
+  </div>
+</aside>
+    <main id="main" class="main-area">
+      <div class="content-grid wide">
+        <div class="article-col">
+<section class="hero-banner">
+  <div class="eyebrow">REDLINES · SIMULATORS · TROUBLESHOOTING</div>
+  <h1>核心数值红线墙 · 4合1实算实验室 · 16症状排障台</h1>
+  <p class="subtitle">所有常量与公式直接取自游戏 <code>00_defines.txt</code> 与静态修正文件（EU5 1.4.9）。用于速查临界值、实机验算地点分流和叛军要塞保卫概率。</p>
+</section>
+
+<div class="tab-bar">
+  <button type="button" class="tab-btn active" data-lab-tab="redlines">37 条核心数值红线墙</button>
+  <button type="button" class="tab-btn" data-lab-tab="calc">4 合 1 实机常数计算器</button>
+  <button type="button" class="tab-btn" data-lab-tab="troubleshoot">16 大高频痛点排障表</button>
+</div>
+
+<div data-lab-panel="redlines">
+  <div class="filter-bar">
+    <input id="red-search" class="input-ctrl" type="search" placeholder="搜索红线数值或关键词（如 75%、50%、核心、海巡、破产、240）…">
+    <select id="red-pillar" class="select-ctrl"><option value="all">全部六大支柱 (37 条)</option><option value="territory">疆域与控制</option><option value="economy">人口、市场与财政</option><option value="state">政府、内阁与阶层</option><option value="culture">文化、信仰与科技</option><option value="military">军事、海权与和约</option><option value="diplomacy">外交、属国与秩序</option></select>
+  </div>
+  <div id="redline-grid" class="glossary-grid"></div>
+</div>
+
+<div data-lab-panel="calc" hidden>
+  <div class="calc-grid">
+    <div class="calc-card">
+      <h3>① 地点财富 → 控制力 → 国库 vs 阶层分流器</h3>
+      <div class="calc-row">
+        <label><span>首都/总督到达邻近度</span><span id="c1-prox-v">80%</span></label>
+        <input id="c1-prox" type="range" min="0" max="100" value="80">
+      </div>
+      <div class="calc-row">
+        <label><span>整合状态</span></label>
+        <select id="c1-integ" class="select-ctrl" style="width:100%">
+          <option value="-10">1. 未整合（征服）：−10% 上限</option>
+          <option value="0">2. 殖民地：0% 上限</option>
+          <option value="5">3. 已整合（内阁完成，核心文化&lt;50%）：+5% 上限</option>
+          <option value="20" selected>4. 核心（Core，核心文化≥50%）：+20% 上限</option>
+        </select>
+      </div>
+      <div class="calc-row">
+        <label><span>其他上限加成（城级/满意度/提控内阁）</span><span id="c1-extra-v">+10%</span></label>
+        <input id="c1-extra" type="range" min="-20" max="40" value="10">
+      </div>
+      <div class="calc-row">
+        <label><span>名义地点满产月财富 (RGO+建筑)</span><span id="c1-wealth-v">10.0 杜卡特</span></label>
+        <input id="c1-wealth" type="range" min="1" max="50" step="0.5" value="10">
+      </div>
+      <div class="calc-row">
+        <label><span>所属市场接入度</span><span id="c1-access-v">90%</span></label>
+        <input id="c1-access" type="range" min="10" max="100" value="90">
+      </div>
+      <div class="calc-row">
+        <label><span>加权平均阶层有效税率</span><span id="c1-tax-v">25%</span></label>
+        <input id="c1-tax" type="range" min="0" max="60" value="25">
+      </div>
+      <div id="c1-out" class="calc-result"></div>
+    </div>
+
+    <div class="calc-card">
+      <h3>② 叛乱起义瞬间「要塞守军忠诚检定」演算器</h3>
+      <div class="calc-row">
+        <label><span>相关阶层当前满意度</span><span id="c2-sat-v">40%</span></label>
+        <input id="c2-sat" type="range" min="0" max="100" value="40">
+      </div>
+      <div class="calc-row"><label><input id="c2-cat" type="checkbox" checked> 守军来自同一造反阶层类别 (−15)</label></div>
+      <div class="calc-row"><label><input id="c2-unrest" type="checkbox"> 当地叛乱度低于 3 (+10)</label></div>
+      <div class="calc-row"><label><input id="c2-cult" type="checkbox" checked> 所在地为本国主流文化 (+10)</label></div>
+      <div class="calc-row"><label><input id="c2-rel" type="checkbox" checked> 所在地为本国主导宗教 (+10)</label></div>
+      <div class="calc-row"><label><input id="c2-prog" type="checkbox"> 叛乱运动进度已越过 80% (−20！)</label></div>
+      <div id="c2-out" class="calc-result"></div>
+    </div>
+
+    <div class="calc-card">
+      <h3>③ 属国集团实力惩戒、领土连通 &amp; 强盟饱和</h3>
+      <div class="calc-row">
+        <label><span>全部属国在总合体中占比 (军/入/口)</span><span id="c3-sub-v">28%</span></label>
+        <input id="c3-sub" type="range" min="0" max="70" value="28">
+      </div>
+      <div class="calc-row">
+        <label><span>陆路连接经过 0% 控制地区数</span><span id="c3-areas-v">2 个 0%控地区</span></label>
+        <input id="c3-areas" type="range" min="0" max="6" value="2">
+      </div>
+      <div class="calc-row">
+        <label><span>已结盟列强盟友数量 (权重 1.0/个)</span><span id="c3-gp-v">2 个列强</span></label>
+        <input id="c3-gp" type="range" min="0" max="5" value="2">
+      </div>
+      <div class="calc-row">
+        <label><span>已结盟区域强权数量 (权重 0.5/个)</span><span id="c3-rp-v">1 个区域强权</span></label>
+        <input id="c3-rp" type="range" min="0" max="6" value="1">
+      </div>
+      <div id="c3-out" class="calc-result"></div>
+    </div>
+
+    <div class="calc-card">
+      <h3>④ 默认按日步进接敌概率 &amp; 兵种混编校验</h3>
+      <div class="calc-row">
+        <label><span>军团有效主动性 (Initiative)</span><span id="c4-init-v">8</span></label>
+        <input id="c4-init" type="range" min="0" max="15" value="8">
+      </div>
+      <div class="calc-row">
+        <label><span>作战已持续天数</span><span id="c4-days-v">第 3 天</span></label>
+        <input id="c4-days" type="range" min="0" max="12" value="3">
+      </div>
+      <div class="calc-row">
+        <label><span>单一最大兵种类别兵力占比</span><span id="c4-share-v">45%</span></label>
+        <input id="c4-share" type="range" min="20" max="100" value="45">
+      </div>
+      <div class="calc-row">
+        <label><span>所含独立兵种类别总数</span><span id="c4-cats-v">3 种类别</span></label>
+        <input id="c4-cats" type="range" min="1" max="5" value="3">
+      </div>
+      <div id="c4-out" class="calc-result"></div>
+    </div>
+  </div>
+</div>
+
+<div data-lab-panel="troubleshoot" hidden>
+  <div class="filter-bar">
+    <input id="ts-search" class="input-ctrl" type="search" placeholder="输入症状关键词（例如：核心、买粮、征召、阶层建筑、巡逻、PU、包围网）…">
+  </div>
+  <div id="troubleshoot-list"></div>
+</div>
+</div>
+        
+      </div>
+    </main>
+  </div>
+  <div id="cmd-modal" class="cmd-backdrop" role="dialog" aria-modal="true" aria-label="全局快速检索">
+    <div class="cmd-dialog">
+      <div class="cmd-input-wrap">
+        <span style="color:var(--ink-muted);font-weight:700">⌘</span>
+        <input id="cmd-input" class="cmd-input" type="search" autocomplete="off" placeholder="输入中文概念、English、红线数字(如 75%、50%、90%)、内阁或阶层互动…">
+        <span class="kbd">ESC</span>
+      </div>
+      <div id="cmd-results" class="cmd-results"></div>
+    </div>
+  </div>
+</body>
+</html>

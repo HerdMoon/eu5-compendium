@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>双语官方百科词典 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="EU5 1.4.9 全量 752 条清洗版双语游戏概念词典">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/glossary-data.js"></script>
+  <script defer src="assets/search-index.js"></script>
+  
+  <script defer src="assets/app.js"></script>
+  <script defer src="assets/interactive.js"></script>
+</head>
+<body data-page="glossary">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="mobile-bar">
+    <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
+    <strong style="font-size:14px">双语官方百科词典</strong>
+    <div style="display:flex;gap:6px">
+      <button type="button" class="btn-pill" data-open-search>搜</button>
+      <button type="button" class="btn-pill" data-theme-toggle>☾</button>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+  <a href="index.html" class="brand-box">
+    <div class="brand-mark">V</div>
+    <div class="brand-meta">
+      <strong>欧陆风云 V · 图谱典</strong>
+      <small>EU5 1.4.9 · COMPENDIUM</small>
+    </div>
+  </a>
+  <div class="sidebar-controls">
+    <button type="button" class="btn-pill btn-search" data-open-search>
+      <span>秒查概念 / 数值</span>
+      <span class="kbd">Ctrl+K</span>
+    </button>
+    <button type="button" class="btn-pill" data-theme-toggle title="切换明暗主题">☾</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">枢纽与速查工具</div>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>10 大高频实战数据典</span></a><a href="glossary.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-caption">六大支柱 · 十章体系精讲</div>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a>
+  </div>
+  <div class="sidebar-foot">
+    基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
+    底层校验：00_defines / 静态修正 / 本地化<br>
+    悬停正文中虚线术语可即时查看释义
+  </div>
+</aside>
+    <main id="main" class="main-area">
+      <div class="content-grid wide">
+        <div class="article-col">
+<section class="hero-banner">
+  <div class="eyebrow">BILINGUAL ENCYCLOPEDIA · 752 ENTRIES</div>
+  <h1>官方百科全量与深度机制双语词典</h1>
+  <p class="subtitle">直接从 EU5 1.4.9 游戏内 <code>game_concepts_l_simp_chinese.yml</code> 与 <code>00_defines.txt</code> 提取并彻底解析掉脚本标签，补全了核心（Core）、整合状态、阶层互动与阶级定义等关键内容。</p>
+</section>
+
+<div class="filter-bar">
+  <input id="gloss-search" class="input-ctrl" type="search" placeholder="搜索中文术语、English、英文 ID 或定义文字…">
+  <select id="gloss-pillar" class="select-ctrl"><option value="all">全部六大支柱 (752 条)</option><option value="territory">疆域与控制</option><option value="economy">人口、市场与财政</option><option value="state">政府、内阁与阶层</option><option value="culture">文化、信仰与科技</option><option value="military">军事、海权与和约</option><option value="diplomacy">外交、属国与秩序</option></select>
+  <span id="gloss-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
+</div>
+
+<div id="gloss-grid" class="glossary-grid"></div>
+</div>
+        
+      </div>
+    </main>
+  </div>
+  <div id="cmd-modal" class="cmd-backdrop" role="dialog" aria-modal="true" aria-label="全局快速检索">
+    <div class="cmd-dialog">
+      <div class="cmd-input-wrap">
+        <span style="color:var(--ink-muted);font-weight:700">⌘</span>
+        <input id="cmd-input" class="cmd-input" type="search" autocomplete="off" placeholder="输入中文概念、English、红线数字(如 75%、50%、90%)、内阁或阶层互动…">
+        <span class="kbd">ESC</span>
+      </div>
+      <div id="cmd-results" class="cmd-results"></div>
+    </div>
+  </div>
+</body>
+</html>
