@@ -10,6 +10,18 @@ import json
 import os
 import re
 import shutil
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from humanize_data import (
+    build_metrics_bundle,
+    format_item_modifiers,
+    humanize_catalog_record,
+    humanize_condition,
+    humanize_rich_table_row,
+    load_game_context,
+    load_metric_sources,
+)
 
 GAME_DIR = r"D:\SteamLibrary\steamapps\common\Europa Universalis V\game"
 ATLAS_DIR = r"C:\Users\seepath\Documents\Codex\2026-11-02\x20\work\eu5-atlas"
@@ -645,10 +657,19 @@ def extract_ledgers():
     st_atlas = {r["id"]: r for r in load_atlas_catalog("subject_types")}
     st_parsed = parse_raw_subject_types(zh_kv)
     subject_types = []
+    st_pays_zh = {
+        "familial_governor": "宗室总督贡赋",
+        "hanseatic_member_cost": "汉萨同盟会费",
+        "maha_samanta": "大萨曼塔贡赋",
+        "pradhana_maha_samanta": "首席大萨曼塔贡赋",
+        "trade_company": "贸易公司上缴利润",
+    }
     for item in st_parsed:
         atl = st_atlas.get(item["id"], {})
         item["zh"] = atl.get("zh", item["zh"])
         item["en"] = atl.get("en", item["en"])
+        if item.get("subject_pays") in st_pays_zh:
+            item["subject_pays"] = st_pays_zh[item["subject_pays"]]
         subject_types.append(item)
     seen_st = {x["id"] for x in subject_types}
     for sid, atl in st_atlas.items():
@@ -868,8 +889,33 @@ def _clean_cell_text(cell):
 
 
 def extract_rich_ledgers_and_catalogs(base_ledgers):
+    zh_kv = load_yml_kv("simp_chinese")
+    # Strip basic Paradox tags from zh_kv values so token lookups stay clean
+    clean_zh_kv = {
+        k: re.sub(r"\[([^\[\]|]+)(?:\|[^\[\]]*)?\]", r"\1", re.sub(r"#[A-Za-z0-9_!]+", "", v)).strip()
+        for k, v in zh_kv.items()
+    }
+    game_ctx = load_game_context(clean_zh_kv)
+    ms, mods_by_item = load_metric_sources()
+    build_metrics_bundle(ms, clean_zh_kv, game_ctx)
+
+    # Humanize base_ledgers conditions & modifiers too
+    for k_bl in ("cabinet_actions", "character_interactions", "bureaucracies", "town_rights", "casus_belli", "situations", "disasters"):
+        for r in base_ledgers.get(k_bl, []):
+            if "conditions" in r:
+                r["conditions"] = humanize_condition(r["conditions"], clean_zh_kv, game_ctx)
+            if "effect" in r:
+                r["effect"] = humanize_condition(r["effect"], clean_zh_kv, game_ctx)
+            if k_bl in ("bureaucracies", "town_rights"):
+                m_str = format_item_modifiers(mods_by_item.get((k_bl, r["id"]), []), max_items=15)
+                if m_str:
+                    r["detail"] = m_str
+            elif "detail" in r:
+                r["detail"] = humanize_condition(r["detail"], clean_zh_kv, game_ctx)
+
     # 1. Extract all 12 rich tables from eu5-atlas HTML and verify 1-to-1 length with catalog-data
     rich_tables = {}
+    rich_lookup = {}
     for cid, html_name, field_names in RICH_TABLE_SPECS:
         html_path = os.path.join(ATLAS_DIR, "dist", html_name)
         with open(html_path, encoding="utf-8") as f:
@@ -912,9 +958,11 @@ def extract_rich_ledgers_and_catalogs(base_ledgers):
                         pass
             if num_map:
                 item["_num"] = num_map
+            item = humanize_rich_table_row(cid, item, mods_by_item, game_ctx, clean_zh_kv)
             rows.append(item)
         rich_tables[cid] = rows
-        print(f"Parsed rich HTML table {cid}: {len(rows)} rows (1:1 verified)")
+        rich_lookup[cid] = {x["id"]: x for x in rows}
+        print(f"Parsed & humanized rich table {cid}: {len(rows)} rows (1:1 verified)")
 
     # 2. Prepare combined 22 modular ledger JS files under docs/assets/ledgers/<id>.js
     situ_combined = list(base_ledgers.get("situations", [])) + list(base_ledgers.get("disasters", []))
@@ -1026,7 +1074,8 @@ def extract_rich_ledgers_and_catalogs(base_ledgers):
         with open(src_js, encoding="utf-8") as f:
             raw_js = f.read()
         obj = json.loads(re.search(r"window\.atlasRegister\((\{.*\})\)", raw_js, re.S).group(1))
-        recs = obj.get("records", [])
+        recs = [humanize_catalog_record(cid, r, rich_lookup, mods_by_item, game_ctx, clean_zh_kv) for r in obj.get("records", [])]
+        obj["records"] = recs
         total_cat_recs += len(recs)
 
         dst_js = os.path.join(CATALOGS_JS_DIR, f"{cid}.js")

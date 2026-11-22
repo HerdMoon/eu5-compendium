@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>开局剧本、成立国家、国别事件、使命链与扩展包机制 · 欧陆风云 V 系统图谱与速查典</title>
-  <meta name="description" content="从 1337 选国标签与 163 个可成立国家门槛，到开局默认关闭但带「快照定标」的国家使命，再到《凤凰宿命》《直布罗陀海峡》与古迹包实机拆解。">
+  <title>开局剧本、成立国家层级、国别事件、使命包与扩展包机制 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="梳理 1337 剧本 13 大地理分区国家档案、成立层级（Tier 1–4）与王朝显示国号辨析、国别事件等待时间公式、使命接取快照规则，以及《凤凰宿命》与《跨越海峡》专属机制。">
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/glossary-data.js"></script>
   <script defer src="assets/search-index.js"></script>
@@ -16,7 +16,7 @@
   <a class="skip-link" href="#main">跳到正文</a>
   <header class="mobile-bar">
     <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
-    <strong style="font-size:14px">开局剧本、成立国家、国别事件、使命链与扩展包机制</strong>
+    <strong style="font-size:14px">开局剧本、成立国家层级、国别事件、使命包与扩展包机制</strong>
     <div style="display:flex;gap:6px">
       <button type="button" class="btn-pill" data-open-search>搜</button>
       <button type="button" class="btn-pill" data-theme-toggle>☾</button>
@@ -40,11 +40,11 @@
   </div>
   <div class="nav-group">
     <div class="nav-caption">枢纽与速查工具</div>
-    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
-    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 地理层级</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>02 · 人口容量</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 商品生产</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政体</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 王室与阶层力量</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化待遇与容量</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代焦点</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 四大兵源</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 舰种海域换算</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量与接受度</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
   </div>
   <div class="sidebar-foot">
     基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
@@ -57,10 +57,10 @@
         <div class="article-col">
 <section class="hero-banner">
   <div class="eyebrow"><span class="pillar-badge" style="background:var(--p-diplomacy)">支柱六 · 外交、属国与国际秩序</span> <span>CHAPTER 11</span></div>
-  <h1>开局剧本、成立国家、国别事件、使命链与扩展包机制</h1>
-  <p class="subtitle">从 1337 选国标签与 163 个可成立国家门槛，到开局默认关闭但带「快照定标」的国家使命，再到《凤凰宿命》《直布罗陀海峡》与古迹包实机拆解。</p>
+  <h1>开局剧本、成立国家层级、国别事件、使命包与扩展包机制</h1>
+  <p class="subtitle">梳理 1337 剧本 13 大地理分区国家档案、成立层级（Tier 1–4）与王朝显示国号辨析、国别事件等待时间公式、使命接取快照规则，以及《凤凰宿命》与《跨越海峡》专属机制。</p>
   <div class="hero-meta-row">
-    <span class="meta-chip">Scenarios, Formables, 4,213 Events, Missions &amp; Expansion Mechanics</span>
+    <span class="meta-chip">Scenarios, Formable Tiers, Country Events, Mission Packs &amp; Expansion Mechanics</span>
     <span class="meta-chip">基准：EU5 1.4.9 (3ed0)</span>
   </div>
 </section>
@@ -68,15 +68,15 @@
 <div class="context-grid">
   <div class="context-box">
     <h4>↑ 上游输入（谁决定本章）</h4>
-    <ul><li><a href="directory.html#starting-scenarios">开局设定与 87 地区地理框定</a>：1337.4.1–1836.12.31 剧本注入初始首都、政体、疆域与外交</li><li><a href="ch06-culture-religion.html#culture-status">文化/宗教与国家经济基准</a>：锁定成立国家 Potential/Allow 与接取使命瞬间指标</li><li><a href="ch07-ages-colonial.html#situations-disasters">历史局势与国家灾难进程</a>：推动如土耳其崛起、凤凰宿命与海峡之战阶段开关</li></ul>
+    <ul><li><a href="directory.html#starting-scenarios">1337.4.1 剧本设定与国家定义</a>：载入 2,354 个国家标签的初始领土、政体、文化宗教与开局战争</li><li><a href="ch06-culture-religion.html#culture-status">版图扩张与文化/宗教资格</a>：决定可成立国家的可见条件（Potential）与执行条件（Allow）</li><li><a href="ch07-ages-colonial.html#situations-disasters">历史局势与灾难触发</a>：驱动拜占庭凤凰宿命、土耳其崛起与直布罗陀海峡之战进程</li></ul>
   </div>
   <div class="context-box">
     <h4>⚙ 本章核心机制引擎</h4>
-    <p style="margin:0;font-size:13px">按「可见(Potential)→执行(Allow)」双重闸门筛选成立与国别事件，用动态接取快照推进 11 条使命链，并在启用的扩展包中调度跨国生死危机与远征竞赛。</p>
+    <p style="margin:0;font-size:13px">区分「国家基础标签」「显示国号」「成立层级」与「国际组织身份」，按月概率判定 4,213 条国别事件，按接取时快照推进可选使命链，并结算扩展包专属行动。</p>
   </div>
   <div class="context-box">
     <h4>↓ 下游出口（本章驱动谁）</h4>
-    <ul><li><a href="ch04-government-cabinet.html#government-power">成立国家重塑国号、旗帜与革新</a>：切入更高成立层级、更换显示国号并开放新政体/事件组</li><li><a href="ch05-estates-rebels.html#estate-interactions">国别事件永久改写人口与特权</a>：4,213 项史实分支直接发人物、降稳或授予特殊设施</li><li><a href="ch12-gameplay-automation-updates.html#rules-achievements">成就解锁资格校验</a>：启用通用「使命包」规则会锁定本局常规成就获取</li></ul>
+    <ul><li><a href="ch07-ages-colonial.html#research-advances">新标签专属革新与历史事件</a>：注意区分按文化开放的革新与直接绑定国家标签（如 POR/CHI）的事件</li><li><a href="ch10-diplomacy-subjects.html#pu-and-ios">复兴罗马或黄金世纪奖励</a>：完成灾难或局势终局永久保留特殊内阁行动、宣战理由与官僚槽</li><li><a href="ch12-gameplay-automation-updates.html#rules-achievements">本局铁人成就资格校验</a>：启用通用使命包会关闭本局成就资格，成就档须在开局规则保持关闭</li></ul>
   </div>
 </div>
 
@@ -98,74 +98,85 @@
 </figure>
 
 <section id="scenarios-countries" class="mech-section">
-  <h2>01 · 1337 开局剧本、87 地区名录与 2,354 国家定义体系</h2>
-  <span class="sec-en">1337 Bookmarks, Regions &amp; 2,354 Country Definitions</span>
+  <h2>01 · 1337 剧本结构与 13 大地理分区国家名录</h2>
+  <span class="sec-en">1337 Scenario Structure &amp; 13 Regional Country Directories</span>
   
-<p>《欧陆风云 V》的标准 1337 书签从 <strong>1337 年 4 月 1 日</strong> 开始、于 <strong>1836 年 12 月 31 日</strong> 结束（名录库另完整收录 11 组开局推荐场景与 87 个分区国家目录）。在剧本载入时，每个参战主体由两部分文件联合生成：</p>
+<p>标准剧本始于 <strong>1337 年 4 月 1 日</strong>，止于 <strong>1836 年 12 月 31 日</strong>。选国界面同时标注三种独立信息：<strong>推荐玩法方向</strong>（经济 Economy / 政治 Politics / 扩张 Expansion）、<strong>推荐玩家熟练度</strong>（新手至专家，决定提示详略）以及<strong>国家开局处境难度</strong>（极易至极难）。</p>
 <ul>
-  <li><strong>静态国家定义（2,354 个标签）</strong>：规定主流文化、国教、颜色及可释放或 <button type="button" class="term" data-concept="formable_country">可成立国家</button> 后备设定（仅出现在地图上有领土、<button type="button" class="term" data-concept="pop">人口</button>、海外建筑或游牧军团的实体，例如汉萨同盟虽以共和政体居吕贝克，却属靠商站存续的「建筑国家」）。</li>
-  <li><strong>1337 剧本动态覆写（ownership / control / core）</strong>：同一 <button type="button" class="term" data-concept="location">地点</button> 字段严格区分「实际所有权、当前占领控制与历史核心主张」；未逐条写明参数的国家直接承继政体模板初值。</li>
+  <li><strong>2,354 个国家定义与 13 大分区目录</strong>：名录库按开局首都所在地理范围划分为非洲、中北亚、东亚、东欧、德意志、日本、中东、北美、大洋洲、南美、南亚、东南亚与西欧 13 个区域名录（含开局在场国家及后续由事件/叛乱登场的标签），并分开记录各地点的所有权、当前占领控制与历史核心，以及 1337 开局既有的对外战争与苏格兰王位内战等初始战事。</li>
 </ul>
 
 </section><section id="formables-events" class="mech-section">
-  <h2>02 · 163 个可成立国家（Potential/Allow）与 4,213 国别事件读法</h2>
-  <span class="sec-en">163 Formable Countries &amp; Reading Country-Specific Events</span>
+  <h2>02 · 163 个可成立国家、成立层级与「国号 / 标签 / 组织」辨析</h2>
+  <span class="sec-en">163 Formable Countries, Formation Tiers &amp; Tag vs Name vs IO</span>
   
-<p>成立新国家（163 条完整条件见名录库）并不是简单的“换皮按钮”，而要严格过三道引擎审查：</p>
+<p>成立新国家（<button type="button" class="term" data-concept="formable_country">Formable Countries</button>）由<strong>可见条件（Potential）</strong>与<strong>执行条件（Allow）</strong>共同控制：未单独写明区域占比时默认要求拥有指定范围 <strong>100%</strong> 地点；同时<strong>目标国家的「成立层级（1–4 级）」必须严格高于本国现有成立层级</strong>（该层级与伯国/公国/王国/帝国行政等级相互独立）：</p>
+
+<div class="table-wrap"><table class="data-table">
+  <thead><tr><th>可成立国家示例</th><th>成立层级</th><th>地理范围控制比例要求</th><th>文化、宗教或局势附加条件</th></tr></thead>
+  <tbody>
+    <tr><td><strong>诺森伯兰（NOL）</strong></td><td>第 1 级</td><td>苏格兰低地 + 诺森布里亚地区合计 50%</td><td>英语文化语言；启用合理成立规则</td></tr>
+    <tr><td><strong>尼德兰 / 瑞典</strong></td><td>第 2 级</td><td>低地五地区 30% / 瑞典及芬兰四地区 75%</td><td>尼德兰文化组 / 瑞典文化</td></tr>
+    <tr><td><strong>斯堪的纳维亚 / 大不列颠 / 埃及</strong></td><td>第 3 级</td><td>各自指定区域 <strong>75%</strong>（蒙古 MGO 为蒙古区 85%）</td><td>瑞典（层级2）可升格斯堪的纳维亚（层级3）；大不列颠需百年战争已结束；埃及排除开局马穆鲁克</td></tr>
+    <tr><td><strong>西班牙（SPA） / 重建蒙古帝国（MGE）</strong></td><td>第 4 级</td><td>伊比利亚区域 75% / 横跨多区域版图 85%</td><td>西班牙需伊比利亚文化组、基督教且半岛无独立异教政权</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>标签、显示国号与国际组织的三重区分（以「中国」相关概念为例）</strong>：</p>
 <ul>
-  <li><strong>潜在可见（Potential） vs 即时执行（Allow）</strong>：前者决定你的决定栏里能不能看见该按钮（通常检查主流文化、宗教、历史规则开关[史实/合理/幻想]及是否排除现存继承国如马穆鲁克不可点普通成立埃及），后者审查现实占比——如未在脚本指定具体百分比，则默认必须 100% 全控目标地区或集齐首都与核心地标（例如埃及需埃及区域 75%，蒙古与重建蒙古帝国分别要求在对应蒙古区域/帝国版图内控制 85%）。</li>
-  <li><strong>国号、标签与成立层级（Rank Tier）</strong>：多条历史路径可以指向同一目标标签却各自写入不同显示国号（如华夏正统王朝国号与天朝体系联动）。</li>
-  <li><strong>如何正确读取 4,213 条国别历史事件</strong>：所有动态历史事件均附带触发窗口期与月度基础权重，但是否真弹出还会受到前置事件标记（flag）、统治者/人物存活、具体地点归属以及选项附加触发条件的制约——名录库已逐一整理出日期窗口、月概率与各选项具体数值增减（例如葡萄牙哥伦布事件 1485–1520 年窗口内 5% 月概率检定，拒聘 −5 威望，聘用则注入人物作用域）。</li>
+  <li><strong>国家标签与王朝显示国号</strong>：1337 开局统治中原的元朝使用基础标签 <code>CHI</code>（另有历史标签 <code>YUA</code>，明朝标签为 <code>MNG</code>）；可成立的「中华（China）」检查华北、华南、华东、华西四区域拥有 <strong>70%</strong> 地点、主流文化属中华文化组、天朝组织已不存在且红巾军未在活跃；而满洲（<code>MCH</code>）触发《肇清告谕》事件时，则是先成立 <code>CHI</code> 再将画面显示国号改写为「清（Qīng）」。同理，成立罗姆（Rûm）显示名用 <code>RUM</code> 而底层标签转为 <code>TUR</code>。</li>
+  <li><strong>天朝（Middle Kingdom）国际组织</strong>：独立于单一国家标签之外的跨国组织，控制成员贡礼、天命与防御义务。查阅专属革新与 <strong>4,213 条国别事件</strong> 时，需看清脚本检查的是<strong>文化</strong>（如葡萄牙海军革新按文化开放）还是<strong>特定国家标签</strong>（如哥伦布事件 <code>flavor_por.1</code> 在 1485–1520 年窗口按月概率 5% 直接检查 <code>POR</code> 标签，12 个合格月内触发率约 <code>1 − 0.95¹² ≈ 46.0%</code>）。</li>
 </ul>
 
 </section><section id="missions-system" class="mech-section">
-  <h2>03 · 11 组国家使命包：动态接取快照定标、冷却与成就开关</h2>
-  <span class="sec-en">National Mission Packs, Dynamic Snapshots &amp; Cooldowns</span>
+  <h2>03 · 11 组国家使命包与 178 项决议：快照目标与冷却规则</h2>
+  <span class="sec-en">11 National Mission Packs &amp; 178 Decisions</span>
   
-<div class="callout warn"><strong>开局最重要的法则提示：默认「使命包」关闭才是标准成就规则！</strong><br>
-与 EU4 固定国树不同，EU5 默认开局规则下 <strong>通用<button type="button" class="term" data-concept="mission">使命</button>系统处于关闭状态</strong>（以此保留完整成就资格）；只有玩家主动在开局规则开启「使命包（Mission Packs）」（会立即<strong>锁定成就</strong>），才可从最多 10 个候选名额里按前序挑选 11 组通用或专项使命链。</div>
 <ul>
-  <li><strong>接取即冻结（Snapshot Benchmark）机制</strong>：大量发展贸易、高效内阁或提升识字率等 <button type="button" class="term" data-concept="mission_task">使命任务</button> 会读取你<strong>点击接取当天的账面读数</strong>并写死终点目标！例如通用贸易线的海军份额目标 = <code>接取时比例 + 5 个百分点</code>（封顶 100%，接时 72% 则要求追到 77%）。</li>
-  <li><strong>三大通用链与退出冷却</strong>：「羞辱宿敌」「区域扩张」「探索未知」均可绕开卡死的前置（如无自控市场中心时可通过跳过条件转入下一步），但在终止使命后需冷却 <strong>10 年</strong> 方可重选同一使命，完整走完终点任务后则冷却 <strong>20 年</strong>。</li>
+  <li><strong>使命包开关与成就资格</strong>：默认标准开局规则下<strong>任务包（Mission Packs）处于关闭状态</strong>以保留铁人成就资格；若在开局规则开启任务包（用于引导学习经济、政治与扩张流程，同时关闭本局成就），国家可从候选池中选用通用或专项<button type="button" class="term" data-concept="mission">使命</button>链。</li>
+  <li><strong>接取快照定标与冷却期</strong>：许多<button type="button" class="term" data-concept="mission_task">使命任务</button>在点击接取瞬间读取当前国家数值并生成动态达标线（例如贸易使命要求将海军市场份额提升至 <code>接取时比例 + 5 个百分点</code>，上限 100%）。主动中止使命后需冷却 <strong>10 年</strong> 方可重选同一使命链，完整完成后冷却 <strong>20 年</strong>。<strong>178 项国家决议</strong>（含开凿苏伊士/巴拿马/基尔运河等大型工程与政教改革）则在常规成就局全程开放，满足可见与执行条件即可付费发动。</li>
 </ul>
 
 </section><section id="dlc-expansions" class="mech-section">
-  <h2>04 · 扩展包机制精讲：《凤凰宿命》《直布罗陀海峡》与纪念建筑包</h2>
-  <span class="sec-en">DLC Mechanics: Fate of the Phoenix, Battle for the Strait &amp; Monuments</span>
+  <h2>04 · 扩展包机制拆解：《凤凰宿命》《跨越海峡》与古迹包</h2>
+  <span class="sec-en">Expansion Mechanics: Fate of the Phoenix, Across the Pillars &amp; Monuments</span>
   
 <ul>
-  <li><strong>《凤凰宿命（Fate of the Phoenix）》· 拜占庭生死线</strong>：开局若为拜占庭（<code>BYZ</code>）、处于传统时代且开启该内容包，即激活高危灾难——承受<strong>雇佣兵签约费 +50%、官僚维护成本 +20%、造 CB +20%</strong>与远省抗命/常备军逃兵风险。欲摆脱阴影，必须在安纳托利亚所有土耳其文化/贝伊政体对手及其各级属国合计均 <strong>≤ 100 地点</strong>、土耳其崛起<button type="button" class="term" data-concept="situation">局势</button>已止，且拜占庭自身与各级属国合计扩张至 <strong>≥ 150 地点</strong> 后跨入复兴/西部路线。</li>
-  <li><strong>《Across the Pillars》· 直布罗陀海峡之战与黄金世纪</strong>：紧盯「格拉纳达主权（0–100，初 50）」，参战三方（卡斯蒂利亚/格拉纳达/摩洛哥）外加各自盟友（每人每月贡献 <code>clamp(0.01 + 列强分×0.0004, 0.01, 0.05)</code>）共同拉锯；此外复兴安达卢斯、雇佣希内特骑兵与信仰志愿军均有严格地理及合约约束，后接「黄金世纪」欧美优势争夺以及「黄金城/青春泉」条件远征。</li>
-  <li><strong>古代纪念建筑与圣地外观包辨认原则</strong>：<code>dlc/D015_ancient_monuments_pack</code> 等美术扩展仅负责注册地图 3D 模型与地点插画；该地点的真实属性收益<strong>务必回查圣地记录、艺术品类型或本地独特建筑定义</strong>（如麦加天房的实际效果由圣地条目、重要性 5 及伊斯兰圣地类型三者联合给出）。</li>
+  <li><strong>《拜占庭：凤凰宿命（Fate of the Phoenix）》</strong>：<br>
+    • <strong>凤凰宿命灾难与双结局</strong>：1337 传统时代拜占庭开局触发，期间雇佣兵签约溢价 +50%、官僚维护效率 +20%、造 CB 速度 +20%，伴随行省抗命与逃兵事件。结束需安纳托利亚所有贝伊政体或突厥/土库曼文化国家（含属国）均 <strong>≤ 100 地点</strong>，并满足发展路线（土耳其崛起已结束且拜占庭系 <strong>≥ 150 地点</strong>）或 1401 年后时间路线；结算时若土耳其崛起已结束且拜占庭系 <strong>≥ 146 地点</strong>，进入<strong>《凤凰复兴》</strong>（解锁恢复罗马疆界 CB、永久保留亲希腊与拉丁军国主义两项内阁行动及20年军队复兴加成），否则进入《衰败时代仍将继续》（失去两行动且稳定正统各 −20）。<br>
+    • <strong>东部教会与复兴希腊古典信仰（Reestablish Hellenism）</strong>：开放借出圣像、弥合东西教会分裂，以及高难度的复兴希腊多神教行动——需当前或曾为 <code>BYZ</code>、拉丁化—罗马派价值轴严格越过 <strong>±90</strong>、本国或属国完整拥有跨越希腊至埃及黎凡特的全部 <strong>22 处古典圣地</strong>，支付 100 宗教影响力与 50 稳定度改宗，并在首都生成 10% 人口的初始宗教运动。</li>
+  <li><strong>《跨越海峡（Across the Pillars）》</strong>：<br>
+    • <strong>海峡之战与黄金世纪</strong>：卡斯蒂利亚、格拉纳达、摩洛哥围绕直布罗陀海峡角逐主权与影响力，胜者可在发现时代开启持续 100 年的「黄金世纪」局势（满期保持 ≥75 殖民优势可永久保留达瓦殖民行政额外官僚槽；另有召引安达卢西亚工匠每月每地 +0.02 发展度、征募加齐在 6 个月内从友好穆斯林省份迁入 25% 士兵与 15% 劳工至首都省）。<br>
+    • <strong>运宝船队与探险</strong>：新西班牙船队与大陆加利恩船队各自按 <strong>5 年冷却</strong> 装载美洲对应区域属国生产的金银返航；另含黄金城（El Dorado）与青春泉远征。</li>
+  <li><strong>古代纪念建筑与圣地外观包</strong>：外观包文件登记地图 3D 模型与地点插画；实际机制加成请分别在名录库的「<strong>圣地（Holy Sites）</strong>」（如麦加克尔白重要性 5）或「<strong>开局艺术品</strong>」（如纪念建筑传统倍率 2.5 / 影响倍率 1.0）条目核对。</li>
 </ul>
 
 </section>
 
 <section id="redlines-strip">
-  <div class="redline-strip"><div class="redline-item"><div class="redline-val">1337.4.1 启幕</div><h4>标准剧本时间跨度</h4><p>起于 1337 年 4 月 1 日，终止于 1836 年 12 月 31 日（含 11 组新手/进阶推荐开局）</p></div><div class="redline-item"><div class="redline-val">默认 100% 领土</div><h4>成立国家隐含比例</h4><p>163 个可成立国家未额外写明比例时默认需占满指定区域 100%（例如埃及需 75%、蒙古需 85%）</p></div><div class="redline-item"><div class="redline-val">停10年 / 完20年</div><h4>使命链再接冷却与候补</h4><p>通用候选池上限 10 项；接取使命时冻结当下比例定标（如海军占幅 +5%）；弃做 10 年 / 完成后 20 年再选</p></div><div class="redline-item"><div class="redline-val">≤100 vs ≥150</div><h4>凤凰宿命安纳托利亚线</h4><p>拜占庭需己方+属国 ≥150 地点，且土库曼/贝伊政体诸侯各自+属国均 ≤100 地点方走出发展线</p></div></div>
+  <div class="redline-strip"><div class="redline-item"><div class="redline-val">目标层级 &gt; 当前层级</div><h4>成立国家层级递进规则</h4><p>成立新国家要求目标成立层级（1–4）严格高于当前成立层级（与伯/公/王/帝行政等级分开计算）</p></div><div class="redline-item"><div class="redline-val">期望等待 = 1 ÷ p</div><h4>动态历史事件触发估算</h4><p>合格窗口期内月概率为 p 时，n 个合格月内触发率为 1 − (1 − p)ⁿ，平均等待月数为 1 ÷ p</p></div><div class="redline-item"><div class="redline-val">弃 10 年 / 完 20 年</div><h4>使命链重选冷却期</h4><p>部分使命按接取当日数值设定目标（如海军占比 +5%）；放弃后冷却 10 年，完成后冷却 20 年</p></div><div class="redline-item"><div class="redline-val">≥146 地 vs ≤100 地</div><h4>凤凰宿命复兴结算线</h4><p>土耳其崛起已结束、安纳托利亚对手均 ≤100 地且拜占庭系 ≥146/150 地可进入《凤凰复兴》</p></div></div>
 </section>
 
 <section id="discussion-box" class="discussion-card">
-  <h2>论坛实战讨论与排障 · 成立新国家没改名、使命卡住与拜占庭防爆兵</h2>
+  <h2>查阅指引 · 为什么满足了领土比例仍点不了「成立国家」？</h2>
   
 <ul>
-  <li><strong>为什么按规则吞够了地块却一直看不到「成立国家」按钮？</strong><br>
-  逐一核对名录库里的两个分离字段：① 先看「潜在条件（Potential）」是否限定了特定文化组、宗教（或禁用了现有同源继承标签），以及本局开局规则「历史成立国家允许度」有没有把合理/幻想类成立关掉；② 再看「执行条件（Allow）」里的占比是否默认为全控 100%，以及有没有漏掉某个小岛/附庸暂占而非直辖的关键首都点！</li>
+  <li><strong>按顺序核对四项隐藏约束</strong>：① 本国当前「成立层级」是否已大于或等于目标国家层级（同级或降级成立被规则禁止）；② 开局规则中的「可成立国家限制」是否排除了非历史项；③ 目标定义是否排除了你的开局标签（如马穆鲁克不可点普通成立埃及）或要求特定局势已结束（如成立大不列颠需百年战争已结算，成立中华需天朝与红巾军已结束）；④ 指定核心地标是否由本国<strong>直接拥有</strong>而非交在属国名下。</li>
 </ul>
 
 </section>
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="directory.html#formable-countries" class="btn-pill">163 可成立国家全条件名录</a> · <a href="directory.html#country-events" class="btn-pill">4,213 国别历史事件名录</a> · <a href="directory.html#missions" class="btn-pill">11 组使命链 &amp; 87 地区开局</a> · <a href="directory.html#country-definitions" class="btn-pill">2,354 国家资料 &amp; 圣地列表</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="directory.html#formable-countries" class="btn-pill">163 个可成立国家完整条件</a> · <a href="directory.html#country-events" class="btn-pill">4,213 条国别历史事件名录</a> · <a href="directory.html#decisions" class="btn-pill">178 项决议 &amp; 11 组使命包</a> · <a href="directory.html#country-definitions" class="btn-pill">2,354 国家定义与地区开局表</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">
-  <a href="ch10-diplomacy-subjects.html" class="btn-pill">← 10 · 外交容量、联盟饱和、敌意包围网、属国连通与邦联/国际组织</a>
-  <a href="ch12-gameplay-automation-updates.html" class="btn-pill">12 · 开局规则、成就、自动化委任矩阵与 1.4.8–1.4.9 更新总览 →</a>
+  <a href="ch10-diplomacy-subjects.html" class="btn-pill">← 10 · 外交容量与接受度、间谍情报、敌意包围网、属国吞并与国际组织</a>
+  <a href="ch12-gameplay-automation-updates.html" class="btn-pill">12 · 开局规则、界面读数通则、自动化托管矩阵与 1.4.9 更新核对 →</a>
 </nav>
 </div>
-        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#scenarios-countries">01 · 1337 开局剧本、87 地区名录与 2,354 国家定义体系</a><a href="#formables-events">02 · 163 个可成立国家（Potential/Allow）与 4,213 国别事件读法</a><a href="#missions-system">03 · 11 组国家使命包：动态接取快照定标、冷却与成就开关</a><a href="#dlc-expansions">04 · 扩展包机制精讲：《凤凰宿命》《直布罗陀海峡》与纪念建筑包</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
+        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#scenarios-countries">01 · 1337 剧本结构与 13 大地理分区国家名录</a><a href="#formables-events">02 · 163 个可成立国家、成立层级与「国号 / 标签 / 组织」辨析</a><a href="#missions-system">03 · 11 组国家使命包与 178 项决议：快照目标与冷却规则</a><a href="#dlc-expansions">04 · 扩展包机制拆解：《凤凰宿命》《跨越海峡》与古迹包</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
       </div>
     </main>
   </div>

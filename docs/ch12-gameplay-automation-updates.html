@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>开局规则、成就、自动化委任矩阵与 1.4.8–1.4.9 更新总览 · 欧陆风云 V 系统图谱与速查典</title>
-  <meta name="description" content="把前面 11 章的力学原理真正落地到每局对局：梳理 31 项开局规则与 87 项成就边界、掌握自动化委任开关、跑通 EU4/Vic3 转场对账，并逐条核对 1.4.8–1.4.9 补丁变动。">
+  <title>开局规则、界面读数通则、自动化托管矩阵与 1.4.9 更新核对 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="归纳全书存量/流量与百分点/百分比读数通则、31 项开局规则与成就勘误、七大系统自动化委托细节、EU4/Vic3 玩家转场四笔对账，以及 42 项 1.4.8–1.4.9 版本修订清单。">
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/glossary-data.js"></script>
   <script defer src="assets/search-index.js"></script>
@@ -16,7 +16,7 @@
   <a class="skip-link" href="#main">跳到正文</a>
   <header class="mobile-bar">
     <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
-    <strong style="font-size:14px">开局规则、成就、自动化委任矩阵与 1.4.8–1.4.9 更新总览</strong>
+    <strong style="font-size:14px">开局规则、界面读数通则、自动化托管矩阵与 1.4.9 更新核对</strong>
     <div style="display:flex;gap:6px">
       <button type="button" class="btn-pill" data-open-search>搜</button>
       <button type="button" class="btn-pill" data-theme-toggle>☾</button>
@@ -40,11 +40,11 @@
   </div>
   <div class="nav-group">
     <div class="nav-caption">枢纽与速查工具</div>
-    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
-    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 地理层级</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>02 · 人口容量</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 商品生产</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政体</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 王室与阶层力量</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化待遇与容量</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代焦点</span></a><a href="ch08-military-combat.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 四大兵源</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 舰种海域换算</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量与接受度</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
   </div>
   <div class="sidebar-foot">
     基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
@@ -57,10 +57,10 @@
         <div class="article-col">
 <section class="hero-banner">
   <div class="eyebrow"><span class="pillar-badge" style="background:var(--p-territory)">支柱一 · 疆域与控制</span> <span>CHAPTER 12</span></div>
-  <h1>开局规则、成就、自动化委任矩阵与 1.4.8–1.4.9 更新总览</h1>
-  <p class="subtitle">把前面 11 章的力学原理真正落地到每局对局：梳理 31 项开局规则与 87 项成就边界、掌握自动化委任开关、跑通 EU4/Vic3 转场对账，并逐条核对 1.4.8–1.4.9 补丁变动。</p>
+  <h1>开局规则、界面读数通则、自动化托管矩阵与 1.4.9 更新核对</h1>
+  <p class="subtitle">归纳全书存量/流量与百分点/百分比读数通则、31 项开局规则与成就勘误、七大系统自动化委托细节、EU4/Vic3 玩家转场四笔对账，以及 42 项 1.4.8–1.4.9 版本修订清单。</p>
   <div class="hero-meta-row">
-    <span class="meta-chip">Game Rules, Achievements, Automation Matrix, EU4/Vic3 Bridge &amp; 1.4.9 Changelog</span>
+    <span class="meta-chip">Game Rules, UI Reading Conventions, Automation Settings &amp; 1.4.9 Changelog</span>
     <span class="meta-chip">基准：EU5 1.4.9 (3ed0)</span>
   </div>
 </section>
@@ -68,15 +68,15 @@
 <div class="context-grid">
   <div class="context-box">
     <h4>↑ 上游输入（谁决定本章）</h4>
-    <ul><li><a href="map.html">前 11 章全部核心财务、控制与军政机制</a>：决定你在界面面板上看到每一个红字异常到底对应哪条公式</li><li><a href="glossary.html">1.4.8–1.4.9 Steam 官方公告与本地 00_defines</a>：决定哪些计算已实装修复、哪些文案尚存旧版差异</li></ul>
+    <ul><li><a href="metrics.html">前 11 章全部经济、内政与军事公式</a>：理解每个数值的底层决定因素后，方能判断哪些环节适合交给自动化</li><li><a href="glossary.html">1.4.8–1.4.9 官方补丁与本机脚本文件</a>：对齐最新实装参数与界面提示拆项顺序</li></ul>
   </div>
   <div class="context-box">
     <h4>⚙ 本章核心机制引擎</h4>
-    <p style="margin:0;font-size:13px">以「地图模式找异象 → 面板钻取构成 → 账本横向对账 → 自动化托管零碎操作」形成闭环指挥流，并逐条追踪补丁变化。</p>
+    <p style="margin:0;font-size:13px">以「地图模式定位异常地点 → 地点/国家面板悬停核对分项 → 统计账本同口径横向比较 → 分层设置自动化与储金底线」构成日常运营闭环。</p>
   </div>
   <div class="context-box">
     <h4>↓ 下游出口（本章驱动谁）</h4>
-    <ul><li><a href="ch03-economy-market-trade.html#trade-orders">无错失全自动化运营收益</a>：在锁定粮食防线与不乱拆核心产粮省的前提下大幅降低后期操作量</li><li><a href="ledgers.html#building_types">全游戏 22 表与 72 名录精确反查</a>：任何具体建筑、兵种、法律、特权、需求权重 3 秒定位源码</li></ul>
+    <ul><li><a href="metrics.html">31 项核心数值修正来源反查器</a>：随时检索任一核心指标或全部 1,364 项修正的具体建筑、特权、改革与革新来源</li><li><a href="ledgers.html#building_types">22 大速查表与 72 全量名录库</a>：按清晰中文词条快速核查 501 种建筑、401 种兵种与全部制度条目</li></ul>
   </div>
 </div>
 
@@ -98,86 +98,92 @@
 </figure>
 
 <section id="rules-achievements" class="mech-section">
-  <h2>01 · 31 项开局规则、87 项成就边界与「地图模式→面板→账本」排障工作流</h2>
-  <span class="sec-en">31 Game Rules, 87 Achievements &amp; UI Diagnostic Workflow</span>
+  <h2>01 · 开局规则、成就勘误与顶栏「存量 vs 流量」读数通则</h2>
+  <span class="sec-en">Game Rules, Achievement Errata &amp; Topbar Stock vs Flow Conventions</span>
   
+<p><strong>1. 开局规则（31 项）与成就核对要点（87 项成就见名录库）</strong>：</p>
 <ul>
-  <li><strong>开局规则（31 项）与成就验证</strong>：在选国确认界面，如随意调改战斗时间步进以外的沙盒项或激活了「使命包」，右上角奖杯即标灰；注意区分「本局是否拥有成就资格（Eligibility）」与「局内具体触发达标（Completion）」（如 1.4.8/1.4.9 调整了阿特拉斯成就的政体阈值以及《Getting Things Strait》对海军炮台的兼容判定）。</li>
-  <li><strong>高手标准界面诊断三步曲</strong>：① 先开 <strong>地图模式</strong>（经济/税基比率/食物/控制力/市场边界）找出飘红的异常地块；② 点开目标 <button type="button" class="term" data-concept="location">地点</button> 与国家侧边栏拆解底层权重构成（分清「当地未受控财富」与「省买粮账单」）；③ 切进统计账本横向对比同名指标，切勿把 A 市场的价格直接套进 B 市场比较。</li>
+  <li><strong>成就启用条件</strong>：须启用铁人模式、玩家难度至少为普通、关闭允许切换国家，且<strong>关闭任务包（Mission Packs）</strong>。时间步进可在开局规则选择按日（默认）或按小时。</li>
+  <li><strong>重要成就脚本核对勘误</strong>：成就《众城之城（City of Cities）》英文界面虽写作 <code>core province</code>，底层脚本实际检查的是<strong>任一单个核心地点（Core Location）的发展度达到 100</strong>（同省两处 60 与 40 不可相加）；《坚守阿特拉斯》要求摩洛哥统合苏斯与摩洛哥两地区后完成集权（≥25 且王权 &gt;45%）或分权（≥50 且部落满意 &gt;65%）路线；《海峡事务》要求卡斯蒂利亚在直布罗陀南北两岸指定核心城市均建有海岸要塞或海军炮台。</li>
+</ul>
+
+<p><strong>2. 全游戏界面读数与单位通则</strong>：</p>
+<ul>
+  <li><strong>存量（Stock）与流量（Flow）分离</strong>：顶栏「国库」为当前持有的金币存量，「月结余」为当月经常性收入减支出的流量（金币/月）；「政治影响力（上限 100）」「人力」「水手」均同时显示当前存量与每月净流入；「稳定度（−100~+100）」「政府力量（0–100）」「威望（0–100）」为按月趋近均衡或衰减的状态值。</li>
+  <li><strong>地点口径 vs 全国口径</strong>：点开单个 <button type="button" class="term" data-concept="location">地点</button> 看到的人口占比以该地总人口为分母，点开国家文化/宗教面板则以全国（或控制力加权后）人口为分母；跨国横向对比请使用<strong>统计账本（Ledger）</strong>并受探索视野与账本可见性规则约束。</li>
 </ul>
 
 </section><section id="automation-matrix" class="mech-section">
-  <h2>02 · 全系统「自动化委任与预算门禁」逐项策略清单</h2>
-  <span class="sec-en">Complete Automation Delegation &amp; Budget Gates</span>
+  <h2>02 · 七大系统自动化委托与单项策略设置详解</h2>
+  <span class="sec-en">Seven Automation Systems &amp; Granular Budget Controls</span>
   
-<p>EU5 的自动化面板并非非黑即白的总开关，绝大多数项支持<strong>「总开关 + 分市场/分省份局部开关 + 预算保留底线」</strong>三层控制。建议按下方实操分级托管：</p>
+<p>自动化面板允许按系统总开关、市场/阶层子开关及「<strong>最低保留储金（Gold to Save）</strong>」分层委托：</p>
 <div class="table-wrap"><table class="data-table">
-  <thead><tr><th>系统门类</th><th>可委任子功能项</th><th>底层判断逻辑与预算副作用</th><th>推荐策略</th></tr></thead>
+  <thead><tr><th>托管系统 / 专项设置</th><th>可执行的具体操作范围</th><th>底层判断逻辑与使用建议</th></tr></thead>
   <tbody>
-    <tr><td><strong>经济与金融</strong><br>Economy</td><td>收支平衡 (Balance)、信用管理 (Credit)、市场贸易 (Trade)、关税 (Tariffs)</td><td>信用管理会在国库充裕时还旧债、赤字时自动借阶层贷或发政府债券；市场拥有者才可自动调关税（易错杀关键输入关税）</td><td>信用管理/收支可局部开；<strong>关税关闭</strong></td></tr>
-    <tr><td><strong>生产与建造</strong><br>Production</td><td>新建建筑、关停补贴切换、自动扩建建筑/RGO、升级道路/城镇</td><td>AI 易按即期虚高利润狂扩同城同类厂触犯扩建波动性，或误把产粮村升城毁粮仓</td><td>仅对熟稳高控省 RGO 开；<strong>严禁AI自动升城</strong></td></tr>
-    <tr><td><strong>阶层与税率</strong><br>Estates</td><td>税收滑块自动化、议会提议响应、阶层贿赂</td><td>自动税收贴紧 50% 满意均衡线防跌破 25% 拒出征召兵，平时最省心；要攒整笔钱冲特权/拆特权时需暂关</td><td class="pos">推荐默认常开</td></tr>
-    <tr><td><strong>军事与海巡</strong><br>Military</td><td>征召集结、围城托管、海巡 (Patrol the Seas)</td><td>海巡按 90 存在阈值跑圈即跳走（重要水道请拆 5–10 轻船死蹲 100%）；围城托管易把征召炮灰堆上山地吃高耗粮</td><td>局部平叛可开；<strong>大决战与关键海格手操</strong></td></tr>
-    <tr><td><strong>文化宗教外务</strong><br>Diplomatic</td><td>自动改善关系、自动同化/传教选择、殖民迁移补位</td><td>自动改善关系极擅长压制边缘潜在包围网成员好感拉回正区间，减轻手操疲劳</td><td class="pos">关系改善强烈推荐常开</td></tr>
+    <tr><td><strong>阶层税率自动调节</strong><br>Tax Automation</td><td>关闭全权收支托管后，可逐个阶层开启自动税率并设定<strong>目标满意度（默认 50%）</strong></td><td>按住 Ctrl(±5%)/Alt(±10%) 微调目标线，系统在征税上下限内自动贴线收税，既防跌破 25% 拒出征召兵又免去频繁手调，<strong>推荐日常开启</strong></td></tr>
+    <tr><td><strong>自动铸币 &amp; 信用管理</strong></td><td>自动铸币以<strong>每月零净通胀</strong>为目标动态调滑块；信用管理在盈余时还债、赤字时借贷或发债</td><td>自动铸币省心稳健；准备手动积攒大额现金或精细控制阶层贷/央行债券结构时可关闭信用托管</td></tr>
+    <tr><td><strong>市场贸易 vs 贸易指令</strong></td><td>可全权托管某市场贸易，或手动设立按优先级排序的<strong>贸易指令（利润 / 短缺 / 食物重心）</strong></td><td>建议核心市场<strong>优先使用贸易指令</strong>锁死粮食与关键工业原料保供，将剩余闲置容量再交自动贸易赚取差价；自动关税分重商、均衡、自由贸易三档</td></tr>
+    <tr><td><strong>生产与建造托管</strong></td><td>新建/关停/补贴建筑、自动扩建标记的盈利满员建筑与未满级 RGO、自动拆楼</td><td>务必设定合理的「<strong>保留储金（Gold to Save）</strong>」底线；核心产粮省升城、关键要塞选址与高波动新工坊建议保留手动决策</td></tr>
+    <tr><td><strong>政府、阶层与外交托管</strong></td><td>内阁人选/行动、阶层贿赂（每 6 个月检查，单次耗 <code>12 × 阶层税基</code> 金币）、自动改善关系/王室联姻</td><td><strong>自动改善关系</strong>（可预留外交官与外交容量，并指定目标名单）能有效缓解扩张敌意好感压力；资金紧张时留意关闭自动贿赂阶层以防大额扣款</td></tr>
   </tbody>
 </table></div>
 
 </section><section id="eu4-vic3-bridge" class="mech-section">
-  <h2>03 · 从 EU4 与 Victoria 3 转场 EU5 的「四件套对账脑图」</h2>
-  <span class="sec-en">Accounting Bridge from EU4 &amp; Victoria 3 to EU5</span>
+  <h2>03 · 从 EU4 与 Victoria 3 到 EU5：四笔关键对账算例</h2>
+  <span class="sec-en">Four Core Accounting Examples Bridging EU4 &amp; Vic3 to EU5</span>
   
-<p>如果你带着《欧陆风云 4》的涂色直觉或《维多利亚 3》的供需思维进游戏，下面四个具体算例能立刻打通底层逻辑阻塞：</p>
 <ol>
-  <li><strong>建一座新工坊能给你进账多少真实金币？</strong><br>
-  在 Vic3 视角你看「利润 +2.00 杜卡特」就以为发财了；但在 EU5，必须走完：<code>利润 × <button type="button" class="term" data-concept="market_access">市场接入度</button> → 地点财富 × <button type="button" class="term" data-concept="control">控制力</button> → 税基 × 有效阶层税率 → 国库税金</code>！假设接满接入度后月赚 <strong>2.00</strong>，省控 <strong>60%</strong>，综合税率 <strong>15%</strong>：实际入库月税仅为 <code>2.00 × 0.60 × 0.15 = 0.18</code> 杜卡特（如果还开着每月 <strong>0.25</strong> 补贴，国库反而净亏 <strong>−0.07/月</strong>！）。</li>
-  <li><strong>开采银矿 / 金矿与<button type="button" class="term" data-concept="minting">铸币</button>怎样变现？</strong><br>
-  贵金属先入市场定价变现成地点财富，同时抬高王室铸币效率上限与拉高基础 <button type="button" class="term" data-concept="inflation">通货膨胀</button>压力；过度拉满铸币虽暂充国库却会让全部建筑和维护账单一起涨价。</li>
-  <li><strong>打赢战争赔款 + 割地怎么不炸裂经济？</strong><br>
-  割入的新地是「征服未整合（最大控制 −10%）」：立刻吃进 <button type="button" class="term" data-concept="economical_base">经济基础</button> 抬高全国稳定/外交花费，却几乎产不出税基！大笔现金赔款甚至直加微量通胀；优先抢对方核心高控城市或喂给属国消化。</li>
-  <li><strong>为什么打了一场仗国内矿山突然集体缺工停产？</strong><br>
-  因为每拉出 1,000 陆军征召兵就是直接把 RGO/工厂里的 1,000 真工人拉上阵死掉了（恢复上限需整整 20 年），在核心人力极贵时宁可花钱雇正规军或战俘佣兵。</li>
+  <li><strong>工坊利润如何一步步折算成国库税金？</strong><br>
+    在 EU5 中，工坊必须先招满对应阶级工人、买足原料并按 <code>市场接入度</code> 售出成品形成<strong>地点财富</strong>，再乘 <code>当前控制力</code> 变为<strong>税基</strong>，最后乘 <code>有效阶层税率</code> 进入国库。例如一座造纸行会每月新增财富 <strong>2.00 金币</strong>，当地控制力 <strong>60%</strong>，综合有效税率 <strong>15%</strong> → 国库每月实增税款为 <code>2.00 × 0.60 × 0.15 = 0.18</code> 金币（若政府每月为它支付 0.25 金币亏损补贴，国库反而每月净亏 −0.07 金币）。</li>
+  <li><strong>金银矿产量与国库铸币收入如何区分？</strong><br>
+    金矿（基础价 8）与银矿（基础价 6）首先作为普通商品在市场上出售创造地点财富；另一方面为首都市场提供铸币原料，使国库得以按 <code>全国税基 × 0.25 × 铸币比例 × (1 + 铸币修正)</code> 满效率印钞（无独立固定金矿直接进国库项，将铸币滑块归零则铸币收入为 0）。</li>
+  <li><strong>开战前为何必须先核对宣战理由与敌方要塞？</strong><br>
+    同一处基准 20 战分的省份，用「核心省份宣称」只需 15 分，用「议会宣称」需 25 分，用「羞辱宿敌」高达 200 分；且若关联要塞未占领且从未围攻过，还会额外承受 −33% 和约效率惩罚。</li>
+  <li><strong>为什么打赢一场硬仗后国内矿山与农田产值下滑？</strong><br>
+    常备正规军伤亡消耗全国「人力池」而不动在岗工人；陆军征召兵伤亡则直接扣减原籍地点的真实农民与劳工人口，战后需同时核对原籍人口缺口与 240 个月征召恢复期。</li>
 </ol>
 
 </section><section id="changelog-149" class="mech-section">
-  <h2>04 · 1.4.8–1.4.9 机制修订清单、名录刷新统计与源码核对边界</h2>
-  <span class="sec-en">1.4.8 - 1.4.9 Patch Changelog &amp; Verification Limits</span>
+  <h2>04 · 1.4.8 – 1.4.9 版本机制修订与数据表刷新记录</h2>
+  <span class="sec-en">Verified 1.4.8 - 1.4.9 Patch Changelog &amp; Table Updates</span>
   
-<p>当前手册底层对照基准：<strong>EU5 1.4.9</strong>（官方校验码 <code>3ed0</code> · Steam Build <code>26655995</code> · 对比基线 1.4.7 · 发布日 2026-11-18）。下表收录全部 <strong>42 项</strong> 官方 1.4.8–1.4.9 机制修订与源码核对口径：</p>
+<p>当前手册对照基准版本：<strong>EU5 1.4.9</strong>（官方校验码 <code>3ed0</code> · Steam Build <code>26655995</code> · 对比基线 1.4.7 · 核对日期 2026-11-18）。下表完整收录全部 <strong>42 项</strong> 官方 1.4.8–1.4.9 机制修订与源码核对结果：</p>
 <div class="table-wrap"><table class="data-table">
-  <thead><tr><th>版本</th><th>核对主题 / 置信度</th><th>机制更新与代码依据摘要</th></tr></thead>
+  <thead><tr><th>版本</th><th>核对主题 / 置信度</th><th>机制更新与代码依据说明</th></tr></thead>
   <tbody><tr><td><code>1.4.8</code></td><td><strong>市民关税与贸易补贴</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>外国市民贸易的关税收入与补贴支出按全额结算；此前 1.4.7 样本继续作为历史记录保留。</td></tr><tr><td><code>1.4.9</code></td><td><strong>贸易路径与港口</strong><br><small style="color:var(--ink-muted)">local-script-and-official</small></td><td>港口装卸效率基础系数由 +100% 提高到 +200%，按港口适宜度缩放；同一路段的道路与河流贸易优惠分别选用。行政邻近度的港口修正保持 −50%。海上存在说明中的贸易作用已按官方公告移除。</td></tr><tr><td><code>1.4.9</code></td><td><strong>三种路径账本分别核对</strong><br><small style="color:var(--ink-muted)">local-script</small></td><td>市场接入度、行政邻近度与国家商路各使用自己的路径参数。三套参数已分别核对，现有市场接入度与邻近度算例保持有效。</td></tr><tr><td><code>1.4.9</code></td><td><strong>Customs Houses 与 Agile Exportation</strong><br><small style="color:var(--ink-muted)">local-script-and-official</small></td><td>海关议会修正提供本国进口效率 +2%、外国从本市场出口效率 −5%；灵活出口革新改为本国出口效率 +2%。海关建筑本身保持原定义。</td></tr><tr><td><code>1.4.8</code></td><td><strong>建筑支持量</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>升级工程按同一建筑统计支持量，修复了升级期间重复占用支持量的问题。</td></tr><tr><td><code>1.4.8</code></td><td><strong>道路及治理建筑</strong><br><small style="color:var(--ink-muted)">official-and-root-refreshed-building-catalog</small></td><td>更新治理建筑的建造条件与道路施工说明，名录采用当前文件中的资格检查。</td></tr><tr><td><code>1.4.8</code></td><td><strong>塞哥维亚皇家铸币厂</strong><br><small style="color:var(--ink-muted)">local-script-and-official</small></td><td>塞哥维亚皇家铸币厂的拥有国获得铸币收入 +10%、免通胀铸币阈值 +2 个百分点；奖励由自动修正按地点所有权生效。</td></tr><tr><td><code>1.4.9</code></td><td><strong>市场特许权</strong><br><small style="color:var(--ink-muted)">local-script-and-official</small></td><td>市场特许权同时为集市与升级贸易建筑增加 3 级上限，保留市民容量与市场接入度加成。</td></tr><tr><td><code>1.4.8→1.4.9</code></td><td><strong>非斯学校与识字率</strong><br><small style="color:var(--ink-muted)">local-script-and-official</small></td><td>两所非斯学校的最大识字率加成为 +2.5 个百分点；布伊纳尼亚学校采用 1.4.9 的思潮增长 +25% 倍率。</td></tr><tr><td><code>1.4.9</code></td><td><strong>食物腐坏提示</strong><br><small style="color:var(--ink-muted)">local-script-and-official</small></td><td>食物保存效率在腐坏修正之后单列显示；现有腐坏参数保持原值。</td></tr><tr><td><code>1.4.8</code></td><td><strong>饥荒解除</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>省份恢复食物供应后，饥荒修正正常解除。</td></tr><tr><td><code>1.4.8→1.4.9</code></td><td><strong>商品与人口需求</strong><br><small style="color:var(--ink-muted)">root-verified-data-diff</small></td><td>五份商品定义文件的哈希及 600 条人口商品需求记录与旧版一致，基准价格和每千人需求量保持原值。</td></tr><tr><td><code>1.4.8→1.4.9</code></td><td><strong>其余经济界面与AI</strong><br><small style="color:var(--ink-muted)">official-ui-ai</small></td><td>补充贸易容量的单位收入与单位维护对比；同步记录市场库存、原产临时产出和交易界面修复。</td></tr><tr><td><code>1.4.8</code></td><td><strong>控制力内阁行动</strong><br><small style="color:var(--ink-muted)">official-and-local-files</small></td><td>地区级行动改为最大控制力 +5 个百分点、月增 +0.5；暗行御史改为 +12、+1.2。贵族义务行动替代通用省级行动，最终显示值继续乘内阁行动效率。</td></tr><tr><td><code>1.4.8</code></td><td><strong>官僚部门候选</strong><br><small style="color:var(--ink-muted)">official-and-local-files</small></td><td>通用官僚部门按国家拥有官僚席位进入候选，大都会首都提供的席位也可使用。</td></tr><tr><td><code>1.4.8</code></td><td><strong>统一度与议会文化门槛</strong><br><small style="color:var(--ink-muted)">official-and-local-files</small></td><td>统一度按人数 × max（当地控制力，5%）加权；议会提升文化待遇采用与文化行动相同的人口门槛。</td></tr><tr><td><code>1.4.8</code></td><td><strong>历史首都</strong><br><small style="color:var(--ink-muted)">official-and-local-files</small></td><td>历史首都由事件、决议等特殊迁都产生，提供 80 点临近度源和 +10 个百分点最大控制力。手动迁都调整当前首都。</td></tr><tr><td><code>1.4.8</code></td><td><strong>修会繁荣度与社会价值热忱</strong><br><small style="color:var(--ink-muted)">official-and-local-files</small></td><td>垦殖者据点提供每月 +0.1 个百分点繁荣度；社会价值完全对齐时每轴最多贡献 6 点热忱目标，并按据点所属国家份额缩放。</td></tr><tr><td><code>1.4.9</code></td><td><strong>据点战时效果</strong><br><small style="color:var(--ink-muted)">official-release-note</small></td><td>修会据点在围城、封锁期间继续提供其修正。</td></tr><tr><td><code>1.4.8</code></td><td><strong>神秘主义—教法学</strong><br><small style="color:var(--ink-muted)">official-and-local-files</small></td><td>神秘主义与教法学两端的教士满意度加成移除，其余士气、改宗、研究和内阁效率效果按当前文件保留。</td></tr><tr><td><code>1.4.9</code></td><td><strong>难民目的地与中立文化</strong><br><small style="color:var(--ink-muted)">official-release-note</small></td><td>征服难民迁往前拥有国仍持有的合格首都；文化待遇中立的人口按正常待遇判断。</td></tr><tr><td><code>1.4.9</code></td><td><strong>议会、邦联立法、婚配</strong><br><small style="color:var(--ink-muted)">official-release-note</small></td><td>议会旧诉求全部失效时按月刷新；邦联立法同步采用资深伙伴可访问的法律，婚配与订婚按当前资格和人物去留规则结算。</td></tr><tr><td><code>1.4.8</code></td><td><strong>继承与婚姻制度</strong><br><small style="color:var(--ink-muted)">official-release-note</small></td><td>更新女修道院长选举摄政、Veche／Judicate 继承及婚姻禁令的适用条件。</td></tr><tr><td><code>1.4.8 / 1.4.9</code></td><td><strong>属国外交及持续权限</strong><br><small style="color:var(--ink-muted)">official-release-note</small></td><td>更新间接属国的核心外交、朝贡国战争介入、驻港权终止和外国建筑禁令的持续条件。</td></tr><tr><td><code>1.4.8</code></td><td><strong>纳瓦拉扈从特权</strong><br><small style="color:var(--ink-muted)">local-file</small></td><td>纳瓦拉扈从特权提供重骑兵战力 +5%、战斗陆军传统 +100% 和贵族阶层力量 +25%，已同步到特权信息表。</td></tr><tr><td><code>1.4.8</code></td><td><strong>时间步进与战斗参数</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>战斗区分按日与按小时两套时间步进，分别列出阶段长度、主动性、伤害和最短持续参数。</td></tr><tr><td><code>1.4.8</code></td><td><strong>战场部署、渡河和围城</strong><br><small style="color:var(--ink-muted)">official-engine-fix-and-local-parameter</small></td><td>预备队分配至各前线区段，每区段最多部署宽度的 125%；渡河等惩罚按实际移入部队判断，最终围城结果低于 1 时进入疾病档。</td></tr><tr><td><code>1.4.8</code></td><td><strong>兵团、征召与雇佣兵</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>合团经验按人数加权；海军征召要求港口，并更新骑士团、修会征召和雇佣兵的适用条件。</td></tr><tr><td><code>1.4.8</code></td><td><strong>马格里布军事平衡</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>三类马格里布部落骑兵征召比例降为 0.08，盖尔卜战争部落特权的征召规模加成改为 +10%。</td></tr><tr><td><code>1.4.8</code></td><td><strong>探险与迁都</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>更新探险返程迁都及科尔特斯、皮萨罗生成征服者的行为说明。</td></tr><tr><td><code>1.4.8</code></td><td><strong>黄金世纪与海峡局势</strong><br><small style="color:var(--ink-muted)">official-and-local-partial</small></td><td>更新黄金世纪的官僚槽位、安达卢西亚工匠发展度及海峡局势的联盟、宣战与条约条件。</td></tr><tr><td><code>1.4.8</code></td><td><strong>局势与事件修复</strong><br><small style="color:var(--ink-muted)">official-engine-or-script-fix</small></td><td>同步百年战争、土耳其崛起、意大利战争和筹备宗教战争的目标与终局条件。</td></tr><tr><td><code>1.4.8</code></td><td><strong>开局设定</strong><br><small style="color:var(--ink-muted)">official-setup-change</small></td><td>开局国家与地区数据重新提取；记录瓦拉几亚首都、希贝尼克归属、塔贝尔巴拉人口及九处地点恢复马匹原料的更新。</td></tr><tr><td><code>1.4.8</code></td><td><strong>和谈与AI</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>更新完全败北时的投降、三年无战斗白和提示和战争热情共同基础。</td></tr><tr><td><code>1.4.9</code></td><td><strong>海军巡逻</strong><br><small style="color:var(--ink-muted)">official-engine-rule</small></td><td>每支巡逻舰队一次驻守一个海域，按 1.4.9 公告在存在度达到 100% 后离开；避开损耗海域并在明显受损后返修。</td></tr><tr><td><code>1.4.9</code></td><td><strong>海战与修船</strong><br><small style="color:var(--ink-muted)">official-engine-fix</small></td><td>海战分别核算沉没与俘获；港内修理采用港口与海上修理速度中的较大值。</td></tr><tr><td><code>1.4.9</code></td><td><strong>Ghuzat人口</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>Ghuzat 迁移六个月合计目标比例为来源省士兵的 25%、劳工的 15%，排除本国属国。</td></tr><tr><td><code>1.4.9</code></td><td><strong>Fusta与Baochuan</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>巴巴里福斯塔船基础运输能力为每艘 150 人；宝船改用第二时代重型舰模板及对应需求。</td></tr><tr><td><code>1.4.9</code></td><td><strong>征服者、殖民与运宝</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>征服者目的地受首都所在区域港口的海军范围限制；两类运宝探险分别使用五年冷却，并纳入区域内属国金银产出。</td></tr><tr><td><code>1.4.9</code></td><td><strong>自由渴望灾难</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>自由渴望灾难新增持续严格超过 20 年的结束条件，保留其他结束途径。</td></tr><tr><td><code>1.4.8 / 1.4.9</code></td><td><strong>成就条件</strong><br><small style="color:var(--ink-muted)">official-and-local</small></td><td>更新阿特拉斯成就的两种政体阈值，以及海峡成就对海军炮台的兼容条件。</td></tr><tr><td><code>1.4.9</code></td><td><strong>人口支持叛乱</strong><br><small style="color:var(--ink-muted)">existing-content-verified</small></td><td>核对阶层叛乱的支持判定：加入与退出继续使用人口自身满意度。</td></tr></tbody>
 </table></div>
-<h3>本轮数据名录刷新汇总（10 类核心表变化）</h3>
+<h3>本轮数据名录更新统计（10 类核心表变化）</h3>
 <ul><li><strong>建筑</strong>（<code>building_types</code>）：总计 <strong>501</strong> 条，本轮更新 <strong>8</strong> 条</li><li><strong>产业</strong>（<code>industry_types</code>）：总计 <strong>8</strong> 条，本轮更新 <strong>0</strong> 条</li><li><strong>道路</strong>（<code>road_types</code>）：总计 <strong>4</strong> 条，本轮更新 <strong>0</strong> 条</li><li><strong>法律</strong>（<code>laws</code>）：总计 <strong>213</strong> 条，本轮更新 <strong>15</strong> 条</li><li><strong>阶层特权</strong>（<code>estate_privileges</code>）：总计 <strong>331</strong> 条，本轮更新 <strong>18</strong> 条</li><li><strong>战争目标</strong>（<code>wargoals</code>）：总计 <strong>78</strong> 条，本轮更新 <strong>1</strong> 条</li><li><strong>宗教</strong>（<code>religions</code>）：总计 <strong>293</strong> 条，本轮更新 <strong>0</strong> 条</li><li><strong>政体</strong>（<code>government_types</code>）：总计 <strong>5</strong> 条，本轮更新 <strong>0</strong> 条</li><li><strong>社会价值观</strong>（<code>societal_values</code>）：总计 <strong>17</strong> 条，本轮更新 <strong>1</strong> 条</li><li><strong>军事单位</strong>（<code>unit_types</code>）：总计 <strong>401</strong> 条，本轮更新 <strong>60</strong> 条</li></ul>
-<div class="callout warn"><strong>源码与实机核对边界（Verification Limits）</strong>：<ul><li>港口装卸的完整函数、道路与河流的路线选择和距离取整由引擎处理。当前可核对脚本系数与官方行为说明，尚未进行完整商路成本实测。</li><li>1.4.9 官方公告移除了海上存在影响贸易的说明；本机英文概念文本仍包含这一旧说法。正文已按公告修正，原始本地化索引保留文件原文供追踪。</li><li>官方 1.4.9 描述巡逻离开条件为海上存在度 100%；本机 PATROL_THE_SEAS_THRESHOLD 仍为 90。正文按公告说明离开条件，两者的具体调用关系仍待连续实机巡逻验证。</li><li>按小时模式的数值按原始结算步列出；本轮尚未计时核对结算步与界面小时的对应。</li></ul></div>
+<div class="callout warn"><strong>源码与实机核对边界说明（Verification Limits）</strong>：<ul><li>港口装卸的完整函数、道路与河流的路线选择和距离取整由引擎处理。当前可核对脚本系数与官方行为说明，尚未进行完整商路成本实测。</li><li>1.4.9 官方公告移除了海上存在影响贸易的说明；本机英文概念文本仍包含这一旧说法。正文已按公告修正，原始本地化索引保留文件原文供追踪。</li><li>官方 1.4.9 描述巡逻离开条件为海上存在度 100%；本机 PATROL_THE_SEAS_THRESHOLD 仍为 90。正文按公告说明离开条件，两者的具体调用关系仍待连续实机巡逻验证。</li><li>按小时模式的数值按原始结算步列出；本轮尚未计时核对结算步与界面小时的对应。</li></ul></div>
 
 </section>
 
 <section id="redlines-strip">
-  <div class="redline-strip"><div class="redline-item"><div class="redline-val">31 规则 / 87 成就</div><h4>铁人成就准入门槛</h4><p>开启通用「使命包」或修改关键难度/沙盒开关会直接剥夺本局成就资格；部分特殊成就在 1.4.9 放宽了兼容条件</p></div><div class="redline-item"><div class="redline-val">先控 60% × 税 15%</div><h4>工坊真进国库汇率</h4><p>一座月利 2 杜卡特的造纸行会在 60% 控制 × 15% 有效税率下仅进国库 0.18 杜卡特（补贴 0.25 反而净亏 −0.07！）</p></div><div class="redline-item"><div class="redline-val">+200% 港口贸易效率</div><h4>1.4.9 重大路径分家</h4><p>1.4.9 贸易港口效率翻倍至 +200% 且道路/河运各自取优，行政邻近度港口扣费维持 −50%，两账本彻底独立</p></div><div class="redline-item"><div class="redline-val">PATROL 90 vs 100</div><h4>唯一未对齐待核边界</h4><p>1.4.9 公告将海巡停航形容为 100% 海存，但本机 00_defines.txt 仍为 PATROL_THE_SEAS_THRESHOLD = 90</p></div></div>
+  <div class="redline-strip"><div class="redline-item"><div class="redline-val">普通+铁人+关任务包</div><h4>获取成就三项前提</h4><p>简单/极简单难度、允许切换国家或开启任务包均会关闭本局成就资格</p></div><div class="redline-item"><div class="redline-val">百分点 vs 相对百分比</div><h4>全书公式读数铁律</h4><p>60% 提高 5 个百分点为 65%；在 60% 原值上提高 5% 相对修正则为 63%</p></div><div class="redline-item"><div class="redline-val">税基 × 12 金币</div><h4>自动贿赂阶层单次扣款</h4><p>开启阶层自动化后每 6 个月检查贿赂，预算紧张时需留足现金或手动控管</p></div><div class="redline-item"><div class="redline-val">Build 26655995 / 3ed0</div><h4>本手册核对基准版本</h4><p>覆盖至 EU5 1.4.9 全部 42 项机制核对与 10 张核心表差异刷新</p></div></div>
 </section>
 
 <section id="discussion-box" class="discussion-card">
-  <h2>论坛实战讨论与排障 · 后期几百个省卡手了怎么只留关键微操？</h2>
+  <h2>全书速查导航 · 遇到具体问题时去哪里找精确答案？</h2>
   
 <ul>
-  <li><strong>三层混合驾驶模式（最推荐高玩后期配置）</strong>：<br>
-  ① 把 <strong>日常阶层税收、自动外交改善关系、非核心殖民/市场微调指令</strong> 安心托管给自动化；② <strong>核心城市升格、关键商品进出口关税与 RGO 定向扩建、主力港口 5 艘一组的海上存在护航船队</strong> 全部死守手动；③ 在每次打开大型扩张战争和约前，习惯性检查右侧省买粮账单与经济比率颜色灯——两分钟就能查清全国哪根血管在漏水。</li>
+  <li><strong>想查某项核心数值（如生产效率、最大控制力、训练度、研究速度）有哪些建筑、特权、改革和科技能加它？</strong> → 直接前往 <a href="metrics.html"><strong>核心数值与 1,364 项修正反查器（metrics.html）</strong></a>。</li>
+  <li><strong>想查具体某座建筑的造价、建材、雇员、运转配方与限制条件，或某支部队、法律、特权、宗教的完整参数？</strong> → 前往 <a href="ledgers.html#building_types"><strong>22 大核心速查表（ledgers.html）</strong></a> 或 <a href="directory.html#building_types"><strong>72 类游戏名录库（directory.html）</strong></a>，也可随时按 <code>Ctrl+K</code> 全局秒搜。</li>
 </ul>
 
 </section>
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="ledgers.html#building_types" class="btn-pill">501 建筑全表 · 22 数据典</a> · <a href="directory.html#game_rules" class="btn-pill">31 开局规则与 87 成就名录</a> · <a href="pop-demand.html" class="btn-pill">8 阶级×75 商品需求矩阵</a> · <a href="lab.html#redlines" class="btn-pill">37 红线常量 &amp; 4合1模拟器</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html" class="btn-pill">核心数值与 1,364 修正反查器</a> · <a href="ledgers.html#building_types" class="btn-pill">501 种建筑全表 · 22 数据典</a> · <a href="directory.html#game_rules" class="btn-pill">31 项规则 &amp; 87 项成就名录</a> · <a href="lab.html#calc" class="btn-pill">交互式实算器与排障工作台</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">
-  <a href="ch11-scenarios-missions-dlc.html" class="btn-pill">← 11 · 开局剧本、成立国家、国别事件、使命链与扩展包机制</a>
+  <a href="ch11-scenarios-missions-dlc.html" class="btn-pill">← 11 · 开局剧本、成立国家层级、国别事件、使命包与扩展包机制</a>
   <a href="map.html" class="btn-pill">进入全站交互因果星图 →</a>
 </nav>
 </div>
-        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#rules-achievements">01 · 31 项开局规则、87 项成就边界与「地图模式→面板→账本」排障工作流</a><a href="#automation-matrix">02 · 全系统「自动化委任与预算门禁」逐项策略清单</a><a href="#eu4-vic3-bridge">03 · 从 EU4 与 Victoria 3 转场 EU5 的「四件套对账脑图」</a><a href="#changelog-149">04 · 1.4.8–1.4.9 机制修订清单、名录刷新统计与源码核对边界</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
+        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#rules-achievements">01 · 开局规则、成就勘误与顶栏「存量 vs 流量」读数通则</a><a href="#automation-matrix">02 · 七大系统自动化委托与单项策略设置详解</a><a href="#eu4-vic3-bridge">03 · 从 EU4 与 Victoria 3 到 EU5：四笔关键对账算例</a><a href="#changelog-149">04 · 1.4.8 – 1.4.9 版本机制修订与数据表刷新记录</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
       </div>
     </main>
   </div>

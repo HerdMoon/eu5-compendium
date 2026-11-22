@@ -43,14 +43,36 @@
     });
   }
 
+  function formatClausesHtml(detailStr, condStr) {
+    const raw = String(detailStr || "—").trim();
+    const parts = raw.split(" ｜ ").map((x) => x.trim()).filter(Boolean);
+    const lines = parts.map((p) => {
+      const idx = p.indexOf("：");
+      if (idx > 0 && idx <= 12) {
+        return `<div class="dir-clause"><strong>${esc(p.slice(0, idx + 1))}</strong>${esc(p.slice(idx + 1))}</div>`;
+      }
+      return `<div class="dir-clause">${esc(p)}</div>`;
+    });
+    if (condStr && !raw.includes("条件：")) {
+      lines.push(`<div class="dir-clause dir-cond"><strong>获取/触发条件：</strong>${esc(condStr)}</div>`);
+    }
+    return `<div class="dir-clauses">${lines.join("")}</div>`;
+  }
+
   function renderDetailDrawer(r, colspan) {
     const pairs = [];
     if (Array.isArray(r.detail_pairs) && r.detail_pairs.length) {
       r.detail_pairs.forEach(([k, v]) => pairs.push([k, v]));
     } else {
+      if (r.detail) {
+        String(r.detail).split(" ｜ ").map((x) => x.trim()).filter(Boolean).forEach((seg, i) => {
+          const idx = seg.indexOf("：");
+          if (idx > 0 && idx <= 14) pairs.push([seg.slice(0, idx), seg.slice(idx + 1)]);
+          else pairs.push([i === 0 ? "核心属性" : `机制说明 ${i + 1}`, seg]);
+        });
+      }
+      if (r.scopeConditions && !String(r.detail || "").includes("条件：")) pairs.push(["前置与限制条件", r.scopeConditions]);
       if (r.scopeReason) pairs.push(["适用口径说明", r.scopeReason]);
-      if (r.scopeConditions) pairs.push(["前置与限制条件", r.scopeConditions]);
-      if (r.detail) pairs.push(["完整定义摘要", r.detail]);
       if (r.tag) pairs.push(["国家标签", r.tag]);
       if (r.kind) pairs.push(["分类", r.kind]);
       if (r.source) pairs.push(["游戏源码位置", r.source]);
@@ -65,7 +87,8 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.getAttribute("data-page");
-    if (page === "map") initMapExplorer();
+    if (page === "metrics") initMetricsPage();
+    else if (page === "map") initMapExplorer();
     else if (page === "lab") initLabPage();
     else if (page === "ledgers") initLedgersPage();
     else if (page === "pop-demand") initPopDemandPage();
@@ -923,9 +946,9 @@
         const key = `${curCatId}:${r.id}`;
         const isOpen = expanded.has(key);
         const mainRow = `<tr class="row-expandable" data-dkey="${esc(key)}">
-          <td><span class="row-toggle-mark">▸</span><strong>${esc(r.zh)}</strong><br><small style="color:var(--ink-muted)">${esc(r.en)} <code>${esc(r.id)}</code></small></td>
+          <td><span class="row-toggle-mark">${isOpen ? "▾" : "▸"}</span><strong>${esc(r.zh)}</strong><br><small style="color:var(--ink-muted)">${esc(r.en)} <code>${esc(r.id)}</code></small></td>
           <td><span class="scope-tag">${esc((r.scopeLabel || r.scope || "通用").split(" / ")[0])}</span></td>
-          <td>${esc((r.detail || "—").slice(0, 220))}${(r.detail || "").length > 220 ? "…" : ""}${r.scopeConditions ? `<br><small style="color:var(--ink-muted)">条件：${esc(r.scopeConditions)}</small>` : ""}</td>
+          <td>${formatClausesHtml(r.detail, r.scopeConditions)}</td>
           <td><small style="color:var(--ink-muted)">${esc(r.source || "—")}</small></td>
         </tr>`;
         return isOpen ? mainRow + renderDetailDrawer(r, 4) : mainRow;
@@ -1043,5 +1066,223 @@
       if (target) qEl.value = target.zh;
     }
     render();
+  }
+
+  // 7. Core Metrics & 1,364 Modifiers Reverse Lookup (metrics.html)
+  function initMetricsPage() {
+    const data = window.__EU5_METRICS__;
+    if (!data) return;
+
+    const PILLAR_ZH = {
+      territory: "疆域与控制",
+      economy: "人口、市场与财政",
+      state: "政府、内阁与阶层",
+      culture: "文化、信仰与科技",
+      military: "军事、海权与和约",
+      diplomacy: "外交、属国与秩序",
+    };
+
+    const tabs = document.querySelectorAll("[data-met-tab]");
+    const panels = document.querySelectorAll("[data-met-panel]");
+    function switchTab(t) {
+      tabs.forEach((b) => b.classList.toggle("active", b.getAttribute("data-met-tab") === t));
+      panels.forEach((p) => (p.hidden = p.getAttribute("data-met-panel") !== t));
+    }
+    tabs.forEach((b) => b.addEventListener("click", () => switchTab(b.getAttribute("data-met-tab"))));
+
+    function valBadge(val) {
+      const s = String(val || "");
+      let cls = "mod-val";
+      if (s.startsWith("+") || s === "启用") cls += " pos";
+      else if (s.startsWith("-") || s.startsWith("−") || s === "禁用") cls += " neg";
+      return `<span class="${cls}">${esc(s)}</span>`;
+    }
+
+    function renderSourceGroupsHtml(groups) {
+      if (!groups || !groups.length) {
+        return `<div style="font-size:12.5px;color:var(--ink-muted)">该指标主要由上方基础公式与系统状态驱动。</div>`;
+      }
+      return `<div class="mod-groups-grid">${groups.map(([gname, items, totalCnt]) => `
+        <div class="mod-group-box">
+          <div class="mod-group-title"><span>${esc(gname)}</span><small>${totalCnt} 项</small></div>
+          <ul class="mod-src-list">
+            ${items.map((it) => `<li>
+              <span class="mod-src-name">${esc(it.zh)}${it.cond ? ` <small class="mod-src-cond">(${esc(it.cond)})</small>` : ""}</span>
+              ${valBadge(it.val)}
+            </li>`).join("")}
+          </ul>
+          ${totalCnt > items.length ? `<div class="mod-more-note">另有 ${totalCnt - items.length} 项同类来源（可在22速查表或72名录中检索）</div>` : ""}
+        </div>
+      `).join("")}</div>`;
+    }
+
+    // --- Tab 1: 31 Flagship Metrics ---
+    const fmSearch = document.getElementById("fm-search");
+    const fmPillar = document.getElementById("fm-pillar");
+    const fmCount = document.getElementById("fm-count");
+    const fmList = document.getElementById("fm-list");
+    const openFlagships = new Set(["production_efficiency", "max_control"]);
+
+    function renderFlagships(focusId) {
+      const q = (fmSearch.value || "").trim().toLowerCase();
+      const pil = fmPillar.value;
+      const filtered = data.flagships.filter((fm) => {
+        if (pil !== "all" && fm.pillar !== pil) return false;
+        if (!q) return true;
+        const hay = (fm.zh + " " + fm.en + " " + fm.id + " " + fm.formula_role + " " + fm.core_drivers.join(" ") + " " + JSON.stringify(fm.source_groups)).toLowerCase();
+        return hay.includes(q);
+      });
+
+      fmCount.textContent = `显示 ${filtered.length} / ${data.flagships.length} 项核心机制数值`;
+      fmList.innerHTML = filtered.map((fm) => {
+        const isOpen = openFlagships.has(fm.id) || Boolean(q);
+        return `<article id="${esc(fm.id)}" class="card metric-card" style="border-top:4px solid var(--p-${fm.pillar})${focusId === fm.id ? ";box-shadow:0 0 0 2px var(--accent)" : ""}">
+          <div class="metric-card-head">
+            <div>
+              <span class="pillar-badge" style="background:var(--p-${fm.pillar})">${esc(PILLAR_ZH[fm.pillar] || fm.pillar)}</span>
+              <h2 class="metric-title">${esc(fm.zh)} <small>${esc(fm.en)}</small></h2>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <span class="scope-tag">关联 ${fm.total_sources} 处游戏修正</span>
+              <a href="${esc(fm.chapter_href)}" class="btn-pill">阅读章节推导与算例 →</a>
+            </div>
+          </div>
+          <div class="formula-box" style="margin:10px 0">
+            <strong>在公式中的作用：</strong>${esc(fm.formula_role)}
+          </div>
+          <div style="margin:10px 0">
+            <strong style="font-size:13.5px;color:var(--ink)">决定与影响该数值的核心因素：</strong>
+            <ul class="metric-drivers">
+              ${fm.core_drivers.map((d) => {
+                const idx = d.indexOf("：");
+                return idx > 0 && idx <= 20
+                  ? `<li><strong>${esc(d.slice(0, idx + 1))}</strong>${esc(d.slice(idx + 1))}</li>`
+                  : `<li>${esc(d)}</li>`;
+              }).join("")}
+            </ul>
+          </div>
+          <div class="metric-drawer-toggle">
+            <button type="button" class="btn-pill" data-toggle-fm="${esc(fm.id)}">
+              ${isOpen ? "▾ 收起" : "▸ 展开查看"}具体建筑 / 特权 / 改革 / 政策 / 时代革新修正列表（共 ${fm.total_sources} 处来源 · 键名：${esc(fm.mod_keys.join(", "))}）
+            </button>
+          </div>
+          ${isOpen ? `<div class="metric-sources-panel">${renderSourceGroupsHtml(fm.source_groups)}</div>` : ""}
+        </article>`;
+      }).join("");
+
+      fmList.querySelectorAll("[data-toggle-fm]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-toggle-fm");
+          if (openFlagships.has(id)) openFlagships.delete(id);
+          else openFlagships.add(id);
+          renderFlagships();
+        });
+      });
+
+      if (focusId) {
+        const el = document.getElementById(focusId);
+        if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+      }
+    }
+
+    // --- Tab 2: All 1,364 Modifiers ---
+    const amSearch = document.getElementById("am-search");
+    const amCat = document.getElementById("am-cat");
+    const amCount = document.getElementById("am-count");
+    const amBody = document.getElementById("am-tbody");
+    const amPager = document.getElementById("am-pager");
+    let amPage = 0;
+    const AM_PAGE_SIZE = 80;
+    const openMods = new Set();
+
+    const cats = Array.from(new Set(data.modifiers.map((m) => m.cat)));
+    amCat.innerHTML = `<option value="all">全部作用层级 (${data.modifiers.length} 项修正)</option>` +
+      cats.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
+
+    function renderAllMods() {
+      const q = (amSearch.value || "").trim().toLowerCase();
+      const cv = amCat.value;
+      const filtered = data.modifiers.filter((m) => {
+        if (cv !== "all" && m.cat !== cv) return false;
+        if (!q) return true;
+        if ((m.zh + " " + m.en + " " + m.id).toLowerCase().includes(q)) return true;
+        return JSON.stringify(m.groups).toLowerCase().includes(q);
+      });
+
+      const totalPages = Math.max(1, Math.ceil(filtered.length / AM_PAGE_SIZE));
+      if (amPage >= totalPages) amPage = 0;
+      const start = amPage * AM_PAGE_SIZE;
+      const slice = filtered.slice(start, start + AM_PAGE_SIZE);
+
+      amCount.textContent = `匹配 ${filtered.length} / ${data.modifiers.length} 项修正（第 ${amPage + 1}/${totalPages} 页） · 点击任意行展开具体来源列表`;
+      amBody.innerHTML = slice.map((m) => {
+        const isOpen = openMods.has(m.id);
+        const preview = m.groups.slice(0, 6).map(([g, , cnt]) => `${esc(g)} (${cnt})`).join(" · ");
+        const row = `<tr class="row-expandable" data-mid="${esc(m.id)}">
+          <td><span class="row-toggle-mark">${isOpen ? "▾" : "▸"}</span><strong>${esc(m.zh)}</strong><br><small style="color:var(--ink-muted)">${esc(m.en)} <code>${esc(m.id)}</code></small></td>
+          <td><span class="scope-tag">${esc(m.cat)}</span></td>
+          <td><span class="num"><strong>${m.total}</strong> 处</span></td>
+          <td><small>${preview}${m.groups.length > 6 ? " …" : ""}</small></td>
+        </tr>`;
+        return isOpen ? row + `<tr class="detail-row"><td colspan="4">${renderSourceGroupsHtml(m.groups)}</td></tr>` : row;
+      }).join("");
+
+      amBody.querySelectorAll("tr.row-expandable").forEach((tr) => {
+        tr.addEventListener("click", () => {
+          const mid = tr.getAttribute("data-mid");
+          if (openMods.has(mid)) openMods.delete(mid);
+          else openMods.add(mid);
+          renderAllMods();
+        });
+      });
+
+      amPager.hidden = totalPages <= 1;
+      amPager.innerHTML = `
+        <span style="font-size:12.5px;color:var(--ink-muted)">第 ${start + 1}–${Math.min(filtered.length, start + AM_PAGE_SIZE)} 项 / 共 ${filtered.length} 项</span>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button type="button" class="btn-pill" id="am-prev" ${amPage === 0 ? "disabled" : ""}>← 上一页</button>
+          <span style="font-size:12.5px">第 ${amPage + 1} / ${totalPages} 页</span>
+          <button type="button" class="btn-pill" id="am-next" ${amPage >= totalPages - 1 ? "disabled" : ""}>下一页 →</button>
+        </div>
+      `;
+      document.getElementById("am-prev")?.addEventListener("click", () => { amPage = Math.max(0, amPage - 1); renderAllMods(); });
+      document.getElementById("am-next")?.addEventListener("click", () => { amPage = Math.min(totalPages - 1, amPage + 1); renderAllMods(); });
+    }
+
+    function applyHashRouting() {
+      const h = decodeURIComponent(location.hash.replace("#", "")).trim();
+      if (!h) {
+        renderFlagships();
+        renderAllMods();
+        return;
+      }
+      if (h.startsWith("mod:")) {
+        const modKey = h.slice(4);
+        switchTab("allmods");
+        amSearch.value = modKey;
+        openMods.add(modKey);
+        amPage = 0;
+        renderAllMods();
+        renderFlagships();
+      } else if (data.flagships.some((x) => x.id === h)) {
+        switchTab("flagships");
+        fmPillar.value = "all";
+        fmSearch.value = "";
+        openFlagships.add(h);
+        renderFlagships(h);
+        renderAllMods();
+      } else {
+        renderFlagships();
+        renderAllMods();
+      }
+    }
+
+    fmSearch.addEventListener("input", () => renderFlagships());
+    fmPillar.addEventListener("change", () => renderFlagships());
+    amSearch.addEventListener("input", () => { amPage = 0; renderAllMods(); });
+    amCat.addEventListener("change", () => { amPage = 0; renderAllMods(); });
+    window.addEventListener("hashchange", applyHashRouting);
+
+    applyHashRouting();
   }
 })();

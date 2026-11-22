@@ -1,14 +1,17 @@
 import json
 import re
+import subprocess
 from pathlib import Path
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 DATA = ROOT / "data"
+ORIG_ATLAS = Path(r"C:\Users\seepath\Documents\Codex\2026-11-02\x20\work\eu5-atlas")
 
 EXPECTED_HTML = [
     "index.html",
+    "metrics.html",
     "ch01-territory-core.html",
     "ch02-population-food.html",
     "ch03-economy-market-trade.html",
@@ -34,6 +37,7 @@ EXPECTED_JS = [
     "assets/interactive.js",
     "assets/graph-data.js",
     "assets/glossary-data.js",
+    "assets/metrics-data.js",
     "assets/pop-demand-data.js",
     "assets/catalog-manifest.js",
     "assets/search-index.js",
@@ -47,6 +51,26 @@ EXPECTED_22_LEDGERS = [
     "bureaucracies", "town_rights", "subject_types", "diplomatic_actions",
     "international_organizations", "casus_belli", "wargoals", "religions",
     "situations_disasters",
+]
+
+BANNED_MACHINE_PHRASES = [
+    "特殊单位 是",
+    "每级岗位参数",
+    "最高等级参数",
+    "工期参数",
+    "建材配方 ",
+    "乡村 是",
+    "集镇 是",
+    "城市 是",
+    "country_potential",
+    "location_potential",
+    "scope:actor",
+    "has_or_had_tag",
+    "驻军规模 0.1",
+    "countrytax_base",
+    "非（ 是）",
+    "None（",
+    "{T(",
 ]
 
 
@@ -98,6 +122,16 @@ def main() -> int:
     if len(pd_classes) != 8 or pd_rows != 600:
         errors.append(f"Expected 8 pop-demand classes and 600 rows, found {len(pd_classes)} classes / {pd_rows} rows")
 
+    # Verify metrics_summary.json & metrics-data.js
+    metrics_raw = (DOCS / "assets" / "metrics-data.js").read_text(encoding="utf-8")
+    metrics = json.loads(metrics_raw[metrics_raw.index("{"):metrics_raw.rindex("}") + 1])
+    flagships = metrics.get("flagships", [])
+    modifiers = metrics.get("modifiers", [])
+    if len(flagships) < 30:
+        errors.append(f"Expected >= 30 flagship metrics, found {len(flagships)}")
+    if len(modifiers) < 1300:
+        errors.append(f"Expected >= 1300 modifiers in metrics-data.js, found {len(modifiers)}")
+
     # 2. Load JSON data
     glossary = json.loads((DATA / "glossary.json").read_text(encoding="utf-8"))
     ledgers = json.loads((DATA / "ledgers.json").read_text(encoding="utf-8"))
@@ -142,8 +176,10 @@ def main() -> int:
         html_texts[fname] = txt
         html_ids[fname] = set(re.findall(r'\bid="([^"]+)"', txt))
 
-    # Runtime hash fragments handled dynamically by interactive.js / app.js (not static IDs)
+    # Runtime hash fragments handled dynamically by interactive.js / app.js
+    metrics_routes = {f["id"] for f in flagships} | {f"mod:{m['id']}" for m in modifiers}
     dynamic_routes = {
+        "metrics.html": metrics_routes,
         "ledgers.html": set(EXPECTED_22_LEDGERS),
         "directory.html": {cm["id"] for cm in catalog_manifest},
         "pop-demand.html": {c["id"] for c in pd_classes},
@@ -154,15 +190,8 @@ def main() -> int:
 
     missing_terms = set()
     dead_links = []
-    raw_template_leaks = []
 
     for fname, txt in html_texts.items():
-        # Check raw template syntax / None placeholder leaks
-        if "{T(" in txt:
-            raw_template_leaks.append((fname, "{T("))
-        if "None（" in txt or "总计 None" in txt:
-            raw_template_leaks.append((fname, "None placeholder"))
-
         # Check local hrefs
         for href in re.findall(r'href="([^"]+)"', txt):
             if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
@@ -208,36 +237,83 @@ def main() -> int:
                 if not (DOCS / src).exists():
                     dead_links.append((fname, f"src={src}", "missing src"))
 
-    # Check graph_bundle.json chapter hrefs too
+    # Check graph_bundle.json hrefs
     for node in graph.get("nodes", []):
-        ch = node.get("chapter", "")
+        ch = node.get("href", "") or node.get("chapter", "")
         if ch:
             target_file, _, frag = ch.partition("#")
             if target_file not in html_texts:
                 dead_links.append(("graph_bundle.json", ch, f"node {node['id']} missing page"))
-            elif frag and frag not in html_ids[target_file]:
+            elif frag and frag not in html_ids[target_file] and frag not in dynamic_routes.get(target_file, set()):
                 dead_links.append(("graph_bundle.json", ch, f"node {node['id']} missing anchor #{frag}"))
 
-    for rl in graph.get("redlines", []):
-        ch = rl.get("chapter", "")
+    for ts in graph.get("troubleshoot", []):
+        ch = ts.get("href", "")
         if ch:
             target_file, _, frag = ch.partition("#")
             if target_file not in html_texts:
-                dead_links.append(("graph_bundle.json", ch, f"redline {rl['name']} missing page"))
-            elif frag and frag not in html_ids[target_file]:
-                dead_links.append(("graph_bundle.json", ch, f"redline {rl['name']} missing anchor #{frag}"))
+                dead_links.append(("graph_bundle.json", ch, "troubleshoot missing page"))
+            elif frag and frag not in html_ids[target_file] and frag not in dynamic_routes.get(target_file, set()):
+                dead_links.append(("graph_bundle.json", ch, f"troubleshoot missing anchor #{frag}"))
 
-    if raw_template_leaks:
-        errors.append(f"Raw template leaks: {raw_template_leaks}")
+    # Check metrics_summary.json chapter_hrefs
+    for f in flagships:
+        ch = f.get("chapter_href", "")
+        if ch:
+            target_file, _, frag = ch.partition("#")
+            if target_file not in html_texts:
+                dead_links.append(("metrics_summary.json", ch, f"flagship {f['id']} missing page"))
+            elif frag and frag not in html_ids[target_file] and frag not in dynamic_routes.get(target_file, set()):
+                dead_links.append(("metrics_summary.json", ch, f"flagship {f['id']} missing anchor #{frag}"))
+
     if dead_links:
         errors.append(f"Dead links ({len(dead_links)}): {dead_links}")
     if missing_terms:
         errors.append(f"Unresolved .term data-concept IDs ({len(missing_terms)}): {sorted(missing_terms)}")
 
+    # 4. Readability Quality Gate across HTML, Ledgers, and Catalogs
+    machine_leaks = []
+    for fname, txt in html_texts.items():
+        for phrase in BANNED_MACHINE_PHRASES:
+            if phrase in txt:
+                machine_leaks.append((f"docs/{fname}", phrase))
+
+    for lid in EXPECTED_22_LEDGERS:
+        lp = DOCS / "assets" / "ledgers" / f"{lid}.js"
+        if lp.exists():
+            ltxt = lp.read_text(encoding="utf-8")
+            for phrase in BANNED_MACHINE_PHRASES:
+                if phrase in ltxt:
+                    machine_leaks.append((f"ledgers/{lid}.js", phrase))
+
+    for cm in catalog_manifest:
+        cp = DOCS / "assets" / "catalogs" / f"{cm['id']}.js"
+        if cp.exists():
+            ctxt = cp.read_text(encoding="utf-8")
+            for phrase in BANNED_MACHINE_PHRASES:
+                if phrase in ctxt:
+                    machine_leaks.append((f"catalogs/{cm['id']}.js", phrase))
+
+    if machine_leaks:
+        errors.append(f"Readability quality gate failed ({len(machine_leaks)} leaks): {machine_leaks[:15]}")
+
+    # 5. Verify original eu5-atlas workspace untouched
+    if ORIG_ATLAS.exists():
+        res = subprocess.run(
+            ["git", "status", "--short"],
+            cwd=str(ORIG_ATLAS),
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        if res.returncode == 0 and res.stdout.strip():
+            errors.append(f"Original eu5-atlas modified! git status: {res.stdout.strip()}")
+
     # Print summary
     print(f"HTML pages checked: {len(html_texts)}")
-    print(f"Glossary entries: {len(glossary_ids)}")
-    print(f"Goods icons: {len(icons)}")
+    print(f"Flagship metrics: {len(flagships)} | All modifiers: {len(modifiers)}")
+    print(f"Ledgers: {len(EXPECTED_22_LEDGERS)} | Catalogs: {len(catalog_manifest)} ({total_cat_recs} records)")
+    print(f"Glossary entries: {len(glossary_ids)} | Goods icons: {len(icons)}")
     print(f"Warnings: {len(warnings)}")
     for w in warnings:
         print("  WARN:", w)

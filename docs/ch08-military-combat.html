@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>兵源经济学、四阵位陆战、围城与跨海后勤 · 欧陆风云 V 系统图谱与速查典</title>
-  <meta name="description" content="在 EU5 打仗就是打人口与粮食：每一名征召兵战死都直接削减家乡的纳税和造厂人口，而缺粮一次就可毁灭半支远征军。">
+  <title>四大兵源、人力池、野战阵线与伤害算式、围城与后勤 · 欧陆风云 V 系统图谱与速查典</title>
+  <meta name="description" content="对照征召兵人口账与常备军人力池公式，完整拆解训练度、军事战术、主动性、经验与陆军传统在按日/按小时战斗中的数学作用，以及围城 D14 检定表与三级前线粮道。">
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/glossary-data.js"></script>
   <script defer src="assets/search-index.js"></script>
@@ -16,7 +16,7 @@
   <a class="skip-link" href="#main">跳到正文</a>
   <header class="mobile-bar">
     <button type="button" class="btn-pill" data-nav-toggle>☰ 目录</button>
-    <strong style="font-size:14px">兵源经济学、四阵位陆战、围城与跨海后勤</strong>
+    <strong style="font-size:14px">四大兵源、人力池、野战阵线与伤害算式、围城与后勤</strong>
     <div style="display:flex;gap:6px">
       <button type="button" class="btn-pill" data-open-search>搜</button>
       <button type="button" class="btn-pill" data-theme-toggle>☾</button>
@@ -40,11 +40,11 @@
   </div>
   <div class="nav-group">
     <div class="nav-caption">枢纽与速查工具</div>
-    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
-    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 疆域结构</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>02 · 人口生态</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 生产工坊</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政府</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 阶层博弈</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化五态</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代思潮</span></a><a href="ch08-military-combat.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 兵源经济学</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 海战海权</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
+    <a href="ch01-territory-core.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>01 · 地理层级</span></a><a href="ch02-population-food.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>02 · 人口容量</span></a><a href="ch03-economy-market-trade.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>03 · 商品生产</span></a><a href="ch04-government-cabinet.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>04 · 政体</span></a><a href="ch05-estates-rebels.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>05 · 王室与阶层力量</span></a><a href="ch06-culture-religion.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>06 · 文化待遇与容量</span></a><a href="ch07-ages-colonial.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>07 · 时代焦点</span></a><a href="ch08-military-combat.html" class="nav-link active"><span class="nav-dot" style="background:var(--p-military)"></span><span>08 · 四大兵源</span></a><a href="ch09-navy-war-peace.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>09 · 舰种海域换算</span></a><a href="ch10-diplomacy-subjects.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>10 · 外交容量与接受度</span></a><a href="ch11-scenarios-missions-dlc.html" class="nav-link"><span class="nav-dot" style="background:var(--p-diplomacy)"></span><span>11 · 开局剧本</span></a><a href="ch12-gameplay-automation-updates.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>12 · 开局规则</span></a>
   </div>
   <div class="sidebar-foot">
     基准版本：EU5 1.4.9 (Build 26655995 / 3ed0)<br>
@@ -57,10 +57,10 @@
         <div class="article-col">
 <section class="hero-banner">
   <div class="eyebrow"><span class="pillar-badge" style="background:var(--p-military)">支柱五 · 军事、海权与和约</span> <span>CHAPTER 08</span></div>
-  <h1>兵源经济学、四阵位陆战、围城与跨海后勤</h1>
-  <p class="subtitle">在 EU5 打仗就是打人口与粮食：每一名征召兵战死都直接削减家乡的纳税和造厂人口，而缺粮一次就可毁灭半支远征军。</p>
+  <h1>四大兵源、人力池、野战阵线与伤害算式、围城与后勤</h1>
+  <p class="subtitle">对照征召兵人口账与常备军人力池公式，完整拆解训练度、军事战术、主动性、经验与陆军传统在按日/按小时战斗中的数学作用，以及围城 D14 检定表与三级前线粮道。</p>
   <div class="hero-meta-row">
-    <span class="meta-chip">Military Economy, 4-Section Land Combat, Sieges &amp; Logistics</span>
+    <span class="meta-chip">Force Sources, Manpower, Combat Math, Sieges &amp; Supply Lines</span>
     <span class="meta-chip">基准：EU5 1.4.9 (3ed0)</span>
   </div>
 </section>
@@ -68,15 +68,15 @@
 <div class="context-grid">
   <div class="context-box">
     <h4>↑ 上游输入（谁决定本章）</h4>
-    <ul><li><a href="ch05-estates-rebels.html#estate-interactions">阶层满意度 ≥25% 与人力建筑</a>：决定是否拉得出征召兵，以及常备人力池上限</li><li><a href="ch03-economy-market-trade.html#production-buildings">市场武器/马匹供给与税银预算</a>：缺少装备货物会让征募停滞、低维护折损士气</li><li><a href="ch02-population-food.html#food-chain">省粮仓储备与海军港口分布</a>：战时前线部队直接吃省粮或靠海军跨海运输食物</li></ul>
+    <ul><li><a href="ch05-estates-rebels.html#power-balance">阶层满意度与受控军事建筑</a>：满意度 ≥25% 开放征召；军械库至征兵中心按控制力产出月度人力</li><li><a href="ch03-economy-market-trade.html#production-buildings">武器、战马、火炮市价与预算</a>：决定常备军招募与日常军饷物资成本（战马涨价显著推高骑兵维护）</li><li><a href="ch02-population-food.html#food-chain">省份粮仓、要塞与沿海舰队</a>：支撑远征军取粮、补给站存粮与海岸分发补给</li></ul>
   </div>
   <div class="context-box">
     <h4>⚙ 本章核心机制引擎</h4>
-    <p style="margin:0;font-size:13px">配置征召兵/正规军(族系上限)/雇佣兵/私人团，依中军+两翼+预备队四阵位打响炮击阶段与日/时步战斗骰，按 10:1/2:1 歼灭俘虏，并用补给站/海军运粮维持围城推进与焦土抗敌。</p>
+    <p style="margin:0;font-size:13px">编组步、骑、炮与辅助兵团（保持单类 &lt;50% 触发混编加成），在左/中/右三路宽度与预备队体系下结算接敌、兵力伤害与士气伤害，并通过围城阶段检定与粮道维护夺取敌方据点。</p>
   </div>
   <div class="context-box">
     <h4>↓ 下游出口（本章驱动谁）</h4>
-    <ul><li><a href="ch09-navy-war-peace.html#warfare-peace">和平会议战争分数与厌战度</a>：死伤堆高厌战（每1点 −2.5%士气）；占领要塞锁死割地惩罚</li><li><a href="ch02-population-food.html#prosperity-devastation">家乡常住人口与战后荒废</a>：占领瞬毁 90% 粮 + 12月劫掠修正拖垮十年经济</li><li><a href="ch03-economy-market-trade.html#wealth-to-treasury">战俘赎金与低价佣兵回收</a>：战俘花 30% 维护供养，或 0.25× 超低价收编成己方雇佣兵</li></ul>
+    <ul><li><a href="ch03-economy-market-trade.html#wealth-to-treasury">战俘收容、赎金与低价佣兵</a>：10:1 或溃败后 2:1 触发覆灭俘获，可赎回或以 0.25× 维护费改编佣兵</li><li><a href="ch09-navy-war-peace.html#warfare-peace">战争分数与厌战度累积</a>：野战最多提供 50 战分；攻陷关联要塞消除和约割地 −33% 效率惩罚</li><li><a href="ch02-population-food.html#population-base">原籍劳动力缺口与人口恢复期</a>：征召兵战死直接扣减原籍人口，小规模矿镇可能需数十年自然恢复</li></ul>
   </div>
 </div>
 
@@ -98,97 +98,152 @@
 </figure>
 
 <section id="force-types" class="mech-section">
-  <h2>01 · 四大兵源对比、部队族系与征召兵「人口灭绝陷阱」</h2>
-  <span class="sec-en">Levies, Regulars (Unit Families), Mercenaries &amp; Private Regiments</span>
+  <h2>01 · 四种兵源对比、人力/水手建筑产出与部队族系</h2>
+  <span class="sec-en">Levies, Regulars, Mercenaries, Private Regiments &amp; Manpower Math</span>
   
-<div class="callout warn"><strong>为什么老玩家称早期征召兵（Levies）为「自我人口灭绝装置」？</strong><br>
-每一名 <button type="button" class="term" data-concept="army_levy">陆军征召兵</button> 都是把你省里正在挖矿种地的真实 <button type="button" class="term" data-concept="pop">平民/贵族人口</button> 直接掏出来拎上战场！他们享受 <strong>食物消耗 −75%（轻装觅食）</strong>，但同时承受 <strong>−20% 训练度</strong>、仅及正规军 <strong>75%</strong> 的基础实战效能（海战征召运输船更是只有 <strong>5%</strong> 效能！），并且<strong>绝不在战场上靠人力补员</strong>。一旦他们在战场上阵亡或饿死，家乡对应的真实劳动力就<strong>永久人间蒸发</strong>，重新恢复该省最大征召配额要耗费整整 <strong>240 个月（20 年）</strong>！</div>
-
 <div class="table-wrap"><table class="data-table">
-  <thead><tr><th>军团类别</th><th>消耗资源池与招募门槛</th><th>战力与补员机制</th><th>独特战术与经济细节</th></tr></thead>
+  <thead><tr><th>兵源类型</th><th>征募条件与资源池</th><th>战斗属性与补员规则</th><th>人口与财政长期影响</th></tr></thead>
   <tbody>
-    <tr><td><strong>1. 征召兵</strong><br><code>levies</code></td><td>抽调本省真实人群；阶层满意度必须 <strong>≥ 25%</strong>；召集时间 15 天</td><td>75% 战力倍率 / 训练度 −20% / <strong>不可战地补员</strong></td><td>平时免军费（维持乘数 0.01），解散时生还者全数返乡还原劳动力</td></tr>
-    <tr><td><strong>2. <button type="button" class="term" data-concept="regular_regiment">正规军</button></strong><br><code>regulars</code></td><td>消耗国家 <button type="button" class="term" data-concept="manpower">人力</button> 池（上限 = 5 年月人力）与金币、武器货物；按 <strong><button type="button" class="term" data-concept="unit_family">部队族系</button></strong> 共享上限</td><td>满额训练度、每时代性能暴涨、<strong>仅在友方领土按月 25% 补员</strong></td><td><strong>同族系老兵升级仅需原造价 10%，且永远不额外占招募上限！</strong> 可在和平期靠「操练」堆满经验（最高免伤 50%）</td></tr>
-    <tr><td><strong>3. <button type="button" class="term" data-concept="mercenary">雇佣兵</button></strong><br><code>mercenaries</code></td><td>从所在地区人口池租借，另加将领能力指数定签约费与 24 个月合同（基础维护 <strong>+35%~50%</strong>）</td><td>吃雇佣兵本地食物配给（应急口粮撑 365 天）；不掉己方核心正规人力</td><td>玩家可反手点击「<strong>设为可供雇佣（<code>make_unit_available_for_hire</code>）</strong>」把闲置军团挂牌租给别国狂赚雇佣金！</td></tr>
-    <tr><td><strong>4. <button type="button" class="term" data-concept="private_regiment">阶层私人团</button></strong></td><td>特权授予下由贵族/哥萨克阶层自费筹建</td><td>花极大代价靠互动 <code>press_estate_private_regiments</code> 征调参战</td><td><strong>极高风险</strong>：若在参战途中所属阶层发动内战叛乱，这些私人团会瞬间倒戈！</td></tr>
+    <tr>
+      <td><strong>1. <button type="button" class="term" data-concept="army_levy">陆军征召兵</button></strong></td>
+      <td>所属阶层当前满意度 <strong>≥ 25%</strong>；直接从各地点合格人口中调出</td>
+      <td>基础征召作战效率 <strong>0.75</strong>（常备军打征召兵倒数约 <code>1.333×</code>），自带<strong>训练度 −20%、耗粮 −75%</strong>；服役期<strong>无法补员</strong></td>
+      <td>解散时幸存者返乡，<strong>阵亡者直接从原籍人口永久扣除</strong>（在 10,000 人矿镇死 2,000 劳工按 0.25% 年增长需约 90 年自然恢复！）；再次征召潜力恢复期基础 <strong>240 个月</strong></td>
+    </tr>
+    <tr>
+      <td><strong>2. <button type="button" class="term" data-concept="regular_regiment">常备正规军</button></strong></td>
+      <td>消耗全国<strong><button type="button" class="term" data-concept="manpower">人力池</button></strong>、金币与军需商品；受 <strong><button type="button" class="term" data-concept="unit_family">部队族系</button></strong> 名额限制</td>
+      <td>享 100% 满额属性，可在友方地点按月消耗人力补员；和平期驻止有将领时可「<strong>操练（Drill）</strong>」累积经验（最高减伤 50%）</td>
+      <td>同族系跨时代升级沿用原名额，且升级成本系数仅为 <strong>0.10（10%）</strong>；实际常备规模还会与「阶层预期陆军规模」对比</td>
+    </tr>
+    <tr>
+      <td><strong>3. <button type="button" class="term" data-concept="mercenary">雇佣兵</button></strong></td>
+      <td>支付签约费与领袖费，默认合同 <strong>24 个月</strong>（最长 120 个月）</td>
+      <td>常规佣兵月维护费倍率为 <strong>1.35×</strong>；兵员与补充来自雇佣兵池，不消耗本国人力池</td>
+      <td>劳动力紧缺而国库充裕时，用佣兵承担攻城与血战可保护本国高价值 RGO 工人；本国空闲部队亦可挂牌出租赚取雇佣兵收入</td>
+    </tr>
+    <tr>
+      <td><strong>4. <button type="button" class="term" data-concept="private_regiment">阶层私人团</button></strong></td>
+      <td>授予贵族/哥萨克私军特权，且阶层存款 ≥ 招募后待命月维护费的 <strong>2 倍</strong></td>
+      <td>耗 10 正统性与 15 政治影响力执行「征用私兵」（冷却 3 年）调入国家军队</td>
+      <td>待命维护费超阶层存款 50% 时触发裁撤；若所属阶层发动叛乱，已借出的私人团立即召回倒戈</td>
+    </tr>
   </tbody>
 </table></div>
 
-</section><section id="battle-mechanics" class="mech-section">
-  <h2>02 · 四阵位部署、日步/时步交火与兵种混编规则</h2>
-  <span class="sec-en">4-Section Deployment, Daily vs Hourly Combat &amp; Combined Arms</span>
-  
-<p>陆军与海军交战时均各自排开四个 <button type="button" class="term" data-concept="section">阵位</button>：前排由 <strong><button type="button" class="term" data-concept="center">中军</button>、<button type="button" class="term" data-concept="flank">左翼</button>、<button type="button" class="term" data-concept="flank">右翼</button></strong> 构成（每个阵位受本地地形决定的 <strong><button type="button" class="term" data-concept="frontage">战斗宽度</button></strong> 限制，山地 −4 宽、疏林 −2 宽，可最多超额叠挤 25%），后方则列驻 <strong><button type="button" class="term" data-concept="reserves">预备队</button></strong>。</p>
+<div class="formula-box">
+<strong>核心数值拆解：月度人力（Manpower）与水手（Sailors）从哪里来？</strong> <a class="metric-jump" href="metrics.html#manpower_sailors_maritime">查全部游戏修正来源 →</a><br>
+<code>全国月产量 = Σ[各地点设施满员产出 × (1 + 本地修正) × max(10%, 本地当前控制力)] × (1 + 全国人力/水手百分比修正)</code><br>
+<code>全国最大储存上限 = 全国月产量 × 12 × 5（即 60 个月的月产量）</code>
 <ul>
-  <li><strong>兵种混编（<button type="button" class="term" data-concept="combined_arms">Combined Arms</button>）红线</strong>：当一支军队或舰队内<strong>没有任何一种兵种类别占比达到或超过 50%</strong> 时，队伍里每多包含一种兵种类别就全军白拿一档战斗力加成！超过 50% 纯一色堆积（如纯重步兵海）直接作废该加成。</li>
-  <li><strong>阶段与交战时间步进（1.4.9 默认按日 / 可设按小时）</strong>：
-    <div class="formula-box">
-      <strong>1. 开幕炮击阶段（<button type="button" class="term" data-concept="bombard_phase">Bombard Phase</button>）</strong>：按日规则持续 <strong>3 天</strong>（按小时 5 拍），只有具备轰击能力的炮兵有每轮 20%+ 机会远程砸伤同阵位敌军。<br>
-      <strong>2. 作战阶段（<button type="button" class="term" data-concept="combat_phase">Combat Phase</button>，每 4 天轮换一次骰子）</strong>：前排未接敌军团每拍按公式投 D100 进场接战——<br>
-      &nbsp;&nbsp;<code>每日接战概率 = 60%(基础) + min(30%, 有效主动性 × 2.5%) + 3% × 战斗已持续天数</code><br>
-      &nbsp;&nbsp;<em>警告：卡在前排尚未投过接战骰的部队处于挨打状态，承受 <strong>1.1× 兵力伤害与 1.2× 士气伤害</strong>！高主动性骑兵与轻步兵抢先接战在早期极度致命。</em><br>
-      <strong>3. 预备队填补</strong>：前排空缺时，预备队掷 <strong>D20</strong> 与自身「参战速度 × 0.1」判定冲上前线填坑。若某方全部前排阵位均无作战单位即宣告溃败撤退。
-    </div>
-  </li>
+  <li><strong>五级陆军人力建筑（每级满员基础月产出）</strong>：军械库（Armory）/ 训练场（Training Fields）<strong>+10 人/月</strong>（对应 600 上限） → 军营（Barracks）<strong>+15</strong> → 军团营地（Regimental Camp）<strong>+20</strong> → 征兵中心（Conscription Center）<strong>+25 人/月</strong>（中国文化组早期专属「戍营」为 +2.5 人/月）。</li>
+  <li><strong>五级海军水手建筑（沿海港口雇用士兵，每级满员基础月产出）</strong>：码头（Dock）<strong>+16 水手/月</strong>（对应 960 上限） → 干船坞（Dry Dock）<strong>+32</strong> → 船厂（Shipyard）<strong>+64</strong> → 大船厂（Grand Shipyard）<strong>+125</strong> → 海军基地（Naval Base）<strong>+200 水手/月</strong>。</li>
+  <li><strong>编组与军费对商品价格的敏感度</strong>：传统时代一团步卒（500 人，战力 1.0，占宽 1）维护耗武器 0.10 + 皮革 0.06（基准值 0.48）；一团重装骑手（200 人，战力 2.6，占宽 1）维护耗战马 1.0 + 武器 0.20 + 工具 0.20 + 皮革 0.10 + 布匹 0.10（基准值 4.80，战马单价翻倍时物资成本即涨 62.5%）。此外，当全军<strong>没有任何单一兵种团数占比达到或超过 50%</strong> 时，自动激活 <strong><button type="button" class="term" data-concept="combined_arms">兵种混编（Combined Arms）</button></strong> 加成（如轻步、重步、重骑各 2 团合格；3 轻步 + 2 重步 + 1 重骑因轻步达 50% 失效）。</li>
 </ul>
+</div>
+
+</section><section id="battle-mechanics" class="mech-section">
+  <h2>02 · 四阵位宽度、接敌公式与训练度/战术/经验伤害算式</h2>
+  <span class="sec-en">Frontage, Engagement Math &amp; Discipline/Tactics/Experience Damage Formulas</span>
+  
+<p>战场划分为<strong><button type="button" class="term" data-concept="flank">左翼</button>、<button type="button" class="term" data-concept="center">中路</button>、<button type="button" class="term" data-concept="flank">右翼</button></strong>三个前线区段与一个后方<strong><button type="button" class="term" data-concept="reserves">预备队</button></strong>（可切换「平衡阵型」或把骑兵放两翼的「骑兵侧翼阵型」，辅助团优先留预备队）。每路最大可用 <button type="button" class="term" data-concept="frontage">战斗宽度</button> 受地形与植被缩减（如山地 −4、疏林 −2，地形结算后每路保底宽度为 2；部署时每路最多容纳宽度的 125%，超宽单位等空位补入；击溃正对面敌军后按侧击能力跨路侧击）。</p>
+
+<div class="table-wrap"><table class="data-table">
+  <thead><tr><th>战斗时间步进规则</th><th>初始炮击 / 常规阶段</th><th>每步基础接敌率</th><th>主动性贡献（上限）</th><th>时间递增接敌</th><th>陆/海最短持续</th><th>总伤害倍率</th></tr></thead>
+  <tbody>
+    <tr><td><strong>按日（Daily，默认）</strong></td><td><strong>3 天</strong> / 每 <strong>4 天</strong> 重掷 D10</td><td><strong>60%</strong></td><td>每点 <strong>+2.5%</strong>（封顶 +30%）</td><td>每天 <strong>+3%</strong></td><td>5 天 / 5 天</td><td>0.12</td></tr>
+    <tr><td><strong>按小时（Hourly，规则可选）</strong></td><td>5 步 / 每 5 步重掷 D10</td><td>10%</td><td>每点 +1.0%（封顶 +15%）</td><td>每步 +1%</td><td>24 步 / 72 步</td><td>0.01</td></tr>
+  </tbody>
+</table></div>
+
+<div class="formula-box">
+<strong>单次交火伤害组成与核心军事数值影响因素：</strong> <a class="metric-jump" href="metrics.html#discipline_tactics">查训练与战术来源 →</a> · <a class="metric-jump" href="metrics.html#morale_initiative">查士气与主动性来源 →</a><br>
+<code>单日兵力伤害 ∝ 当日有效骰点项 × 攻击方有效火力 × 基础刻度（陆兵0.04/陆士0.25；海船0.0625/海士0.05） × (1 + 攻方训练度) ÷ [(1 + 守方训练度) × 守方军事战术] × (1 − 0.5 × 守方经验比例) × 未接敌惩罚</code>
+<ul>
+  <li><strong>D10 骰点换算与地形惩罚</strong>：画面掷出的 1–10 在内部按 <code>0–9</code> 起算，加上伤害基数 <code>5</code> 及将领、地形（山地守方 +2、疏林 +1；攻方渡河 −1、渡海峡 −2、登陆 −1；已在围城部队遭守方反击按原地判，不吃移入渡河惩罚），上限封顶为 <strong>15</strong>。</li>
+  <li><strong>未接敌前排挨打惩罚</strong>：已进入前线但尚未通过接敌检定的单位受击时，承受<strong>兵力伤害 ×1.10、士气伤害 ×1.20</strong>！提高将领 DIP（每点 +1% 主动性）与选用高主动性兵种可抢先接敌集火。</li>
+  <li><strong><button type="button" class="term" data-concept="discipline">训练度（Discipline）</button></strong>：同时放大本方造成的伤害并作为除数降低本方承伤。主要来源：将领 MIL（每点 +0.1%）、游牧团结满端（+10%）、质量/进攻社会价值观、贵族与骑士团特权、军事改革与时代革新（陆军征召兵天生 −20%）。</li>
+  <li><strong><button type="button" class="term" data-concept="military_tactics">军事战术（Military Tactics）</button></strong>：基础 1.00，直接作为除数减免承伤（如战术升至 2.00 时承伤减半！），主要由各时代核心军事革新提供——跨代科技压制最为致命。</li>
+  <li><strong>部队经验与合并保留公式</strong>：满 100% 经验减免 <strong>50%</strong> 陆海承伤；合并残编兵团时按人数加权保留经验 <code>Σ(人数 × 原经验) ÷ 总人数</code>。</li>
+  <li><strong>陆军士气（基础 3.0）与陆军传统</strong>：君主每点 MIL +0.1% 士气，将领每点 DIP +0.2% 士气，满 100 陆军传统提供<strong>陆军士气 +20%、围城能力 +10%</strong>；反之每 1 点厌战度扣减 <strong>−2.5% 陆海军士气</strong>！</li>
+</ul>
+</div>
 
 </section><section id="prisoners-overrun" class="mech-section">
-  <h2>03 · 10:1/2:1 瞬间全歼与战俘（Prisoners）三大回收途径</h2>
-  <span class="sec-en">Overruns &amp; Prisoner Management</span>
+  <h2>03 · 10∶1 与 2∶1 压倒性溃灭及战俘（Prisoners）处置</h2>
+  <span class="sec-en">Overrun Ratios &amp; Post-Battle Prisoner Mechanics</span>
   
-<p>战场上并非每次都是拼到士气见底撤走：若开战首个结算步我方总兵力达敌军 <strong>10 倍</strong>（<code>INITIAL_OVERRUN_FACTOR = 10</code>），或当敌军士气崩盘低于崩溃线（0.05）时我方兵力只需达到敌军 <strong>2 倍</strong>（<code>MORALE_OVERRUN_FACTOR = 2</code>），敌方部队会直接触发 <strong>碾压全歼（Overrun）</strong> 而不战自溃。</p>
-<p>歼灭或彻底打崩的敌方残部有几率被整体俘获成为 <strong><button type="button" class="term" data-concept="prisoner">战俘</button></strong>（被俘瞬间阵亡损耗率 40%）：在俘虏被处理前，俘获国每月只付常规维护费的 <strong>30%</strong> 养着他们，随后可任选三种处理：① <strong>勒索赎金换现金</strong>（同批冷却 60 天）；② <strong>收买转化成归你效命的雇佣兵</strong>——而且这批战俘佣兵只需常规雇佣兵月维持费的 <strong>25%（0.25×）</strong>！（虽然士气上限封顶在 60%）；③ 当场斩杀或就地溶解。</p>
-
-</section><section id="siege-forts" class="mech-section">
-  <h2>04 · 要塞上限、控制区（ZoC）、围城进程与强攻</h2>
-  <span class="sec-en">Forts, Zone of Control, Sieges &amp; Assaults</span>
-  
-<p><button type="button" class="term" data-concept="fortification">要塞</button> 通过 <strong><button type="button" class="term" data-concept="zone_of_control">控制区 ZoC</button></strong> 强制锁定周围相邻地点：敌军踏入要塞控制范围后必须先攻陷该要塞方能深入腹地。全境超过 <button type="button" class="term" data-concept="fort_limit">要塞上限</button>（随领土数、大都市数、防御价值观与革新扩大）后，每座超标要塞都会大幅推高全国每月要塞维护金（消耗建造与补给材料随市场价波动）。</p>
 <ul>
-  <li><strong>围城基本门禁</strong>：无防御工事地点需要至少 <strong>100 人</strong> 围 15 天即可占领；有城墙要塞默认每 <strong>30 天（最小加速至 7 天）</strong> 投一次阶段进度（达 <strong>20 分</strong> 即陷落），且<strong>攻城兵员人数必须始终 ≥ 城内守军人数</strong>否则围城进度完全冻结！配足炮兵（每 2 团炮兵按要塞等级给增益，最高 +8 围城加成）与海军封锁沿海港口是破城捷径。</li>
-  <li><strong>强攻（<button type="button" class="term" data-concept="assault">Assault</button>）代价</strong>：存在缺口（上限 3 个）时可强攻快速破城，按日重投判定（每拍进攻方扣 2.5 倍损耗与 3.0 士气），务必搭配高训练度重装正规军而非拿宝贵的征召兵往城头上送死！</li>
+  <li><strong>两类整军溃灭（Overrun）门槛</strong>：① 战斗首个结算步本方兵力达到敌军 <strong>10∶1</strong> 时直接溃灭敌军；② 敌军士气崩溃后，本方兵力达到敌军 <strong>2∶1</strong> 即触发追击溃灭。</li>
+  <li><strong><button type="button" class="term" data-concept="prisoner">战俘（Prisoners）</button> 收容与转化</strong>：溃败被俘过程中有 40% 基础折损率；收容在押战俘占用常规维护费的 <strong>30%</strong>。此后有三种处理方式：① <strong>赎回（Ransom）</strong>换取金币（再次赎回冷却 60 天）；② <strong>招为战俘雇佣兵</strong>——月维护费仅需常规标准的 <strong>25%（0.25×）</strong>，但士气上限锁定为 <strong>0.60</strong>；③ 处决或遣散。</li>
 </ul>
 
-</section><section id="siege-supply" class="mech-section">
-  <h2>05 · 后勤食物链、补给站（2 格）、海军送粮与焦土抗战</h2>
-  <span class="sec-en">Logistics Chain, Supply Depots, Naval Food &amp; Scorched Earth</span>
+</section><section id="siege-forts" class="mech-section">
+  <h2>04 · 要塞控制区（ZoC）、围城 D14 阶段检定表与强攻核算</h2>
+  <span class="sec-en">Fort Zone of Control, D14 Siege Table &amp; Assault Calculation</span>
   
-<p>部队断粮立刻在月底吃满 <strong>+5.0 额外损耗（每月死 5% 兵员）</strong>，远征大军往往不战而自溃。军队遵循严格的四级求粮与两项破坏规则（<code>NUnit & NCombat</code>）：</p>
-<ol>
-  <li><strong>三条合法食物来源</strong>：① 当前所站「拥有食物获取权（自有、盟友、已通行或已占领）」之 <strong>省份省粮仓</strong>；② 敌境内驻扎修建的友方 <strong><button type="button" class="term" data-concept="supply_depot">补给站</button></strong>（最多存 50% 上限粮食，直接覆盖周边 <strong>距离 ≤ 2 格</strong> 友方军团，但敌方控制区会直接切断后勤路径！）；③ 停泊在紧邻海域、打开「<strong><button type="button" class="term" data-concept="distributing_food">分发食物</button></strong>」指令的友好舰队——该舰队先利用「<button type="button" class="term" data-concept="gathering_food">收集食物</button>」从邻近友港把船舱粮仓灌满，再在沿岸滩头当海上移动奶妈喂饱围城陆军！</li>
-  <li><strong>单位权重与超补给耗粮惩罚</strong>：当地集结大军总权重超过地块 <button type="button" class="term" data-concept="supply_limit">补给上限</button> 时，每日食物消耗最高直接飙升至正常的 <strong>4.0 倍</strong>（<code>1 + MAX_FOOD_CONSUMPTION_PENALTY 3.0</code>）瞬间掏空省储。</li>
-  <li><strong>占领摧毁、劫掠与焦土（Scorched Earth）</strong>：每当一块地被夺取，其本地存粮瞬间摧毁 <strong>90%</strong> 并自动掠夺、施放 12 月 <code>looted</code> 惩罚（敌方本地获粮再 −10%、人口月损 −0.5%）。防守弱势方更可在敌军必经之省主动点下 <strong>焦土政策（<code>scorched_earth</code>）</strong>：令敌军经过耗时暴涨 <strong>+50%</strong>、极大毁坏本地粮产、虽代价是月度繁荣度跌 −5%，却能把十几万入侵大军活活饿死在半路上！</li>
-</ol>
+<p><button type="button" class="term" data-concept="fortification">要塞</button> 对周边邻接格投射 <strong><button type="button" class="term" data-concept="zone_of_control">要塞控制区（ZoC）</button></strong>：敌军踏入邻接敌堡的地点后，必须先攻克该要塞才能继续穿行至同一要塞控制的其他敌方地点；而己方（含直属宗主与直属属国）受控要塞的 ZoC 则保护友军免受包括严冬在内的一般本地损耗（黑死病等不可避免损耗除外）。注意行军进度达 <strong>50%</strong> 时锁定移动去向。</p>
+
+<div class="formula-box">
+<strong>围城阶段时长与 D14 判定公式：</strong> <a class="metric-jump" href="metrics.html#siege_fort_supply">查全部游戏修正来源 →</a><br>
+• <strong>兵力门槛与阶段天数</strong>：无工事地点需 ≥100 人，基础每阶段 15 天；有要塞地点<strong>围城兵力必须 ≥ 当前守军人数</strong>，基础每阶段 <strong>30 天</strong>（受攻方「围城能力」与守方「要塞防御」加减修正，最短 7 天；将领每点 ADM 给 +0.1% 围城能力）。<br>
+• <code>阶段检定总点 = 原始骰点(1–14) + 累积围城进度 + 炮兵加值(基础上限 +5) + 城墙缺口数(最多 3 处，每处 +2) − 要塞等级 − 未封锁沿海港口罚点(−1)</code>
+</div>
+
+<div class="table-wrap"><table class="data-table">
+  <thead><tr><th>检定点数或独立事件</th><th>阶段结果</th><th>守军损耗与后续围城进度变化</th></tr></thead>
+  <tbody>
+    <tr><td><strong>原始骰点掷出 1（或总点 &lt; 1）</strong></td><td><strong>围攻方疫病暴发</strong></td><td>围攻方损失上限兵力的 <strong>5%</strong>，进度不变</td></tr>
+    <tr><td><strong>总点 ≤ 4（且非自然 1）</strong></td><td>保持现状</td><td>守军与进度均不变</td></tr>
+    <tr><td><strong>总点 5 – 11</strong></td><td>物资短缺</td><td>守军损失 2%，累积围城进度 <strong>+1</strong></td></tr>
+    <tr><td><strong>总点 12 – 13</strong></td><td>食物短缺</td><td>守军损失 3%，累积围城进度 <strong>+2</strong></td></tr>
+    <tr><td><strong>总点 14 – 15</strong></td><td>水源短缺</td><td>守军损失 5%，累积围城进度 <strong>+3</strong></td></tr>
+    <tr><td><strong>总点 16 – 19</strong></td><td>守军逃亡</td><td>守军损失 10%，累积围城进度 <strong>+2</strong></td></tr>
+    <tr><td><strong>总点 ≥ 20（或守军剩 ≤ 5%）</strong></td><td><strong>要塞投降</strong></td><td>围城结束，地点控制权易手</td></tr>
+    <tr><td><strong>每阶段独立判定：城墙缺口</strong></td><td>轰出缺口（最多 3 处）</td><td>当次守军损失 5%、进度 +2，此后每处缺口常驻提供 +2 检定点并开放<strong><button type="button" class="term" data-concept="assault">强攻</button></strong></td></tr>
+  </tbody>
+</table></div>
+
+</section><section id="siege-supply" class="mech-section">
+  <h2>05 · 补给上限、超载耗粮、补给站与海陆粮道</h2>
+  <span class="sec-en">Supply Limit, Overstacking Food Penalty, Supply Depots &amp; Naval Food</span>
+  
+<p>部队将麾下各兵团重量加总与所在地点的 <strong><button type="button" class="term" data-concept="supply_limit">补给上限</button></strong>（基础上限 × (1 + 补给修正)，本国领地另享 +25% 关系加成）比较：</p>
+<ul>
+  <li><strong>超载最多 4 倍耗粮与撤退丢粮</strong>：超出当地补给上限不会立即直接死人，而是按超载比例增加部队军粮消耗，额外耗粮封顶 <strong>+300%（即总耗粮变为正常值的 4 倍）</strong>，迅速抽干随军携带军粮（辅助团每千人携粮系数高达 3,000、耗粮仅 0.2，是远征军的核心粮车）。一旦随军军粮耗尽断粮，即刻触发高额缺粮月度损耗；且陆军战败撤退时会直接损失随身携带军粮的 <strong>50%</strong>。</li>
+  <li><strong>前线三条合法补粮渠道</strong>（受后勤距离限制，敌军与敌方要塞 ZoC 会截断后勤线）：<br>
+    ① <strong>有取粮权的省份（Food Access）</strong>：在本国或签有取粮条款的盟友/通行国直接调用省粮仓；<br>
+    ② <strong>敌境建立 <button type="button" class="term" data-concept="supply_depot">补给站（Supply Depot）</button></strong>：解锁对应革新后，在己方已控制的敌境地点耗 100 人力建立，每次可将军队所携粮食的 25% 存入（冷却 30 天），为周围 <strong>≤ 2 个地点距离</strong> 内的友军供粮；<br>
+    ③ <strong>海军跨海送粮</strong>：邻近海域舰队先对有取粮权的沿岸地点开启「<button type="button" class="term" data-concept="gathering_food">收集食物</button>」装船，再开启「<button type="button" class="term" data-concept="distributing_food">分发食物</button>」为相邻 <strong>1 格距离</strong> 内无法就地取粮的友方陆军供粮。</li>
+  <li><strong>焦土战术（Scorched Earth）</strong>：在己方控制地点发动后，使敌军移动成本 <strong>+50%</strong>、本地产粮 <strong>−50%</strong>（代价为本地月繁荣度 −5 个百分点），专用于拖垮深入腹地的大规模敌军粮道。</li>
+</ul>
 
 </section>
 
 <section id="redlines-strip">
-  <div class="redline-strip"><div class="redline-item"><div class="redline-val">75% / 240个月</div><h4>征召兵战力与回血</h4><p>陆战实力仅为正规军 75%（海战 5%），训练度 −20%，全灭后恢复上限需 20 年</p></div><div class="redline-item"><div class="redline-val">60% + 30% + 3%/天</div><h4>每日接敌公式</h4><p>按日步进下基础 60% + min(30%, 主动×2.5%) + 3%/天；未接敌挨打受 1.1× 兵伤</p></div><div class="redline-item"><div class="redline-val">10:1 / 2:1</div><h4>直推全歼门槛</h4><p>开战首步 10:1 兵力直接抹除敌军；敌士气崩盘后仅需 2:1 即可追击全歼</p></div><div class="redline-item"><div class="redline-val">毁 90% 粮 / 2格</div><h4>占领与补给站边界</h4><p>地点易手瞬间摧毁 90% 存粮（并可掳 15% 奴隶）；补给站仅辐射周围 2 格内友军</p></div></div>
+  <div class="redline-strip"><div class="redline-item"><div class="redline-val">0.75 战力 / −20% 训</div><h4>陆军征召兵基础折算</h4><p>征召兵对正规军战力 0.75（承伤约 1.333×），不可补员，潜力恢复周期 240 个月</p></div><div class="redline-item"><div class="redline-val">月产量 × 60 个月</div><h4>人力与水手上限公式</h4><p>全国基础最大人力与水手储量均等于 5 年月度产量；建筑产出乘 max(10%, 控制力)</p></div><div class="redline-item"><div class="redline-val">60% + 2.5%×主动</div><h4>按日模式每拍接敌率</h4><p>主动性封顶 +30%，每战一日另 +3%；未接敌前排单位承伤 ×1.10（兵力）/ ×1.20（士气）</p></div><div class="redline-item"><div class="redline-val">≥ 守军人数 · 30天</div><h4>要塞围城推进硬门槛</h4><p>围城兵力低于守军时进度冻结；D14 总点 ≥20 或守军跌至 5% 投降，缺口最多 3 处</p></div></div>
 </section>
 
 <section id="discussion-box" class="discussion-card">
-  <h2>论坛实战讨论与排障 · 为什么我的大军在别人家门口越站人越少、连撤都撤不走？</h2>
+  <h2>战术算账 · 围城「继续等待」与「缺口强攻」如何权衡减员？</h2>
   
 <ul>
-  <li><strong>三大低级致命错觉逐一拆解</strong>：<br>
-  ① <strong>拿重骑兵纯兵种+过量征召兵在山地/密林塞满 6 万人攻城</strong>：山地大幅腰斩战斗宽度且补给上限极低，超过补给上限后你的大军食物消耗暴涨到 400%——省粮仓几周吃空后全军同时触发「无粮 +5% 月损耗」，你以为在慢慢磨城，其实你在按月活体融化自己家里几千户纳税人。<br>
-  ② <strong>围海港孤岛要塞不配运输/轻船舰队</strong>：沿海要塞如未封锁港口能撑很久，而且远征陆军只要在邻近海域放几艘开启「收集/分发食物」的运输与常规舰，就可以跨省从本土大粮仓源源不断海运军粮上岸。<br>
-  ③ <strong>被刚投降的占领地阻断撤退</strong>：部队撤退会瞬间丢弃携带的 <strong>50%</strong> 食物（<code>FOOD_PERCENTAGE_LOST_AT_RETREAT = 0.5</code>），务必在撤退前保证沿途身后留有我方补给站或未断连省份！</li>
+  <li><strong>用期望损耗对比强攻伤亡</strong>：设 4,000 人围攻 600 守军的要塞，阶段 30 天，当前每阶段投降概率约 25%（期望还需 4 阶段 = 120 天），而严冬山地每月损耗 3%，等待 4 个月将非战斗减员约 <strong>459 人</strong>。若此时城墙已轰开缺口，估算用常备步兵（切勿用征召兵）发起一次必胜强攻仅阵亡约 300 人，则果断强攻反而比苦等少死 159 人，且提前 4 个月解放主力并避免敌方援军合围。</li>
 </ul>
 
 </section>
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="ledgers.html#unit_types" class="btn-pill">401 种陆海军兵种全数值表</a> · <a href="directory.html#unit_abilities" class="btn-pill">18 项军队单位能力名录</a> · <a href="lab.html#calc" class="btn-pill">接战概率 &amp; 兵种混编校验器</a> · <a href="map.html#siege_logistics" class="btn-pill">军制、围城与后勤因果星图</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#discipline_tactics" class="btn-pill">训练度与战术 159 项来源反查</a> · <a href="metrics.html#siege_fort_supply" class="btn-pill">围城与补给 123 项来源反查</a> · <a href="ledgers.html#unit_types" class="btn-pill">401 种陆海军单位完整数值表</a> · <a href="lab.html#calc" class="btn-pill">接敌概率与兵种混编计算器</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">
-  <a href="ch07-ages-colonial.html" class="btn-pill">← 07 · 时代思潮、革新研发、殖民扩张与局势自动化</a>
-  <a href="ch09-navy-war-peace.html" class="btn-pill">09 · 海战海权、90%巡逻陷阱、私掠与战争和约 →</a>
+  <a href="ch07-ages-colonial.html" class="btn-pill">← 07 · 时代焦点、思潮传播、研究速度、探险殖民与局势灾难</a>
+  <a href="ch09-navy-war-peace.html" class="btn-pill">09 · 舰种海域换算、海上存在、私掠封锁、宣战理由与和约 →</a>
 </nav>
 </div>
-        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#force-types">01 · 四大兵源对比、部队族系与征召兵「人口灭绝陷阱」</a><a href="#battle-mechanics">02 · 四阵位部署、日步/时步交火与兵种混编规则</a><a href="#prisoners-overrun">03 · 10:1/2:1 瞬间全歼与战俘（Prisoners）三大回收途径</a><a href="#siege-forts">04 · 要塞上限、控制区（ZoC）、围城进程与强攻</a><a href="#siege-supply">05 · 后勤食物链、补给站（2 格）、海军送粮与焦土抗战</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
+        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#force-types">01 · 四种兵源对比、人力/水手建筑产出与部队族系</a><a href="#battle-mechanics">02 · 四阵位宽度、接敌公式与训练度/战术/经验伤害算式</a><a href="#prisoners-overrun">03 · 10∶1 与 2∶1 压倒性溃灭及战俘（Prisoners）处置</a><a href="#siege-forts">04 · 要塞控制区（ZoC）、围城 D14 阶段检定表与强攻核算</a><a href="#siege-supply">05 · 补给上限、超载耗粮、补给站与海陆粮道</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
       </div>
     </main>
   </div>
