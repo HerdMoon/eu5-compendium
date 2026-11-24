@@ -104,17 +104,21 @@
 <p>双边往来由三项有向指标记录：<strong><button type="button" class="term" data-concept="opinion">好感</button></strong>（−200 至 +200）、<strong><button type="button" class="term" data-concept="trust">信任</button></strong>（0–100，均衡 50；好感或信任任一 ≥75 即可使中立国家转为友好态度，状态退出带回差防抖）与<strong><button type="button" class="term" data-concept="favors">人情</button></strong>（上限 100，每月自然衰减余额的 1%；「赠礼」按 <code>受赠国月收入×2 + 赠送国月收入</code>［保底 25 金币］支付并获 +5 人情；请求军事通行耗 5 人情）。16 岁以下皇室子女可先订立<strong><button type="button" class="term" data-concept="betrothal">婚约（Betrothal）</button></strong>，成年达标后自动转为正式王室联姻。</p>
 
 <div class="formula-box">
-<strong>维持对外关系占用的「<button type="button" class="term" data-concept="diplomatic_capacity">外交容量</button>」三套精确公式：</strong> <a class="metric-jump" href="metrics.html#diplo_capacity_reputation">查全部游戏修正来源 →</a>
+<strong>① 外交容量、外交范围与外交官（<button type="button" class="term" data-concept="diplomatic_capacity">Diplomatic Capacity</button>）</strong> <a class="metric-jump" href="metrics.html#diplo_capacity">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>国家基础外交容量为 <strong>2.0 点</strong>（<code>country_base_values</code>，另加公国 +1 / 王国 +2 / 帝国 +3）；基础外交范围为 <strong>1,000</strong>（公国 +200 / 王国 +500 / 帝国 +1,000）；最大外交官基准为 <strong>3 名</strong>（月恢复 +0.10 名/月，列强另 +0.20/月）。
 <ol>
-  <li><strong>双边同盟占用容量</strong> = <code>0.5 + clamp(2 × 对方经济基础 ÷ max(1, 本国经济基础), 0.1, 3.0) + (0.5 − 对方对我好感 ÷ 200) + 对方强权身份（列强 +1.0 / 区域强权 +0.5） + max(0, 0.3 × [本国列强盟友数 + 0.5 × 区域强权盟友数 − 1])</code><br>
-    <em>例：两国经济基础均为 100、好感 +100、非强权时占用 2.50；若同时结盟多位列强，最后一项「联盟集团饱和费」会叠加到你的每一份同盟上！</em></li>
-  <li><strong>继承契约（Inheritance Contract）买方占用容量</strong>（向无继承人的独立在位君主国购买王位继承权，对方无嗣驾崩 3 天后建共主邦联） = <code>1 + clamp(2 × 买方经济基础 ÷ max(1, 授予方经济基础), 0.5, 3.0)</code>。</li>
-  <li><strong>防御联盟（Defensive League）成员占用容量</strong> = <code>0.33 × 联盟成员总数 + 0.0005 × 其他成员经济基础之和</code>（包围网则固定每成员占 1 点容量）。</li>
+  <li><strong>双边同盟占用容量</strong> = <code>0.5 + clamp(2 × 对方经济基础 ÷ max(1, 本国经济基础), 0.1, 3.0) + (0.5 − 对方对我好感 ÷ 200) + 对方强权身份（列强 +1.0 / 区域强权 +0.5） + max(0, 0.3 × [本国列强盟友数 + 0.5 × 区域强权盟友数 − 1])</code></li>
+  <li><strong>继承契约买方占用容量</strong> = <code>1 + clamp(2 × 买方经济基础 ÷ max(1, 授予方经济基础), 0.5, 3.0)</code>。</li>
+  <li><strong>防御联盟成员占用容量</strong> = <code>0.33 × 联盟成员总数 + 0.0005 × 其他成员经济基础之和</code>（包围网固定每成员占 1 点容量）。</li>
 </ol>
-<strong>外交声誉与 <button type="button" class="term" data-concept="power_projection">力量投射（Power Projection）</button> 来源与作用：</strong>
+</div>
+
+<div class="formula-box">
+<strong>② 外交声誉与 <button type="button" class="term" data-concept="power_projection">力量投射</button>（相互独立指标）</strong> <a class="metric-jump" href="metrics.html#diplo_reputation">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>国家基础外交声誉为 <strong>+1.0</strong>（<code>country_base_values</code>）；力量投射初始无强权无革新时基准为 <strong>0 点</strong>。
 <ul>
-  <li><strong>外交声誉</strong>：君主每点 DIP(+0.05)、教士高满意度(×2)、王室力量(满 +2)、威望、改革《传统外交伦理》(+3)等提供；直接提高结盟/附庸/继承法谈判接受度，且<strong>每 1 点外交声誉降低新产生敌意 −4%</strong>。</li>
-  <li><strong>力量投射</strong>：列强(+10)/区域强权(+5)、每项已研革新(+0.05)、各时代强权野心革新(+5~+10)、王室力量(满 +5)、外向价值观(满 +5)提供；<strong>每 1 点力量投射提供全国整合速度 +1%、政治影响力月获取 +1%</strong>，并降低宣战成本、和约成本与殖民定居门槛。</li>
+  <li><strong>外交声誉变化与作用</strong>：君主每点 DIP(+0.05)、教士高满意度(×2)、王室力量(满 +2)、文化影响力(+2)、改革《传统外交伦理》(+3)提升（违约扣 −1）；提高外交接受度，且<strong>每 1 点声誉降低新产生敌意 −4%</strong>。</li>
+  <li><strong>力量投射变化与作用</strong>：列强(+10)/区域强权(+5)、每项已研革新(+0.05)、强权野心革新(+5~+10)、王室力量(满 +5)、外向价值观(满 +5)提升；<strong>每 1 点提供全国整合速度 +1%、政治影响力月获取 +1%</strong>，并降低宣战与殖民门槛。</li>
 </ul>
 </div>
 
@@ -138,6 +142,7 @@
   
 <div class="formula-box">
 <strong>和约索取单处地点产生的「<button type="button" class="term" data-concept="antagonism">敌意（AE）</button>」计算链：</strong> <a class="metric-jump" href="metrics.html#antagonism_ae">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>初始敌意为 <strong>0 点</strong>；敌意产生修正与衰减修正基准均为 <strong>0%</strong>；和平期基础年度消退：割地敌意 <strong>2.0 点 / 年</strong>、和约其他条款 <strong>3.0 点 / 年</strong>；包围网入网双硬线：<strong>敌意 &gt; 50 且好感 &lt; −50</strong>。<br>
 <code>单地点原始敌意 = 0.4 + 0.04 × 发展度 + 0.4 × log₂(发展度)</code>（例如发展度 20 的地点原始贡献约 <strong>2.93</strong> 点）
 <ul>
   <li><strong>交战方与条款层修正</strong>：进攻国每点列强积分 +1%（封顶 +25%），防守国每点 −1%（最多 −50%）；索取非主战目标领土 +15%；每点外交声誉 <strong>−4%</strong>；<strong>将地点直接授予己方属国 −50%</strong>；建筑型国家基础层 −85%、宗主国观察自己属国扩张 −90%。</li>
@@ -157,16 +162,18 @@
 </ul>
 
 <div class="formula-box">
-<strong>属国忠诚度（≥50 为合格线）与「外交吞并进度」完整公式：</strong> <a class="metric-jump" href="metrics.html#subject_loyalty_annexation">查全部游戏修正来源 →</a>
-<ol>
-  <li><strong>属国忠诚度核心分项</strong>：好感每点 <strong>+0.15</strong>、信任每点 <strong>+0.10</strong>、君主每点 DIP <strong>+0.10</strong>、地方分权价值观满端 <strong>+30</strong>（中央集权满端 −20）；<br>
-    • <strong>属国集团相对实力惩罚</strong> = <code>−60 × max(0, 全体属国在宗属总军力/收入/人口中的综合份额 − 0.20)</code>（如占 35% 即扣 <code>60 × 0.15 = −9</code> 点忠诚；独立运动另最多扣 −20）；<br>
-    • <strong><button type="button" class="term" data-concept="subject_territory_connectivity">属国领土连通度</button>（0–100 分）</strong>：陆路 = <code>max(0, 100 − Σ[20 × (1 − 途经地区平均控制力)])</code>（经过 3 个控制力 100%/80%/50% 的地区得 86 分；海路看进出口港海上存在与航程，断连为 0 分）。</li>
-  <li><strong>外交吞并总成本与每月速度</strong>：<br>
-    • <code>基础总点数 = 50 + 10 × 属国拥有地点数</code>（受各地点整合成本修正调整）；<br>
-    • <code>每月吞并进度 = (全国基础 0.5 + 外交预算投入 0~0.5) × 类型速度系数 × (1 + 中央集权[+33%] + 属国忠诚×0.2%[满+20%] + 同主流文化/文化影响差加成 − 50% × 额外同时吞并国数)</code>。<br>
-    <em>注意：每多同时吞并 1 个属国，所有在吞目标的速度修正均扣减 <strong>−50 个百分点</strong>，通常宜逐个集中吞并。</em></li>
-</ol>
+<strong>① 附属国忠诚度与连通度（Subject Loyalty &amp; Connectivity）</strong> <a class="metric-jump" href="metrics.html#subject_loyalty">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>属国忠诚度范围 <strong>0–100 点</strong>，顺从合格门槛基准为 <strong>50 点</strong>；全体属国综合实力免罚阈值基准为宗属总和的 <strong>20%</strong>；陆路领土连通度满分基准为 <strong>100 分</strong>。
+<ul>
+  <li><strong>正向与负向变化</strong>：好感每点 <strong>+0.15</strong>、信任每点 <strong>+0.10</strong>、君主每点 DIP <strong>+0.10</strong>、地方分权满端 <strong>+30</strong>（中央集权满端 −20）；<strong>集团实力超标惩罚</strong> = <code>−60 × max(0, 全体属国综合份额 − 0.20)</code>；<strong><button type="button" class="term" data-concept="subject_territory_connectivity">领土连通度</button></strong> = <code>max(0, 100 − Σ[20 × (1 − 途经地区平均控制力)])</code>。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>② 外交吞并总成本与每月吞并进度（Diplomatic Annexation Speed）</strong> <a class="metric-jump" href="metrics.html#annexation_speed">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>吞并固定起底成本基准为 <strong>50 点</strong> + 每处属国地点 <strong>10 点</strong>；国家基础吞并速度为 <strong>+0.50 点 / 月</strong>（满外交预算另供 +0.50 点/月，合计 1.0 点/月基数）；交界控制力门槛 <strong>≥ 35%</strong>。<br>
+• <code>每月吞并进度 = (全国基础 0.5 + 外交预算投入 0~0.5) × 类型速度系数 × (1 + 中央集权[+33%] + 属国忠诚×0.2%[满+20%] + 同主流文化/文化影响差加成 − 50% × 额外同时吞并国数)</code>。<br>
+<em>注意：每多同时吞并 1 个属国，所有在吞目标的速度修正均扣减 <strong>−50 个百分点</strong>，宜逐个单线吞并。</em>
 </div>
 
 </section><section id="pu-and-ios" class="mech-section">
@@ -201,7 +208,7 @@
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#diplo_capacity_reputation" class="btn-pill">外交容量与声誉 267 项来源反查</a> · <a href="metrics.html#subject_loyalty_annexation" class="btn-pill">属国忠诚与吞并 124 项来源反查</a> · <a href="ledgers.html#diplomatic_actions" class="btn-pill">194 项外交行动 &amp; 37 类国际组织</a> · <a href="ledgers.html#subject_types" class="btn-pill">22 种属国类型完整数据表</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#diplo_capacity" class="btn-pill">外交容量 / 外交声誉 / 力量投射独立反查</a> · <a href="metrics.html#subject_loyalty" class="btn-pill">属国忠诚度 / 外交吞并速度独立反查</a> · <a href="ledgers.html#diplomatic_actions" class="btn-pill">194 项外交行动 &amp; 37 类国际组织</a> · <a href="ledgers.html#subject_types" class="btn-pill">22 种属国类型完整数据表</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">

@@ -115,14 +115,27 @@
 </table></div>
 
 <div class="formula-box">
-<strong>核心政治资源公式与影响因素：</strong> <a class="metric-jump" href="metrics.html#stability_legitimacy_pi">查全部游戏修正来源 →</a>
+<strong>① 五大政体合法性资源（正统性 / 共和传统 / 奉献度 / 游牧团结 / 部落凝聚力）</strong> <a class="metric-jump" href="metrics.html#government_power">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>取值范围 <strong>0–100</strong>（开局默认初值 <strong>95</strong>），奖惩分界基准为 <strong>50 点</strong>；在常规课税国家体制下自带 <strong>−1.0 / 月</strong> 的基础自然消耗（<code>country_base_values_with_taxation</code>）。
 <ul>
-  <li><strong>五大政体专属 <button type="button" class="term" data-concept="government_power">政府力量</button>（0–100，以 50 点为分界）</strong>：君主制（<button type="button" class="term" data-concept="legitimacy">正统性</button>，满 100 给王室力量 +10%）、共和制（<button type="button" class="term" data-concept="republican_tradition">共和传统</button>，满 100 给立法效率 +10%）、神权制（<button type="button" class="term" data-concept="devotion">奉献度</button>）、游牧（<button type="button" class="term" data-concept="horde_unity">游牧团结</button>，满 100 给训练度 +10%）、部落（<button type="button" class="term" data-concept="tribal_cohesion">部落凝聚力</button>，满 100 给征召规模 +25%）。前四类低于 50 时，统一按 <code>(100 − 当前值) ÷ 100</code> 施加<strong>最大控制力 −20 个百分点、阶层满意度均衡 −5 个百分点</strong>的共同惩罚。</li>
-  <li><strong><button type="button" class="term" data-concept="stability">稳定度</button>（−100 至 +100）</strong>：自然项按 <code>−当前稳定度 × 0.005</code> 趋近 0；满 +100 时提供<strong>人口升阶速度 +100%、信用度 +10、政治影响力月获取 +10%、阶层均衡满意度 +5%、入叛门槛 −10%</strong>；负稳定度则扣减满意度均衡（最高 −30%）与建筑设立速度。提升稳定度靠财政滑块投入（受「维稳效率」除数减费）、正教士满意度与 MIL 内阁「稳定国家」。</li>
-  <li><strong><button type="button" class="term" data-concept="political_influence">政治影响力</button>（储存上限 100）精确月产出公式</strong>：<br>
-    <code>每月获取 = [0.005 × (君主 ADM + DIP + MIL) + Σ(在职大臣当前行动对应能力 × 0.015 ÷ 全国总席位数) + 固定来源] × (1 + 获取百分比修正)</code><br>
-    注意：大臣只计入其<strong>正在执行任务所属维度</strong>的那一项能力，且空缺席位贡献为 0！此外，每 1 点当前储备的政治影响力还会为全国阶层满意度恢复速度提供 <code>+0.003 个百分点/月</code>。</li>
+  <li><strong>高于 50 至满 100 的正向加成</strong>：君主正统性满 100 给王室力量 +10%；共和传统满 100 给立法效率 +10%；游牧团结满 100 给训练度 +10%；部落凝聚力满 100 给征召规模 +25%。靠宫廷预算投入、主流文化统治者(+0.10/月)、贵族高满意度(×0.2)、高威望与联姻维持。</li>
+  <li><strong>低于 50 的重度惩罚</strong>：前四类低于 50 时，统一按 <code>(100 − 当前值) ÷ 100</code> 施加<strong>全国最大控制力 −20 个百分点、阶层满意度均衡 −5 个百分点</strong>的缩放惩罚！</li>
 </ul>
+</div>
+
+<div class="formula-box">
+<strong>② 稳定度与维稳投资效率（Stability &amp; Cost Efficiency）</strong> <a class="metric-jump" href="metrics.html#stability">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>稳定度取值范围 <strong>−100 至 +100</strong>，自然收敛中心为 <strong>0</strong>（开局默认初值 <strong>30</strong>），每月向 0 自然衰减当前绝对值的 <strong>0.5%</strong>；维稳投资效率修正初始基准为 <strong>0%</strong>（满额维稳预算基数 = <code>0.10 × 经济基础</code>）。
+<ul>
+  <li><strong>正负稳定度效果</strong>：满 +100 稳定度提供<strong>人口晋升速度 +100%、信用度 +10、政治影响力月获取 +10%、阶层均衡满意度 +5%、入叛阈值 −10%</strong>；负稳定度扣减满意度均衡（最高 −30%）并触发灾难检定。靠财政维稳滑块（受教士高权势与平民高满意度提供的「维稳效率」减费）与 MIL 内阁「稳定国家」拉升。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>③ 政治影响力（Political Influence）</strong> <a class="metric-jump" href="metrics.html#political_influence">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>储存范围 <strong>0–100 点</strong>（开局默认初值 <strong>50</strong>）；无君臣能力时固定月度基础产出基准为 <strong>0 点/月</strong>，获取百分比修正基准为 <strong>0%</strong>。<br>
+<code>每月获取 = [0.005 × (君主 ADM + DIP + MIL) + Σ(在职大臣当前行动对应能力 × 0.015 ÷ 全国总席位数) + 固定来源] × (1 + 获取百分比修正)</code><br>
+注意：大臣只计入其<strong>正在执行任务所属维度</strong>的那一项能力，空缺席位按 0 分拉低月产出！每 1 点当前储备还为阶层满意度恢复提供 <code>+0.003%/月</code>。
 </div>
 
 </section><section id="societal-values" class="mech-section">
@@ -148,7 +161,7 @@
   <span class="sec-en">Government Reforms, Laws/Policies &amp; Bureaucracy Entrenchment</span>
   
 <ul>
-  <li><strong>政体转换、主要改革与普通改革（379 项）</strong>：跨政体转换（如君主制转共和制需和平、稳定 &gt;0、正统性 &gt;80、财阀方向 ≥95 且市民力量高于贵族；草原部落转君主制基础耗 50 稳定与 25 正统，历经 15 年过渡期）条件严格。既定政体下，全国限持 1 项「<button type="button" class="term" data-concept="major_reform">主要改革</button>」，普通 <button type="button" class="term" data-concept="government_reform">政府改革</button> 受改革槽位限制，实施期通常为 2 年（效果按完成度线性生效，如《港口管理局》给海军总督上限 +1、沿海发展增长 +10%、出入港邻近成本 −20%）。</li>
+  <li><strong>政体转换、改革槽位与立法效率（379 项改革）</strong> <a class="metric-jump" href="metrics.html#legislative_efficiency">查立法效率与改革槽 →</a>：<span class="base-inline">基准值</span>国家基础普通改革槽位为 <strong>1 个</strong>（另限持 1 项「<button type="button" class="term" data-concept="major_reform">主要改革</button>」），全国立法效率修正初始基准为 <strong>0%</strong>，常规改革默认实施爬坡期为 <strong>2 年</strong>（效果按完成度线性生效，立法效率直接缩短实施期）。跨政体转换条件严格（如君主转共和需和平、稳定 &gt;0、正统 &gt;80、财阀 ≥95 且市民强于贵族）。</li>
   <li><strong>法律与政策（213 部法律 / 832 项政策）</strong>：涵盖继承、宗教、军事、行政、社会经济、阶层及国际组织七大类。首次为未设政策的法律选定政策耗 <strong>20 政治影响力</strong>；直接更换已有政策基础耗 <strong>100 稳定度</strong>（部分国家另耗 10 正义值）；而在议会会期内消耗 50 个百分点支持度发起「<strong>请求议会更改法律</strong>」，可将稳定度与正义值代价乘以 <strong>0.20</strong>（即 100 稳定度折算为 20 点！）。「立法效率」修正可缩短改革与政策的实施年限。</li>
   <li><strong>60 种 <button type="button" class="term" data-concept="bureaucracy">官僚机构</button> 与预算—固化双变量规则</strong>：占用官僚席位（大都市首都亦提供席位），维护费按国家经济基础缩放（如税务委员会乘数为 <code>经济基础 × 0.004</code>）。在同一 <button type="button" class="term" data-concept="entrenchment">固化度</button> 下，设当前预算维护比例为 <code>f</code>（0–1）：<br>
     <code>实际生效正向效果 = 全额正向值 × f</code> &nbsp;│&nbsp; <code>实际生效负面效果 = 全额负面值 × (1 − f)</code><br>
@@ -192,7 +205,8 @@
 <p>国家基础拥有 <strong>2 个内阁席位</strong>（升格帝国 +1 席，特定改革与时代革新继续增加；更换大臣基础费 20 政治影响力）。全游戏 81 项内阁行动按能力划分为行政（38 项）、外交（20 项）与军事（23 项）三系。</p>
 
 <div class="formula-box">
-<strong>内阁行动最终效果公式与「内阁效率」决定因素：</strong> <a class="metric-jump" href="metrics.html#cabinet_efficiency">查全部游戏修正来源 →</a><br>
+<strong>内阁席位与「内阁效率」完整公式：</strong> <a class="metric-jump" href="metrics.html#cabinet_efficiency">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>国家基础内阁席位为 <strong>2 席</strong>（升格帝国 +1 席，更换阁臣基础费 20 政治影响力）；全国内阁效率与普通大臣个人效率初始基准均为 <strong>0%</strong>（提拔为内阁首脑个人效率基准 <strong>+25%</strong>）。<br>
 <code>单项内阁行动增幅 = 0.005 × 统治者对应能力 + 0.005 × 执政大臣对应能力 + 全国内阁效率 + 大臣个人内阁效率</code><br>
 <code>行动实际效果 = 脚本基础效果 × (1 + 单项内阁行动增幅)</code>
 <ul>

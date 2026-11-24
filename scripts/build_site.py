@@ -270,13 +270,13 @@ def build_index(graph_bundle):
 
     hot_questions = [
         ("哪些因素能提升「加工生产效率」？", "metrics.html#production_efficiency"),
+        ("「发展度」与「繁荣度」的区别及各自基准值？", "metrics.html#development"),
         ("501 种建筑造价、配方与效果全表", "ledgers.html#building_types"),
-        ("最大控制力与邻近度如何计算和提高？", "metrics.html#max_control"),
+        ("最大控制力与月度控制力各自的基准值？", "metrics.html#max_control"),
         ("为什么已整合省份还不是核心(Core)？", "ch01-territory-core.html#integration-core"),
-        ("王室力量与阶层满意度如何影响全国？", "ch05-estates-rebels.html#power-balance"),
+        ("王室力量与各阶层满意度均衡点基准值？", "ch05-estates-rebels.html#power-balance"),
         ("8 阶级各自消费哪些商品？", "pop-demand.html"),
-        ("训练度、军事战术与围城 D14 检定表", "ch08-military-combat.html#battle-mechanics"),
-        ("1.4.8–1.4.9 更新核对清单", "ch12-gameplay-automation-updates.html#changelog-149"),
+        ("训练度、军事战术、围城与要塞防御拆解", "ch08-military-combat.html#battle-mechanics"),
     ]
     hot_pills = "".join(f'<a href="{h}" class="btn-pill">{escape(q)}</a>' for q, h in hot_questions)
 
@@ -284,10 +284,10 @@ def build_index(graph_bundle):
 <section class="hero-banner">
   <div class="eyebrow">EUROPA UNIVERSALIS V · MECHANICS COMPENDIUM · 1.4.9</div>
   <h1>欧陆风云 V · 机制原理与全量数据速查典</h1>
-  <p class="subtitle">面向具备基础认知、希望<strong>清晰掌握各核心数值的影响因素与系统间因果关系</strong>并<strong>快速检索可读游戏数据</strong>的玩家编写。完整覆盖 <strong>EU5 1.4.9 (Build 26655995 / 校验码 3ed0)</strong> 全部机制公式、<strong>31 项核心数值与 1,364 项修正来源反查</strong>、<strong>22 张精排数据表（含 501 建筑）</strong>、<strong>8×75 人口需求矩阵</strong>及<strong>可读化重构的全部 72 类 23,216 条游戏名录</strong>。</p>
+  <p class="subtitle">面向具备基础认知、希望<strong>清晰掌握每一项独立数值的基准值、正负变化来源与系统间因果关系</strong>并<strong>快速检索可读游戏数据</strong>的玩家编写。完整覆盖 <strong>EU5 1.4.9 (Build 26655995 / 校验码 3ed0)</strong> 全部机制公式、<strong>66 项独立拆分核心数值（全标基准值 + 按词条分栏反查 1,364 项修正）</strong>、<strong>22 张精排数据表（含 501 建筑）</strong>、<strong>8×75 人口需求矩阵</strong>及<strong>可读化重构的全部 72 类 23,216 条游戏名录</strong>。</p>
   <div class="hero-meta-row">
     <span class="meta-chip">12 章系统机制与算例</span>
-    <span class="meta-chip">31 核心数值 + 1,364 修正来源反查</span>
+    <span class="meta-chip">66 项独立核心数值(含基准值) + 1,364 修正反查</span>
     <span class="meta-chip">22 大精排表 (含 501 建筑 / 401 兵种)</span>
     <span class="meta-chip">72 类 23,216 条中文可读名录</span>
     <span class="meta-chip">36 节点因果星图 + 实算器 + {GLOSSARY_COUNT} 词条</span>
@@ -296,8 +296,8 @@ def build_index(graph_bundle):
 
 <div class="four-col">
   <a href="metrics.html" class="card" style="border-top:4px solid #b52b3b;text-decoration:none;color:inherit">
-    <h3>① 核心数值与 1,364 修正反查</h3>
-    <p>生产效率、控制力、市场接入、贸易优势、王室力量、科研速度、训练度分别受什么影响？按建筑/特权/改革/科技一键反查。</p>
+    <h3>① 66 项独立核心数值 &amp; 修正反查</h3>
+    <p>发展度与繁荣度、晋升与降级、围城与要塞防御等全部拆分为独立条目，逐项标明官方基准值并按具体修正词条分栏反查。</p>
   </a>
   <a href="ledgers.html#building_types" class="card" style="border-top:4px solid var(--p-economy);text-decoration:none;color:inherit">
     <h3>② 22 大精排数据表 (含 501 建筑)</h3>
@@ -599,24 +599,25 @@ def build_directory_page():
 
 
 def build_metrics_page(graph_bundle):
-    pillar_opts = '<option value="all">全部六大支柱 (31 项核心机制数值)</option>' + "".join(
+    fm_total = len(load_json("metrics_summary.json").get("flagships", []))
+    pillar_opts = f'<option value="all">全部六大支柱 ({fm_total} 项独立核心机制数值)</option>' + "".join(
         f'<option value="{p["id"]}">{escape(p["zh"])}</option>' for p in graph_bundle["pillars"]
     )
     main_html = f'''
 <section class="hero-banner">
-  <div class="eyebrow">METRIC DRIVERS &amp; 1,364 MODIFIER SOURCES · EU5 1.4.9</div>
-  <h1>核心数值影响因素拆解 &amp; 1,364 项修正来源反查器</h1>
-  <p class="subtitle">查清游戏里每一个关键数值<strong>在公式中起什么作用</strong>、<strong>受哪些系统机制驱动</strong>，并直接反查全游戏<strong>哪些建筑、社会价值观、阶层特权、政府改革、法律政策、官僚机构、城镇特权与时代革新</strong>能够提高或降低它（全部数值已按引擎规则换算为准确的百分比与人数单位）。</p>
+  <div class="eyebrow">SEPARATED METRICS · BASE VALUES · 1,364 MODIFIER SOURCES · EU5 1.4.9</div>
+  <h1>{fm_total} 项独立核心数值拆解（含基准值） &amp; 1,364 项修正来源反查器</h1>
+  <p class="subtitle">所有易混淆数值（如<strong>发展度 vs 繁荣度</strong>、<strong>最大控制力 vs 月度控制力</strong>、<strong>晋升速度 vs 降级速度</strong>、<strong>围城能力 vs 要塞防御</strong>、<strong>文化影响力 vs 文化传统</strong>）均已<strong>完全拆分为独立条目</strong>：每项先标明官方 <code>country_base_values / location_base_values / 00_defines.txt</code> <strong>基准值与范围</strong>，再逐类说明正负变化，展开后<strong>按具体修正词条分栏展示来源</strong>，绝不混同。</p>
 </section>
 
 <div class="tab-bar">
-  <button type="button" class="tab-btn active" data-met-tab="flagships">31 大核心机制数值深度拆解</button>
+  <button type="button" class="tab-btn active" data-met-tab="flagships">{fm_total} 项独立核心数值拆解（含基准值）</button>
   <button type="button" class="tab-btn" data-met-tab="allmods">全游戏 1,364 项修正词条全量反查</button>
 </div>
 
 <div data-met-panel="flagships">
   <div class="filter-bar">
-    <input id="fm-search" class="input-ctrl" type="search" placeholder="搜索核心数值、英文名或来源（如：生产效率、控制力、市场接入、贸易优势、王室力量、研究速度、训练度）…">
+    <input id="fm-search" class="input-ctrl" type="search" placeholder="搜索独立数值、基准值或来源（如：发展度、繁荣度、生产效率、最大控制力、要塞防御、训练度、识字率）…">
     <select id="fm-pillar" class="select-ctrl">{pillar_opts}</select>
     <span id="fm-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
   </div>
@@ -692,11 +693,11 @@ def build_js_bundles(graph_bundle, glossary):
 
     # Build comprehensive global search index for Ctrl+K Command Palette
     search_items = []
-    # 31 Flagship Metrics & top 500 Modifiers (high priority!)
+    # 66 Separated Flagship Metrics & top 500 Modifiers (high priority!)
     for fm in metrics_summary.get("flagships", []):
         search_items.append({
-            "title": f"数值影响因素：{fm['zh']} ({fm['en']})",
-            "sub": f"核心机制公式作用与全部 {fm['total_sources']} 处游戏修正来源拆解",
+            "title": f"核心数值：{fm['zh']} ({fm['en']})",
+            "sub": f"基准值：{fm.get('base_value', '')[:85]}…（关联 {fm['total_sources']} 处来源）",
             "href": f"metrics.html#{fm['id']}",
             "kind": "核心数值",
             "kw": fm["id"],

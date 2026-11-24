@@ -104,13 +104,13 @@
 <p>1337–1836 年共划分为六个<button type="button" class="term" data-concept="age">时代</button>：<strong>① 传统时代 → ② 文艺复兴 → ③ 地理大发现 → ④ 宗教改革 → ⑤ 专制主义 → ⑥ 革命时代</strong>。每次进入新时代会同步改变商品物价稳定性（由 10% 逐代降至 2%）、最高物价倍数（3× 升至 5×）、市民最大贸易范围（由 600 逐代升至 1,100）以及官僚维护乘数。</p>
 <ul>
   <li><strong>时代焦点（Age Focus）不可逆规则</strong>：从文艺复兴时代起，每次换代时必须在<strong>行政（ADM）/ 外交（DIP）/ 军事（MIL）</strong>中三选一作为本时代焦点，解锁对应时代焦点分支革新；<strong>未选中的另外两个分支在本局永久锁定</strong>（下一时代改选其他方向，仅开放下一时代的对应分支，不会回头解锁上一时代的未选节点）。</li>
-  <li><strong><button type="button" class="term" data-concept="institution">思潮（Institutions）</button> 传播三途径与 20% 接纳公式</strong>：
+  <li><strong><button type="button" class="term" data-concept="institution">思潮（Institutions）</button> 传播三途径与 20% 接纳公式</strong> <a class="metric-jump" href="metrics.html#institution_spread">查全部游戏修正来源 →</a>：
     <div class="formula-box">
-      <code>全国思潮暴露比例 = (传播进度已达 100% 的本国各地点人口之和) ÷ 本国总人口</code>（达到 <strong>≥ 20%</strong> 方可支付金币与稳定度接纳）
+      <span class="base-inline">基准值</span>无传播源地点基础月增长为 <strong>0</strong>（百分比修正仅放大已有基础传播源）；全国接纳思潮硬门槛基准为<strong>「已达 100% 传播地点人口 ÷ 全国总人口 ≥ 20%」</strong>；接纳花费修正基准为 <strong>0%</strong>。<br>
       <ul>
         <li><strong>邻格与近海自然漫溢</strong>：从已发源或已传播满的邻接地点、近海港口逐月辐射。</li>
         <li><strong>跨市场贸易输入</strong>：当本市场总吞吐量 ≥ 10 时，与已传播外部市场的进出口贸易可将思潮带入（贸易路径成本达 <strong>25</strong> 时来源贡献衰减一半；连通比例达 25% 获半幅基础值）。</li>
-        <li><strong>ADM 内阁「研究思潮（<code>study_institutions</code>）」定向灌注</strong>：要求目标省份<strong>全部地点均为核心</strong>（部落受限），基础提供 <strong>+50% 本地思潮增长修正</strong>（注意：像非斯布伊纳尼亚学校 +25% 等百分比修正是放大已有基础传播源，若基础传播源为 0 则乘算仍为 0）。优先对<strong>首都大都市省</strong>施放，一旦该省满 100%，单省稠密人口即可大幅推高全国 20% 暴露比例。</li>
+        <li><strong>放大传播倍率与减免接纳费</strong>：对「全核心地点」省份派 ADM 内阁执行「研究思潮」基础提供 <strong>+50% 思潮增长修正</strong>；宫廷语与礼仪语一致(+5%)、在职作家(+5%)、改革《思潮之路》(+10%)；「创新」价值观满端减免 <strong>−50% 接纳思潮花费</strong>。</li>
       </ul>
     </div>
   </li>
@@ -121,15 +121,19 @@
   <span class="sec-en">Advance Cost Formula &amp; Complete Factors Affecting Monthly Research Speed</span>
   
 <div class="formula-box">
-<strong>1. 革新（<button type="button" class="term" data-concept="advance">Advances</button>，共 3,592 项）所需研究点数：</strong><br>
-• <strong>本时代标准成本</strong> = <code>25 × [1 + 0.15 × (革新时代序号 − 1)]</code>（如第 2 时代文艺复兴标准节点为 <code>25 × 1.15 = 28.75</code> 点）<br>
-• <strong>过时时代追赶成本</strong>：进入后续时代后补研旧时代已解锁节点，基础系数由 25 降为 <strong>17</strong>（如第 3 时代回头研究文艺复兴节点为 <code>17 × 1.15 = 19.55</code> 点）。未选中在研项目时，产出的点数自动存入<strong><button type="button" class="term" data-concept="stored_research">储备研究力</button></strong>上限池。<br><br>
-<strong>2. 每月研究进度（Research Progress / Speed）受哪些因素影响？</strong> <a class="metric-jump" href="metrics.html#research_literacy">查全部游戏修正来源 →</a>
+<strong>① 人口识字率上限与月增长（<button type="button" class="term" data-concept="literacy">Literacy</button>）</strong> <a class="metric-jump" href="metrics.html#literacy">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>文化待遇对最大识字率的基础偏移：主流/已接纳/相容文化为 <strong>0%</strong>，受忽视文化 <strong>−5%</strong>，受歧视文化 <strong>−15%</strong>；全国与各阶级附加最大识字率修正及月增长修正初始基准均为 <strong>0%</strong>。
 <ul>
-  <li><strong>礼仪语言力量（Liturgical Language Power）</strong>：满世界第一语言力量（100%）直接贡献 <strong>+0.20 基础月研究进度</strong>（60% 相对力量即 +0.12/月）。</li>
-  <li><strong>全国人口识字率（<button type="button" class="term" data-concept="literacy">Literacy</button>）</strong>：提升最大识字率与月识字增长（如《文字系统》革新 +5% 上限、路德宗《虔敬主义》+5%、精英教育政策 +5%、大学/修道院/图书馆/卡鲁因大学 +2.5% 本地识字上限、作家艺术家 +0.05/月）直接拉高基础科研产出。</li>
-  <li><strong>教士阶层当前满意度</strong>：以 50% 为零点按 <strong>×0.5 系数</strong> 加减研究速度（教士满意度 80% 提供 <strong>+15% 研究速度</strong>；若跌至 30% 则倒扣 −10%！）。</li>
-  <li><strong>社会价值观、专家与制度修正</strong>：「创新」价值观（另减 −50% 接纳思潮费）、「教法学」满端（+10% 研究速度）、在职<strong>科学家艺术家（+5% 研究速度）</strong>、改革《思潮之路》（+5% 研究速度、+10% 思潮增长）及已接纳思潮数。注意：国家破产期间科研速度承受 −90% 惩罚。</li>
+  <li><strong>变化与跨系统作用</strong>：「创新」价值观满端(+10% 上限)、《文字系统》革新(+5%)、新教《虔敬主义》(+5%)、哈乃斐学派(教士 +10%)、教育政策与大学/图书馆/修道院建筑抬高上限，作家艺术家(+0.05/月)与纸书供应加快月增长。识字率除提供基础科研点外，还分别加成劳工生产效率(最高 +2.5%)、市民发展增长(×25%)与贵族控制力增速(最高 +1.0%/月)。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>② 革新成本算式与「每月研究进度 / 研究速度」</strong> <a class="metric-jump" href="metrics.html#research_speed">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>当代标准革新研究点成本基准 = <strong><code>25 × [1 + 0.15 × (时代序号 − 1)]</code></strong>（第 1 时代 25 点；跨入后续时代补研旧节点基数由 25 降至 <strong>17</strong>）；全国研究速度百分比修正初始基准为 <strong>0%</strong>。
+<ul>
+  <li><strong>月进度平值来源（<code>research_speed</code>）</strong>：礼仪语言的全球相对实力最高直接提供 <strong>+0.20 点/月</strong>（60% 实力即 +0.12/月），叠加全国国民识字率基础贡献（未选在研项目时自动存入<button type="button" class="term" data-concept="stored_research">储备研究力</button>池）。</li>
+  <li><strong>研究速度百分比变化（<code>research_speed_modifier</code>）</strong>：<strong>教士阶层当前满意度</strong>以 50% 为零点按 <strong>×0.5 系数</strong> 正负缩放（80% 满意给 +15%，30% 满意扣 −10%！）；在职<strong>科学家艺术家(+5%)</strong>、改革《思潮之路》(+5%)、「教法学」满端(+10%)及学术革新放大倍率；破产期间承受 −90% 惩罚。</li>
 </ul>
 </div>
 
@@ -150,7 +154,8 @@
 <p>海外拓殖通过向目标省份颁发 <strong><button type="button" class="term" data-concept="colonial_charter">特许殖民地（Colonial Charter）</button></strong> 推进（同一省份最多容许 <strong>3 张</strong> 特许并存竞争；设立基础金币为 <code>min(250, 2 × 经济基础)</code>，要求本国 <button type="button" class="term" data-concept="power_projection">力量投射</button> 达标且目标在 <button type="button" class="term" data-concept="colonial_range">殖民范围</button> 内）：</p>
 
 <div class="formula-box">
-<strong>特许殖民地三项核心计算（1.4.7–1.4.9 口径）：</strong> <a class="metric-jump" href="metrics.html#subject_loyalty_annexation">查殖民迁移修正 →</a>
+<strong>特许殖民地基准值与三项核心计算（1.4.7–1.4.9 口径）：</strong> <a class="metric-jump" href="metrics.html#colonial_migration">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>国家基础殖民范围与海军范围均为 <strong>1,000</strong>（<code>country_base_values</code>）；启动特许最低力量投射基准为 <strong>25 点</strong>；满额殖民预算下单张特许状基础迁入基准为 <strong>50 人 / 月</strong>（单省最多 3 张特许并存；探索每月基础进度为 +0.05）。
 <ol>
   <li><strong>每月维持用货篮</strong>：每张特许基础月耗 <strong>布匹 0.2 + 盐 0.2 + 药材 0.1 + 武器 0.05 + 工具 0.05</strong>，按所属市场当前单价折算金币，再乘距离、当地土著人口与地理折扣（与既有据点同地区 <strong>−50%</strong>、同区域 <strong>−33%</strong>）及殖民维护效率。</li>
   <li><strong>单张特许每月移民人数</strong> = <code>50 人/月（满额殖民预算基准） × (1 + 全国殖民迁移百分比修正之和)</code> + 内阁定向移民分项。<br>
@@ -197,7 +202,7 @@
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#research_literacy" class="btn-pill">研究速度与识字率 345 项来源反查</a> · <a href="ledgers.html#situations_disasters" class="btn-pill">24 项局势与 38 项灾难全表</a> · <a href="directory.html#advances" class="btn-pill">3,592 项时代革新全名录</a> · <a href="directory.html#expedition_types" class="btn-pill">8 类探险与殖民目标名录</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#research_speed" class="btn-pill">识字率 / 思潮传播 / 研究速度独立反查</a> · <a href="ledgers.html#situations_disasters" class="btn-pill">24 项局势与 38 项灾难全表</a> · <a href="directory.html#advances" class="btn-pill">3,592 项时代革新全名录</a> · <a href="directory.html#expedition_types" class="btn-pill">8 类探险与殖民目标名录</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">

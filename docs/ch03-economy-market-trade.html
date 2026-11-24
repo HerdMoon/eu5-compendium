@@ -111,8 +111,8 @@
 <code>建筑月利润（计入地点财富） = 月成品产量 × 当地市场成品价 − Σ(月投入原料消耗 × 当地市场原料价)</code>
 </div>
 
-<p><strong>为什么「<button type="button" class="term" data-concept="production_efficiency">加工生产效率（Production Efficiency）</button>」是最关键的工业数值？</strong><br>
-如上式所示，市场接入度或等级提升时，产出和原料消耗同步缩放；而<strong>生产效率只放大成品产出量，不增加一分钱原料消耗</strong>。以<strong>造纸师行会（Paper Guild）</strong>的三种配方在基准价（纸 2、皮革 3、纤维 2、布 3、木 1.5 金币）下的满员单级对比为例：</p>
+<p><strong>① 为什么「<button type="button" class="term" data-concept="production_efficiency">加工生产效率（Production Efficiency）</button>」是最关键的工业数值？</strong> <a class="metric-jump" href="metrics.html#production_efficiency">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>全国与本地加工生产效率初始基准值均为 <strong>0%</strong>（成品产出乘数基数 <strong>1.00×</strong>；1.4.9 默认规则下新建筑直接 100% 投产度起步）。如上式所示，市场接入度或等级提升时，产出和原料消耗同步缩放；而<strong>在 0% 基准上每提高 +1% 生产效率，只放大成品产出量，不增加一分钱原料消耗</strong>。以<strong>造纸师行会（Paper Guild）</strong>三种配方在基准价（纸 2、皮革 3、纤维 2、布 3、木 1.5 金币）下的满员单级对比为例：</p>
 <ul>
   <li><strong>兽皮纸配方</strong>：月耗 0.1852 皮革 + 0.1852 木材（成本 0.8334），基础产纸 0.5（产值 1.00），月毛利仅 <strong>0.1666 金币</strong>。此时若叠出 <strong>+20% 生产效率</strong>，产纸升至 0.6（产值 1.20），成本仍为 0.8334，月毛利跃升至 <strong>0.3666 金币（净利润暴涨 +120%！）</strong>。</li>
   <li><strong>纤维纸浆 / 布料纸配方</strong>：分别耗 0.6667 纤维 + 0.2222 木材，或 0.5051 布料 + 0.1008 木材，月产纸 1.0，基准毛利约 <strong>0.3333 金币</strong>；但若市场布价涨至 4 金币，布料配方即转为亏损 −0.1716，未开启 <button type="button" class="term" data-concept="subsidy">政府补贴</button> 的亏损建筑每月裁员 10% 直至停工（重新盈利后每月再雇佣 10%）。</li>
@@ -160,11 +160,35 @@
 </table></div>
 
 <div class="formula-box">
-<strong>建造前的两道容量检查与「原材料产出（RGO Output）」决定因素：</strong> <a class="metric-jump" href="metrics.html#rgo_output">查原产修正 →</a> · <a class="metric-jump" href="metrics.html#building_cost_cap">查建筑容量修正 →</a>
+<strong>② 原材料产出效率（RGO Output）</strong> <a class="metric-jump" href="metrics.html#rgo_output">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>全国与本地原材料产出百分比修正初始基准均为 <strong>0%</strong>（产出乘数基数 <strong>1.00×</strong>），每 1 级 RGO 固定雇用基准为 <strong>1,000 名</strong>劳工或奴隶。
 <ul>
-  <li><strong>地点免费建筑容量（Supported Building Levels）</strong> = <code>发展度 × 1 + 千人数 × 0.05 + 等级加成（镇 25 / 城 100 / 大都市 200）+ 身份加成（国都 +5 / 市场中心 +5 / 省会 +2 / 历史首都 +2）</code>。每超出 1 级，新建筑建造效率 <strong>−5 个百分点</strong>（例如基数 100 金币在 −15% 效率下变为 <code>100 ÷ 0.85 ≈ 117.65</code> 金币）且迁徙吸引力 −0.01。</li>
-  <li><strong>单类加工建筑等级上限</strong>：行会 = <code>1 + 0.10×发展度 + 0.05×千人数 + (城5/都10)</code>；工坊 = <code>1 + 0.25×发展度 + 0.05×千人数 + (城10/都20)</code>；工场 = <code>5 + 0.50×发展度 + 0.10×千人数 + (城20/都40)</code>。若本地市场接入度低于 75%，上述上限还须乘以 <code>(市场接入度 + 0.25)</code>！</li>
-  <li><strong>影响 RGO 原材料产出的核心因素</strong>：实际在岗劳工人数、社会价值观偏向「农奴制」（满端 +20% 全国原产）与「传统经济」、部落阶层满意度、改革《乡村特许寡头》(+10%)、文化专属革新（如德意志《熔析精炼法》银铅 +20%）及正繁荣度。注意查看扩建按钮的 <strong><button type="button" class="term" data-concept="expansion_volatility">扩建波动性</button></strong> 预览与全国 <strong><button type="button" class="term" data-concept="employment_system">雇佣制度</button></strong>（利润最高优先 / 均等 / 先到先得，切换费 10 稳定度）。</li>
+  <li><strong>正负变化来源</strong>：正向由「农奴制」价值观满端(+20%)、「传统经济」倾向、部落阶层高满意度(×0.05)、历史名矿基地修正（如法伦铜矿 +400%、波托西银矿 +250%）、改革《乡村特许寡头》(+10%)与文化采矿革新拉升；负向受地点负繁荣度（荒废最高 −50%）、严冬与部分宗教斋戒特权(−5%)扣减。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>③ 原产（RGO）最大规模与扩建花费（Max RGO Size）</strong> <a class="metric-jump" href="metrics.html#max_rgo_size">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>地点基础最大 RGO 规模为 <strong>2 级（2,000 岗位）</strong>（<code>location_base_values = 2</code>），单级扩建基础工期 <strong>180 天</strong>，基础金币报价 = <code>100 × (0.5 + 0.25 × 商品基础价)</code>。
+<ul>
+  <li><strong>规模与花费变化</strong>：每 1 点发展度提供 <strong>+0.1 级</strong> 上限，叠加《工场生产》(+10%)等革新与矿垦建筑扩容；木材廉价最高提供 −33% 扩建折扣，留意按钮上的 <strong><button type="button" class="term" data-concept="expansion_volatility">扩建波动性</button></strong> 冲击预览与全国 <strong><button type="button" class="term" data-concept="employment_system">雇佣制度</button></strong>（切换费 10 稳定度）。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>④ 受支持建筑容量与单类上限（Supported Building Levels）</strong> <a class="metric-jump" href="metrics.html#supported_building_levels">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>0 发展度、0 人口的普通乡村基础受支持容量为 <strong>0 级</strong>（国都 +5、市场中心 +5、省会 +2、历史首都 +2；集镇 +25 / 城市 +100 / 大都市 +200）。
+<ul>
+  <li><strong>容量公式与超建惩罚</strong>：<code>总容量 = 发展度 × 1 + 千人数 × 0.05 + 等级与首都加成 + 免费建筑等级修正</code>。每超出上限 1 级，当地新建筑建造效率扣 <strong>−5 个百分点</strong> 且迁徙吸引力 −0.01。</li>
+  <li><strong>单类加工建筑独立上限</strong>：行会 = <code>1 + 0.10×发展度 + 0.05×千人数 + (城5/都10)</code>；工坊 = <code>1 + 0.25×发展度 + 0.05×千人数 + (城10/都20)</code>；工场 = <code>5 + 0.50×发展度 + 0.10×千人数 + (城20/都40)</code>。本地市场接入度 &lt;75% 时，单类上限强制乘以 <code>(市场接入度 + 0.25)</code>！</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>⑤ 建筑建造效率、建造速度与队列（Build Efficiency &amp; Speed）</strong> <a class="metric-jump" href="metrics.html#build_cost_speed">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>建造效率与建造速度修正初始基准均为 <strong>0%</strong>，每地点并行建造队列基准为 <strong>1 个</strong>，建筑维护费乘数基准为 <strong>20%</strong>；六时代标准建筑基价依次为 50 / 100 / 200 / 400 / 800 / 1,200 金币。
+<ul>
+  <li><strong>造价与工期变化</strong>：君主每点 ADM +0.2% 建造效率，每点发展度 +1% 本地建造速度，国际组织经济投资 +100% 建造效率；普通冬季使建造速度 −50%，严冬暂停施工，违约/破产扣 −25% / −90% 建造速度。</li>
 </ul>
 </div>
 
@@ -175,14 +199,19 @@
 <p>一个 <button type="button" class="term" data-concept="market">市场（Market）</button> 围绕一座 <button type="button" class="term" data-concept="market_center">市场中心</button>（提供当地贸易容量 +2、贸易优势 +20、免费建筑容量 +5、储备容量 +25，且每拥有一座中心令全国市民满意度均衡 +1%）跨国界运行。每个地点先计算对各候选中心的 <strong><button type="button" class="term" data-concept="market_access">市场接入度</button></strong>，再综合吸引力与市场保护选定归属市场：</p>
 
 <div class="formula-box">
-<strong>1. 市场接入度路径损耗（1.4.9 核对值）：</strong> <a class="metric-jump" href="metrics.html#market_access">查全部游戏修正来源 →</a><br>
+<strong>① 本地市场接入度（Local Market Access）</strong> <a class="metric-jump" href="metrics.html#market_access">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>市场中心所在地点基准为 <strong>100%</strong>；向外每像素普通陆路基准损耗 <strong>0.5 个百分点</strong>，无港水陆过渡固定扣 <strong>10 点</strong>，港口装卸效率原始基数为 <strong>−10%</strong>（1.4.9 天然港湾适宜度最高给 +200% 加成）。<br>
 <code>市场接入度（百分点） = 100 − (地图像素距离 × 0.5 × 路段因子 + 水陆转换绝对损耗) + 本地接入修正</code>
 <ul>
-  <li><strong>路段距离因子</strong>：普通陆路 <code>×1.00</code>；砾石/柏油/近代/铁路依次为 <code>×0.90 / 0.80 / 0.70 / 0.60</code>；顺流河段 <code>×0.50</code>、逆流 <code>×0.90</code>；近海段 <code>×0.75</code>、外海段 <code>×1.50</code>；水陆过渡段距离因子 <code>×0.50</code>，无港另扣 <strong>10 点</strong>，有港另扣 <code>2 × (1 − 港湾适宜度)</code> 点（如 75% 适宜度仅扣 0.5 点）。</li>
-  <li><strong>本地接入修正与短缺分配权</strong>：集市/市集村落提供基础本地接入修正，城镇特权《大市场权》+15 点、《贸易特许权》+10 点。接入度不仅直接折算原产收入与工坊开工规模，还决定<strong>市场缺货时的拿货先后顺序</strong>——低接入度地点在原料紧张时最先断供。</li>
+  <li><strong>降低路径损耗变化</strong>：普通陆路 <code>×1.00</code>；砾石/柏油/近代/铁路依次为 <code>×0.90 / 0.80 / 0.70 / 0.60</code>；顺流河段 <code>×0.50</code>、逆流 <code>×0.90</code>；近海段 <code>×0.75</code>、外海段 <code>×1.50</code>；水陆过渡段距离因子 <code>×0.50</code>，有港仅扣 <code>2 × (1 − 港湾适宜度)</code> 点。</li>
+  <li><strong>本地修正与拿货顺位</strong>：集市/市集村落提供基础本地修正，城镇特权《大市场权》+15 点、《贸易特许权》+10 点（贵族通行税城堡则扣 −2.5 点）。市场缺货时严格按接入度从高到低配货。</li>
 </ul>
-<strong>2. 候选市场归属得分（为什么边境地点会被邻国市场吸走？）：</strong><br>
-<code>候选市场得分 = 对该中心的接入度 + 中心实力（城+2.5/都+5 + 0.2×发展度 + 0.05×建筑级） + 所有者威望×0.05 + 语言匹配（同通用语+5/同优势语+5） + 同省(+20)/同地区(+10) − 外国市场保护（当前控制力 × 0.50 + 保护修正） + 外交条约项（特惠准入+20并解除保护 / 拒绝准入−15）</code>
+</div>
+
+<div class="formula-box">
+<strong>② 市场中心吸引力与外国市场保护（Market Attraction &amp; Protection）</strong> <a class="metric-jump" href="metrics.html#market_attraction">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>非市场中心吸引力为 <strong>0</strong>；市场中心基础实力按聚落（城 +2.5 / 都 +5）、发展度（×0.2）与建筑级（×0.05）起算；本国地点对外国市场的保护力基准 = <strong><code>当前控制力 × 0.50</code></strong>。<br>
+<code>候选市场得分 = 对该中心的接入度 + 中心实力 + 所有者威望×0.05 + 语言匹配（同通用语+5/同优势语+5） + 同省(+20)/同地区(+10) − 外国市场保护 + 外交条约项（特惠准入+20并解除保护 / 拒绝准入−15）</code>
 </div>
 
 <p><strong>3. 商品三套数量与「目标价格」精确公式</strong>：<br>
@@ -207,34 +236,39 @@
 <p>跨市场贸易分为玩家通过 <strong><button type="button" class="term" data-concept="trade_orders">贸易指令</button></strong> 调度的「国家贸易」与当地市民自动经营的「<button type="button" class="term" data-concept="burgher_trade">市民贸易</button>」两条轨道：</p>
 
 <div class="formula-box">
-<strong>跨市场商路运力、取货与国库分成公式：</strong> <a class="metric-jump" href="metrics.html#trade_capacity_advantage">查容量与优势来源 →</a> · <a class="metric-jump" href="metrics.html#trade_efficiency_maint">查贸易效率来源 →</a><br>
+<strong>跨市场商路运力、取货与国库分成公式：</strong><br>
 <code>所需贸易容量 = 计划运量 × 商品单位运输成本（如铁 1、黏土 2、纸 0.5）× 超贸易范围距离倍率（范围内为 1）</code><br>
 <code>商路月净利润 = 销售收入 − 采购支出 − 路线维护费（基础 0.25 × 已分配容量） − 海峡通行费 + (补贴收入 − 缴纳关税)</code><br>
-<code>计入国库的贸易月收入 = Σ 正利润商路 × 本国贸易收入分成（基础按王室力量份额 1∶1 计）</code>（余下利润分给非王室阶层）
+<code>计入国库的贸易月收入 = Σ 正利润商路 × (基础分成 10% + 王室力量份额 × 100% + 贸易收入修正)</code>（余下利润归入市民阶层）
 </div>
 
 <div class="table-wrap"><table class="data-table">
-  <thead><tr><th>核心贸易指标</th><th>在结算链中的具体作用</th><th>主要决定与提升因素（1.4.9 核对）</th></tr></thead>
+  <thead><tr><th>独立贸易指标</th><th>官方基准值与范围</th><th>结算作用与正负变化来源（1.4.9 核对）</th></tr></thead>
   <tbody>
     <tr>
-      <td><strong><button type="button" class="term" data-concept="merchant_capacity">贸易容量</button><br>&amp; <button type="button" class="term" data-concept="trade_range">贸易范围</button></strong></td>
-      <td>决定本国在该市场可分配多少总运力；路线成本超出贸易范围后每单位货物消耗更多容量（注意：分配 8 容量即使只买到 5 单位货，维护费仍按已分配的 8 容量计！）</td>
-      <td>市场中心(+2)、集市/商埠建筑、市民力量高于 25% 的加成、城镇特权与时代革新；港口贸易装卸效率在 1.4.9 基数提升至 <strong>+200% × 港湾适宜度</strong>，顺河商路成本 −50%、海段倍率 0.30（同段路河优惠仅取其一）</td>
+      <td><strong>① <button type="button" class="term" data-concept="merchant_capacity">贸易容量</button><br>&amp; 市民贸易容量</strong><br><a class="metric-jump" href="metrics.html#trade_capacity">查容量来源 →</a></td>
+      <td>无设施时国家容量基准 <strong>0</strong>（市场中心基准 <strong>+2.0</strong>）；市民容量基数 <strong>1.0 / 千市民</strong></td>
+      <td>决定可分配总运力（即使货源不足空跑，维护费仍按已分配容量计）。由市场中心、集市/商埠、市民权势超 25% 部分(最高 +100%)、商业城镇特权与时代革新提升</td>
     </tr>
     <tr>
-      <td><strong><button type="button" class="term" data-concept="merchant_power">贸易优势</button><br>Trade Advantage</strong></td>
-      <td>当出口市场的紧俏商品不够所有买方瓜分时，严格按各国在<strong>货源市场</strong>的「贸易优势」从高到低依次取货（无优势时堆再多容量也买不到现货）</td>
-      <td>拥有市场中心(+20)、当地贸易建筑、市民阶层高满意度（系数 0.5）、解锁特定海上贸易优势修正后的海区存在、重商主义倾向与商栈特权</td>
+      <td><strong>② <button type="button" class="term" data-concept="trade_range">贸易范围</button></strong><br><a class="metric-jump" href="metrics.html#trade_range">查范围来源 →</a></td>
+      <td>国家基础贸易范围基准 <strong>300</strong>；市民最大范围六时代基准 <strong>600–1,100</strong></td>
+      <td>超出范围后每单位货物消耗容量成倍激增。顺河商路路径成本 −50%、海段倍率 0.30；航海革新、海外商站与驻港通行权延伸范围</td>
     </tr>
     <tr>
-      <td><strong>进口 / 出口 / 出售<br>三种效率对比</strong></td>
-      <td>设买价 2、卖价 3、运量 4（基础毛利 4.00）：<br>• <strong>进口效率 +10%</strong>：买价总成本 8 减 10% → 新毛利 <strong>4.80</strong><br>• <strong>出口效率 +10%</strong>：销售额 12 增 10% → 新毛利 <strong>5.20</strong><br>• <strong>出售效率 +10%</strong>：正价差 4 增 10% → 新毛利 <strong>4.40</strong></td>
-      <td>海/陆贸易效率与商人维护效率（如《公共财政簿记》改革 +40% 维护效率）；宫廷语言匹配首都市场语言提高出售效率；海关议程提供进口效率 +2% 并压低外商出口效率 −5%；《灵活出口》革新提供出口效率 +2%</td>
+      <td><strong>③ <button type="button" class="term" data-concept="merchant_power">贸易优势</button></strong><br><a class="metric-jump" href="metrics.html#trade_advantage">查优势来源 →</a></td>
+      <td>无设施市场基准 <strong>0</strong>（市场中心所在地 <strong>+20</strong>；海上贸易优势转化基数 <strong>+0.05</strong>）</td>
+      <td>紧俏商品供不应求时，严格按各国在<strong>货源市场</strong>的优势从高到低依次扫货。由拥有市场中心、当地商馆、市民高满意度(×0.5)及解锁海上贸易优势修正后的海区存在提升</td>
     </tr>
     <tr>
-      <td><strong>关税、补贴与<br>市民自动商路</strong></td>
-      <td>市场所有者可分商品设进出口关税或补贴（基础上限各 20%，重商主义满端各 +50%，战争经济关税上限 +15%）；1.4.8 起外国市民贸易关税与补贴按全额结算</td>
-      <td><strong>贸易指令三重心</strong>：建议将「食物」与「关键军工/造纸原料短缺」指令排在名单顶部优先拿容量，「利润重心」（默认门槛 0.25 金币/容量）排在下方吃剩余容量。<strong>市民贸易容量</strong> = <code>市民千人数 × (1 + 识字项 + 集市100% + 垄断特权100%等)</code>，最大范围随六时代为 600–1,100，收益归入市民所在地点财富</td>
+      <td><strong>④ 海陆与进/出/售效率<br>&amp; 国库分成</strong><br><a class="metric-jump" href="metrics.html#trade_efficiencies">查效率来源 →</a></td>
+      <td>海/陆/进/出/售五项效率初始基准均为 <strong>0%</strong>；国家贸易收入分成底数 <strong>10%</strong></td>
+      <td>设买价 2、卖价 3、运量 4（基础毛利 4.00）：<strong>进口效率 +10%</strong> → 毛利 4.80；<strong>出口效率 +10%</strong> → 毛利 5.20；<strong>出售效率 +10%</strong> → 毛利 4.40。国库分成靠<strong>王室力量份额</strong>直接 1∶1 叠加</td>
+    </tr>
+    <tr>
+      <td><strong>⑤ 商人维护效率<br>&amp; 关税/补贴上限</strong><br><a class="metric-jump" href="metrics.html#merchant_maintenance">查维护与关税 →</a></td>
+      <td>维护费基准 <strong>0.25 金币/容量</strong>，维护效率基准 <strong>0%</strong>；最高关税与补贴上限基准各 <strong>20%</strong>（关税分成底数 <strong>10%</strong>）</td>
+      <td>《公共财政簿记》改革给 <strong>+40% 维护效率</strong>；重商主义满端使最高关税与补贴上限各 <strong>+50%</strong>（升至 70%），战争经济关税上限 +15%</td>
     </tr>
   </tbody>
 </table></div>
@@ -246,10 +280,11 @@
 <p>阅读全国财政面板时，必须严格区分三个基础规模指标——<strong>全国财富（Wealth）</strong>、<strong>全国税基（Tax Base）</strong> 与 <strong><button type="button" class="term" data-concept="economical_base">经济基础（Economic Base）</button></strong>：</p>
 
 <div class="formula-box">
-<strong>从地点财富到阶层税款与国家开支的四组恒等式：</strong> <a class="metric-jump" href="metrics.html#tax_efficiency">查全部游戏修正来源 →</a><br>
+<strong>从地点财富到阶层税款与国家开支的四组恒等式：</strong> <a class="metric-jump" href="metrics.html#tax_efficiency">查税收效率 →</a> · <a class="metric-jump" href="metrics.html#estate_max_tax">查征税上限 →</a><br>
+<span class="base-inline">基准值</span>全国税收效率初始基准为 <strong>0%</strong>；全国通用阶层征税上限基准为 <strong>35%</strong>（下限 0%，纳税要求阶层当前满意度 ≥1%）；全国农民自主权基准为 <strong>25%</strong>（乡村 −20% 但保底 10%，镇 +10% / 城 +25% / 都 +50%）；宫廷、维稳、外交三项满额预算基数均为 <strong><code>0.10 × 经济基础 E</code></strong>。<br>
 1. <code>地点月财富 Wᵢ = 当地 RGO 利润 + 加工建筑利润 + 归入该地的市民贸易收益</code><br>
 2. <code>地点可征税基 Tᵢ = Wᵢ × 当前控制力 Cᵢ</code>（全国税基比率 = <code>ΣTᵢ ÷ ΣWᵢ</code>，波希米亚 1337 实测为 <code>200.59 ÷ 292.73 = 68.52%</code>）<br>
-3. <code>单阶层月税款 = Σ(Tᵢ × 该阶层当地财富份额) × 阶层实际税率 × (1 + 全国税收效率修正)</code>（前提：阶层当前满意度 ≥ 1%）<br>
+3. <code>单阶层月税款 = Σ(Tᵢ × 该阶层当地财富份额) × 阶层实际税率 × (1 + 全国税收效率修正)</code><br>
 4. <code>经济基础 E = (0.50 × 全国全额财富 W + 0.015 × 全国千人数 + 0.05 × 属国财富 + 特定收入项) × (1 + 0.066 × 已接纳思潮数)</code>
 </div>
 
@@ -267,11 +302,12 @@
   <span class="sec-en">Minting &amp; Inflation, Loans, Bonds, Creditworthiness &amp; Bankruptcy</span>
   
 <div class="formula-box">
-<strong>1. 铸币收入（Minting）与通胀计算公式（波希米亚 / 匈牙利实机核对）：</strong> <a class="metric-jump" href="metrics.html#minting_inflation_credit">查全部游戏修正来源 →</a><br>
+<strong>① 铸币收入、铸币平价与通货膨胀（Minting &amp; Inflation）</strong> <a class="metric-jump" href="metrics.html#minting_inflation">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>铸币免通胀平价阈值基准为 <strong>5%</strong>（<code>minting_inflation_threshold</code>），铸币收入修正基准为 <strong>0%</strong>；通货膨胀初始为 <strong>0%</strong>，基础自然消退基准为 <strong>−0.10% / 月</strong>（<code>monthly_inflation</code>）。<br>
 • <code>满效率铸币月收入 M = 全国税基 T × 0.25 × 铸币滑块比例 s × (1 + 铸币收入修正之和 m)</code><br>
 &nbsp;&nbsp;例：波希米亚 <code>T = 200.59, s = 15.3%, m = +10%(金银币政策)</code> → <code>200.59 × 0.25 × 0.153 × 1.10 = 8.44</code> 金币/月；匈牙利叠加贵金属出口禁令(+33%)得 <code>m = +43%</code>。<br>
 • <code>每种启用铸币材料（金/银/铜）月需求 = T × s × 0.01</code>（首都市场缺金银时铸币效率 η 跌向 0，实际收入 ≈ <code>M × η</code>）。<br>
-• <code>铸币月通胀贡献（百分点/月） = max(0, 铸币比例百分数 − 免通胀阈值百分数) × 0.005</code>（如基础阈值 5% + 金银币政策 3% = 8% 平价线；开启「自动铸币」会自动将滑块锁在零净通胀水平）。
+• <code>铸币月通胀净变化 = max(0, 铸币比例百分数 − 免通胀阈值百分数) × 0.005 − 基础消退(0.10%) + 其他通胀修正</code>（如基础阈值 5% + 金银币政策 3% = 8%；勾选「自动铸币」自动锁在零净通胀线）。
 </div>
 
 <div class="table-wrap"><table class="data-table">
@@ -299,10 +335,11 @@
 </table></div>
 
 <div class="formula-box">
-<strong>2. 信用度（<button type="button" class="term" data-concept="creditworthiness">Creditworthiness</button>，0–100）如何决定贷款与债券利率：</strong><br>
+<strong>② 国家信用度、贷款容量与银行/债券利率（Creditworthiness &amp; Interest）</strong> <a class="metric-jump" href="metrics.html#credit_interest">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>国家信用度范围 <strong>0–100</strong>，目标基准值为 <strong>50 点</strong>（有效信用 &lt;30 外国拒贷）；银行/阶层贷款基准年利率为 <strong>10%</strong>（下限 1%，期限 60 个月）；政府债券基准年利率为 <strong>5%</strong>，基础债券上限为 <strong>1 笔</strong>。<br>
 • <code>目标信用评级 = 50 + 稳定度贡献（每 +1 稳定给 +0.1，满 +100 稳定给 +10） + 强权/官僚/改革加值</code>（基础评级每月向目标移动 10% 差额）<br>
-• <code>有效信用 = clamp(基础评级 − 独立破产惩罚, 0, 100)</code>（有效信用 &lt; 30 时外国 AI 拒绝放贷）<br>
-• <code>普通贷款年利率信用修正（百分点） = −5 × (有效信用 ÷ 100 − 0.5)</code>（有效信用 80 时减息 −1.5 个百分点；债券系数为 −4）<br>
+• <code>有效信用 = clamp(基础评级 − 独立破产惩罚, 0, 100)</code><br>
+• <code>普通贷款年利率信用修正（百分点） = −5 × (有效信用 ÷ 100 − 0.5)</code>（有效信用 80 时减息 −1.5 个百分点；债券系数为 −4；资本经济满端另减 −3% 银行利率）<br>
 • <strong><button type="button" class="term" data-concept="bankrupt">破产（Bankruptcy）</button> 三阶段代价</strong>：① <strong>当日</strong>：稳定度 −50、通胀按比例 −25%、控制力按原值 −33%、部队 25% 损失判定、建筑 10% 降级判定；② <strong>随后 60 个月</strong>：王室力量 −90%、陆海军士气/科研速度/建造速度均 −90%、贷款容量 −50%、阶层均衡满意度 −2.5%；③ <strong>长期信用扣减</strong>：新增 <strong>50 点独立破产惩罚</strong>，每年仅消退 0.5 点（完全归零需 <strong>100 年</strong>）。
 </div>
 

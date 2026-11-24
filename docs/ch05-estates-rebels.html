@@ -104,14 +104,16 @@
 <p>全国政治力量由<strong>王室（Crown）</strong>与各非王室阶层（贵族、教士、市民、平民，以及特定国家存在的齐米、部落、哥萨克）共同瓜分总份额 100%。底层点数从每个地点的<strong>同一批人口</strong>分两套规则算出：</p>
 
 <div class="formula-box">
-<strong>1. 每千人基础政治力量权重（<code>pop_types/00_default.txt</code>）：</strong><br>
-贵族 <strong>25</strong> ｜ 教士 <strong>10</strong> ｜ 市民 <strong>4</strong> ｜ 部落民 <strong>0.25</strong> ｜ 士兵 <strong>0.0625</strong> ｜ 劳工 <strong>0.0375</strong> ｜ 农民 <strong>0.025</strong> ｜ 奴隶 <strong>0</strong>（受歧视文化人口为 0）<br>
-<em>例：2,000 名贵族基础提供 50 点，相当于 12,500 名市民或 2,000,000 名农民的基础政治点数。</em><br><br>
-<strong>2. 地点王室点数与全国王室份额公式：</strong> <a class="metric-jump" href="metrics.html#crown_estate_power">查全部游戏修正来源 →</a><br>
+<strong>① 王室力量（Crown Power）基准值与计算公式</strong> <a class="metric-jump" href="metrics.html#crown_power">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>每千人基础政治权重：贵族 <strong>25</strong>、教士 <strong>10</strong>、市民 <strong>4</strong>、部落民 <strong>0.25</strong>、士兵 <strong>0.0625</strong>、劳工 <strong>0.0375</strong>、农民 <strong>0.025</strong>、奴隶与受歧视文化人口 <strong>0</strong>。人口转化王室力量基准为 <strong>100% × 当前控制力</strong>，全国与本地王室力量修正初始基准均为 <strong>0%</strong>。<br>
 • <code>地点王室点数 = [Σ(当地各类千人数 × 基础政治权重)] × (当前控制力 + 本地王室力量修正，如会计室 Counting House +33%)</code><br>
-&nbsp;&nbsp;例：某地有 20,000 市民（原始 80 点）、控制力 15%：无建筑时王室得 <code>80 × 0.15 = 12</code> 点；建满效会计室(+33%)后倍率升至 0.48，王室得 <strong>38.4 点</strong>。<br>
-• 汇总各地点后，再叠加<strong>君主 ADM</strong>（每点 +0.25%）、<strong>王室成员入阁/任首脑</strong>（两席制下单席 +12.5%，王室首脑另 +25%）、<strong>中央集权价值观</strong>（满端 +50%）、高正统性（满端 +10%）等全国修正得到<code>王室最终点数</code>。<br>
-• 各非王室阶层则汇总各自人口基础点数，乘以本地阶层建筑（如贵族公馆 +50%）、所授特权（每项常加 +20%~+75%）及该阶层大臣入阁加成得到<code>阶层最终点数</code>。<br>
+• 汇总各地点后，乘 <code>(1 + 0.0025×君主ADM + 王室成员入阁/首脑加成 + 中央集权[满+50%] + 正统性[满+10%] + 其他全国王室修正)</code> 得<code>王室最终点数</code>。
+</div>
+
+<div class="formula-box">
+<strong>② 各非王室阶层力量（Estate Power）基准值与计算公式</strong> <a class="metric-jump" href="metrics.html#estate_power">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>各非王室阶层全国力量修正初始基准均为 <strong>0%</strong>；全国力量份额奖惩分界基准为 <strong>25%</strong>；每委任 1 名该阶层人物入阁或统兵基础加成基准为 <strong>+25%</strong>（按席位数分摊）。<br>
+• 各非王室阶层汇总各自人口基础点数，乘本地阶层建筑（如贵族公馆 +50%）、所授特权（每项常加 +20%~+75%）及入阁统帅加成得<code>阶层最终点数</code>。<br>
 • <code>各方全国力量份额 = 该方最终点数 ÷ (王室最终点数 + 全体非王室阶层最终点数之和)</code>
 </div>
 
@@ -149,8 +151,11 @@
   <h2>02 · 阶层满意度全国效应、财富分账与阶层自建循环</h2>
   <span class="sec-en">Estate Satisfaction Scaling, Wealth Distribution &amp; Autonomous Construction</span>
   
-<p><strong>1. 阶层满意度（Estate Satisfaction）与均衡值收敛速度</strong> <a class="metric-jump" href="metrics.html#estate_satisfaction">查全部游戏修正来源 →</a>：<br>
-公共基础均衡值为 25%，叠加王权、君主 DIP（每点 +0.1%）、正稳定度（满 +5%）、地方分权（满 +5%）、所授特权加值，扣去实际税率、厌战度（每点 −1%）、负稳定度及异端/异教阶层惩罚后得到<strong>满意度均衡点</strong>。低于均衡时每月恢复 <code>0.10 + 0.003 × 当前政治影响力储备 + 恢复修正</code> 个百分点；高于均衡时每月衰减差额的 <code>5%</code>。</p>
+<div class="formula-box">
+<strong>阶层满意度均衡点与恢复速度（Estate Satisfaction Equilibrium）</strong> <a class="metric-jump" href="metrics.html#estate_satisfaction">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>无税无特权时的初始均衡点（全国通用 +25% 叠加各阶层底数）：<strong>农民 55%（25%+30%）、市民 / 齐米 / 部落 / 哥萨克 45%（25%+20%）、贵族 35%（25%+10%）、教士 25%（25%+0%）</strong>。低于均衡点恢复基准 <strong>+0.10% / 月</strong>（每点政治影响力储备另加 +0.003%/月）；高于均衡点衰减差额的 <strong>5% / 月</strong>。全国连续修正零点基准为 <strong>50%</strong>，征召门槛 <strong>25%</strong>，纳税门槛 <strong>1%</strong>。<br>
+在初始基准上叠加王权(满 +30%)、君主 DIP（每点 +0.1%）、正稳定度（满 +5%）、地方分权（满 +5%）、所授特权加值，扣去<strong>实际征收税率（1∶1 扣减）</strong>、厌战度（每点 −1%）、负稳定度及非主流文化阶层惩罚后得到当期满意度均衡点。
+</div>
 <ul>
   <li><strong>两条硬资格线</strong>：当前满意度 <strong>&lt; 25%</strong> 无法征召该阶层陆海军；<strong>&lt; 1%</strong> 停止缴纳阶层税。</li>
   <li><strong>以 50% 为零点的连续全国修正</strong>（按 <code>(当前满意度 S − 0.50) × 系数</code> 计算，高于 50% 为正加成，低于 50% 转为负惩罚，且以 <code>2 × (S − 0.50)</code> 进入所属人口满意度）：<br>
@@ -240,7 +245,7 @@
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#crown_estate_power" class="btn-pill">王室力量与满意度 826 项来源反查</a> · <a href="ledgers.html#estate_privileges" class="btn-pill">331 项阶层特权完整数值表</a> · <a href="ledgers.html#estate_actions" class="btn-pill">12 项阶层直接互动与求助表</a> · <a href="lab.html#calc" class="btn-pill">要塞留忠与撤特权计算器</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#crown_power" class="btn-pill">王室力量 / 阶层力量 / 满意度独立反查</a> · <a href="ledgers.html#estate_privileges" class="btn-pill">331 项阶层特权完整数值表</a> · <a href="ledgers.html#estate_actions" class="btn-pill">12 项阶层直接互动与求助表</a> · <a href="lab.html#calc" class="btn-pill">要塞留忠与撤特权计算器</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">

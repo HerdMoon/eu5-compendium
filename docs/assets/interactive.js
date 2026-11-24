@@ -1116,12 +1116,67 @@
       `).join("")}</div>`;
     }
 
-    // --- Tab 1: 31 Flagship Metrics ---
+    // --- Tab 1: 66 Separated Single-Concept Flagship Metrics ---
     const fmSearch = document.getElementById("fm-search");
     const fmPillar = document.getElementById("fm-pillar");
     const fmCount = document.getElementById("fm-count");
     const fmList = document.getElementById("fm-list");
-    const openFlagships = new Set(["production_efficiency", "max_control"]);
+    const openFlagships = new Set(["development", "prosperity", "production_efficiency"]);
+    const activeSubModFilter = {};
+
+    const LEGACY_HASH_MAP = {
+      development_prosperity: "development",
+      pop_growth_migration: "pop_growth",
+      food_supply: "food_production",
+      building_cost_cap: "supported_building_levels",
+      trade_capacity_advantage: "trade_capacity",
+      trade_efficiency_maint: "trade_efficiencies",
+      minting_inflation_credit: "minting_inflation",
+      crown_estate_power: "crown_power",
+      stability_legitimacy_pi: "stability",
+      research_literacy: "research_speed",
+      culture_capacity_assimilation: "cultural_capacity",
+      religious_tolerance_conversion: "religious_tolerance",
+      discipline_tactics: "discipline",
+      morale_initiative: "morale",
+      siege_fort_supply: "siege_ability",
+      manpower_sailors_maritime: "manpower",
+      diplo_capacity_reputation: "diplo_capacity",
+      subject_loyalty_annexation: "subject_loyalty",
+    };
+
+    function renderSubModifiersHtml(fm) {
+      const subs = fm.sub_modifiers || [];
+      if (!subs.length) {
+        return `<div style="font-size:12.5px;color:var(--ink-muted)">该指标主要由上方基础公式与系统状态驱动。</div>`;
+      }
+      const curSub = activeSubModFilter[fm.id] || "all";
+      const filterBar = subs.length > 1
+        ? `<div class="submod-filter-bar">
+            <span style="font-size:12px;color:var(--ink-muted);font-weight:600">按具体修正词条筛选：</span>
+            <button type="button" class="submod-pill ${curSub === "all" ? "active" : ""}" data-fm-sub="${esc(fm.id)}" data-sub-id="all">全部并列展示 (${subs.length} 个词条 · 共 ${fm.total_sources} 处)</button>
+            ${subs.map((sm, i) => `<button type="button" class="submod-pill ${curSub === sm.id ? "active" : ""}" data-fm-sub="${esc(fm.id)}" data-sub-id="${esc(sm.id)}">${i + 1}. ${esc(sm.zh)} <code>${esc(sm.id)}</code> (${sm.total})</button>`).join("")}
+          </div>`
+        : "";
+      const visibleSubs = curSub === "all" ? subs : subs.filter((sm) => sm.id === curSub);
+      const blocks = visibleSubs.map((sm, idx) => `
+        <div class="submod-section">
+          <div class="submod-head">
+            <div>
+              <strong>${subs.length > 1 ? `词条 ${idx + 1} · ` : ""}${esc(sm.zh)}</strong>
+              <span style="color:var(--ink-muted);font-size:12.5px;margin-left:6px">${esc(sm.en)}</span>
+              <code style="margin-left:6px">${esc(sm.id)}</code>
+            </div>
+            <div style="display:flex;gap:6px;align-items:center">
+              <span class="scope-tag">${esc(sm.cat)}</span>
+              <span class="scope-tag">共 ${sm.total} 处来源</span>
+            </div>
+          </div>
+          ${renderSourceGroupsHtml(sm.groups)}
+        </div>
+      `).join("");
+      return filterBar + blocks;
+    }
 
     function renderFlagships(focusId) {
       const q = (fmSearch.value || "").trim().toLowerCase();
@@ -1129,13 +1184,14 @@
       const filtered = data.flagships.filter((fm) => {
         if (pil !== "all" && fm.pillar !== pil) return false;
         if (!q) return true;
-        const hay = (fm.zh + " " + fm.en + " " + fm.id + " " + fm.formula_role + " " + fm.core_drivers.join(" ") + " " + JSON.stringify(fm.source_groups)).toLowerCase();
+        const hay = (fm.zh + " " + fm.en + " " + fm.id + " " + (fm.base_value || "") + " " + fm.formula_role + " " + fm.core_drivers.join(" ") + " " + JSON.stringify(fm.sub_modifiers)).toLowerCase();
         return hay.includes(q);
       });
 
-      fmCount.textContent = `显示 ${filtered.length} / ${data.flagships.length} 项核心机制数值`;
+      fmCount.textContent = `显示 ${filtered.length} / ${data.flagships.length} 项独立核心机制数值（每项均含基准值与独立子词条）`;
       fmList.innerHTML = filtered.map((fm) => {
         const isOpen = openFlagships.has(fm.id) || Boolean(q);
+        const subDesc = (fm.sub_modifiers || []).map((s) => `${s.zh}(${s.total})`).join(" · ");
         return `<article id="${esc(fm.id)}" class="card metric-card" style="border-top:4px solid var(--p-${fm.pillar})${focusId === fm.id ? ";box-shadow:0 0 0 2px var(--accent)" : ""}">
           <div class="metric-card-head">
             <div>
@@ -1143,19 +1199,22 @@
               <h2 class="metric-title">${esc(fm.zh)} <small>${esc(fm.en)}</small></h2>
             </div>
             <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-              <span class="scope-tag">关联 ${fm.total_sources} 处游戏修正</span>
+              <span class="scope-tag">${(fm.sub_modifiers || []).length} 个修正词条 · 共 ${fm.total_sources} 处来源</span>
               <a href="${esc(fm.chapter_href)}" class="btn-pill">阅读章节推导与算例 →</a>
             </div>
           </div>
+          <div class="metric-base-box">
+            <span class="metric-base-tag">基准值与范围</span>${esc(fm.base_value || "")}
+          </div>
           <div class="formula-box" style="margin:10px 0">
-            <strong>在公式中的作用：</strong>${esc(fm.formula_role)}
+            <strong>公式与结算作用：</strong>${esc(fm.formula_role)}
           </div>
           <div style="margin:10px 0">
-            <strong style="font-size:13.5px;color:var(--ink)">决定与影响该数值的核心因素：</strong>
+            <strong style="font-size:13.5px;color:var(--ink)">在基准值基础上的全部正负变化因素：</strong>
             <ul class="metric-drivers">
               ${fm.core_drivers.map((d) => {
                 const idx = d.indexOf("：");
-                return idx > 0 && idx <= 20
+                return idx > 0 && idx <= 24
                   ? `<li><strong>${esc(d.slice(0, idx + 1))}</strong>${esc(d.slice(idx + 1))}</li>`
                   : `<li>${esc(d)}</li>`;
               }).join("")}
@@ -1163,10 +1222,10 @@
           </div>
           <div class="metric-drawer-toggle">
             <button type="button" class="btn-pill" data-toggle-fm="${esc(fm.id)}">
-              ${isOpen ? "▾ 收起" : "▸ 展开查看"}具体建筑 / 特权 / 改革 / 政策 / 时代革新修正列表（共 ${fm.total_sources} 处来源 · 键名：${esc(fm.mod_keys.join(", "))}）
+              ${isOpen ? "▾ 收起" : "▸ 展开按修正词条分栏查看"}具体建筑 / 特权 / 改革 / 政策 / 时代革新来源（${esc(subDesc)}）
             </button>
           </div>
-          ${isOpen ? `<div class="metric-sources-panel">${renderSourceGroupsHtml(fm.source_groups)}</div>` : ""}
+          ${isOpen ? `<div class="metric-sources-panel">${renderSubModifiersHtml(fm)}</div>` : ""}
         </article>`;
       }).join("");
 
@@ -1175,6 +1234,15 @@
           const id = btn.getAttribute("data-toggle-fm");
           if (openFlagships.has(id)) openFlagships.delete(id);
           else openFlagships.add(id);
+          renderFlagships();
+        });
+      });
+
+      fmList.querySelectorAll("[data-fm-sub]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const fid = btn.getAttribute("data-fm-sub");
+          const sid = btn.getAttribute("data-sub-id");
+          activeSubModFilter[fid] = sid;
           renderFlagships();
         });
       });
@@ -1250,7 +1318,8 @@
     }
 
     function applyHashRouting() {
-      const h = decodeURIComponent(location.hash.replace("#", "")).trim();
+      const rawH = decodeURIComponent(location.hash.replace("#", "")).trim();
+      const h = LEGACY_HASH_MAP[rawH] || rawH;
       if (!h) {
         renderFlagships();
         renderAllMods();

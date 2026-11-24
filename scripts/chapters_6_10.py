@@ -63,13 +63,12 @@ CHAPTERS_6_10 = [
 </table>
 
 <div class="formula-box">
-<strong>核心数值拆解：单项文化占用的「{T('cultural_capacity','文化容量')}」与国家上限来源</strong> {M('culture_capacity_assimilation')}<br>
+<strong>文化容量（{T('cultural_capacity','Cultural Capacity')}）基准值与计算公式</strong> {M('cultural_capacity')}<br>
+<span class="base-inline">基准值</span>国家基础文化容量为 <strong>0 点</strong>（<code>country_base_values</code>），由国家等级提供主干：伯国 <strong>0</strong> → 公国 <strong>+0.5</strong> → 王国 <strong>+1.0</strong> → 帝国 <strong>+2.0</strong>；单项文化基础占用基准：<strong>相容文化 1.0 点、已接纳文化 3.0 点</strong>。<br>
 <code>单项文化实际占用 = max(待遇最低占用, 基础占用[接纳 3 / 相容 1] × (1 + 观感项 + 语言项 + 共享文化组项 + 国内相对人口项 + 全球相对人口项))</code>
 <ul>
-  <li><strong>双向文化观感（Cultural Opinion，−3 / −1 / 0 / +1 / +3 五档）</strong>：正观感乘 −0.25（亲缘 +3 折价 <strong>−75%</strong>，友好 +1 折价 −25%），负观感乘 −0.50（敌对 −3 加价 <strong>+150%</strong>，不睦 −1 加价 +50%）。可通过国家行动改善文化观感。</li>
-  <li><strong>语言与共享文化组折扣</strong>：相同语言 <strong>−15%</strong>，仅同语族 <strong>−5%</strong>；共享文化组最多 <strong>−30%</strong>（按共享组数占比较组总数分摊）。</li>
-  <li><strong>国内与全球相对人口（各限 −35% 至 +35%）</strong>：待接纳文化相对本国主流文化人口越多占用越高，越少占用越低，国内与全球分别核算后相加。</li>
-  <li><strong>文化容量上限来源与超额惩罚</strong>：国家等级、人文主义价值观、多元政府改革与外交/文化革新提供容量上限；全国已用容量每超出上限 <strong>1.0 点</strong>，施加 <strong>全国内阁效率 −10%、文化影响力 −25%、文化传统 −25%</strong>。</li>
+  <li><strong>降低单项占用变化</strong>：双向文化观感正观感乘 −0.25（亲缘 +3 折价 <strong>−75%</strong>），负观感乘 −0.50（敌对 −3 加价 <strong>+150%</strong>）；同语言 <strong>−15%</strong> / 同语族 <strong>−5%</strong>；共享文化组最多 <strong>−30%</strong>；国内与全球相对人口各限 −35% 至 +35%。</li>
+  <li><strong>提高国家容量上限与超容惩罚</strong>：人文主义价值观、多元政府改革与文化革新扩充上限；全国已用容量每超出上限 <strong>1.0 点</strong>，施加 <strong>全国内阁效率 −10%、文化影响力 −25%、文化传统 −25%</strong>。</li>
 </ul>
 </div>
 """
@@ -79,17 +78,23 @@ CHAPTERS_6_10 = [
                 "title": "02 · 文化影响力 vs 文化传统、人口同化与统合文化组",
                 "en": "Cultural Influence vs Tradition, Assimilation & Unifying Culture Groups",
                 "html": f"""
-<p><strong>1. 文化影响力（进攻）与文化传统（防御）的存量衰减公式</strong>：<br>
-{T('cultural_influence','文化影响力')} 衡量本国文化向外辐射与同化异族的能力（满威望 100 提供 +1.00 月贡献）；{T('cultural_tradition','文化传统')} 衡量原文化抵抗异族同化的定力。两者每月均按 <strong>5%</strong> 自然衰减：<br>
-<code>下月数值 = 当前数值 × 0.95 + 当月新增点数 G</code> → 持续每月新增 <code>G</code> 点时，长期均衡值为 <strong><code>20 × G</code></strong>。</p>
-
-<p><strong>2. 影响「人口同化速度」的全部因素</strong> {M('culture_capacity_assimilation', '查全部同化修正 →')}：</p>
+<div class="formula-box">
+<strong>① {T('cultural_influence','文化影响力')}（进攻端） vs {T('cultural_tradition','文化传统')}（防御端）</strong> {M('cultural_influence', '查文化影响力 →')} · {M('cultural_tradition', '查文化传统 →')}<br>
+<span class="base-inline">基准值</span>两项指标在无月度新增时均衡基准均为 <strong>0 点</strong>，且每月均按当前存量的 <strong>5%</strong> 自然衰减（<code>下月值 = 当前值 × 0.95 + 当月新增 G</code>，长期均衡值 = <strong><code>20 × G</code></strong>；艺术品基础标量均为 5.0）。
 <ul>
-  <li><strong>基础与内阁推动</strong>：派遣 DIP 大臣执行「推广文化 / 同化地区」提供核心月度转化基数，并按当地<strong>当前控制力</strong>缩放（低控制边疆同化极慢）。</li>
-  <li><strong>文化攻防与亲缘</strong>：本国文化影响力压过目标居民原文化传统、双方同语言/同文化组、本国文化已是当地优势文化时显著加速；反之已接纳文化同化极慢，而受歧视文化同化更快。</li>
-  <li><strong>市民阶层的市场语言保护锁</strong>：若当地 {T('burghers','市民')} 使用本市场语言，而你要将其同化为另一种语言的文化，其同化量额外乘以 <code>max(0.01, 1 − 市场接入度)</code>——在 90% 接入度的商业大城中同化速率仅剩 10%，100% 接入度时仅余 1%。</li>
-  <li><strong>统合文化组（{T('merged_culture_group','Unified Culture Group')}）</strong>：文化组主导大国可派遣 ADM 大臣执行基础时长 <strong>10 年</strong> 的「统合文化组」任务（期间每月向中央集权移动 +0.1）。完成后创立共同文化（每文化组限一次），将组内主流与已接纳文化人口大规模并入新主流文化并授予专属革新，彻底释放文化容量。</li>
+  <li><strong>文化影响力（决定同化他族速度、文化外交与文化霸权）</strong>：由高国家威望（满 100 贡献 +1.00/月）、宫廷语与通用语一致(+10%)、高影响力倍率艺术品（交响曲 2.5×、小说 2.0×）与剧院/宫廷建筑拉升。</li>
+  <li><strong>文化传统（决定本文化抵抗异族同化的防御力）</strong>：由高传统倍率艺术品（名胜建筑 2.5×、圣物 2.0×、编年史 1.8×、圣像 1.2×）、文化霸权(+25%)与古迹建筑拉升。两者在文化超容时每超 1 点均扣 −25%。</li>
 </ul>
+</div>
+
+<div class="formula-box">
+<strong>② 人口文化同化速度（Pop Assimilation Speed）</strong> {M('pop_assimilation')}<br>
+<span class="base-inline">基准值</span>国家基础人口同化速度平值为 <strong>+1 人 / 月</strong>（<code>country_base_values</code>），全国与本地同化百分比修正初始基准均为 <strong>0%</strong>。
+<ul>
+  <li><strong>正向提速变化</strong>：派遣 DIP 大臣执行「推广文化 / 同化地区」提供核心转化平值，乘当地<strong>当前控制力</strong>缩放；本国文化影响力高于目标文化传统、双方同语言/同文化组、本国文化已是当地优势文化(+50%)或目标为受歧视文化(+50%)时显著加速。</li>
+  <li><strong>负向减速与统合文化组</strong>：未整合(−2%)/刚整合(−1%)/已接纳文化同化极慢；将使用本市场语言的 {T('burghers','市民')} 同化为异语言文化时强制乘 <code>max(0.01, 1 − 市场接入度)</code>。文化组主导大国可派 ADM 大臣执行基础 <strong>10 年</strong> 的「<strong>{T('merged_culture_group','统合文化组')}</strong>」（每文化组限一次），完成后将组内主流与已接纳文化合并并释放文化容量。</li>
+</ul>
+</div>
 """
             },
             {
@@ -122,13 +127,21 @@ CHAPTERS_6_10 = [
                 "en": "Religious Unity, Tolerance, Conversion & Major Faith Mechanics",
                 "html": f"""
 <div class="formula-box">
-<strong>1. 控制力加权的「宗教统一度」与「文化统一度」公式（1.4.8–1.4.9 口径）：</strong><br>
-<code>单组人口统计权重 = 人数 × max(所在地当前控制力, 5%)</code><br>
-<code>宗教统一度 = 国教人口权重之和 ÷ 全国人口权重之和</code>（100% 统一度给教士满意度均衡 +10 个百分点；文化统一度同理以主流文化为分子）。<br>
-<em>含义：刚吞并的 0% 控制力异教边疆仅按 5% 保底权重计入全国分母，对统一度的冲击较小；随着控制力提升，其异教人口权重随之放大，须同步推进改宗或提升容忍度。</em><br><br>
-<strong>2. 三类宗教宽容与改宗速度影响因素：</strong> {M('religious_tolerance_conversion')}<br>
-• <strong>宽容度转人口满意度</strong>：每 <strong>1 点</strong> 对应宽容度（正信 / 同宗教组异端 / 异宗教组异教）改变人口满意度 <strong>5 个百分点</strong>；异端与异教人口另带 −5% 基础项，再叠加宗教间观感（每档 ±5%）。<br>
-• <strong>改宗两条路径</strong>：① <strong>国家主动更改国教</strong>：基础花费 <strong>50 稳定度</strong>，冷却 25 年；② <strong>地点人口改宗</strong>：由 MIL 内阁「改宗省份」、本地控制力、教士高权势（超 25% 部分最高 +200% 改宗速度）、属灵或神秘主义价值观、宗教建筑与信条共同提速（犹太教等特定信仰带高额改宗抗性）。
+<strong>① 控制力加权的「宗教统一度」与「文化统一度」（1.4.8–1.4.9 口径）：</strong><br>
+<span class="base-inline">基准值</span>取值范围 <strong>0%–100%</strong>，低控制地点最低统计权重保底为 <strong>5%</strong>（<code>POP_STATISTICS_MIN_CONTROL_WEIGHT = 0.05</code>）；满 100% 宗教统一度提供教士满意度均衡 +10 个百分点。<br>
+<code>单组人口统计权重 = 人数 × max(所在地当前控制力, 5%)</code> ｜ <code>宗教统一度 = 国教人口权重之和 ÷ 全国人口权重之和</code>
+</div>
+
+<div class="formula-box">
+<strong>② 正统、异端与异教容忍度（Religious Tolerance）</strong> {M('religious_tolerance')}<br>
+<span class="base-inline">基准值</span>国家三项基础容忍度（<code>country_base_values</code>）：<strong>正统信仰容忍 +1.0、异端容忍（同宗教组） −2.5、异教容忍（异宗教组） −5.0</strong>；异端与异教人口另带 <strong>−5%</strong> 基础满意度偏移。<br>
+• <strong>变化与效果</strong>：每 <strong>1.0 点</strong>对应容忍度改变该信仰人群满意度 <strong>±5 个百分点</strong>（再叠加宗教间观感每档 ±5%）。偏向「属灵」提升正统容忍；偏向「人文」、提高齐米满意度(×2 异教容忍)与颁布宽容法典提升异端/异教容忍。
+</div>
+
+<div class="formula-box">
+<strong>③ 人口宗教改宗速度（Pop Conversion Speed）</strong> {M('pop_conversion')}<br>
+<span class="base-inline">基准值</span>国家基础人口改宗速度平值为 <strong>+2 人 / 月</strong>（<code>country_base_values</code>），全国与本地改宗百分比修正基准均为 <strong>0%</strong>；最大宗教影响力基准 <strong>100</strong>（天主教为 900）；国家主动更改国教基础花费 50 稳定度（冷却 25 年）。<br>
+• <strong>变化来源</strong>：正向由 MIL 内阁「改宗省份」、本地当前控制力、教士高权势（超 25% 部分按 ×200% 加成）、属灵/隐义主义价值观、宗教建筑与传教信条放大；未整合征服地(−2%)、齐米自治特权及犹太教等高抗性信仰则减速或锁定传教。
 </div>
 
 <p><strong>3. 各宗教传统专属资源与行动要点（293 种宗教详见速查表）</strong>：</p>
@@ -160,8 +173,8 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
-            ("文化容量与同化 396 项来源反查", "metrics.html#culture_capacity_assimilation"),
-            ("宗教容忍与改信 583 项来源反查", "metrics.html#religious_tolerance_conversion"),
+            ("文化容量 / 影响力 / 传统 / 同化独立反查", "metrics.html#cultural_capacity"),
+            ("三类宗教容忍与改宗速度独立反查", "metrics.html#religious_tolerance"),
             ("293 种宗教完整数据表", "ledgers.html#religions"),
             ("2,087 文化 / 528 语言 / 艺术品名录", "directory.html#cultures"),
         ],
@@ -204,13 +217,13 @@ CHAPTERS_6_10 = [
 <p>1337–1836 年共划分为六个{T('age','时代')}：<strong>① 传统时代 → ② 文艺复兴 → ③ 地理大发现 → ④ 宗教改革 → ⑤ 专制主义 → ⑥ 革命时代</strong>。每次进入新时代会同步改变商品物价稳定性（由 10% 逐代降至 2%）、最高物价倍数（3× 升至 5×）、市民最大贸易范围（由 600 逐代升至 1,100）以及官僚维护乘数。</p>
 <ul>
   <li><strong>时代焦点（Age Focus）不可逆规则</strong>：从文艺复兴时代起，每次换代时必须在<strong>行政（ADM）/ 外交（DIP）/ 军事（MIL）</strong>中三选一作为本时代焦点，解锁对应时代焦点分支革新；<strong>未选中的另外两个分支在本局永久锁定</strong>（下一时代改选其他方向，仅开放下一时代的对应分支，不会回头解锁上一时代的未选节点）。</li>
-  <li><strong>{T('institution','思潮（Institutions）')} 传播三途径与 20% 接纳公式</strong>：
+  <li><strong>{T('institution','思潮（Institutions）')} 传播三途径与 20% 接纳公式</strong> {M('institution_spread')}：
     <div class="formula-box">
-      <code>全国思潮暴露比例 = (传播进度已达 100% 的本国各地点人口之和) ÷ 本国总人口</code>（达到 <strong>≥ 20%</strong> 方可支付金币与稳定度接纳）
+      <span class="base-inline">基准值</span>无传播源地点基础月增长为 <strong>0</strong>（百分比修正仅放大已有基础传播源）；全国接纳思潮硬门槛基准为<strong>「已达 100% 传播地点人口 ÷ 全国总人口 ≥ 20%」</strong>；接纳花费修正基准为 <strong>0%</strong>。<br>
       <ul>
         <li><strong>邻格与近海自然漫溢</strong>：从已发源或已传播满的邻接地点、近海港口逐月辐射。</li>
         <li><strong>跨市场贸易输入</strong>：当本市场总吞吐量 ≥ 10 时，与已传播外部市场的进出口贸易可将思潮带入（贸易路径成本达 <strong>25</strong> 时来源贡献衰减一半；连通比例达 25% 获半幅基础值）。</li>
-        <li><strong>ADM 内阁「研究思潮（<code>study_institutions</code>）」定向灌注</strong>：要求目标省份<strong>全部地点均为核心</strong>（部落受限），基础提供 <strong>+50% 本地思潮增长修正</strong>（注意：像非斯布伊纳尼亚学校 +25% 等百分比修正是放大已有基础传播源，若基础传播源为 0 则乘算仍为 0）。优先对<strong>首都大都市省</strong>施放，一旦该省满 100%，单省稠密人口即可大幅推高全国 20% 暴露比例。</li>
+        <li><strong>放大传播倍率与减免接纳费</strong>：对「全核心地点」省份派 ADM 内阁执行「研究思潮」基础提供 <strong>+50% 思潮增长修正</strong>；宫廷语与礼仪语一致(+5%)、在职作家(+5%)、改革《思潮之路》(+10%)；「创新」价值观满端减免 <strong>−50% 接纳思潮花费</strong>。</li>
       </ul>
     </div>
   </li>
@@ -223,15 +236,19 @@ CHAPTERS_6_10 = [
                 "en": "Advance Cost Formula & Complete Factors Affecting Monthly Research Speed",
                 "html": f"""
 <div class="formula-box">
-<strong>1. 革新（{T('advance','Advances')}，共 3,592 项）所需研究点数：</strong><br>
-• <strong>本时代标准成本</strong> = <code>25 × [1 + 0.15 × (革新时代序号 − 1)]</code>（如第 2 时代文艺复兴标准节点为 <code>25 × 1.15 = 28.75</code> 点）<br>
-• <strong>过时时代追赶成本</strong>：进入后续时代后补研旧时代已解锁节点，基础系数由 25 降为 <strong>17</strong>（如第 3 时代回头研究文艺复兴节点为 <code>17 × 1.15 = 19.55</code> 点）。未选中在研项目时，产出的点数自动存入<strong>{T('stored_research','储备研究力')}</strong>上限池。<br><br>
-<strong>2. 每月研究进度（Research Progress / Speed）受哪些因素影响？</strong> {M('research_literacy')}
+<strong>① 人口识字率上限与月增长（{T('literacy','Literacy')}）</strong> {M('literacy')}<br>
+<span class="base-inline">基准值</span>文化待遇对最大识字率的基础偏移：主流/已接纳/相容文化为 <strong>0%</strong>，受忽视文化 <strong>−5%</strong>，受歧视文化 <strong>−15%</strong>；全国与各阶级附加最大识字率修正及月增长修正初始基准均为 <strong>0%</strong>。
 <ul>
-  <li><strong>礼仪语言力量（Liturgical Language Power）</strong>：满世界第一语言力量（100%）直接贡献 <strong>+0.20 基础月研究进度</strong>（60% 相对力量即 +0.12/月）。</li>
-  <li><strong>全国人口识字率（{T('literacy','Literacy')}）</strong>：提升最大识字率与月识字增长（如《文字系统》革新 +5% 上限、路德宗《虔敬主义》+5%、精英教育政策 +5%、大学/修道院/图书馆/卡鲁因大学 +2.5% 本地识字上限、作家艺术家 +0.05/月）直接拉高基础科研产出。</li>
-  <li><strong>教士阶层当前满意度</strong>：以 50% 为零点按 <strong>×0.5 系数</strong> 加减研究速度（教士满意度 80% 提供 <strong>+15% 研究速度</strong>；若跌至 30% 则倒扣 −10%！）。</li>
-  <li><strong>社会价值观、专家与制度修正</strong>：「创新」价值观（另减 −50% 接纳思潮费）、「教法学」满端（+10% 研究速度）、在职<strong>科学家艺术家（+5% 研究速度）</strong>、改革《思潮之路》（+5% 研究速度、+10% 思潮增长）及已接纳思潮数。注意：国家破产期间科研速度承受 −90% 惩罚。</li>
+  <li><strong>变化与跨系统作用</strong>：「创新」价值观满端(+10% 上限)、《文字系统》革新(+5%)、新教《虔敬主义》(+5%)、哈乃斐学派(教士 +10%)、教育政策与大学/图书馆/修道院建筑抬高上限，作家艺术家(+0.05/月)与纸书供应加快月增长。识字率除提供基础科研点外，还分别加成劳工生产效率(最高 +2.5%)、市民发展增长(×25%)与贵族控制力增速(最高 +1.0%/月)。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>② 革新成本算式与「每月研究进度 / 研究速度」</strong> {M('research_speed')}<br>
+<span class="base-inline">基准值</span>当代标准革新研究点成本基准 = <strong><code>25 × [1 + 0.15 × (时代序号 − 1)]</code></strong>（第 1 时代 25 点；跨入后续时代补研旧节点基数由 25 降至 <strong>17</strong>）；全国研究速度百分比修正初始基准为 <strong>0%</strong>。
+<ul>
+  <li><strong>月进度平值来源（<code>research_speed</code>）</strong>：礼仪语言的全球相对实力最高直接提供 <strong>+0.20 点/月</strong>（60% 实力即 +0.12/月），叠加全国国民识字率基础贡献（未选在研项目时自动存入{T('stored_research','储备研究力')}池）。</li>
+  <li><strong>研究速度百分比变化（<code>research_speed_modifier</code>）</strong>：<strong>教士阶层当前满意度</strong>以 50% 为零点按 <strong>×0.5 系数</strong> 正负缩放（80% 满意给 +15%，30% 满意扣 −10%！）；在职<strong>科学家艺术家(+5%)</strong>、改革《思潮之路》(+5%)、「教法学」满端(+10%)及学术革新放大倍率；破产期间承受 −90% 惩罚。</li>
 </ul>
 </div>
 """
@@ -256,7 +273,8 @@ CHAPTERS_6_10 = [
 <p>海外拓殖通过向目标省份颁发 <strong>{T('colonial_charter','特许殖民地（Colonial Charter）')}</strong> 推进（同一省份最多容许 <strong>3 张</strong> 特许并存竞争；设立基础金币为 <code>min(250, 2 × 经济基础)</code>，要求本国 {T('power_projection','力量投射')} 达标且目标在 {T('colonial_range','殖民范围')} 内）：</p>
 
 <div class="formula-box">
-<strong>特许殖民地三项核心计算（1.4.7–1.4.9 口径）：</strong> {M('subject_loyalty_annexation', '查殖民迁移修正 →')}
+<strong>特许殖民地基准值与三项核心计算（1.4.7–1.4.9 口径）：</strong> {M('colonial_migration')}<br>
+<span class="base-inline">基准值</span>国家基础殖民范围与海军范围均为 <strong>1,000</strong>（<code>country_base_values</code>）；启动特许最低力量投射基准为 <strong>25 点</strong>；满额殖民预算下单张特许状基础迁入基准为 <strong>50 人 / 月</strong>（单省最多 3 张特许并存；探索每月基础进度为 +0.05）。
 <ol>
   <li><strong>每月维持用货篮</strong>：每张特许基础月耗 <strong>布匹 0.2 + 盐 0.2 + 药材 0.1 + 武器 0.05 + 工具 0.05</strong>，按所属市场当前单价折算金币，再乘距离、当地土著人口与地理折扣（与既有据点同地区 <strong>−50%</strong>、同区域 <strong>−33%</strong>）及殖民维护效率。</li>
   <li><strong>单张特许每月移民人数</strong> = <code>50 人/月（满额殖民预算基准） × (1 + 全国殖民迁移百分比修正之和)</code> + 内阁定向移民分项。<br>
@@ -299,7 +317,7 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
-            ("研究速度与识字率 345 项来源反查", "metrics.html#research_literacy"),
+            ("识字率 / 思潮传播 / 研究速度独立反查", "metrics.html#research_speed"),
             ("24 项局势与 38 项灾难全表", "ledgers.html#situations_disasters"),
             ("3,592 项时代革新全名录", "directory.html#advances"),
             ("8 类探险与殖民目标名录", "directory.html#expedition_types"),
@@ -371,14 +389,17 @@ CHAPTERS_6_10 = [
 </table>
 
 <div class="formula-box">
-<strong>核心数值拆解：月度人力（Manpower）与水手（Sailors）从哪里来？</strong> {M('manpower_sailors_maritime')}<br>
-<code>全国月产量 = Σ[各地点设施满员产出 × (1 + 本地修正) × max(10%, 本地当前控制力)] × (1 + 全国人力/水手百分比修正)</code><br>
-<code>全国最大储存上限 = 全国月产量 × 12 × 5（即 60 个月的月产量）</code>
-<ul>
-  <li><strong>五级陆军人力建筑（每级满员基础月产出）</strong>：军械库（Armory）/ 训练场（Training Fields）<strong>+10 人/月</strong>（对应 600 上限） → 军营（Barracks）<strong>+15</strong> → 军团营地（Regimental Camp）<strong>+20</strong> → 征兵中心（Conscription Center）<strong>+25 人/月</strong>（中国文化组早期专属「戍营」为 +2.5 人/月）。</li>
-  <li><strong>五级海军水手建筑（沿海港口雇用士兵，每级满员基础月产出）</strong>：码头（Dock）<strong>+16 水手/月</strong>（对应 960 上限） → 干船坞（Dry Dock）<strong>+32</strong> → 船厂（Shipyard）<strong>+64</strong> → 大船厂（Grand Shipyard）<strong>+125</strong> → 海军基地（Naval Base）<strong>+200 水手/月</strong>。</li>
-  <li><strong>编组与军费对商品价格的敏感度</strong>：传统时代一团步卒（500 人，战力 1.0，占宽 1）维护耗武器 0.10 + 皮革 0.06（基准值 0.48）；一团重装骑手（200 人，战力 2.6，占宽 1）维护耗战马 1.0 + 武器 0.20 + 工具 0.20 + 皮革 0.10 + 布匹 0.10（基准值 4.80，战马单价翻倍时物资成本即涨 62.5%）。此外，当全军<strong>没有任何单一兵种团数占比达到或超过 50%</strong> 时，自动激活 <strong>{T('combined_arms','兵种混编（Combined Arms）')}</strong> 加成（如轻步、重步、重骑各 2 团合格；3 轻步 + 2 重步 + 1 重骑因轻步达 50% 失效）。</li>
-</ul>
+<strong>① 月度人力与最大人力池（Manpower）</strong> {M('manpower', '查人力来源 →')} · {M('levy_efficiency', '查征召兵修正 →')}<br>
+<span class="base-inline">基准值</span>无军事兵源建筑时，国家基础月度常备人力为 <strong>0 人 / 月</strong>；全国最大人力储量上限基准固定为 <strong>60 个月（5 年）</strong>的月产量；每地点同时招募队列基准为 <strong>1</strong>。<br>
+<code>全国月人力 = Σ[各地点陆军建筑满员产出 × (1 + 本地修正) × max(10%, 本地当前控制力)] × (1 + 全国人力百分比修正)</code><br>
+• <strong>五级陆军建筑每级满员基础月产</strong>：军械库 / 训练场 <strong>+10 人/月</strong>（+600 上限） → 军营 <strong>+15</strong> → 军团营地 <strong>+20</strong> → 征兵中心 <strong>+25 人/月</strong>（中国早期「戍营」+2.5/月），再由数量价值观、征兵法律与军事革新放大。
+</div>
+
+<div class="formula-box">
+<strong>② 月度水手与最大水手池（Sailors · 与人力相互独立）</strong> {M('sailors')}<br>
+<span class="base-inline">基准值</span>无港口海事建筑时，国家基础月度水手为 <strong>0 人 / 月</strong>；全国最大水手储量上限基准同样为 <strong>60 个月（5 年）</strong>的月产量。<br>
+• <strong>五级沿海港口建筑每级满员基础月产</strong>：码头 <strong>+16 水手/月</strong>（+960 上限） → 干船坞 <strong>+32</strong> → 船厂 <strong>+64</strong> → 大船厂 <strong>+125</strong> → 海军基地 <strong>+200 水手/月</strong>。<br>
+• <strong>编组维护与混编基准</strong>：骑兵等精锐物资维护随战马/武器市价浮动；当全军<strong>没有任何单一兵种团数占比 ≥ 50%</strong> 时，每类占比 ≥10% 的兵种基准提供 <strong>+2.5% {T('combined_arms','兵种混编')}</strong> 加成。
 </div>
 """
             },
@@ -398,17 +419,35 @@ CHAPTERS_6_10 = [
 </table>
 
 <div class="formula-box">
-<strong>单次交火伤害组成与核心军事数值影响因素：</strong> {M('discipline_tactics', '查训练与战术来源 →')} · {M('morale_initiative', '查士气与主动性来源 →')}<br>
-<code>单日兵力伤害 ∝ 当日有效骰点项 × 攻击方有效火力 × 基础刻度（陆兵0.04/陆士0.25；海船0.0625/海士0.05） × (1 + 攻方训练度) ÷ [(1 + 守方训练度) × 守方军事战术] × (1 − 0.5 × 守方经验比例) × 未接敌惩罚</code>
-<ul>
-  <li><strong>D10 骰点换算与地形惩罚</strong>：画面掷出的 1–10 在内部按 <code>0–9</code> 起算，加上伤害基数 <code>5</code> 及将领、地形（山地守方 +2、疏林 +1；攻方渡河 −1、渡海峡 −2、登陆 −1；已在围城部队遭守方反击按原地判，不吃移入渡河惩罚），上限封顶为 <strong>15</strong>。</li>
-  <li><strong>未接敌前排挨打惩罚</strong>：已进入前线但尚未通过接敌检定的单位受击时，承受<strong>兵力伤害 ×1.10、士气伤害 ×1.20</strong>！提高将领 DIP（每点 +1% 主动性）与选用高主动性兵种可抢先接敌集火。</li>
-  <li><strong>{T('discipline','训练度（Discipline）')}</strong>：同时放大本方造成的伤害并作为除数降低本方承伤。主要来源：将领 MIL（每点 +0.1%）、游牧团结满端（+10%）、质量/进攻社会价值观、贵族与骑士团特权、军事改革与时代革新（陆军征召兵天生 −20%）。</li>
-  <li><strong>{T('military_tactics','军事战术（Military Tactics）')}</strong>：基础 1.00，直接作为除数减免承伤（如战术升至 2.00 时承伤减半！），主要由各时代核心军事革新提供——跨代科技压制最为致命。</li>
-  <li><strong>部队经验与合并保留公式</strong>：满 100% 经验减免 <strong>50%</strong> 陆海承伤；合并残编兵团时按人数加权保留经验 <code>Σ(人数 × 原经验) ÷ 总人数</code>。</li>
-  <li><strong>陆军士气（基础 3.0）与陆军传统</strong>：君主每点 MIL +0.1% 士气，将领每点 DIP +0.2% 士气，满 100 陆军传统提供<strong>陆军士气 +20%、围城能力 +10%</strong>；反之每 1 点厌战度扣减 <strong>−2.5% 陆海军士气</strong>！</li>
-</ul>
+<strong>单次交火伤害组成总式：</strong><br>
+<code>单日兵力伤害 ∝ 当日有效骰点项(D10换0~9 + 基数5 ± 将领/地形，封顶15) × 攻击方有效火力 × 基础刻度（陆兵0.04/陆士0.25；海船0.0625/海士0.05） × (1 + 攻方训练度) ÷ [(1 + 守方训练度) × 守方军事战术] × (1 − 0.5 × 守方经验比例) × 未接敌惩罚</code>
 </div>
+
+<table class="data-table">
+  <thead><tr><th>独立野战数值</th><th>官方基准值与范围</th><th>结算作用与全部正负变化来源</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>① {T('discipline','训练度')}</strong><br>Discipline<br>{M('discipline', '查训练度来源 →')}</td>
+      <td>常备军初始修正基准 <strong>0%</strong>（乘除基数 <strong>1.00×</strong>）；陆军征召兵自带 <strong>−20%</strong></td>
+      <td>同时放大本方输出并作为除数降低承伤。由将领 MIL(每点 +0.1%)、满游牧团结(+10%)、质量/进攻价值观、贵族与骑士团特权、军事改革与革新提升</td>
+    </tr>
+    <tr>
+      <td><strong>② {T('military_tactics','军事战术')}</strong><br>Military Tactics<br>{M('military_tactics', '查战术来源 →')}</td>
+      <td>国家基础军事战术基准 <strong>1.00</strong>（兵种混编单类 &lt;50% 时每类基准 <strong>+2.5%</strong>）</td>
+      <td>直接做除数减免承伤（升至 2.00 时承伤减半！）；主要由各时代核心火器与阵型革新拉开代差。部队满 100% 经验另减 50% 承伤（月自然衰减基准 5%，正规军 −1%）</td>
+    </tr>
+    <tr>
+      <td><strong>③ 陆海军士气</strong><br>Morale<br>{M('morale', '查士气来源 →')}</td>
+      <td>传统时代陆军基准约 <strong>3.0</strong>（崩溃线 0.05）；月恢复基准 <strong>5%</strong>（友境另 +25%）</td>
+      <td>君主每点 MIL +0.1%，将领每点 DIP +0.2%，满陆/海军传统各 +20%。无将领部队直接 <strong>−20%</strong>，每 1 点厌战度扣 <strong>−2.5% 陆海军士气</strong>，破产 60 个月内 −90%</td>
+    </tr>
+    <tr>
+      <td><strong>④ 接战主动性与宽度</strong><br>Initiative &amp; Frontage<br>{M('initiative', '查主动性来源 →')}</td>
+      <td>按日模式基础接敌率 <strong>60%</strong>（主动性加成基准 0%，封顶 +30%）；地点基础宽度 <strong>10</strong></td>
+      <td>未接敌前排单位挨打额外承伤 <strong>×1.10（兵力）/ ×1.20（士气）</strong>；将领每点 DIP +1% 主动性，每点 MIL +0.5% 参战速度，每点 ADM +0.1% 宽度（山地宽度 −4、疏林 −2）</td>
+    </tr>
+  </tbody>
+</table>
 """
             },
             {
@@ -430,9 +469,16 @@ CHAPTERS_6_10 = [
 <p>{T('fortification','要塞')} 对周边邻接格投射 <strong>{T('zone_of_control','要塞控制区（ZoC）')}</strong>：敌军踏入邻接敌堡的地点后，必须先攻克该要塞才能继续穿行至同一要塞控制的其他敌方地点；而己方（含直属宗主与直属属国）受控要塞的 ZoC 则保护友军免受包括严冬在内的一般本地损耗（黑死病等不可避免损耗除外）。注意行军进度达 <strong>50%</strong> 时锁定移动去向。</p>
 
 <div class="formula-box">
-<strong>围城阶段时长与 D14 判定公式：</strong> {M('siege_fort_supply')}<br>
-• <strong>兵力门槛与阶段天数</strong>：无工事地点需 ≥100 人，基础每阶段 15 天；有要塞地点<strong>围城兵力必须 ≥ 当前守军人数</strong>，基础每阶段 <strong>30 天</strong>（受攻方「围城能力」与守方「要塞防御」加减修正，最短 7 天；将领每点 ADM 给 +0.1% 围城能力）。<br>
-• <code>阶段检定总点 = 原始骰点(1–14) + 累积围城进度 + 炮兵加值(基础上限 +5) + 城墙缺口数(最多 3 处，每处 +2) − 要塞等级 − 未封锁沿海港口罚点(−1)</code>
+<strong>① 围城能力与炮兵围攻加值（攻方指标）</strong> {M('siege_ability')}<br>
+<span class="base-inline">基准值</span>全国围城能力修正初始基准为 <strong>0%</strong>；无工事阶段基准 <strong>15 天</strong>，有要塞阶段基准 <strong>30 天</strong>（最短下限 7 天）；炮兵对要塞检定加值上限基准为 <strong>+5</strong>（最多 3 处缺口）。<br>
+• 攻城将领每点 ADM +0.1% 围城能力，满陆军传统 +10% 围城能力；<strong>围城兵力必须 ≥ 当前守军人数</strong>否则进度冻结。<br>
+• <code>阶段检定总点 = 原始骰点(1–14) + 累积围城进度 + 炮兵加值(基准上限 +5) + 城墙缺口数(×2) − 要塞等级 − 未封锁沿海港口罚点(−1)</code>
+</div>
+
+<div class="formula-box">
+<strong>② 要塞防御、要塞上限与驻军规模（守方指标 · 与围城能力独立）</strong> {M('fort_defensive')}<br>
+<span class="base-inline">基准值</span>全国与本地要塞防御（<code>global/local_defensive</code>）修正基准均为 <strong>0%</strong>；国家免超额要塞上限基准为 <strong>1 座</strong>（王国 +1、帝国 +2）；本地驻军补充速度基准为 <strong>+1% / 月</strong>。<br>
+• <code>单阶段实际天数 = 30 × (1 + 守方要塞防御 − 攻方围城能力)</code>（每 +10% 要塞防御拖慢敌方每轮 3 天；每 1 点厌战度反扣 −2.5% 全国要塞防御）。
 </div>
 
 <table class="data-table">
@@ -455,7 +501,11 @@ CHAPTERS_6_10 = [
                 "title": "05 · 补给上限、超载耗粮、补给站与海陆粮道",
                 "en": "Supply Limit, Overstacking Food Penalty, Supply Depots & Naval Food",
                 "html": f"""
-<p>部队将麾下各兵团重量加总与所在地点的 <strong>{T('supply_limit','补给上限')}</strong>（基础上限 × (1 + 补给修正)，本国领地另享 +25% 关系加成）比较：</p>
+<div class="formula-box">
+<strong>补给上限、后勤距离与损耗（Supply Limit &amp; Attrition）</strong> {M('supply_attrition')}<br>
+<span class="base-inline">基准值</span>地点基础补给上限为 <strong>15</strong>（<code>location_base_values</code>，本国领地另享 +25% 关系加成）；地点最大损耗上限基准为 <strong>10%</strong>；国家陆军后勤距离基准为 <strong>30</strong>；补给站容量基准为 <strong>1,000</strong>。
+</div>
+<p>部队将麾下各兵团重量加总与所在地点的 <strong>{T('supply_limit','补给上限')}</strong> 比较：</p>
 <ul>
   <li><strong>超载最多 4 倍耗粮与撤退丢粮</strong>：超出当地补给上限不会立即直接死人，而是按超载比例增加部队军粮消耗，额外耗粮封顶 <strong>+300%（即总耗粮变为正常值的 4 倍）</strong>，迅速抽干随军携带军粮（辅助团每千人携粮系数高达 3,000、耗粮仅 0.2，是远征军的核心粮车）。一旦随军军粮耗尽断粮，即刻触发高额缺粮月度损耗；且陆军战败撤退时会直接损失随身携带军粮的 <strong>50%</strong>。</li>
   <li><strong>前线三条合法补粮渠道</strong>（受后勤距离限制，敌军与敌方要塞 ZoC 会截断后勤线）：<br>
@@ -476,8 +526,8 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
-            ("训练度与战术 159 项来源反查", "metrics.html#discipline_tactics"),
-            ("围城与补给 123 项来源反查", "metrics.html#siege_fort_supply"),
+            ("训练度 / 军事战术 / 士气独立反查", "metrics.html#discipline"),
+            ("围城能力 / 要塞防御 / 补给独立反查", "metrics.html#fort_defensive"),
             ("401 种陆海军单位完整数值表", "ledgers.html#unit_types"),
             ("接敌概率与兵种混编计算器", "lab.html#calc"),
         ],
@@ -539,7 +589,8 @@ CHAPTERS_6_10 = [
 <p>{T('maritime_presence','海上存在（0–100 点）')} 按国家、按海区独立结算，是沿海与岛屿帝国降低行政邻近度海路损耗（0 点时每海格耗 30，100 点时降至 5）的核心支柱（注：1.4.9 已移除基础海上存在的无条件贸易说明，海上贸易优势由专门修正项转化）：</p>
 
 <div class="formula-box">
-<strong>海区每月海上存在变化公式：</strong> {M('manpower_sailors_maritime')}<br>
+<strong>海区每月海上存在变化公式：</strong> {M('maritime_presence')}<br>
+<span class="base-inline">基准值</span>按国家、按海格独立取值 <strong>0–100 点</strong>，无相邻本国港口且无驻舰时基准为 <strong>0 点</strong>；每月自然衰减基准为存量的 <strong>0.5%</strong>（<code>global_maritime_presence_decay</code>）；单港原始月贡献基准 = <code>0.10 + 0.30 × 天然港湾适宜度</code>。<br>
 <code>下月存在度 = clamp(本月存在度 + 相邻本国港口汇总贡献 + 驻海区舰队贡献 − 私掠扣项 − 本月存在度 × 0.5% 自然衰减, 0, 100)</code>
 <ul>
   <li><strong>单座港口本地基础项</strong> = <code>0.10 + 0.30 × 天然港湾适宜度 + 建筑加成（海岸要塞每级 +0.15、海军炮台每级 +0.30） − 敌军封锁(2.0) − 冰封(2.0) − 风暴潮(0.50)</code>（例如 80% 适宜度良港无额外建筑时提供 <code>0.34</code> 点/月原始贡献，再按海区港口除数汇总）。</li>
@@ -606,7 +657,7 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
-            ("人力、水手与海上存在反查", "metrics.html#manpower_sailors_maritime"),
+            ("海上存在 / 水手 / 人力独立反查", "metrics.html#maritime_presence"),
             ("113 种宣战理由全表", "ledgers.html#casus_belli"),
             ("78 种战争目标全表", "ledgers.html#wargoals"),
             ("72 项和平条约条款名录", "directory.html#peace_treaties"),
@@ -650,17 +701,21 @@ CHAPTERS_6_10 = [
 <p>双边往来由三项有向指标记录：<strong>{T('opinion','好感')}</strong>（−200 至 +200）、<strong>{T('trust','信任')}</strong>（0–100，均衡 50；好感或信任任一 ≥75 即可使中立国家转为友好态度，状态退出带回差防抖）与<strong>{T('favors','人情')}</strong>（上限 100，每月自然衰减余额的 1%；「赠礼」按 <code>受赠国月收入×2 + 赠送国月收入</code>［保底 25 金币］支付并获 +5 人情；请求军事通行耗 5 人情）。16 岁以下皇室子女可先订立<strong>{T('betrothal','婚约（Betrothal）')}</strong>，成年达标后自动转为正式王室联姻。</p>
 
 <div class="formula-box">
-<strong>维持对外关系占用的「{T('diplomatic_capacity','外交容量')}」三套精确公式：</strong> {M('diplo_capacity_reputation')}
+<strong>① 外交容量、外交范围与外交官（{T('diplomatic_capacity','Diplomatic Capacity')}）</strong> {M('diplo_capacity')}<br>
+<span class="base-inline">基准值</span>国家基础外交容量为 <strong>2.0 点</strong>（<code>country_base_values</code>，另加公国 +1 / 王国 +2 / 帝国 +3）；基础外交范围为 <strong>1,000</strong>（公国 +200 / 王国 +500 / 帝国 +1,000）；最大外交官基准为 <strong>3 名</strong>（月恢复 +0.10 名/月，列强另 +0.20/月）。
 <ol>
-  <li><strong>双边同盟占用容量</strong> = <code>0.5 + clamp(2 × 对方经济基础 ÷ max(1, 本国经济基础), 0.1, 3.0) + (0.5 − 对方对我好感 ÷ 200) + 对方强权身份（列强 +1.0 / 区域强权 +0.5） + max(0, 0.3 × [本国列强盟友数 + 0.5 × 区域强权盟友数 − 1])</code><br>
-    <em>例：两国经济基础均为 100、好感 +100、非强权时占用 2.50；若同时结盟多位列强，最后一项「联盟集团饱和费」会叠加到你的每一份同盟上！</em></li>
-  <li><strong>继承契约（Inheritance Contract）买方占用容量</strong>（向无继承人的独立在位君主国购买王位继承权，对方无嗣驾崩 3 天后建共主邦联） = <code>1 + clamp(2 × 买方经济基础 ÷ max(1, 授予方经济基础), 0.5, 3.0)</code>。</li>
-  <li><strong>防御联盟（Defensive League）成员占用容量</strong> = <code>0.33 × 联盟成员总数 + 0.0005 × 其他成员经济基础之和</code>（包围网则固定每成员占 1 点容量）。</li>
+  <li><strong>双边同盟占用容量</strong> = <code>0.5 + clamp(2 × 对方经济基础 ÷ max(1, 本国经济基础), 0.1, 3.0) + (0.5 − 对方对我好感 ÷ 200) + 对方强权身份（列强 +1.0 / 区域强权 +0.5） + max(0, 0.3 × [本国列强盟友数 + 0.5 × 区域强权盟友数 − 1])</code></li>
+  <li><strong>继承契约买方占用容量</strong> = <code>1 + clamp(2 × 买方经济基础 ÷ max(1, 授予方经济基础), 0.5, 3.0)</code>。</li>
+  <li><strong>防御联盟成员占用容量</strong> = <code>0.33 × 联盟成员总数 + 0.0005 × 其他成员经济基础之和</code>（包围网固定每成员占 1 点容量）。</li>
 </ol>
-<strong>外交声誉与 {T('power_projection','力量投射（Power Projection）')} 来源与作用：</strong>
+</div>
+
+<div class="formula-box">
+<strong>② 外交声誉与 {T('power_projection','力量投射')}（相互独立指标）</strong> {M('diplo_reputation')}<br>
+<span class="base-inline">基准值</span>国家基础外交声誉为 <strong>+1.0</strong>（<code>country_base_values</code>）；力量投射初始无强权无革新时基准为 <strong>0 点</strong>。
 <ul>
-  <li><strong>外交声誉</strong>：君主每点 DIP(+0.05)、教士高满意度(×2)、王室力量(满 +2)、威望、改革《传统外交伦理》(+3)等提供；直接提高结盟/附庸/继承法谈判接受度，且<strong>每 1 点外交声誉降低新产生敌意 −4%</strong>。</li>
-  <li><strong>力量投射</strong>：列强(+10)/区域强权(+5)、每项已研革新(+0.05)、各时代强权野心革新(+5~+10)、王室力量(满 +5)、外向价值观(满 +5)提供；<strong>每 1 点力量投射提供全国整合速度 +1%、政治影响力月获取 +1%</strong>，并降低宣战成本、和约成本与殖民定居门槛。</li>
+  <li><strong>外交声誉变化与作用</strong>：君主每点 DIP(+0.05)、教士高满意度(×2)、王室力量(满 +2)、文化影响力(+2)、改革《传统外交伦理》(+3)提升（违约扣 −1）；提高外交接受度，且<strong>每 1 点声誉降低新产生敌意 −4%</strong>。</li>
+  <li><strong>力量投射变化与作用</strong>：列强(+10)/区域强权(+5)、每项已研革新(+0.05)、强权野心革新(+5~+10)、王室力量(满 +5)、外向价值观(满 +5)提升；<strong>每 1 点提供全国整合速度 +1%、政治影响力月获取 +1%</strong>，并降低宣战与殖民门槛。</li>
 </ul>
 </div>
 """
@@ -688,6 +743,7 @@ CHAPTERS_6_10 = [
                 "html": f"""
 <div class="formula-box">
 <strong>和约索取单处地点产生的「{T('antagonism','敌意（AE）')}」计算链：</strong> {M('antagonism_ae')}<br>
+<span class="base-inline">基准值</span>初始敌意为 <strong>0 点</strong>；敌意产生修正与衰减修正基准均为 <strong>0%</strong>；和平期基础年度消退：割地敌意 <strong>2.0 点 / 年</strong>、和约其他条款 <strong>3.0 点 / 年</strong>；包围网入网双硬线：<strong>敌意 &gt; 50 且好感 &lt; −50</strong>。<br>
 <code>单地点原始敌意 = 0.4 + 0.04 × 发展度 + 0.4 × log₂(发展度)</code>（例如发展度 20 的地点原始贡献约 <strong>2.93</strong> 点）
 <ul>
   <li><strong>交战方与条款层修正</strong>：进攻国每点列强积分 +1%（封顶 +25%），防守国每点 −1%（最多 −50%）；索取非主战目标领土 +15%；每点外交声誉 <strong>−4%</strong>；<strong>将地点直接授予己方属国 −50%</strong>；建筑型国家基础层 −85%、宗主国观察自己属国扩张 −90%。</li>
@@ -709,16 +765,18 @@ CHAPTERS_6_10 = [
 </ul>
 
 <div class="formula-box">
-<strong>属国忠诚度（≥50 为合格线）与「外交吞并进度」完整公式：</strong> {M('subject_loyalty_annexation')}
-<ol>
-  <li><strong>属国忠诚度核心分项</strong>：好感每点 <strong>+0.15</strong>、信任每点 <strong>+0.10</strong>、君主每点 DIP <strong>+0.10</strong>、地方分权价值观满端 <strong>+30</strong>（中央集权满端 −20）；<br>
-    • <strong>属国集团相对实力惩罚</strong> = <code>−60 × max(0, 全体属国在宗属总军力/收入/人口中的综合份额 − 0.20)</code>（如占 35% 即扣 <code>60 × 0.15 = −9</code> 点忠诚；独立运动另最多扣 −20）；<br>
-    • <strong>{T('subject_territory_connectivity','属国领土连通度')}（0–100 分）</strong>：陆路 = <code>max(0, 100 − Σ[20 × (1 − 途经地区平均控制力)])</code>（经过 3 个控制力 100%/80%/50% 的地区得 86 分；海路看进出口港海上存在与航程，断连为 0 分）。</li>
-  <li><strong>外交吞并总成本与每月速度</strong>：<br>
-    • <code>基础总点数 = 50 + 10 × 属国拥有地点数</code>（受各地点整合成本修正调整）；<br>
-    • <code>每月吞并进度 = (全国基础 0.5 + 外交预算投入 0~0.5) × 类型速度系数 × (1 + 中央集权[+33%] + 属国忠诚×0.2%[满+20%] + 同主流文化/文化影响差加成 − 50% × 额外同时吞并国数)</code>。<br>
-    <em>注意：每多同时吞并 1 个属国，所有在吞目标的速度修正均扣减 <strong>−50 个百分点</strong>，通常宜逐个集中吞并。</em></li>
-</ol>
+<strong>① 附属国忠诚度与连通度（Subject Loyalty &amp; Connectivity）</strong> {M('subject_loyalty')}<br>
+<span class="base-inline">基准值</span>属国忠诚度范围 <strong>0–100 点</strong>，顺从合格门槛基准为 <strong>50 点</strong>；全体属国综合实力免罚阈值基准为宗属总和的 <strong>20%</strong>；陆路领土连通度满分基准为 <strong>100 分</strong>。
+<ul>
+  <li><strong>正向与负向变化</strong>：好感每点 <strong>+0.15</strong>、信任每点 <strong>+0.10</strong>、君主每点 DIP <strong>+0.10</strong>、地方分权满端 <strong>+30</strong>（中央集权满端 −20）；<strong>集团实力超标惩罚</strong> = <code>−60 × max(0, 全体属国综合份额 − 0.20)</code>；<strong>{T('subject_territory_connectivity','领土连通度')}</strong> = <code>max(0, 100 − Σ[20 × (1 − 途经地区平均控制力)])</code>。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>② 外交吞并总成本与每月吞并进度（Diplomatic Annexation Speed）</strong> {M('annexation_speed')}<br>
+<span class="base-inline">基准值</span>吞并固定起底成本基准为 <strong>50 点</strong> + 每处属国地点 <strong>10 点</strong>；国家基础吞并速度为 <strong>+0.50 点 / 月</strong>（满外交预算另供 +0.50 点/月，合计 1.0 点/月基数）；交界控制力门槛 <strong>≥ 35%</strong>。<br>
+• <code>每月吞并进度 = (全国基础 0.5 + 外交预算投入 0~0.5) × 类型速度系数 × (1 + 中央集权[+33%] + 属国忠诚×0.2%[满+20%] + 同主流文化/文化影响差加成 − 50% × 额外同时吞并国数)</code>。<br>
+<em>注意：每多同时吞并 1 个属国，所有在吞目标的速度修正均扣减 <strong>−50 个百分点</strong>，宜逐个单线吞并。</em>
 </div>
 """
             },
@@ -749,8 +807,8 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
-            ("外交容量与声誉 267 项来源反查", "metrics.html#diplo_capacity_reputation"),
-            ("属国忠诚与吞并 124 项来源反查", "metrics.html#subject_loyalty_annexation"),
+            ("外交容量 / 外交声誉 / 力量投射独立反查", "metrics.html#diplo_capacity"),
+            ("属国忠诚度 / 外交吞并速度独立反查", "metrics.html#subject_loyalty"),
             ("194 项外交行动 & 37 类国际组织", "ledgers.html#diplomatic_actions"),
             ("22 种属国类型完整数据表", "ledgers.html#subject_types"),
         ],

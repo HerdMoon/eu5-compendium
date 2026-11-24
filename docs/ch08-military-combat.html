@@ -132,14 +132,17 @@
 </table></div>
 
 <div class="formula-box">
-<strong>核心数值拆解：月度人力（Manpower）与水手（Sailors）从哪里来？</strong> <a class="metric-jump" href="metrics.html#manpower_sailors_maritime">查全部游戏修正来源 →</a><br>
-<code>全国月产量 = Σ[各地点设施满员产出 × (1 + 本地修正) × max(10%, 本地当前控制力)] × (1 + 全国人力/水手百分比修正)</code><br>
-<code>全国最大储存上限 = 全国月产量 × 12 × 5（即 60 个月的月产量）</code>
-<ul>
-  <li><strong>五级陆军人力建筑（每级满员基础月产出）</strong>：军械库（Armory）/ 训练场（Training Fields）<strong>+10 人/月</strong>（对应 600 上限） → 军营（Barracks）<strong>+15</strong> → 军团营地（Regimental Camp）<strong>+20</strong> → 征兵中心（Conscription Center）<strong>+25 人/月</strong>（中国文化组早期专属「戍营」为 +2.5 人/月）。</li>
-  <li><strong>五级海军水手建筑（沿海港口雇用士兵，每级满员基础月产出）</strong>：码头（Dock）<strong>+16 水手/月</strong>（对应 960 上限） → 干船坞（Dry Dock）<strong>+32</strong> → 船厂（Shipyard）<strong>+64</strong> → 大船厂（Grand Shipyard）<strong>+125</strong> → 海军基地（Naval Base）<strong>+200 水手/月</strong>。</li>
-  <li><strong>编组与军费对商品价格的敏感度</strong>：传统时代一团步卒（500 人，战力 1.0，占宽 1）维护耗武器 0.10 + 皮革 0.06（基准值 0.48）；一团重装骑手（200 人，战力 2.6，占宽 1）维护耗战马 1.0 + 武器 0.20 + 工具 0.20 + 皮革 0.10 + 布匹 0.10（基准值 4.80，战马单价翻倍时物资成本即涨 62.5%）。此外，当全军<strong>没有任何单一兵种团数占比达到或超过 50%</strong> 时，自动激活 <strong><button type="button" class="term" data-concept="combined_arms">兵种混编（Combined Arms）</button></strong> 加成（如轻步、重步、重骑各 2 团合格；3 轻步 + 2 重步 + 1 重骑因轻步达 50% 失效）。</li>
-</ul>
+<strong>① 月度人力与最大人力池（Manpower）</strong> <a class="metric-jump" href="metrics.html#manpower">查人力来源 →</a> · <a class="metric-jump" href="metrics.html#levy_efficiency">查征召兵修正 →</a><br>
+<span class="base-inline">基准值</span>无军事兵源建筑时，国家基础月度常备人力为 <strong>0 人 / 月</strong>；全国最大人力储量上限基准固定为 <strong>60 个月（5 年）</strong>的月产量；每地点同时招募队列基准为 <strong>1</strong>。<br>
+<code>全国月人力 = Σ[各地点陆军建筑满员产出 × (1 + 本地修正) × max(10%, 本地当前控制力)] × (1 + 全国人力百分比修正)</code><br>
+• <strong>五级陆军建筑每级满员基础月产</strong>：军械库 / 训练场 <strong>+10 人/月</strong>（+600 上限） → 军营 <strong>+15</strong> → 军团营地 <strong>+20</strong> → 征兵中心 <strong>+25 人/月</strong>（中国早期「戍营」+2.5/月），再由数量价值观、征兵法律与军事革新放大。
+</div>
+
+<div class="formula-box">
+<strong>② 月度水手与最大水手池（Sailors · 与人力相互独立）</strong> <a class="metric-jump" href="metrics.html#sailors">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>无港口海事建筑时，国家基础月度水手为 <strong>0 人 / 月</strong>；全国最大水手储量上限基准同样为 <strong>60 个月（5 年）</strong>的月产量。<br>
+• <strong>五级沿海港口建筑每级满员基础月产</strong>：码头 <strong>+16 水手/月</strong>（+960 上限） → 干船坞 <strong>+32</strong> → 船厂 <strong>+64</strong> → 大船厂 <strong>+125</strong> → 海军基地 <strong>+200 水手/月</strong>。<br>
+• <strong>编组维护与混编基准</strong>：骑兵等精锐物资维护随战马/武器市价浮动；当全军<strong>没有任何单一兵种团数占比 ≥ 50%</strong> 时，每类占比 ≥10% 的兵种基准提供 <strong>+2.5% <button type="button" class="term" data-concept="combined_arms">兵种混编</button></strong> 加成。
 </div>
 
 </section><section id="battle-mechanics" class="mech-section">
@@ -157,17 +160,35 @@
 </table></div>
 
 <div class="formula-box">
-<strong>单次交火伤害组成与核心军事数值影响因素：</strong> <a class="metric-jump" href="metrics.html#discipline_tactics">查训练与战术来源 →</a> · <a class="metric-jump" href="metrics.html#morale_initiative">查士气与主动性来源 →</a><br>
-<code>单日兵力伤害 ∝ 当日有效骰点项 × 攻击方有效火力 × 基础刻度（陆兵0.04/陆士0.25；海船0.0625/海士0.05） × (1 + 攻方训练度) ÷ [(1 + 守方训练度) × 守方军事战术] × (1 − 0.5 × 守方经验比例) × 未接敌惩罚</code>
-<ul>
-  <li><strong>D10 骰点换算与地形惩罚</strong>：画面掷出的 1–10 在内部按 <code>0–9</code> 起算，加上伤害基数 <code>5</code> 及将领、地形（山地守方 +2、疏林 +1；攻方渡河 −1、渡海峡 −2、登陆 −1；已在围城部队遭守方反击按原地判，不吃移入渡河惩罚），上限封顶为 <strong>15</strong>。</li>
-  <li><strong>未接敌前排挨打惩罚</strong>：已进入前线但尚未通过接敌检定的单位受击时，承受<strong>兵力伤害 ×1.10、士气伤害 ×1.20</strong>！提高将领 DIP（每点 +1% 主动性）与选用高主动性兵种可抢先接敌集火。</li>
-  <li><strong><button type="button" class="term" data-concept="discipline">训练度（Discipline）</button></strong>：同时放大本方造成的伤害并作为除数降低本方承伤。主要来源：将领 MIL（每点 +0.1%）、游牧团结满端（+10%）、质量/进攻社会价值观、贵族与骑士团特权、军事改革与时代革新（陆军征召兵天生 −20%）。</li>
-  <li><strong><button type="button" class="term" data-concept="military_tactics">军事战术（Military Tactics）</button></strong>：基础 1.00，直接作为除数减免承伤（如战术升至 2.00 时承伤减半！），主要由各时代核心军事革新提供——跨代科技压制最为致命。</li>
-  <li><strong>部队经验与合并保留公式</strong>：满 100% 经验减免 <strong>50%</strong> 陆海承伤；合并残编兵团时按人数加权保留经验 <code>Σ(人数 × 原经验) ÷ 总人数</code>。</li>
-  <li><strong>陆军士气（基础 3.0）与陆军传统</strong>：君主每点 MIL +0.1% 士气，将领每点 DIP +0.2% 士气，满 100 陆军传统提供<strong>陆军士气 +20%、围城能力 +10%</strong>；反之每 1 点厌战度扣减 <strong>−2.5% 陆海军士气</strong>！</li>
-</ul>
+<strong>单次交火伤害组成总式：</strong><br>
+<code>单日兵力伤害 ∝ 当日有效骰点项(D10换0~9 + 基数5 ± 将领/地形，封顶15) × 攻击方有效火力 × 基础刻度（陆兵0.04/陆士0.25；海船0.0625/海士0.05） × (1 + 攻方训练度) ÷ [(1 + 守方训练度) × 守方军事战术] × (1 − 0.5 × 守方经验比例) × 未接敌惩罚</code>
 </div>
+
+<div class="table-wrap"><table class="data-table">
+  <thead><tr><th>独立野战数值</th><th>官方基准值与范围</th><th>结算作用与全部正负变化来源</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>① <button type="button" class="term" data-concept="discipline">训练度</button></strong><br>Discipline<br><a class="metric-jump" href="metrics.html#discipline">查训练度来源 →</a></td>
+      <td>常备军初始修正基准 <strong>0%</strong>（乘除基数 <strong>1.00×</strong>）；陆军征召兵自带 <strong>−20%</strong></td>
+      <td>同时放大本方输出并作为除数降低承伤。由将领 MIL(每点 +0.1%)、满游牧团结(+10%)、质量/进攻价值观、贵族与骑士团特权、军事改革与革新提升</td>
+    </tr>
+    <tr>
+      <td><strong>② <button type="button" class="term" data-concept="military_tactics">军事战术</button></strong><br>Military Tactics<br><a class="metric-jump" href="metrics.html#military_tactics">查战术来源 →</a></td>
+      <td>国家基础军事战术基准 <strong>1.00</strong>（兵种混编单类 &lt;50% 时每类基准 <strong>+2.5%</strong>）</td>
+      <td>直接做除数减免承伤（升至 2.00 时承伤减半！）；主要由各时代核心火器与阵型革新拉开代差。部队满 100% 经验另减 50% 承伤（月自然衰减基准 5%，正规军 −1%）</td>
+    </tr>
+    <tr>
+      <td><strong>③ 陆海军士气</strong><br>Morale<br><a class="metric-jump" href="metrics.html#morale">查士气来源 →</a></td>
+      <td>传统时代陆军基准约 <strong>3.0</strong>（崩溃线 0.05）；月恢复基准 <strong>5%</strong>（友境另 +25%）</td>
+      <td>君主每点 MIL +0.1%，将领每点 DIP +0.2%，满陆/海军传统各 +20%。无将领部队直接 <strong>−20%</strong>，每 1 点厌战度扣 <strong>−2.5% 陆海军士气</strong>，破产 60 个月内 −90%</td>
+    </tr>
+    <tr>
+      <td><strong>④ 接战主动性与宽度</strong><br>Initiative &amp; Frontage<br><a class="metric-jump" href="metrics.html#initiative">查主动性来源 →</a></td>
+      <td>按日模式基础接敌率 <strong>60%</strong>（主动性加成基准 0%，封顶 +30%）；地点基础宽度 <strong>10</strong></td>
+      <td>未接敌前排单位挨打额外承伤 <strong>×1.10（兵力）/ ×1.20（士气）</strong>；将领每点 DIP +1% 主动性，每点 MIL +0.5% 参战速度，每点 ADM +0.1% 宽度（山地宽度 −4、疏林 −2）</td>
+    </tr>
+  </tbody>
+</table></div>
 
 </section><section id="prisoners-overrun" class="mech-section">
   <h2>03 · 10∶1 与 2∶1 压倒性溃灭及战俘（Prisoners）处置</h2>
@@ -185,9 +206,16 @@
 <p><button type="button" class="term" data-concept="fortification">要塞</button> 对周边邻接格投射 <strong><button type="button" class="term" data-concept="zone_of_control">要塞控制区（ZoC）</button></strong>：敌军踏入邻接敌堡的地点后，必须先攻克该要塞才能继续穿行至同一要塞控制的其他敌方地点；而己方（含直属宗主与直属属国）受控要塞的 ZoC 则保护友军免受包括严冬在内的一般本地损耗（黑死病等不可避免损耗除外）。注意行军进度达 <strong>50%</strong> 时锁定移动去向。</p>
 
 <div class="formula-box">
-<strong>围城阶段时长与 D14 判定公式：</strong> <a class="metric-jump" href="metrics.html#siege_fort_supply">查全部游戏修正来源 →</a><br>
-• <strong>兵力门槛与阶段天数</strong>：无工事地点需 ≥100 人，基础每阶段 15 天；有要塞地点<strong>围城兵力必须 ≥ 当前守军人数</strong>，基础每阶段 <strong>30 天</strong>（受攻方「围城能力」与守方「要塞防御」加减修正，最短 7 天；将领每点 ADM 给 +0.1% 围城能力）。<br>
-• <code>阶段检定总点 = 原始骰点(1–14) + 累积围城进度 + 炮兵加值(基础上限 +5) + 城墙缺口数(最多 3 处，每处 +2) − 要塞等级 − 未封锁沿海港口罚点(−1)</code>
+<strong>① 围城能力与炮兵围攻加值（攻方指标）</strong> <a class="metric-jump" href="metrics.html#siege_ability">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>全国围城能力修正初始基准为 <strong>0%</strong>；无工事阶段基准 <strong>15 天</strong>，有要塞阶段基准 <strong>30 天</strong>（最短下限 7 天）；炮兵对要塞检定加值上限基准为 <strong>+5</strong>（最多 3 处缺口）。<br>
+• 攻城将领每点 ADM +0.1% 围城能力，满陆军传统 +10% 围城能力；<strong>围城兵力必须 ≥ 当前守军人数</strong>否则进度冻结。<br>
+• <code>阶段检定总点 = 原始骰点(1–14) + 累积围城进度 + 炮兵加值(基准上限 +5) + 城墙缺口数(×2) − 要塞等级 − 未封锁沿海港口罚点(−1)</code>
+</div>
+
+<div class="formula-box">
+<strong>② 要塞防御、要塞上限与驻军规模（守方指标 · 与围城能力独立）</strong> <a class="metric-jump" href="metrics.html#fort_defensive">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>全国与本地要塞防御（<code>global/local_defensive</code>）修正基准均为 <strong>0%</strong>；国家免超额要塞上限基准为 <strong>1 座</strong>（王国 +1、帝国 +2）；本地驻军补充速度基准为 <strong>+1% / 月</strong>。<br>
+• <code>单阶段实际天数 = 30 × (1 + 守方要塞防御 − 攻方围城能力)</code>（每 +10% 要塞防御拖慢敌方每轮 3 天；每 1 点厌战度反扣 −2.5% 全国要塞防御）。
 </div>
 
 <div class="table-wrap"><table class="data-table">
@@ -208,7 +236,11 @@
   <h2>05 · 补给上限、超载耗粮、补给站与海陆粮道</h2>
   <span class="sec-en">Supply Limit, Overstacking Food Penalty, Supply Depots &amp; Naval Food</span>
   
-<p>部队将麾下各兵团重量加总与所在地点的 <strong><button type="button" class="term" data-concept="supply_limit">补给上限</button></strong>（基础上限 × (1 + 补给修正)，本国领地另享 +25% 关系加成）比较：</p>
+<div class="formula-box">
+<strong>补给上限、后勤距离与损耗（Supply Limit &amp; Attrition）</strong> <a class="metric-jump" href="metrics.html#supply_attrition">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>地点基础补给上限为 <strong>15</strong>（<code>location_base_values</code>，本国领地另享 +25% 关系加成）；地点最大损耗上限基准为 <strong>10%</strong>；国家陆军后勤距离基准为 <strong>30</strong>；补给站容量基准为 <strong>1,000</strong>。
+</div>
+<p>部队将麾下各兵团重量加总与所在地点的 <strong><button type="button" class="term" data-concept="supply_limit">补给上限</button></strong> 比较：</p>
 <ul>
   <li><strong>超载最多 4 倍耗粮与撤退丢粮</strong>：超出当地补给上限不会立即直接死人，而是按超载比例增加部队军粮消耗，额外耗粮封顶 <strong>+300%（即总耗粮变为正常值的 4 倍）</strong>，迅速抽干随军携带军粮（辅助团每千人携粮系数高达 3,000、耗粮仅 0.2，是远征军的核心粮车）。一旦随军军粮耗尽断粮，即刻触发高额缺粮月度损耗；且陆军战败撤退时会直接损失随身携带军粮的 <strong>50%</strong>。</li>
   <li><strong>前线三条合法补粮渠道</strong>（受后勤距离限制，敌军与敌方要塞 ZoC 会截断后勤线）：<br>
@@ -235,7 +267,7 @@
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#discipline_tactics" class="btn-pill">训练度与战术 159 项来源反查</a> · <a href="metrics.html#siege_fort_supply" class="btn-pill">围城与补给 123 项来源反查</a> · <a href="ledgers.html#unit_types" class="btn-pill">401 种陆海军单位完整数值表</a> · <a href="lab.html#calc" class="btn-pill">接敌概率与兵种混编计算器</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#discipline" class="btn-pill">训练度 / 军事战术 / 士气独立反查</a> · <a href="metrics.html#fort_defensive" class="btn-pill">围城能力 / 要塞防御 / 补给独立反查</a> · <a href="ledgers.html#unit_types" class="btn-pill">401 种陆海军单位完整数值表</a> · <a href="lab.html#calc" class="btn-pill">接敌概率与兵种混编计算器</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">

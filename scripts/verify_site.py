@@ -127,8 +127,13 @@ def main() -> int:
     metrics = json.loads(metrics_raw[metrics_raw.index("{"):metrics_raw.rindex("}") + 1])
     flagships = metrics.get("flagships", [])
     modifiers = metrics.get("modifiers", [])
-    if len(flagships) < 30:
-        errors.append(f"Expected >= 30 flagship metrics, found {len(flagships)}")
+    if len(flagships) < 60:
+        errors.append(f"Expected >= 60 separated flagship metrics, found {len(flagships)}")
+    for fm in flagships:
+        if not fm.get("base_value"):
+            errors.append(f"Flagship {fm.get('id')} missing base_value")
+        if not fm.get("sub_modifiers"):
+            errors.append(f"Flagship {fm.get('id')} missing sub_modifiers")
     if len(modifiers) < 1300:
         errors.append(f"Expected >= 1300 modifiers in metrics-data.js, found {len(modifiers)}")
 

@@ -132,13 +132,21 @@ CHAPTERS_1_5 = [
 </table>
 
 <div class="formula-box">
-<strong>核心数值拆解：省份整合速度（Integration Speed）受哪些因素影响？</strong> {M('integration_speed')}
+<strong>① 省份整合速度（Province Integration Speed）</strong> {M('integration_speed')}<br>
+<span class="base-inline">基准值</span>省份基础整合速度为 <strong>+0.10 / 月</strong>（<code>province_base</code>），全国与本地整合速度百分比修正基准为 <strong>0%</strong>，进度满值 <strong>100 点</strong>；单省所含地点 <strong>≤ 5 个</strong> 时无大省减速。
 <ul>
-  <li><strong>君主与执政大臣能力</strong>：「整合省份（<code>integrate_province</code>）」属于军事（MIL）内阁行动，其实际速率 = <code>基础进度 × (1 + 0.005 × 君主 MIL + 0.005 × 大臣 MIL + 全国内阁效率 + 大臣个人效率) × (1 + 整合速度修正)</code>。例如 1337 年莫斯科样本：君主 MIL 70（+35%）、首脑大臣 MIL 60（+30%，首脑个人效率 +25%）、全国内阁效率 +15.07%，合计增幅 +105.07%，基础速度 1 变为 <strong>2.05/月</strong>。</li>
-  <li><strong>省份规模与城乡层级阻力</strong>：单个省份所含地点超过 <strong>5 个</strong> 时触发大省减速修正；城镇、城市及稠密人口地点的整合所需工作量高于乡村。</li>
-  <li><strong>文化亲缘与国家力量投射</strong>：目标地为已接纳文化或本国文化影响力压制当地文化传统时整合更快；国家每拥有 1 点 {T('power_projection','力量投射')} 提供 <strong>+1% 全国整合速度</strong>。</li>
-  <li><strong>制度、官僚与国际组织加成</strong>：集权行政改革、法典政策、时代革新以及国际组织领袖「行政定向投资」（+20% 整合速度）均可叠加提速。</li>
-  <li><strong>进度倒退情形</strong>：爆发叛乱当即扣除 10 点整合进度；遭敌军占领每月流失 0.025；丧失所有权后每月流失 0.10。剧本初始非己方持有的历史核心默认保留 100 年。</li>
+  <li><strong>正向提升变化——君臣能力与内阁效率</strong>：「整合省份（<code>integrate_province</code>）」属于军事（MIL）内阁行动，实际月进度 = <code>基础进度 × (1 + 0.005 × 君主 MIL + 0.005 × 大臣 MIL + 全国内阁效率 + 大臣个人效率) × (1 + 整合速度修正)</code>。如 1337 年莫斯科样本：君主 MIL 70（+35%）、首脑大臣 MIL 60（+30%，首脑个人效率 +25%）、全国内阁效率 +15.07%，合计增幅 +105.07%，月进度翻倍至 <strong>2.05×</strong>。</li>
+  <li><strong>正向提升变化——亲缘、投射与制度</strong>：国家每 1 点 {T('power_projection','力量投射')} 提供 <strong>+1% 全国整合速度</strong>；已接纳文化或高文化影响力差、集权行政改革、法典政策、时代革新及国际组织领袖「行政定向投资」（+20%）叠加提速。</li>
+  <li><strong>负向减速与进度倒退</strong>：单省超过 <strong>5 个地点</strong>触发大省减速；城市与大都市整合所需总工作量高于乡村；爆发叛乱当即扣除 <strong>−10 点</strong>进度；被敌军占领每月流失 <strong>−0.025</strong>；丧失所有权后每月流失 <strong>−0.10</strong>。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>② 核心晋升门槛与分离主义（Core Threshold &amp; Separatism）</strong> {M('core_separatism')}<br>
+<span class="base-inline">基准值</span>核心晋升文化占比硬门槛为 <strong>≥ 50%</strong>（<code>NCulture.CORE_THRESHOLD = 0.50</code>，仅计主流文化 + 已接纳文化）；分离主义基准：未整合征服地 <strong>+0.50</strong>、已整合地 <strong>+0.10</strong>、殖民地与核心地 <strong>0</strong>（剧本非己方持有的历史核心默认保留 100 年）。
+<ul>
+  <li><strong>跨越 50% 核心线变化路径</strong>：「已整合」或「殖民地」地点一旦主流与已接纳文化人口占比 ≥50%，无需额外花费自动晋升核心；可通过花 25 政治影响力将当地文化设为「已接纳文化」即时达标，或派 DIP 内阁执行「推广文化」逐步同化达标（注意：相容文化不计入 50% 门槛）。</li>
+  <li><strong>降低分离主义变化路径</strong>：完成整合（+0.50 → +0.10）、晋升核心（→ 0），或叠加人文主义价值观、宽容法案与时代革新的全国/本地分离主义减免。</li>
 </ul>
 </div>
 """
@@ -166,7 +174,8 @@ CHAPTERS_1_5 = [
                 "html": f"""
 <p>{T('proximity','邻近度（Proximity）')} 衡量行政指令从权力中心传抵各地点的通畅程度（范围 0–100 点）。系统自动在所有可用水陆连接中寻找<strong>累计损耗最低的最优路径</strong>：</p>
 <div class="formula-box">
-<strong>地点邻近度计算公式：</strong><br>
+<strong>行政邻近度（Proximity）基准值与计算公式：</strong> {M('proximity')}<br>
+<span class="base-inline">基准值</span>取值范围 <strong>0–100 点</strong>；现首都源头基准 <strong>100 点</strong>（历史首都 / 地方与海军总督治所基准 <strong>80 点</strong>）。单跳基础损耗基准：无路陆地 <strong>40</strong>、砂石路 <strong>20</strong>、顺逆流河道 <strong>12</strong>、封冻水面 <strong>20</strong>、进出港口 <strong>35</strong>、无海上存在海格 <strong>30</strong>（100% 存在海格基准 <strong>5</strong>）；传播效率与地形修正初始基准均为 <strong>0%</strong>。<br>
 <code>地点最终邻近度 = max(0, 起点辐射强度 − Σ 沿途每跳实际损耗)</code><br>
 <code>单跳陆地/河道实际损耗 = 路段基础损耗 ÷ [(1 + 邻近度传播效率之和) × (1 + 本地地形与植被修正)]</code>（分母保底 0.25）
 </div>
@@ -211,19 +220,21 @@ CHAPTERS_1_5 = [
 <p>每个地点的当前 {T('control','控制力')} 按月向该地点的 <strong>{T('max_control','最大控制力')}</strong> 靠拢。控制力直接决定国家能从该地点提取多少资源：<code>地点税基 = 地点月财富 × 当前控制力</code>（余下 <code>1 − 当前控制力</code> 的 {T('uncontrolled_wealth','未受控财富')} 全额归入当地各阶层金库）；常备人力与水手建筑产出乘 <code>max(10%, 当前控制力)</code>；征召兵动员额、人口同化与改宗速度以及对外国市场的保护力（<code>当前控制力 × 0.50</code>）同样随控制力成比例增减。</p>
 
 <div class="formula-box">
-<strong>最大控制力（Max Control）合成公式与影响因素：</strong> {M('max_control')}<br>
+<strong>① 最大控制力上限（Max Control）</strong> {M('max_control')}<br>
+<span class="base-inline">基准值</span>取值范围 <strong>0%–100%</strong>；0 邻近度、无建筑修正的殖民地乡村基准上限为 <strong>0%</strong>（未整合征服地自带 −10% 压至 0%，已整合 +5%，核心 +20%；现首都固定另加 +20%，历史首都 +10%）。<br>
 <code>最大控制力 = 邻近度 × 0.75 + 领土整合项 + 聚落与首都项 − 10% × (1 − 当地平均人口满意度) + 建筑/驻军/制度/内阁修正</code>
 <ul>
-  <li><strong>邻近度主干</strong>：邻近度每 1 点贡献 <strong>+0.75 个百分点</strong>（首都邻近度 100 即 +75%）。</li>
-  <li><strong>领土整合项</strong>：未整合 <strong>−10%</strong>、殖民地 <strong>0%</strong>、已整合 <strong>+5%</strong>、核心 <strong>+20%</strong>。</li>
-  <li><strong>聚落等级与首都地位</strong>：乡村 <strong>0%</strong>、集镇 <strong>+5%</strong>、城市 <strong>+10%</strong>、大都市 <strong>+20%</strong>；现首都另加 <strong>+20%</strong>，历史首都 <strong>+10%</strong>。</li>
-  <li><strong>人口满意度与政体低端惩罚</strong>：当地人口平均满意度为 60% 时扣减 <code>10% × 0.40 = −4%</code>；君主正统性、共和传统、奉献度或游牧团结低于 50 时，按 <code>−20% × (100 − 当前值) ÷ 100</code> 扣减全国最大控制力（如正统性 40 点扣减 −12 个百分点！）。</li>
-  <li><strong>建筑、内阁与战时状态</strong>：地方议会、议会大厅、乡村执达署提升本地上限；ADM 内阁「提升省份控制力」基础提供 <strong>+10% 最大控制力</strong>（经君臣能力与内阁效率放大后可达 +18% 以上）；遭敌海军封锁扣 <strong>−10%</strong>；部分贵族分权特权扣减乡村或全国最大控制力。</li>
+  <li><strong>正向提升变化</strong>：① 邻近度每 1 点贡献 <strong>+0.75 个百分点</strong>（100 点即 +75%）；② 整合晋升：未整合(−10%) → 已整合(+5%) → 核心(+20%)；③ 聚落升格：集镇 <strong>+5%</strong>、城市 <strong>+10%</strong>、大都市 <strong>+20%</strong>；④ 地方议会、议会大厅、乡村执达署建筑与 ADM 内阁「提升省份控制力」（基础 <strong>+10% 上限</strong>，乘内阁倍率可达 +18%+）。</li>
+  <li><strong>负向扣减变化</strong>：① 人口平均满意度低于 100% 时按 <code>10% × (1 − 满意度)</code> 扣减（60% 满意度扣 −4%）；② 政体资源（正统性/共和传统/奉献度/游牧团结）低于 50 时，按 <code>−20% × (100 − 当前值) ÷ 100</code> 扣减全国上限（40 正统性扣 −12%！）；③ 遭敌海军封锁扣 <strong>−10%</strong>；贵族分权特权扣减乡村或全国上限。</li>
 </ul>
-<strong>月度控制力变化（Monthly Control）：</strong>
+</div>
+
+<div class="formula-box">
+<strong>② 月度控制力变化（Monthly Control Drift · 与上限相互独立）</strong> {M('monthly_control')}<br>
+<span class="base-inline">基准值</span>低于上限时，地点基础恢复速度为 <strong>+0.05% / 月</strong>（<code>location_base_values = 0.0005</code>）；高于上限时，全国固定衰减基准为 <strong>−0.50% / 月</strong>（<code>country_base_values = 0.005</code>）。
 <ul>
-  <li><strong>高于上限时</strong>：固定每月衰减 <strong>−0.50 个百分点</strong>（破产当日还会一次性按原值削减 33% 控制力）。</li>
-  <li><strong>低于上限时</strong>：基础每月恢复 +0.05%，核心/殖民地 +0.10%，有道路连通首都 +0.05%，当地贵族平均识字率最高贡献 +1.00%/月，配合 ADM 内阁「提升省份控制力」（基础 +1.00%/月）可快速拉满新整合富庶省。</li>
+  <li><strong>正向加速爬升</strong>：核心或殖民地额外 <strong>+0.10%/月</strong>；道路连通首都 <strong>+0.05%/月</strong>；当地贵族平均识字率最高提供 <strong>+1.00%/月</strong>；ADM 内阁「提升省份控制力」基础提供 <strong>+1.00%/月</strong>（乘内阁倍率约 +1.83%/月）。</li>
+  <li><strong>负向跌落与瞬时削减</strong>：超出上限时按 −0.50%/月回落；国家宣布破产当日，全国所有地点当前控制力一次性按原值削减 <strong>−33%</strong>。</li>
 </ul>
 </div>
 <p><strong>实机复算对照（1337 年弗拉索沃）</strong>：该地为莫斯科核心乡村，到达邻近度约 65.24%（贡献 +48.93%）、核心 +20%，扣去少量人口满意度缺口后达到约 <strong>68.93% 控制力</strong>；当地月财富 0.64 金币，乘控制力后形成 <strong>0.44 金币税基</strong>，同时为莫斯科市场提供 <code>68.93 × 0.50 = 34.46</code> 点外国市场保护分。</p>
@@ -237,12 +248,13 @@ CHAPTERS_1_5 = [
 <p>{T('development','发展度（Development）')} 代表地点长期累积的开发水平（0–100）。每 <strong>1 点发展度</strong> 同时提供六项常驻收益：<strong>免费建筑容量 +1 级、人口容量修正 +2.5%、本地邻近度传播效率 +0.5%、原产（RGO）最大等级 +0.1 级、本地建造速度 +1%、市场中心吸引力 +0.2 点</strong>，并解锁纸张（需 20）、书籍（需 30）等高阶商品的人口消费门槛。</p>
 
 <div class="formula-box">
-<strong>每月发展度增长公式与影响因素：</strong> {M('development_prosperity')}<br>
-<code>每月发展度净增 = (月度平值来源之和) × (1 + 本地与全国月发展增长百分比修正之和)</code>
+<strong>发展度（Development · 长期开发存量，切勿与当期状态「繁荣度」混淆）</strong> {M('development')}<br>
+<span class="base-inline">基准值</span>发展度取值范围 <strong>0–100</strong>（按剧本历史初值起步）；普通地点<strong>每月固定发展度平值基准 = 0 点/月</strong>，本地与全国月发展增长百分比修正基准均为 <strong>0%</strong>（无平值注入时 <code>0 × 任何倍率 = 0</code>，不会自动增长；而「繁荣度」基准见 <a href="ch02-population-food.html#prosperity-devastation">第 02 章第 04 节对照表</a>）。<br>
+<code>每月发展度净增 = (本地月度平值来源之和) × (1 + 本地与全国月发展增长百分比修正之和)</code>
 <ul>
-  <li><strong>四大平值来源（Flat Monthly Development）</strong>：普通地点无免费基础平值，必须靠以下来源提供底数：① <strong>地点繁荣度</strong>：<code>0.004 × 繁荣比例</code>（繁荣 +50% 提供 +0.002/月，荒废 −50% 则倒扣 −0.002/月）；② <strong>ADM 内阁「发展省份」</strong>：每地基础 +0.0025/月（再乘内阁行动倍率）；③ <strong>殖民迁移进行中地点</strong>：+0.0025/月；④ <strong>制度与建筑</strong>：市民特权《城市发展补助》全国每地 +0.001/月、《自由经济协会》+0.001/月、贸易公司总部所在地 +0.01/月。</li>
-  <li><strong>地方百分比修正（Multiplier）</strong>：沿海 +10%、河流 1–5 档（+5%~+25%）、农田 +10%、有道路 +5%、道路连通首都另 +20%、当地市民平均识字率 ×25%（如 40% 识字给 +10%）；反之山地 −50%、丘陵 −25%、湿地/丛林 −30%、森林 −25%、沙漠 −33%、极地 −25%、围城/封锁各 −20%、被劫掠 −25%。</li>
-  <li><strong>实算示例</strong>：沿海(+10%)农田(+10%)地点，繁荣度 +50%(平值 0.002)，市民识字率 40%(+10%)，开启《城市发展补助》(+0.001)，内阁发展省份倍率 1.30(平值 0.00325)：月平值合计 <code>0.00625</code>，乘地方倍率 <code>1.30</code> 得每月 <strong>+0.008125</strong> 发展度（年增约 +0.0975）。</li>
+  <li><strong>第一类变化·月度平值来源（<code>local_monthly_development</code>）</strong>：① <strong>地点正繁荣度</strong>贡献 <code>0.004 × 繁荣比例</code>（+50% 繁荣提供 +0.002/月；负繁荣荒废 −50% 则倒扣 −0.002/月）；② <strong>ADM 内阁「发展省份」</strong>每地基础 +0.0025/月 × 内阁倍率；③ <strong>殖民迁移进行中地点</strong> +0.0025/月；④ 市民特权《城市发展补助》(+0.001/月)、《自由经济协会》(+0.001/月)、贸易公司总部所在地(+0.01/月)。</li>
+  <li><strong>第二类变化·百分比倍率修正（<code>local/global_monthly_development_modifier</code>）</strong>：正向含沿海 +10%、河流 1–5 档(+5%~+25%)、农田 +10%、有路 +5%、路通首都另 +20%、当地市民平均识字率 ×25%（40% 识字即 +10%）；负向含山地 −50%、沙漠 −33%、湿地/丛林 −30%、丘陵/森林/极地 −25%、被劫掠 −25%、围城与封锁各 −20%。</li>
+  <li><strong>实算示例</strong>：沿海(+10%)农田(+10%)地点，繁荣度 +50%(平值 0.002)，市民识字率 40%(+10%)，开启《城市发展补助》(+0.001)，内阁发展省份倍率 1.30(平值 0.00325) → 月平值合计 <code>0.00625</code> × 倍率 <code>1.30</code> = <strong>+0.008125 / 月</strong>（年增约 +0.0975）。</li>
 </ul>
 </div>
 
@@ -308,17 +320,38 @@ CHAPTERS_1_5 = [
 <p>每个地点的居民按「<strong>{T('pop_type','人口类型')} × {T('culture','文化')} × {T('religion','宗教')}</strong>」划分为独立的人群（{T('pop','Pops')}），共八类人口：上层阶级包括 {T('nobles','贵族')}、{T('clergy','教士')}、{T('burghers','市民')}；下层与军事劳动人口包括 {T('peasants','农民')}、{T('rgo_pops','劳工')}、士兵、部落民与 {T('slaves','奴隶')}。</p>
 
 <div class="formula-box">
-<strong>核心数值一：地点人口容量（Population Capacity）计算公式与影响因素</strong> {M('pop_capacity')}<br>
-<code>地点总人口容量 = 固定基础容量之和 × (1 + 容量百分比修正之和)</code>
+<strong>① 地点人口容量（Population Capacity）</strong> {M('pop_capacity')}<br>
+<span class="base-inline">基准值</span>固定基础容量由地表植被给定：农田 <strong>100,000</strong>、草地/森林 <strong>50,000</strong>、疏林 <strong>35,000</strong>、丛林/高原 <strong>25,000</strong>、荒原 <strong>10,000</strong>、沙漠 <strong>5,000</strong>；百分比容量修正初始基准为 <strong>0%</strong>；拥挤阻尼起点为容量的 <strong>60%</strong>，满载增长归零线为 <strong>100%</strong>。<br>
+<code>地点总人口容量 = 固定基础容量之和 × (1 + 本地与全国容量百分比修正之和)</code>
 <ul>
-  <li><strong>固定基础容量来源（Flat Capacity）</strong>：地表植被决定底数——农田 <strong>100,000</strong>、草地/森林 <strong>50,000</strong>、疏林 <strong>35,000</strong>、丛林/高原 <strong>25,000</strong>、荒原 <strong>10,000</strong>、沙漠 <strong>5,000</strong>；聚落等级另加固定值——集镇 <strong>+20,000</strong>、城市 <strong>+100,000</strong>、大都市 <strong>+400,000</strong>；赤道邻近度与灌溉设施等建筑提供额外固定额。</li>
-  <li><strong>百分比容量修正（Percentage Modifiers）</strong>：每 1 点发展度 <strong>+2.5%</strong>；每 1 级满员运作建筑 <strong>+0.1%</strong>；沿海 <strong>+25%</strong>；河流按水量 1–5 档 <strong>+10% ~ +50%</strong>；集镇/城市/大都市另加 <strong>+10% / +25% / +50%</strong>；气候带（温带、地中海、亚热带大幅加成，极地与严寒干旱扣减）。</li>
-  <li><strong>拥挤度影响</strong>：当 <code>当前人口 ÷ 总人口容量</code> 超过 <strong>60%</strong> 时自然出生率开始受阻尼压缩；达到或超过 <strong>100%</strong> 时正自然增长封顶为 0，并产生强烈迁出推力。</li>
+  <li><strong>固定容量增加变化</strong>：升格集镇 <strong>+20,000</strong>、城市 <strong>+100,000</strong>、大都市 <strong>+400,000</strong>，以及赤道邻近度与灌溉水利建筑固定额。</li>
+  <li><strong>百分比容量增减变化</strong>：每 1 点发展度 <strong>+2.5%</strong>、每 1 级满员建筑 <strong>+0.1%</strong>、沿海 <strong>+25%</strong>、河流 1–5 档 <strong>+10%~+50%</strong>、集镇/城市/大都市另加 <strong>+10% / +25% / +50%</strong>、温带/亚热带气候正修正；极地与严寒干旱气候大幅扣减百分比修正。</li>
 </ul>
-<strong>核心数值二：人口自然增长与阶级晋升速度（Promotion Speed）</strong> {M('pop_promotion')}
+</div>
+
+<div class="formula-box">
+<strong>② 人口自然增长率与预期寿命（Population Growth &amp; Life Expectancy）</strong> {M('pop_growth')}<br>
+<span class="base-inline">基准值</span>全国与本地附加人口增长率修正基准均为 <strong>0%</strong>（按年率显示、按 1/12 月结；占用 &lt;60% 容量时无阻尼，≥100% 容量时正增长封顶为 <strong>0%</strong>）；角色与人群预期寿命基准为 <strong>40 岁</strong>（<code>character_base_values = 40</code>）。
 <ul>
-  <li><strong>自然增长率（按年率显示，按月结算）</strong>：由省粮仓盈余、当地低粮价（低于基准 0.05 金币/食物）、正繁荣度、充足生活消费品、医院/修道院建筑、医药革新及战后 DIP 内阁「专注恢复」拉升；饥荒（年率 −5 个百分点）、被劫掠（持续 12 个月，年率 −0.5 个百分点）与疫病则会造成人口净减。</li>
-  <li><strong>阶级晋升（Promotion）与招工周期</strong>：新建建筑或扩建 RGO 只提供空岗位，必须等当地待业工人就位，或由农民按月「晋升」为劳工、市民、士兵、教士或贵族（预计填满月数 ≈ <code>岗位缺口人数 ÷ 当地每月可晋升人数</code>）。<strong>硬性限制</strong>：受忽视（Ignored）与受歧视（Discriminated）文化人群无法晋升上层岗位。提高晋升速度的主要手段包括：维持<strong>正稳定度</strong>（每 +1 点稳定度提供 +1% 升阶速度，+40 稳定即 +40%）、提高本地<strong>控制力</strong>与平民<strong>识字率</strong>、偏向「自由民」价值观、兴建教育建筑，以及派遣 ADM 内阁执行「鼓励城市化 / 促进人口升级」。</li>
+  <li><strong>正向增长变化</strong>：省粮仓充盈且市场粮价低于基准（0.05 金币/食物）、正繁荣度、基本生活消费品满足、医院/修道院建筑、卫生医药革新与战后 DIP 内阁「专注恢复」。</li>
+  <li><strong>负向衰减变化</strong>：省份饥荒施加 <strong>−5 个百分点/年</strong> 与寿命 −10 岁；被劫掠施加持续 12 个月 <strong>−0.5 个百分点/年</strong>；瘟疫与严冬直接削减存量人口。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>③ 人口阶级晋升速度（Pop Promotion Speed）</strong> {M('pop_promotion')}<br>
+<span class="base-inline">基准值</span>地点基础人口晋升速度为 <strong>+1 人 / 月</strong>（<code>location_base_values = 0.001 千人/月</code>），全国与本地晋升百分比修正基准均为 <strong>0%</strong>（闲置奴隶升级基准 +0.1%/月）。
+<ul>
+  <li><strong>文化准入前提</strong>：仅<strong>主流文化、已接纳文化与相容文化</strong>平民允许晋升为劳工、市民、士兵、教士或贵族；受忽视与受歧视文化人群晋升速度锁定为 <strong>0</strong>。</li>
+  <li><strong>正向提速变化</strong>：正稳定度（每 +1 点提供 <strong>+1% 晋升速度</strong>，+40 稳定即 +40%）、高本地控制力、高平民识字率、「自由民」价值观、教育建筑，以及 ADM 内阁「鼓励城市化 / 促进人口升级」。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>④ 人口阶级降级速度（Pop Demotion Speed · 与晋升相互独立）</strong> {M('pop_demotion')}<br>
+<span class="base-inline">基准值</span>地点基础人口降级速度为 <strong>+100 人 / 月</strong>（<code>location_base_values = 0.10 千人/月</code>，是基础晋升速度的 100 倍），降级百分比修正基准为 <strong>0%</strong>。
+<ul>
+  <li><strong>变化规则</strong>：当上层人口或专业工人因工坊亏损停工（无补贴时每月裁员 10%）、城池损毁或饥荒（上层容量 −50%、降级速度 <strong>+50%</strong>）失去岗位支持时，按降级速度回流为平民；对暂时亏损的战略工坊开启「政府补贴」可稳岗防降级。</li>
 </ul>
 </div>
 """
@@ -328,12 +361,23 @@ CHAPTERS_1_5 = [
                 "title": "02 · 人口迁徙吸引力与疫病抗性机制",
                 "en": "Migration Attraction & Disease Resistance Mechanics",
                 "html": f"""
-<p>除自然生老病死外，同一市场内部各地点按 <strong>{T('migration_attraction','迁徙吸引力')}</strong> 差值发生月度人口流动（前提是法律或阶层特权允许农民/劳工迁徙，如《平民迁徙权》开启自由流动，而农奴制法规锁死农民原地务农；奴隶不可自主迁徙）：</p>
+<div class="formula-box">
+<strong>① 人口迁徙吸引力与迁徙速度（Migration Attraction &amp; Speed）</strong> {M('migration_attraction')}<br>
+<span class="base-inline">基准值</span>地点基础迁徙吸引力为 <strong>+0.10</strong>（<code>location_base_values</code>），全国基础迁徙速度为 <strong>0.01% / 月</strong>（<code>country_base_values = 0.0001</code>）。默认迁移权限基准：贵族、教士、市民默认<strong>允许迁移</strong>；农民、劳工、士兵、部落民与奴隶默认<strong>关闭</strong>（需《平民迁徙权》、自由民法规或饥荒状态解锁）。
 <ul>
-  <li><strong>迁徙吸引力来源</strong> {M('pop_growth_migration', '查全部迁徙修正 →')}：充足空缺岗位、高发展度、正繁荣度、高人口满意度、城镇与市政设施提高吸引力；人口超出容量、建筑超出免费支持上限（每超 1 级扣 −0.01 吸引力）、饥荒（−1.0）与战乱则促使人口外流。</li>
-  <li><strong>征服后的双向人口流动</strong>：地点易主后，若当地原住民在新统治国处于受歧视地位，前 <strong>12 个月</strong> 内会向同文化母国加速外逃；同时新占领地对本国主流文化居民产生持续 <strong>25 年</strong> 递减的拓殖迁入拉力。</li>
-  <li><strong>疫病传播与 {T('disease_resistance','疫病抗性')}</strong> {M('disease_resistance', '查全部防疫修正 →')}：黑死病（鼠疫）、伤寒、天花、流感、疟疾及美洲大瘟疫等 8 类 {T('disease','疫病')} 各有独立结算间隔（如每 10–15 天检定一次）与传播权重。商路密集的港口和高密度大都市最易率先输入疫情；本地与全国「疫病抗性」（自然内在抗性上限 60%，医院、药房、引水渠、充足药材供应与卫生革新可提高抗性）直接降低感染与死亡比例。疫情过后幸存人群获得临时群体免疫抗性，再按病种月衰减率缓慢消退。注意气候边界：例如疟疾在大陆性、副极地与极地气候区的环境感染率为 0。</li>
+  <li><strong>正向提升吸引力变化</strong>：空缺工坊岗位、高发展度、正繁荣度、高人口满意度、城镇特权，以及新征服地点前 <strong>25 年</strong> 对本国主流文化自带的拓殖迁入拉力（<code>SETTLER_PULL_BASE = 2.0</code>）。</li>
+  <li><strong>负向推力（迫使外流）变化</strong>：省份饥荒直接扣 <strong>−1.00 吸引力</strong> 并强制开放底层逃荒（迁徙速度 +2.5%）；建筑超出受支持上限每超 1 级扣 <strong>−0.01 吸引力</strong>；人口超容量拥挤；新割让地受歧视原住民前 <strong>12 个月</strong> 加速向母国外逃（0.2%/月）。</li>
 </ul>
+</div>
+
+<div class="formula-box">
+<strong>② 疫病抗性（Disease Resistance）</strong> {M('disease_resistance')}<br>
+<span class="base-inline">基准值</span>全国与本地疫病抗性修正初始基准均为 <strong>0%</strong>；无额外设施时人群自然内在抗性封顶上限为 <strong>60%</strong>。
+<ul>
+  <li><strong>提升抗性变化</strong>：兴建医院、药房、引水渠、检疫港建筑；保持市场「药材（Medicaments）」充足供应；研发公共卫生与医学革新；疫后幸存人群获得按病种月衰减率缓慢消退的临时群体免疫。</li>
+  <li><strong>传播与气候边界</strong>：鼠疫（黑死病）、伤寒、天花、流感、疟疾等 8 类 {T('disease','疫病')} 按各自间隔（10–15 天）沿高吞吐港口、拥挤大都市与行军路线扩散；特定疫病受气候硬约束（如疟疾在大陆性、副极地与极地气候区的环境感染率为 0）。</li>
+</ul>
+</div>
 """
             },
             {
@@ -350,8 +394,15 @@ CHAPTERS_1_5 = [
 • <strong>省份食物账</strong>：<code>1.18 × 5 × 本地粮食生产率(1.0) = 5.90</code> 食物/月（直接汇入所在省份粮仓，不受市场接入度折减）。
 </div>
 
+<div class="formula-box">
+<strong>粮食系统三项独立数值的基准值与修正入口：</strong><br>
+• <strong>① 食物产出效率</strong>：<span class="base-inline">基准值</span>全国与本地月食物产出修正均为 <strong>0%</strong>（同省原料生产增益基准 <strong>+10%</strong>）；平民高于 50% 满意度按 ×0.125 加成，升城、寒冬与焦土(−50%)扣减。 {M('food_production', '查食物产出修正 →')}<br>
+• <strong>② 人口/军队食物消耗与购粮效率</strong>：<span class="base-inline">基准值</span>每千名农民月耗 <strong>1.0 食物</strong>、上层阶级 <strong>20.0 食物</strong>，市场食物基准单价 <strong>0.05 金币</strong>，耗粮与购粮效率修正基准均为 <strong>0%</strong>（陆军征召兵自带 −75% 耗粮，佣兵 +50%，超补给上限驻军最高 +300% 耗粮）。 {M('food_consumption', '查耗粮与购粮修正 →')}<br>
+• <strong>③ 粮仓容量与食物腐坏</strong>：<span class="base-inline">基准值</span>每地点基础食物容量 <strong>50</strong>、大区基础容量 <strong>100</strong>，月度自然腐坏基准 <strong>0.5% / 月</strong>（攻占瞬间损毁 90% 存粮）。 {M('food_granary', '查粮仓与腐坏修正 →')}
+</div>
+
 <table class="data-table">
-  <thead><tr><th>结算层级</th><th>收支合成规则（<code>00_defines.txt</code>）</th><th>对国库财政与人口的直接影响 {M('food_supply', '查食物修正 →')}</th></tr></thead>
+  <thead><tr><th>结算层级</th><th>收支合成规则（<code>00_defines.txt</code>）</th><th>对国库财政与人口的直接影响</th></tr></thead>
   <tbody>
     <tr>
       <td><strong>第一层：地点收支</strong><br>{T('local_food','Local Food')}</td>
@@ -377,13 +428,26 @@ CHAPTERS_1_5 = [
                 "title": "04 · 繁荣度、战时占领损失与灾后恢复",
                 "en": "Prosperity, Occupation Losses & Post-War Recovery",
                 "html": f"""
-<p>地点 {T('prosperity','繁荣度（Prosperity）')} 的取值范围为 <strong>−100% 至 +100%</strong>，正负两端对经济与人口具有显著不对称影响：</p>
+<div class="formula-box">
+<strong>繁荣度与荒废恢复（Prosperity &amp; Devastation Recovery）</strong> {M('prosperity')}<br>
+<span class="base-inline">基准值</span>取值范围 <strong>−100% 至 +100%</strong>，中性分界点为 <strong>0%</strong>；地点正繁荣基础月增长为 <strong>+0.25% / 月</strong>（<code>local_monthly_prosperity</code>），正繁荣自然衰减基准为 <strong>1% / 月</strong>；负繁荣（荒废）基础自然恢复速度为 <strong>+0.25% / 月</strong>（<code>local_devastation_recovery</code>）。
 <ul>
-  <li><strong>正繁荣区间（0% 至 +100%）</strong>：在和平、食物充足、高人口满意度与特定改革（如《扩张庄园农业》每月 +0.1 个百分点）下逐月积累。在 +50% 繁荣度时，每月为发展度提供 +0.002 基础平值，并提升人口自然增长与迁入吸引力。</li>
-  <li><strong>负繁荣区间（荒废，−100% 至 0%）</strong>：直接按比例削减生产力——例如在 <strong>−50% 繁荣度</strong> 时，发展度每月倒扣 −0.002，且<strong>本地原材料产出与加工生产效率各扣减 −25%</strong>（满 −100% 时高达 −50% 生产效率！）。</li>
-  <li><strong>占领与劫掠的定量冲击</strong>：地点被敌军攻占瞬间，直接损失当地储备粮食的 <strong>90%</strong>（仅余 10%），并在满足条件时可能触发 15% 相关人口被掳为奴隶（冷却 240 天）；同时附加持续 <strong>12 个月</strong> 的「被劫掠（<code>looted</code>）」状态：年人口增长率 −0.5 个百分点、月发展度增长 −25%、繁荣度衰减 +0.10、最大损耗 +5。</li>
-  <li><strong>战后快速修复</strong>：自然恢复深度负繁荣耗时漫长；停战后指派高 DIP 大臣对受灾省份执行「<strong>专注恢复（<code>recovery_effort</code>）</strong>」，可在全省繁荣度回到 0% 前持续提供高额月度荒废修复与人口增长补偿。</li>
+  <li><strong>正繁荣区间变化（0% 至 +100%）</strong>：和平无占领、食物充裕、高人口满意度与《扩张庄园农业》改革（+0.10%/月）等持续推高繁荣度；在 +50% 繁荣度时，每月为发展度提供 <strong>+0.002 基础平值</strong>，并加速人口自然增长与迁入吸引。</li>
+  <li><strong>负繁荣区间变化（荒废，−100% 至 0%）</strong>：直接按比例削减当期产能——在 <strong>−50% 繁荣度</strong> 时，发展度每月倒扣 −0.002，且<strong>本地原材料产出与加工生产效率各扣减 −25%</strong>（满 −100% 时扣减 −50% 生产效率与原产！）。</li>
+  <li><strong>占领劫掠冲击与战后修复</strong>：地点被攻占瞬间损毁 <strong>90%</strong> 本地存粮，并附加持续 <strong>12 个月</strong> 的「被劫掠（<code>looted</code>）」状态（年人口增长 −0.5%、月发展增长 −25%、繁荣衰减 +0.10、最大损耗 +5）；停战后派高 DIP 大臣执行「<strong>专注恢复（<code>recovery_effort</code>）</strong>」可快速将负繁荣拉回 0%。</li>
 </ul>
+</div>
+
+<table class="data-table">
+  <thead><tr><th>对比维度</th><th>发展度（Development） {M('development', '发展度来源 →')}</th><th>繁荣度（Prosperity） {M('prosperity', '繁荣度来源 →')}</th></tr></thead>
+  <tbody>
+    <tr><td><strong>本质定位</strong></td><td>长期累积的<strong>开发存量</strong>（基础设施与城市底蕴，极难暴跌）</td><td>随和平或战火剧烈波动的<strong>当期景气/创伤状态</strong></td></tr>
+    <tr><td><strong>取值范围与基准值</strong></td><td><strong>0 – 100</strong>；普通地点月基础平值 = <strong>0 点/月</strong>，倍率修正基准 = <strong>0%</strong></td><td><strong>−100% 至 +100%</strong>（中性 0%）；正增长与荒废恢复基准均为 <strong>+0.25% / 月</strong></td></tr>
+    <tr><td><strong>核心上升驱动</strong></td><td>正繁荣度转化(0.004×比例)、ADM 内阁「发展省份」、市民识字率、沿海河谷农田倍率</td><td>和平、省粮充足、高满意度、DIP 内阁「专注恢复」（针对负区间）、庄园与市政改革</td></tr>
+    <tr><td><strong>核心下降驱动</strong></td><td>仅当繁荣度跌入负值（荒废）时才会缓慢倒扣月平值</td><td>敌军占领劫掠、围城、港口封锁、焦土战术(−5%/月)、饥荒与重大瘟疫</td></tr>
+    <tr><td><strong>对其他数值的作用</strong></td><td>每 1 点常驻给：<strong>建筑容量 +1、人口容量 +2.5%、邻近效率 +0.5%、RGO 上限 +0.1 级、建造速度 +1%、市场吸引力 +0.2</strong></td><td>正值给<strong>发展度提供月平值底数</strong>并促人口增长；负值直接扣减最高 <strong>−50% 生产效率与 −50% RGO 原产</strong></td></tr>
+  </tbody>
+</table>
 """
             },
         ],
@@ -448,8 +512,8 @@ CHAPTERS_1_5 = [
 <code>建筑月利润（计入地点财富） = 月成品产量 × 当地市场成品价 − Σ(月投入原料消耗 × 当地市场原料价)</code>
 </div>
 
-<p><strong>为什么「{T('production_efficiency','加工生产效率（Production Efficiency）')}」是最关键的工业数值？</strong><br>
-如上式所示，市场接入度或等级提升时，产出和原料消耗同步缩放；而<strong>生产效率只放大成品产出量，不增加一分钱原料消耗</strong>。以<strong>造纸师行会（Paper Guild）</strong>的三种配方在基准价（纸 2、皮革 3、纤维 2、布 3、木 1.5 金币）下的满员单级对比为例：</p>
+<p><strong>① 为什么「{T('production_efficiency','加工生产效率（Production Efficiency）')}」是最关键的工业数值？</strong> {M('production_efficiency')}<br>
+<span class="base-inline">基准值</span>全国与本地加工生产效率初始基准值均为 <strong>0%</strong>（成品产出乘数基数 <strong>1.00×</strong>；1.4.9 默认规则下新建筑直接 100% 投产度起步）。如上式所示，市场接入度或等级提升时，产出和原料消耗同步缩放；而<strong>在 0% 基准上每提高 +1% 生产效率，只放大成品产出量，不增加一分钱原料消耗</strong>。以<strong>造纸师行会（Paper Guild）</strong>三种配方在基准价（纸 2、皮革 3、纤维 2、布 3、木 1.5 金币）下的满员单级对比为例：</p>
 <ul>
   <li><strong>兽皮纸配方</strong>：月耗 0.1852 皮革 + 0.1852 木材（成本 0.8334），基础产纸 0.5（产值 1.00），月毛利仅 <strong>0.1666 金币</strong>。此时若叠出 <strong>+20% 生产效率</strong>，产纸升至 0.6（产值 1.20），成本仍为 0.8334，月毛利跃升至 <strong>0.3666 金币（净利润暴涨 +120%！）</strong>。</li>
   <li><strong>纤维纸浆 / 布料纸配方</strong>：分别耗 0.6667 纤维 + 0.2222 木材，或 0.5051 布料 + 0.1008 木材，月产纸 1.0，基准毛利约 <strong>0.3333 金币</strong>；但若市场布价涨至 4 金币，布料配方即转为亏损 −0.1716，未开启 {T('subsidy','政府补贴')} 的亏损建筑每月裁员 10% 直至停工（重新盈利后每月再雇佣 10%）。</li>
@@ -497,11 +561,35 @@ CHAPTERS_1_5 = [
 </table>
 
 <div class="formula-box">
-<strong>建造前的两道容量检查与「原材料产出（RGO Output）」决定因素：</strong> {M('rgo_output', '查原产修正 →')} · {M('building_cost_cap', '查建筑容量修正 →')}
+<strong>② 原材料产出效率（RGO Output）</strong> {M('rgo_output')}<br>
+<span class="base-inline">基准值</span>全国与本地原材料产出百分比修正初始基准均为 <strong>0%</strong>（产出乘数基数 <strong>1.00×</strong>），每 1 级 RGO 固定雇用基准为 <strong>1,000 名</strong>劳工或奴隶。
 <ul>
-  <li><strong>地点免费建筑容量（Supported Building Levels）</strong> = <code>发展度 × 1 + 千人数 × 0.05 + 等级加成（镇 25 / 城 100 / 大都市 200）+ 身份加成（国都 +5 / 市场中心 +5 / 省会 +2 / 历史首都 +2）</code>。每超出 1 级，新建筑建造效率 <strong>−5 个百分点</strong>（例如基数 100 金币在 −15% 效率下变为 <code>100 ÷ 0.85 ≈ 117.65</code> 金币）且迁徙吸引力 −0.01。</li>
-  <li><strong>单类加工建筑等级上限</strong>：行会 = <code>1 + 0.10×发展度 + 0.05×千人数 + (城5/都10)</code>；工坊 = <code>1 + 0.25×发展度 + 0.05×千人数 + (城10/都20)</code>；工场 = <code>5 + 0.50×发展度 + 0.10×千人数 + (城20/都40)</code>。若本地市场接入度低于 75%，上述上限还须乘以 <code>(市场接入度 + 0.25)</code>！</li>
-  <li><strong>影响 RGO 原材料产出的核心因素</strong>：实际在岗劳工人数、社会价值观偏向「农奴制」（满端 +20% 全国原产）与「传统经济」、部落阶层满意度、改革《乡村特许寡头》(+10%)、文化专属革新（如德意志《熔析精炼法》银铅 +20%）及正繁荣度。注意查看扩建按钮的 <strong>{T('expansion_volatility','扩建波动性')}</strong> 预览与全国 <strong>{T('employment_system','雇佣制度')}</strong>（利润最高优先 / 均等 / 先到先得，切换费 10 稳定度）。</li>
+  <li><strong>正负变化来源</strong>：正向由「农奴制」价值观满端(+20%)、「传统经济」倾向、部落阶层高满意度(×0.05)、历史名矿基地修正（如法伦铜矿 +400%、波托西银矿 +250%）、改革《乡村特许寡头》(+10%)与文化采矿革新拉升；负向受地点负繁荣度（荒废最高 −50%）、严冬与部分宗教斋戒特权(−5%)扣减。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>③ 原产（RGO）最大规模与扩建花费（Max RGO Size）</strong> {M('max_rgo_size')}<br>
+<span class="base-inline">基准值</span>地点基础最大 RGO 规模为 <strong>2 级（2,000 岗位）</strong>（<code>location_base_values = 2</code>），单级扩建基础工期 <strong>180 天</strong>，基础金币报价 = <code>100 × (0.5 + 0.25 × 商品基础价)</code>。
+<ul>
+  <li><strong>规模与花费变化</strong>：每 1 点发展度提供 <strong>+0.1 级</strong> 上限，叠加《工场生产》(+10%)等革新与矿垦建筑扩容；木材廉价最高提供 −33% 扩建折扣，留意按钮上的 <strong>{T('expansion_volatility','扩建波动性')}</strong> 冲击预览与全国 <strong>{T('employment_system','雇佣制度')}</strong>（切换费 10 稳定度）。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>④ 受支持建筑容量与单类上限（Supported Building Levels）</strong> {M('supported_building_levels')}<br>
+<span class="base-inline">基准值</span>0 发展度、0 人口的普通乡村基础受支持容量为 <strong>0 级</strong>（国都 +5、市场中心 +5、省会 +2、历史首都 +2；集镇 +25 / 城市 +100 / 大都市 +200）。
+<ul>
+  <li><strong>容量公式与超建惩罚</strong>：<code>总容量 = 发展度 × 1 + 千人数 × 0.05 + 等级与首都加成 + 免费建筑等级修正</code>。每超出上限 1 级，当地新建筑建造效率扣 <strong>−5 个百分点</strong> 且迁徙吸引力 −0.01。</li>
+  <li><strong>单类加工建筑独立上限</strong>：行会 = <code>1 + 0.10×发展度 + 0.05×千人数 + (城5/都10)</code>；工坊 = <code>1 + 0.25×发展度 + 0.05×千人数 + (城10/都20)</code>；工场 = <code>5 + 0.50×发展度 + 0.10×千人数 + (城20/都40)</code>。本地市场接入度 &lt;75% 时，单类上限强制乘以 <code>(市场接入度 + 0.25)</code>！</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>⑤ 建筑建造效率、建造速度与队列（Build Efficiency &amp; Speed）</strong> {M('build_cost_speed')}<br>
+<span class="base-inline">基准值</span>建造效率与建造速度修正初始基准均为 <strong>0%</strong>，每地点并行建造队列基准为 <strong>1 个</strong>，建筑维护费乘数基准为 <strong>20%</strong>；六时代标准建筑基价依次为 50 / 100 / 200 / 400 / 800 / 1,200 金币。
+<ul>
+  <li><strong>造价与工期变化</strong>：君主每点 ADM +0.2% 建造效率，每点发展度 +1% 本地建造速度，国际组织经济投资 +100% 建造效率；普通冬季使建造速度 −50%，严冬暂停施工，违约/破产扣 −25% / −90% 建造速度。</li>
 </ul>
 </div>
 """
@@ -514,14 +602,19 @@ CHAPTERS_1_5 = [
 <p>一个 {T('market','市场（Market）')} 围绕一座 {T('market_center','市场中心')}（提供当地贸易容量 +2、贸易优势 +20、免费建筑容量 +5、储备容量 +25，且每拥有一座中心令全国市民满意度均衡 +1%）跨国界运行。每个地点先计算对各候选中心的 <strong>{T('market_access','市场接入度')}</strong>，再综合吸引力与市场保护选定归属市场：</p>
 
 <div class="formula-box">
-<strong>1. 市场接入度路径损耗（1.4.9 核对值）：</strong> {M('market_access')}<br>
+<strong>① 本地市场接入度（Local Market Access）</strong> {M('market_access')}<br>
+<span class="base-inline">基准值</span>市场中心所在地点基准为 <strong>100%</strong>；向外每像素普通陆路基准损耗 <strong>0.5 个百分点</strong>，无港水陆过渡固定扣 <strong>10 点</strong>，港口装卸效率原始基数为 <strong>−10%</strong>（1.4.9 天然港湾适宜度最高给 +200% 加成）。<br>
 <code>市场接入度（百分点） = 100 − (地图像素距离 × 0.5 × 路段因子 + 水陆转换绝对损耗) + 本地接入修正</code>
 <ul>
-  <li><strong>路段距离因子</strong>：普通陆路 <code>×1.00</code>；砾石/柏油/近代/铁路依次为 <code>×0.90 / 0.80 / 0.70 / 0.60</code>；顺流河段 <code>×0.50</code>、逆流 <code>×0.90</code>；近海段 <code>×0.75</code>、外海段 <code>×1.50</code>；水陆过渡段距离因子 <code>×0.50</code>，无港另扣 <strong>10 点</strong>，有港另扣 <code>2 × (1 − 港湾适宜度)</code> 点（如 75% 适宜度仅扣 0.5 点）。</li>
-  <li><strong>本地接入修正与短缺分配权</strong>：集市/市集村落提供基础本地接入修正，城镇特权《大市场权》+15 点、《贸易特许权》+10 点。接入度不仅直接折算原产收入与工坊开工规模，还决定<strong>市场缺货时的拿货先后顺序</strong>——低接入度地点在原料紧张时最先断供。</li>
+  <li><strong>降低路径损耗变化</strong>：普通陆路 <code>×1.00</code>；砾石/柏油/近代/铁路依次为 <code>×0.90 / 0.80 / 0.70 / 0.60</code>；顺流河段 <code>×0.50</code>、逆流 <code>×0.90</code>；近海段 <code>×0.75</code>、外海段 <code>×1.50</code>；水陆过渡段距离因子 <code>×0.50</code>，有港仅扣 <code>2 × (1 − 港湾适宜度)</code> 点。</li>
+  <li><strong>本地修正与拿货顺位</strong>：集市/市集村落提供基础本地修正，城镇特权《大市场权》+15 点、《贸易特许权》+10 点（贵族通行税城堡则扣 −2.5 点）。市场缺货时严格按接入度从高到低配货。</li>
 </ul>
-<strong>2. 候选市场归属得分（为什么边境地点会被邻国市场吸走？）：</strong><br>
-<code>候选市场得分 = 对该中心的接入度 + 中心实力（城+2.5/都+5 + 0.2×发展度 + 0.05×建筑级） + 所有者威望×0.05 + 语言匹配（同通用语+5/同优势语+5） + 同省(+20)/同地区(+10) − 外国市场保护（当前控制力 × 0.50 + 保护修正） + 外交条约项（特惠准入+20并解除保护 / 拒绝准入−15）</code>
+</div>
+
+<div class="formula-box">
+<strong>② 市场中心吸引力与外国市场保护（Market Attraction &amp; Protection）</strong> {M('market_attraction')}<br>
+<span class="base-inline">基准值</span>非市场中心吸引力为 <strong>0</strong>；市场中心基础实力按聚落（城 +2.5 / 都 +5）、发展度（×0.2）与建筑级（×0.05）起算；本国地点对外国市场的保护力基准 = <strong><code>当前控制力 × 0.50</code></strong>。<br>
+<code>候选市场得分 = 对该中心的接入度 + 中心实力 + 所有者威望×0.05 + 语言匹配（同通用语+5/同优势语+5） + 同省(+20)/同地区(+10) − 外国市场保护 + 外交条约项（特惠准入+20并解除保护 / 拒绝准入−15）</code>
 </div>
 
 <p><strong>3. 商品三套数量与「目标价格」精确公式</strong>：<br>
@@ -548,34 +641,39 @@ CHAPTERS_1_5 = [
 <p>跨市场贸易分为玩家通过 <strong>{T('trade_orders','贸易指令')}</strong> 调度的「国家贸易」与当地市民自动经营的「{T('burgher_trade','市民贸易')}」两条轨道：</p>
 
 <div class="formula-box">
-<strong>跨市场商路运力、取货与国库分成公式：</strong> {M('trade_capacity_advantage', '查容量与优势来源 →')} · {M('trade_efficiency_maint', '查贸易效率来源 →')}<br>
+<strong>跨市场商路运力、取货与国库分成公式：</strong><br>
 <code>所需贸易容量 = 计划运量 × 商品单位运输成本（如铁 1、黏土 2、纸 0.5）× 超贸易范围距离倍率（范围内为 1）</code><br>
 <code>商路月净利润 = 销售收入 − 采购支出 − 路线维护费（基础 0.25 × 已分配容量） − 海峡通行费 + (补贴收入 − 缴纳关税)</code><br>
-<code>计入国库的贸易月收入 = Σ 正利润商路 × 本国贸易收入分成（基础按王室力量份额 1∶1 计）</code>（余下利润分给非王室阶层）
+<code>计入国库的贸易月收入 = Σ 正利润商路 × (基础分成 10% + 王室力量份额 × 100% + 贸易收入修正)</code>（余下利润归入市民阶层）
 </div>
 
 <table class="data-table">
-  <thead><tr><th>核心贸易指标</th><th>在结算链中的具体作用</th><th>主要决定与提升因素（1.4.9 核对）</th></tr></thead>
+  <thead><tr><th>独立贸易指标</th><th>官方基准值与范围</th><th>结算作用与正负变化来源（1.4.9 核对）</th></tr></thead>
   <tbody>
     <tr>
-      <td><strong>{T('merchant_capacity','贸易容量')}<br>&amp; {T('trade_range','贸易范围')}</strong></td>
-      <td>决定本国在该市场可分配多少总运力；路线成本超出贸易范围后每单位货物消耗更多容量（注意：分配 8 容量即使只买到 5 单位货，维护费仍按已分配的 8 容量计！）</td>
-      <td>市场中心(+2)、集市/商埠建筑、市民力量高于 25% 的加成、城镇特权与时代革新；港口贸易装卸效率在 1.4.9 基数提升至 <strong>+200% × 港湾适宜度</strong>，顺河商路成本 −50%、海段倍率 0.30（同段路河优惠仅取其一）</td>
+      <td><strong>① {T('merchant_capacity','贸易容量')}<br>&amp; 市民贸易容量</strong><br>{M('trade_capacity', '查容量来源 →')}</td>
+      <td>无设施时国家容量基准 <strong>0</strong>（市场中心基准 <strong>+2.0</strong>）；市民容量基数 <strong>1.0 / 千市民</strong></td>
+      <td>决定可分配总运力（即使货源不足空跑，维护费仍按已分配容量计）。由市场中心、集市/商埠、市民权势超 25% 部分(最高 +100%)、商业城镇特权与时代革新提升</td>
     </tr>
     <tr>
-      <td><strong>{T('merchant_power','贸易优势')}<br>Trade Advantage</strong></td>
-      <td>当出口市场的紧俏商品不够所有买方瓜分时，严格按各国在<strong>货源市场</strong>的「贸易优势」从高到低依次取货（无优势时堆再多容量也买不到现货）</td>
-      <td>拥有市场中心(+20)、当地贸易建筑、市民阶层高满意度（系数 0.5）、解锁特定海上贸易优势修正后的海区存在、重商主义倾向与商栈特权</td>
+      <td><strong>② {T('trade_range','贸易范围')}</strong><br>{M('trade_range', '查范围来源 →')}</td>
+      <td>国家基础贸易范围基准 <strong>300</strong>；市民最大范围六时代基准 <strong>600–1,100</strong></td>
+      <td>超出范围后每单位货物消耗容量成倍激增。顺河商路路径成本 −50%、海段倍率 0.30；航海革新、海外商站与驻港通行权延伸范围</td>
     </tr>
     <tr>
-      <td><strong>进口 / 出口 / 出售<br>三种效率对比</strong></td>
-      <td>设买价 2、卖价 3、运量 4（基础毛利 4.00）：<br>• <strong>进口效率 +10%</strong>：买价总成本 8 减 10% → 新毛利 <strong>4.80</strong><br>• <strong>出口效率 +10%</strong>：销售额 12 增 10% → 新毛利 <strong>5.20</strong><br>• <strong>出售效率 +10%</strong>：正价差 4 增 10% → 新毛利 <strong>4.40</strong></td>
-      <td>海/陆贸易效率与商人维护效率（如《公共财政簿记》改革 +40% 维护效率）；宫廷语言匹配首都市场语言提高出售效率；海关议程提供进口效率 +2% 并压低外商出口效率 −5%；《灵活出口》革新提供出口效率 +2%</td>
+      <td><strong>③ {T('merchant_power','贸易优势')}</strong><br>{M('trade_advantage', '查优势来源 →')}</td>
+      <td>无设施市场基准 <strong>0</strong>（市场中心所在地 <strong>+20</strong>；海上贸易优势转化基数 <strong>+0.05</strong>）</td>
+      <td>紧俏商品供不应求时，严格按各国在<strong>货源市场</strong>的优势从高到低依次扫货。由拥有市场中心、当地商馆、市民高满意度(×0.5)及解锁海上贸易优势修正后的海区存在提升</td>
     </tr>
     <tr>
-      <td><strong>关税、补贴与<br>市民自动商路</strong></td>
-      <td>市场所有者可分商品设进出口关税或补贴（基础上限各 20%，重商主义满端各 +50%，战争经济关税上限 +15%）；1.4.8 起外国市民贸易关税与补贴按全额结算</td>
-      <td><strong>贸易指令三重心</strong>：建议将「食物」与「关键军工/造纸原料短缺」指令排在名单顶部优先拿容量，「利润重心」（默认门槛 0.25 金币/容量）排在下方吃剩余容量。<strong>市民贸易容量</strong> = <code>市民千人数 × (1 + 识字项 + 集市100% + 垄断特权100%等)</code>，最大范围随六时代为 600–1,100，收益归入市民所在地点财富</td>
+      <td><strong>④ 海陆与进/出/售效率<br>&amp; 国库分成</strong><br>{M('trade_efficiencies', '查效率来源 →')}</td>
+      <td>海/陆/进/出/售五项效率初始基准均为 <strong>0%</strong>；国家贸易收入分成底数 <strong>10%</strong></td>
+      <td>设买价 2、卖价 3、运量 4（基础毛利 4.00）：<strong>进口效率 +10%</strong> → 毛利 4.80；<strong>出口效率 +10%</strong> → 毛利 5.20；<strong>出售效率 +10%</strong> → 毛利 4.40。国库分成靠<strong>王室力量份额</strong>直接 1∶1 叠加</td>
+    </tr>
+    <tr>
+      <td><strong>⑤ 商人维护效率<br>&amp; 关税/补贴上限</strong><br>{M('merchant_maintenance', '查维护与关税 →')}</td>
+      <td>维护费基准 <strong>0.25 金币/容量</strong>，维护效率基准 <strong>0%</strong>；最高关税与补贴上限基准各 <strong>20%</strong>（关税分成底数 <strong>10%</strong>）</td>
+      <td>《公共财政簿记》改革给 <strong>+40% 维护效率</strong>；重商主义满端使最高关税与补贴上限各 <strong>+50%</strong>（升至 70%），战争经济关税上限 +15%</td>
     </tr>
   </tbody>
 </table>
@@ -589,10 +687,11 @@ CHAPTERS_1_5 = [
 <p>阅读全国财政面板时，必须严格区分三个基础规模指标——<strong>全国财富（Wealth）</strong>、<strong>全国税基（Tax Base）</strong> 与 <strong>{T('economical_base','经济基础（Economic Base）')}</strong>：</p>
 
 <div class="formula-box">
-<strong>从地点财富到阶层税款与国家开支的四组恒等式：</strong> {M('tax_efficiency')}<br>
+<strong>从地点财富到阶层税款与国家开支的四组恒等式：</strong> {M('tax_efficiency', '查税收效率 →')} · {M('estate_max_tax', '查征税上限 →')}<br>
+<span class="base-inline">基准值</span>全国税收效率初始基准为 <strong>0%</strong>；全国通用阶层征税上限基准为 <strong>35%</strong>（下限 0%，纳税要求阶层当前满意度 ≥1%）；全国农民自主权基准为 <strong>25%</strong>（乡村 −20% 但保底 10%，镇 +10% / 城 +25% / 都 +50%）；宫廷、维稳、外交三项满额预算基数均为 <strong><code>0.10 × 经济基础 E</code></strong>。<br>
 1. <code>地点月财富 Wᵢ = 当地 RGO 利润 + 加工建筑利润 + 归入该地的市民贸易收益</code><br>
 2. <code>地点可征税基 Tᵢ = Wᵢ × 当前控制力 Cᵢ</code>（全国税基比率 = <code>ΣTᵢ ÷ ΣWᵢ</code>，波希米亚 1337 实测为 <code>200.59 ÷ 292.73 = 68.52%</code>）<br>
-3. <code>单阶层月税款 = Σ(Tᵢ × 该阶层当地财富份额) × 阶层实际税率 × (1 + 全国税收效率修正)</code>（前提：阶层当前满意度 ≥ 1%）<br>
+3. <code>单阶层月税款 = Σ(Tᵢ × 该阶层当地财富份额) × 阶层实际税率 × (1 + 全国税收效率修正)</code><br>
 4. <code>经济基础 E = (0.50 × 全国全额财富 W + 0.015 × 全国千人数 + 0.05 × 属国财富 + 特定收入项) × (1 + 0.066 × 已接纳思潮数)</code>
 </div>
 
@@ -612,11 +711,12 @@ CHAPTERS_1_5 = [
                 "en": "Minting & Inflation, Loans, Bonds, Creditworthiness & Bankruptcy",
                 "html": f"""
 <div class="formula-box">
-<strong>1. 铸币收入（Minting）与通胀计算公式（波希米亚 / 匈牙利实机核对）：</strong> {M('minting_inflation_credit')}<br>
+<strong>① 铸币收入、铸币平价与通货膨胀（Minting &amp; Inflation）</strong> {M('minting_inflation')}<br>
+<span class="base-inline">基准值</span>铸币免通胀平价阈值基准为 <strong>5%</strong>（<code>minting_inflation_threshold</code>），铸币收入修正基准为 <strong>0%</strong>；通货膨胀初始为 <strong>0%</strong>，基础自然消退基准为 <strong>−0.10% / 月</strong>（<code>monthly_inflation</code>）。<br>
 • <code>满效率铸币月收入 M = 全国税基 T × 0.25 × 铸币滑块比例 s × (1 + 铸币收入修正之和 m)</code><br>
 &nbsp;&nbsp;例：波希米亚 <code>T = 200.59, s = 15.3%, m = +10%(金银币政策)</code> → <code>200.59 × 0.25 × 0.153 × 1.10 = 8.44</code> 金币/月；匈牙利叠加贵金属出口禁令(+33%)得 <code>m = +43%</code>。<br>
 • <code>每种启用铸币材料（金/银/铜）月需求 = T × s × 0.01</code>（首都市场缺金银时铸币效率 η 跌向 0，实际收入 ≈ <code>M × η</code>）。<br>
-• <code>铸币月通胀贡献（百分点/月） = max(0, 铸币比例百分数 − 免通胀阈值百分数) × 0.005</code>（如基础阈值 5% + 金银币政策 3% = 8% 平价线；开启「自动铸币」会自动将滑块锁在零净通胀水平）。
+• <code>铸币月通胀净变化 = max(0, 铸币比例百分数 − 免通胀阈值百分数) × 0.005 − 基础消退(0.10%) + 其他通胀修正</code>（如基础阈值 5% + 金银币政策 3% = 8%；勾选「自动铸币」自动锁在零净通胀线）。
 </div>
 
 <table class="data-table">
@@ -644,10 +744,11 @@ CHAPTERS_1_5 = [
 </table>
 
 <div class="formula-box">
-<strong>2. 信用度（{T('creditworthiness','Creditworthiness')}，0–100）如何决定贷款与债券利率：</strong><br>
+<strong>② 国家信用度、贷款容量与银行/债券利率（Creditworthiness &amp; Interest）</strong> {M('credit_interest')}<br>
+<span class="base-inline">基准值</span>国家信用度范围 <strong>0–100</strong>，目标基准值为 <strong>50 点</strong>（有效信用 &lt;30 外国拒贷）；银行/阶层贷款基准年利率为 <strong>10%</strong>（下限 1%，期限 60 个月）；政府债券基准年利率为 <strong>5%</strong>，基础债券上限为 <strong>1 笔</strong>。<br>
 • <code>目标信用评级 = 50 + 稳定度贡献（每 +1 稳定给 +0.1，满 +100 稳定给 +10） + 强权/官僚/改革加值</code>（基础评级每月向目标移动 10% 差额）<br>
-• <code>有效信用 = clamp(基础评级 − 独立破产惩罚, 0, 100)</code>（有效信用 &lt; 30 时外国 AI 拒绝放贷）<br>
-• <code>普通贷款年利率信用修正（百分点） = −5 × (有效信用 ÷ 100 − 0.5)</code>（有效信用 80 时减息 −1.5 个百分点；债券系数为 −4）<br>
+• <code>有效信用 = clamp(基础评级 − 独立破产惩罚, 0, 100)</code><br>
+• <code>普通贷款年利率信用修正（百分点） = −5 × (有效信用 ÷ 100 − 0.5)</code>（有效信用 80 时减息 −1.5 个百分点；债券系数为 −4；资本经济满端另减 −3% 银行利率）<br>
 • <strong>{T('bankrupt','破产（Bankruptcy）')} 三阶段代价</strong>：① <strong>当日</strong>：稳定度 −50、通胀按比例 −25%、控制力按原值 −33%、部队 25% 损失判定、建筑 10% 降级判定；② <strong>随后 60 个月</strong>：王室力量 −90%、陆海军士气/科研速度/建造速度均 −90%、贷款容量 −50%、阶层均衡满意度 −2.5%；③ <strong>长期信用扣减</strong>：新增 <strong>50 点独立破产惩罚</strong>，每年仅消退 0.5 点（完全归零需 <strong>100 年</strong>）。
 </div>
 """
@@ -718,14 +819,27 @@ CHAPTERS_1_5 = [
 </table>
 
 <div class="formula-box">
-<strong>核心政治资源公式与影响因素：</strong> {M('stability_legitimacy_pi')}
+<strong>① 五大政体合法性资源（正统性 / 共和传统 / 奉献度 / 游牧团结 / 部落凝聚力）</strong> {M('government_power')}<br>
+<span class="base-inline">基准值</span>取值范围 <strong>0–100</strong>（开局默认初值 <strong>95</strong>），奖惩分界基准为 <strong>50 点</strong>；在常规课税国家体制下自带 <strong>−1.0 / 月</strong> 的基础自然消耗（<code>country_base_values_with_taxation</code>）。
 <ul>
-  <li><strong>五大政体专属 {T('government_power','政府力量')}（0–100，以 50 点为分界）</strong>：君主制（{T('legitimacy','正统性')}，满 100 给王室力量 +10%）、共和制（{T('republican_tradition','共和传统')}，满 100 给立法效率 +10%）、神权制（{T('devotion','奉献度')}）、游牧（{T('horde_unity','游牧团结')}，满 100 给训练度 +10%）、部落（{T('tribal_cohesion','部落凝聚力')}，满 100 给征召规模 +25%）。前四类低于 50 时，统一按 <code>(100 − 当前值) ÷ 100</code> 施加<strong>最大控制力 −20 个百分点、阶层满意度均衡 −5 个百分点</strong>的共同惩罚。</li>
-  <li><strong>{T('stability','稳定度')}（−100 至 +100）</strong>：自然项按 <code>−当前稳定度 × 0.005</code> 趋近 0；满 +100 时提供<strong>人口升阶速度 +100%、信用度 +10、政治影响力月获取 +10%、阶层均衡满意度 +5%、入叛门槛 −10%</strong>；负稳定度则扣减满意度均衡（最高 −30%）与建筑设立速度。提升稳定度靠财政滑块投入（受「维稳效率」除数减费）、正教士满意度与 MIL 内阁「稳定国家」。</li>
-  <li><strong>{T('political_influence','政治影响力')}（储存上限 100）精确月产出公式</strong>：<br>
-    <code>每月获取 = [0.005 × (君主 ADM + DIP + MIL) + Σ(在职大臣当前行动对应能力 × 0.015 ÷ 全国总席位数) + 固定来源] × (1 + 获取百分比修正)</code><br>
-    注意：大臣只计入其<strong>正在执行任务所属维度</strong>的那一项能力，且空缺席位贡献为 0！此外，每 1 点当前储备的政治影响力还会为全国阶层满意度恢复速度提供 <code>+0.003 个百分点/月</code>。</li>
+  <li><strong>高于 50 至满 100 的正向加成</strong>：君主正统性满 100 给王室力量 +10%；共和传统满 100 给立法效率 +10%；游牧团结满 100 给训练度 +10%；部落凝聚力满 100 给征召规模 +25%。靠宫廷预算投入、主流文化统治者(+0.10/月)、贵族高满意度(×0.2)、高威望与联姻维持。</li>
+  <li><strong>低于 50 的重度惩罚</strong>：前四类低于 50 时，统一按 <code>(100 − 当前值) ÷ 100</code> 施加<strong>全国最大控制力 −20 个百分点、阶层满意度均衡 −5 个百分点</strong>的缩放惩罚！</li>
 </ul>
+</div>
+
+<div class="formula-box">
+<strong>② 稳定度与维稳投资效率（Stability &amp; Cost Efficiency）</strong> {M('stability')}<br>
+<span class="base-inline">基准值</span>稳定度取值范围 <strong>−100 至 +100</strong>，自然收敛中心为 <strong>0</strong>（开局默认初值 <strong>30</strong>），每月向 0 自然衰减当前绝对值的 <strong>0.5%</strong>；维稳投资效率修正初始基准为 <strong>0%</strong>（满额维稳预算基数 = <code>0.10 × 经济基础</code>）。
+<ul>
+  <li><strong>正负稳定度效果</strong>：满 +100 稳定度提供<strong>人口晋升速度 +100%、信用度 +10、政治影响力月获取 +10%、阶层均衡满意度 +5%、入叛阈值 −10%</strong>；负稳定度扣减满意度均衡（最高 −30%）并触发灾难检定。靠财政维稳滑块（受教士高权势与平民高满意度提供的「维稳效率」减费）与 MIL 内阁「稳定国家」拉升。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>③ 政治影响力（Political Influence）</strong> {M('political_influence')}<br>
+<span class="base-inline">基准值</span>储存范围 <strong>0–100 点</strong>（开局默认初值 <strong>50</strong>）；无君臣能力时固定月度基础产出基准为 <strong>0 点/月</strong>，获取百分比修正基准为 <strong>0%</strong>。<br>
+<code>每月获取 = [0.005 × (君主 ADM + DIP + MIL) + Σ(在职大臣当前行动对应能力 × 0.015 ÷ 全国总席位数) + 固定来源] × (1 + 获取百分比修正)</code><br>
+注意：大臣只计入其<strong>正在执行任务所属维度</strong>的那一项能力，空缺席位按 0 分拉低月产出！每 1 点当前储备还为阶层满意度恢复提供 <code>+0.003%/月</code>。
 </div>
 """
             },
@@ -755,7 +869,7 @@ CHAPTERS_1_5 = [
                 "en": "Government Reforms, Laws/Policies & Bureaucracy Entrenchment",
                 "html": f"""
 <ul>
-  <li><strong>政体转换、主要改革与普通改革（379 项）</strong>：跨政体转换（如君主制转共和制需和平、稳定 &gt;0、正统性 &gt;80、财阀方向 ≥95 且市民力量高于贵族；草原部落转君主制基础耗 50 稳定与 25 正统，历经 15 年过渡期）条件严格。既定政体下，全国限持 1 项「{T('major_reform','主要改革')}」，普通 {T('government_reform','政府改革')} 受改革槽位限制，实施期通常为 2 年（效果按完成度线性生效，如《港口管理局》给海军总督上限 +1、沿海发展增长 +10%、出入港邻近成本 −20%）。</li>
+  <li><strong>政体转换、改革槽位与立法效率（379 项改革）</strong> {M('legislative_efficiency', '查立法效率与改革槽 →')}：<span class="base-inline">基准值</span>国家基础普通改革槽位为 <strong>1 个</strong>（另限持 1 项「{T('major_reform','主要改革')}」），全国立法效率修正初始基准为 <strong>0%</strong>，常规改革默认实施爬坡期为 <strong>2 年</strong>（效果按完成度线性生效，立法效率直接缩短实施期）。跨政体转换条件严格（如君主转共和需和平、稳定 &gt;0、正统 &gt;80、财阀 ≥95 且市民强于贵族）。</li>
   <li><strong>法律与政策（213 部法律 / 832 项政策）</strong>：涵盖继承、宗教、军事、行政、社会经济、阶层及国际组织七大类。首次为未设政策的法律选定政策耗 <strong>20 政治影响力</strong>；直接更换已有政策基础耗 <strong>100 稳定度</strong>（部分国家另耗 10 正义值）；而在议会会期内消耗 50 个百分点支持度发起「<strong>请求议会更改法律</strong>」，可将稳定度与正义值代价乘以 <strong>0.20</strong>（即 100 稳定度折算为 20 点！）。「立法效率」修正可缩短改革与政策的实施年限。</li>
   <li><strong>60 种 {T('bureaucracy','官僚机构')} 与预算—固化双变量规则</strong>：占用官僚席位（大都市首都亦提供席位），维护费按国家经济基础缩放（如税务委员会乘数为 <code>经济基础 × 0.004</code>）。在同一 {T('entrenchment','固化度')} 下，设当前预算维护比例为 <code>f</code>（0–1）：<br>
     <code>实际生效正向效果 = 全额正向值 × f</code> &nbsp;│&nbsp; <code>实际生效负面效果 = 全额负面值 × (1 − f)</code><br>
@@ -803,7 +917,8 @@ CHAPTERS_1_5 = [
 <p>国家基础拥有 <strong>2 个内阁席位</strong>（升格帝国 +1 席，特定改革与时代革新继续增加；更换大臣基础费 20 政治影响力）。全游戏 81 项内阁行动按能力划分为行政（38 项）、外交（20 项）与军事（23 项）三系。</p>
 
 <div class="formula-box">
-<strong>内阁行动最终效果公式与「内阁效率」决定因素：</strong> {M('cabinet_efficiency')}<br>
+<strong>内阁席位与「内阁效率」完整公式：</strong> {M('cabinet_efficiency')}<br>
+<span class="base-inline">基准值</span>国家基础内阁席位为 <strong>2 席</strong>（升格帝国 +1 席，更换阁臣基础费 20 政治影响力）；全国内阁效率与普通大臣个人效率初始基准均为 <strong>0%</strong>（提拔为内阁首脑个人效率基准 <strong>+25%</strong>）。<br>
 <code>单项内阁行动增幅 = 0.005 × 统治者对应能力 + 0.005 × 执政大臣对应能力 + 全国内阁效率 + 大臣个人内阁效率</code><br>
 <code>行动实际效果 = 脚本基础效果 × (1 + 单项内阁行动增幅)</code>
 <ul>
@@ -869,14 +984,16 @@ CHAPTERS_1_5 = [
 <p>全国政治力量由<strong>王室（Crown）</strong>与各非王室阶层（贵族、教士、市民、平民，以及特定国家存在的齐米、部落、哥萨克）共同瓜分总份额 100%。底层点数从每个地点的<strong>同一批人口</strong>分两套规则算出：</p>
 
 <div class="formula-box">
-<strong>1. 每千人基础政治力量权重（<code>pop_types/00_default.txt</code>）：</strong><br>
-贵族 <strong>25</strong> ｜ 教士 <strong>10</strong> ｜ 市民 <strong>4</strong> ｜ 部落民 <strong>0.25</strong> ｜ 士兵 <strong>0.0625</strong> ｜ 劳工 <strong>0.0375</strong> ｜ 农民 <strong>0.025</strong> ｜ 奴隶 <strong>0</strong>（受歧视文化人口为 0）<br>
-<em>例：2,000 名贵族基础提供 50 点，相当于 12,500 名市民或 2,000,000 名农民的基础政治点数。</em><br><br>
-<strong>2. 地点王室点数与全国王室份额公式：</strong> {M('crown_estate_power')}<br>
+<strong>① 王室力量（Crown Power）基准值与计算公式</strong> {M('crown_power')}<br>
+<span class="base-inline">基准值</span>每千人基础政治权重：贵族 <strong>25</strong>、教士 <strong>10</strong>、市民 <strong>4</strong>、部落民 <strong>0.25</strong>、士兵 <strong>0.0625</strong>、劳工 <strong>0.0375</strong>、农民 <strong>0.025</strong>、奴隶与受歧视文化人口 <strong>0</strong>。人口转化王室力量基准为 <strong>100% × 当前控制力</strong>，全国与本地王室力量修正初始基准均为 <strong>0%</strong>。<br>
 • <code>地点王室点数 = [Σ(当地各类千人数 × 基础政治权重)] × (当前控制力 + 本地王室力量修正，如会计室 Counting House +33%)</code><br>
-&nbsp;&nbsp;例：某地有 20,000 市民（原始 80 点）、控制力 15%：无建筑时王室得 <code>80 × 0.15 = 12</code> 点；建满效会计室(+33%)后倍率升至 0.48，王室得 <strong>38.4 点</strong>。<br>
-• 汇总各地点后，再叠加<strong>君主 ADM</strong>（每点 +0.25%）、<strong>王室成员入阁/任首脑</strong>（两席制下单席 +12.5%，王室首脑另 +25%）、<strong>中央集权价值观</strong>（满端 +50%）、高正统性（满端 +10%）等全国修正得到<code>王室最终点数</code>。<br>
-• 各非王室阶层则汇总各自人口基础点数，乘以本地阶层建筑（如贵族公馆 +50%）、所授特权（每项常加 +20%~+75%）及该阶层大臣入阁加成得到<code>阶层最终点数</code>。<br>
+• 汇总各地点后，乘 <code>(1 + 0.0025×君主ADM + 王室成员入阁/首脑加成 + 中央集权[满+50%] + 正统性[满+10%] + 其他全国王室修正)</code> 得<code>王室最终点数</code>。
+</div>
+
+<div class="formula-box">
+<strong>② 各非王室阶层力量（Estate Power）基准值与计算公式</strong> {M('estate_power')}<br>
+<span class="base-inline">基准值</span>各非王室阶层全国力量修正初始基准均为 <strong>0%</strong>；全国力量份额奖惩分界基准为 <strong>25%</strong>；每委任 1 名该阶层人物入阁或统兵基础加成基准为 <strong>+25%</strong>（按席位数分摊）。<br>
+• 各非王室阶层汇总各自人口基础点数，乘本地阶层建筑（如贵族公馆 +50%）、所授特权（每项常加 +20%~+75%）及入阁统帅加成得<code>阶层最终点数</code>。<br>
 • <code>各方全国力量份额 = 该方最终点数 ÷ (王室最终点数 + 全体非王室阶层最终点数之和)</code>
 </div>
 
@@ -916,8 +1033,11 @@ CHAPTERS_1_5 = [
                 "title": "02 · 阶层满意度全国效应、财富分账与阶层自建循环",
                 "en": "Estate Satisfaction Scaling, Wealth Distribution & Autonomous Construction",
                 "html": f"""
-<p><strong>1. 阶层满意度（Estate Satisfaction）与均衡值收敛速度</strong> {M('estate_satisfaction')}：<br>
-公共基础均衡值为 25%，叠加王权、君主 DIP（每点 +0.1%）、正稳定度（满 +5%）、地方分权（满 +5%）、所授特权加值，扣去实际税率、厌战度（每点 −1%）、负稳定度及异端/异教阶层惩罚后得到<strong>满意度均衡点</strong>。低于均衡时每月恢复 <code>0.10 + 0.003 × 当前政治影响力储备 + 恢复修正</code> 个百分点；高于均衡时每月衰减差额的 <code>5%</code>。</p>
+<div class="formula-box">
+<strong>阶层满意度均衡点与恢复速度（Estate Satisfaction Equilibrium）</strong> {M('estate_satisfaction')}<br>
+<span class="base-inline">基准值</span>无税无特权时的初始均衡点（全国通用 +25% 叠加各阶层底数）：<strong>农民 55%（25%+30%）、市民 / 齐米 / 部落 / 哥萨克 45%（25%+20%）、贵族 35%（25%+10%）、教士 25%（25%+0%）</strong>。低于均衡点恢复基准 <strong>+0.10% / 月</strong>（每点政治影响力储备另加 +0.003%/月）；高于均衡点衰减差额的 <strong>5% / 月</strong>。全国连续修正零点基准为 <strong>50%</strong>，征召门槛 <strong>25%</strong>，纳税门槛 <strong>1%</strong>。<br>
+在初始基准上叠加王权(满 +30%)、君主 DIP（每点 +0.1%）、正稳定度（满 +5%）、地方分权（满 +5%）、所授特权加值，扣去<strong>实际征收税率（1∶1 扣减）</strong>、厌战度（每点 −1%）、负稳定度及非主流文化阶层惩罚后得到当期满意度均衡点。
+</div>
 <ul>
   <li><strong>两条硬资格线</strong>：当前满意度 <strong>&lt; 25%</strong> 无法征召该阶层陆海军；<strong>&lt; 1%</strong> 停止缴纳阶层税。</li>
   <li><strong>以 50% 为零点的连续全国修正</strong>（按 <code>(当前满意度 S − 0.50) × 系数</code> 计算，高于 50% 为正加成，低于 50% 转为负惩罚，且以 <code>2 × (S − 0.50)</code> 进入所属人口满意度）：<br>
@@ -1007,7 +1127,7 @@ CHAPTERS_1_5 = [
 """
         },
         "quick_links": [
-            ("王室力量与满意度 826 项来源反查", "metrics.html#crown_estate_power"),
+            ("王室力量 / 阶层力量 / 满意度独立反查", "metrics.html#crown_power"),
             ("331 项阶层特权完整数值表", "ledgers.html#estate_privileges"),
             ("12 项阶层直接互动与求助表", "ledgers.html#estate_actions"),
             ("要塞留忠与撤特权计算器", "lab.html#calc"),

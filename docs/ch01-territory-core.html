@@ -180,13 +180,21 @@
 </table></div>
 
 <div class="formula-box">
-<strong>核心数值拆解：省份整合速度（Integration Speed）受哪些因素影响？</strong> <a class="metric-jump" href="metrics.html#integration_speed">查全部游戏修正来源 →</a>
+<strong>① 省份整合速度（Province Integration Speed）</strong> <a class="metric-jump" href="metrics.html#integration_speed">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>省份基础整合速度为 <strong>+0.10 / 月</strong>（<code>province_base</code>），全国与本地整合速度百分比修正基准为 <strong>0%</strong>，进度满值 <strong>100 点</strong>；单省所含地点 <strong>≤ 5 个</strong> 时无大省减速。
 <ul>
-  <li><strong>君主与执政大臣能力</strong>：「整合省份（<code>integrate_province</code>）」属于军事（MIL）内阁行动，其实际速率 = <code>基础进度 × (1 + 0.005 × 君主 MIL + 0.005 × 大臣 MIL + 全国内阁效率 + 大臣个人效率) × (1 + 整合速度修正)</code>。例如 1337 年莫斯科样本：君主 MIL 70（+35%）、首脑大臣 MIL 60（+30%，首脑个人效率 +25%）、全国内阁效率 +15.07%，合计增幅 +105.07%，基础速度 1 变为 <strong>2.05/月</strong>。</li>
-  <li><strong>省份规模与城乡层级阻力</strong>：单个省份所含地点超过 <strong>5 个</strong> 时触发大省减速修正；城镇、城市及稠密人口地点的整合所需工作量高于乡村。</li>
-  <li><strong>文化亲缘与国家力量投射</strong>：目标地为已接纳文化或本国文化影响力压制当地文化传统时整合更快；国家每拥有 1 点 <button type="button" class="term" data-concept="power_projection">力量投射</button> 提供 <strong>+1% 全国整合速度</strong>。</li>
-  <li><strong>制度、官僚与国际组织加成</strong>：集权行政改革、法典政策、时代革新以及国际组织领袖「行政定向投资」（+20% 整合速度）均可叠加提速。</li>
-  <li><strong>进度倒退情形</strong>：爆发叛乱当即扣除 10 点整合进度；遭敌军占领每月流失 0.025；丧失所有权后每月流失 0.10。剧本初始非己方持有的历史核心默认保留 100 年。</li>
+  <li><strong>正向提升变化——君臣能力与内阁效率</strong>：「整合省份（<code>integrate_province</code>）」属于军事（MIL）内阁行动，实际月进度 = <code>基础进度 × (1 + 0.005 × 君主 MIL + 0.005 × 大臣 MIL + 全国内阁效率 + 大臣个人效率) × (1 + 整合速度修正)</code>。如 1337 年莫斯科样本：君主 MIL 70（+35%）、首脑大臣 MIL 60（+30%，首脑个人效率 +25%）、全国内阁效率 +15.07%，合计增幅 +105.07%，月进度翻倍至 <strong>2.05×</strong>。</li>
+  <li><strong>正向提升变化——亲缘、投射与制度</strong>：国家每 1 点 <button type="button" class="term" data-concept="power_projection">力量投射</button> 提供 <strong>+1% 全国整合速度</strong>；已接纳文化或高文化影响力差、集权行政改革、法典政策、时代革新及国际组织领袖「行政定向投资」（+20%）叠加提速。</li>
+  <li><strong>负向减速与进度倒退</strong>：单省超过 <strong>5 个地点</strong>触发大省减速；城市与大都市整合所需总工作量高于乡村；爆发叛乱当即扣除 <strong>−10 点</strong>进度；被敌军占领每月流失 <strong>−0.025</strong>；丧失所有权后每月流失 <strong>−0.10</strong>。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>② 核心晋升门槛与分离主义（Core Threshold &amp; Separatism）</strong> <a class="metric-jump" href="metrics.html#core_separatism">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>核心晋升文化占比硬门槛为 <strong>≥ 50%</strong>（<code>NCulture.CORE_THRESHOLD = 0.50</code>，仅计主流文化 + 已接纳文化）；分离主义基准：未整合征服地 <strong>+0.50</strong>、已整合地 <strong>+0.10</strong>、殖民地与核心地 <strong>0</strong>（剧本非己方持有的历史核心默认保留 100 年）。
+<ul>
+  <li><strong>跨越 50% 核心线变化路径</strong>：「已整合」或「殖民地」地点一旦主流与已接纳文化人口占比 ≥50%，无需额外花费自动晋升核心；可通过花 25 政治影响力将当地文化设为「已接纳文化」即时达标，或派 DIP 内阁执行「推广文化」逐步同化达标（注意：相容文化不计入 50% 门槛）。</li>
+  <li><strong>降低分离主义变化路径</strong>：完成整合（+0.50 → +0.10）、晋升核心（→ 0），或叠加人文主义价值观、宽容法案与时代革新的全国/本地分离主义减免。</li>
 </ul>
 </div>
 
@@ -210,7 +218,8 @@
   
 <p><button type="button" class="term" data-concept="proximity">邻近度（Proximity）</button> 衡量行政指令从权力中心传抵各地点的通畅程度（范围 0–100 点）。系统自动在所有可用水陆连接中寻找<strong>累计损耗最低的最优路径</strong>：</p>
 <div class="formula-box">
-<strong>地点邻近度计算公式：</strong><br>
+<strong>行政邻近度（Proximity）基准值与计算公式：</strong> <a class="metric-jump" href="metrics.html#proximity">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>取值范围 <strong>0–100 点</strong>；现首都源头基准 <strong>100 点</strong>（历史首都 / 地方与海军总督治所基准 <strong>80 点</strong>）。单跳基础损耗基准：无路陆地 <strong>40</strong>、砂石路 <strong>20</strong>、顺逆流河道 <strong>12</strong>、封冻水面 <strong>20</strong>、进出港口 <strong>35</strong>、无海上存在海格 <strong>30</strong>（100% 存在海格基准 <strong>5</strong>）；传播效率与地形修正初始基准均为 <strong>0%</strong>。<br>
 <code>地点最终邻近度 = max(0, 起点辐射强度 − Σ 沿途每跳实际损耗)</code><br>
 <code>单跳陆地/河道实际损耗 = 路段基础损耗 ÷ [(1 + 邻近度传播效率之和) × (1 + 本地地形与植被修正)]</code>（分母保底 0.25）
 </div>
@@ -253,19 +262,21 @@
 <p>每个地点的当前 <button type="button" class="term" data-concept="control">控制力</button> 按月向该地点的 <strong><button type="button" class="term" data-concept="max_control">最大控制力</button></strong> 靠拢。控制力直接决定国家能从该地点提取多少资源：<code>地点税基 = 地点月财富 × 当前控制力</code>（余下 <code>1 − 当前控制力</code> 的 <button type="button" class="term" data-concept="uncontrolled_wealth">未受控财富</button> 全额归入当地各阶层金库）；常备人力与水手建筑产出乘 <code>max(10%, 当前控制力)</code>；征召兵动员额、人口同化与改宗速度以及对外国市场的保护力（<code>当前控制力 × 0.50</code>）同样随控制力成比例增减。</p>
 
 <div class="formula-box">
-<strong>最大控制力（Max Control）合成公式与影响因素：</strong> <a class="metric-jump" href="metrics.html#max_control">查全部游戏修正来源 →</a><br>
+<strong>① 最大控制力上限（Max Control）</strong> <a class="metric-jump" href="metrics.html#max_control">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>取值范围 <strong>0%–100%</strong>；0 邻近度、无建筑修正的殖民地乡村基准上限为 <strong>0%</strong>（未整合征服地自带 −10% 压至 0%，已整合 +5%，核心 +20%；现首都固定另加 +20%，历史首都 +10%）。<br>
 <code>最大控制力 = 邻近度 × 0.75 + 领土整合项 + 聚落与首都项 − 10% × (1 − 当地平均人口满意度) + 建筑/驻军/制度/内阁修正</code>
 <ul>
-  <li><strong>邻近度主干</strong>：邻近度每 1 点贡献 <strong>+0.75 个百分点</strong>（首都邻近度 100 即 +75%）。</li>
-  <li><strong>领土整合项</strong>：未整合 <strong>−10%</strong>、殖民地 <strong>0%</strong>、已整合 <strong>+5%</strong>、核心 <strong>+20%</strong>。</li>
-  <li><strong>聚落等级与首都地位</strong>：乡村 <strong>0%</strong>、集镇 <strong>+5%</strong>、城市 <strong>+10%</strong>、大都市 <strong>+20%</strong>；现首都另加 <strong>+20%</strong>，历史首都 <strong>+10%</strong>。</li>
-  <li><strong>人口满意度与政体低端惩罚</strong>：当地人口平均满意度为 60% 时扣减 <code>10% × 0.40 = −4%</code>；君主正统性、共和传统、奉献度或游牧团结低于 50 时，按 <code>−20% × (100 − 当前值) ÷ 100</code> 扣减全国最大控制力（如正统性 40 点扣减 −12 个百分点！）。</li>
-  <li><strong>建筑、内阁与战时状态</strong>：地方议会、议会大厅、乡村执达署提升本地上限；ADM 内阁「提升省份控制力」基础提供 <strong>+10% 最大控制力</strong>（经君臣能力与内阁效率放大后可达 +18% 以上）；遭敌海军封锁扣 <strong>−10%</strong>；部分贵族分权特权扣减乡村或全国最大控制力。</li>
+  <li><strong>正向提升变化</strong>：① 邻近度每 1 点贡献 <strong>+0.75 个百分点</strong>（100 点即 +75%）；② 整合晋升：未整合(−10%) → 已整合(+5%) → 核心(+20%)；③ 聚落升格：集镇 <strong>+5%</strong>、城市 <strong>+10%</strong>、大都市 <strong>+20%</strong>；④ 地方议会、议会大厅、乡村执达署建筑与 ADM 内阁「提升省份控制力」（基础 <strong>+10% 上限</strong>，乘内阁倍率可达 +18%+）。</li>
+  <li><strong>负向扣减变化</strong>：① 人口平均满意度低于 100% 时按 <code>10% × (1 − 满意度)</code> 扣减（60% 满意度扣 −4%）；② 政体资源（正统性/共和传统/奉献度/游牧团结）低于 50 时，按 <code>−20% × (100 − 当前值) ÷ 100</code> 扣减全国上限（40 正统性扣 −12%！）；③ 遭敌海军封锁扣 <strong>−10%</strong>；贵族分权特权扣减乡村或全国上限。</li>
 </ul>
-<strong>月度控制力变化（Monthly Control）：</strong>
+</div>
+
+<div class="formula-box">
+<strong>② 月度控制力变化（Monthly Control Drift · 与上限相互独立）</strong> <a class="metric-jump" href="metrics.html#monthly_control">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>低于上限时，地点基础恢复速度为 <strong>+0.05% / 月</strong>（<code>location_base_values = 0.0005</code>）；高于上限时，全国固定衰减基准为 <strong>−0.50% / 月</strong>（<code>country_base_values = 0.005</code>）。
 <ul>
-  <li><strong>高于上限时</strong>：固定每月衰减 <strong>−0.50 个百分点</strong>（破产当日还会一次性按原值削减 33% 控制力）。</li>
-  <li><strong>低于上限时</strong>：基础每月恢复 +0.05%，核心/殖民地 +0.10%，有道路连通首都 +0.05%，当地贵族平均识字率最高贡献 +1.00%/月，配合 ADM 内阁「提升省份控制力」（基础 +1.00%/月）可快速拉满新整合富庶省。</li>
+  <li><strong>正向加速爬升</strong>：核心或殖民地额外 <strong>+0.10%/月</strong>；道路连通首都 <strong>+0.05%/月</strong>；当地贵族平均识字率最高提供 <strong>+1.00%/月</strong>；ADM 内阁「提升省份控制力」基础提供 <strong>+1.00%/月</strong>（乘内阁倍率约 +1.83%/月）。</li>
+  <li><strong>负向跌落与瞬时削减</strong>：超出上限时按 −0.50%/月回落；国家宣布破产当日，全国所有地点当前控制力一次性按原值削减 <strong>−33%</strong>。</li>
 </ul>
 </div>
 <p><strong>实机复算对照（1337 年弗拉索沃）</strong>：该地为莫斯科核心乡村，到达邻近度约 65.24%（贡献 +48.93%）、核心 +20%，扣去少量人口满意度缺口后达到约 <strong>68.93% 控制力</strong>；当地月财富 0.64 金币，乘控制力后形成 <strong>0.44 金币税基</strong>，同时为莫斯科市场提供 <code>68.93 × 0.50 = 34.46</code> 点外国市场保护分。</p>
@@ -277,12 +288,13 @@
 <p><button type="button" class="term" data-concept="development">发展度（Development）</button> 代表地点长期累积的开发水平（0–100）。每 <strong>1 点发展度</strong> 同时提供六项常驻收益：<strong>免费建筑容量 +1 级、人口容量修正 +2.5%、本地邻近度传播效率 +0.5%、原产（RGO）最大等级 +0.1 级、本地建造速度 +1%、市场中心吸引力 +0.2 点</strong>，并解锁纸张（需 20）、书籍（需 30）等高阶商品的人口消费门槛。</p>
 
 <div class="formula-box">
-<strong>每月发展度增长公式与影响因素：</strong> <a class="metric-jump" href="metrics.html#development_prosperity">查全部游戏修正来源 →</a><br>
-<code>每月发展度净增 = (月度平值来源之和) × (1 + 本地与全国月发展增长百分比修正之和)</code>
+<strong>发展度（Development · 长期开发存量，切勿与当期状态「繁荣度」混淆）</strong> <a class="metric-jump" href="metrics.html#development">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>发展度取值范围 <strong>0–100</strong>（按剧本历史初值起步）；普通地点<strong>每月固定发展度平值基准 = 0 点/月</strong>，本地与全国月发展增长百分比修正基准均为 <strong>0%</strong>（无平值注入时 <code>0 × 任何倍率 = 0</code>，不会自动增长；而「繁荣度」基准见 <a href="ch02-population-food.html#prosperity-devastation">第 02 章第 04 节对照表</a>）。<br>
+<code>每月发展度净增 = (本地月度平值来源之和) × (1 + 本地与全国月发展增长百分比修正之和)</code>
 <ul>
-  <li><strong>四大平值来源（Flat Monthly Development）</strong>：普通地点无免费基础平值，必须靠以下来源提供底数：① <strong>地点繁荣度</strong>：<code>0.004 × 繁荣比例</code>（繁荣 +50% 提供 +0.002/月，荒废 −50% 则倒扣 −0.002/月）；② <strong>ADM 内阁「发展省份」</strong>：每地基础 +0.0025/月（再乘内阁行动倍率）；③ <strong>殖民迁移进行中地点</strong>：+0.0025/月；④ <strong>制度与建筑</strong>：市民特权《城市发展补助》全国每地 +0.001/月、《自由经济协会》+0.001/月、贸易公司总部所在地 +0.01/月。</li>
-  <li><strong>地方百分比修正（Multiplier）</strong>：沿海 +10%、河流 1–5 档（+5%~+25%）、农田 +10%、有道路 +5%、道路连通首都另 +20%、当地市民平均识字率 ×25%（如 40% 识字给 +10%）；反之山地 −50%、丘陵 −25%、湿地/丛林 −30%、森林 −25%、沙漠 −33%、极地 −25%、围城/封锁各 −20%、被劫掠 −25%。</li>
-  <li><strong>实算示例</strong>：沿海(+10%)农田(+10%)地点，繁荣度 +50%(平值 0.002)，市民识字率 40%(+10%)，开启《城市发展补助》(+0.001)，内阁发展省份倍率 1.30(平值 0.00325)：月平值合计 <code>0.00625</code>，乘地方倍率 <code>1.30</code> 得每月 <strong>+0.008125</strong> 发展度（年增约 +0.0975）。</li>
+  <li><strong>第一类变化·月度平值来源（<code>local_monthly_development</code>）</strong>：① <strong>地点正繁荣度</strong>贡献 <code>0.004 × 繁荣比例</code>（+50% 繁荣提供 +0.002/月；负繁荣荒废 −50% 则倒扣 −0.002/月）；② <strong>ADM 内阁「发展省份」</strong>每地基础 +0.0025/月 × 内阁倍率；③ <strong>殖民迁移进行中地点</strong> +0.0025/月；④ 市民特权《城市发展补助》(+0.001/月)、《自由经济协会》(+0.001/月)、贸易公司总部所在地(+0.01/月)。</li>
+  <li><strong>第二类变化·百分比倍率修正（<code>local/global_monthly_development_modifier</code>）</strong>：正向含沿海 +10%、河流 1–5 档(+5%~+25%)、农田 +10%、有路 +5%、路通首都另 +20%、当地市民平均识字率 ×25%（40% 识字即 +10%）；负向含山地 −50%、沙漠 −33%、湿地/丛林 −30%、丘陵/森林/极地 −25%、被劫掠 −25%、围城与封锁各 −20%。</li>
+  <li><strong>实算示例</strong>：沿海(+10%)农田(+10%)地点，繁荣度 +50%(平值 0.002)，市民识字率 40%(+10%)，开启《城市发展补助》(+0.001)，内阁发展省份倍率 1.30(平值 0.00325) → 月平值合计 <code>0.00625</code> × 倍率 <code>1.30</code> = <strong>+0.008125 / 月</strong>（年增约 +0.0975）。</li>
 </ul>
 </div>
 

@@ -121,7 +121,8 @@
 <p><button type="button" class="term" data-concept="maritime_presence">海上存在（0–100 点）</button> 按国家、按海区独立结算，是沿海与岛屿帝国降低行政邻近度海路损耗（0 点时每海格耗 30，100 点时降至 5）的核心支柱（注：1.4.9 已移除基础海上存在的无条件贸易说明，海上贸易优势由专门修正项转化）：</p>
 
 <div class="formula-box">
-<strong>海区每月海上存在变化公式：</strong> <a class="metric-jump" href="metrics.html#manpower_sailors_maritime">查全部游戏修正来源 →</a><br>
+<strong>海区每月海上存在变化公式：</strong> <a class="metric-jump" href="metrics.html#maritime_presence">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>按国家、按海格独立取值 <strong>0–100 点</strong>，无相邻本国港口且无驻舰时基准为 <strong>0 点</strong>；每月自然衰减基准为存量的 <strong>0.5%</strong>（<code>global_maritime_presence_decay</code>）；单港原始月贡献基准 = <code>0.10 + 0.30 × 天然港湾适宜度</code>。<br>
 <code>下月存在度 = clamp(本月存在度 + 相邻本国港口汇总贡献 + 驻海区舰队贡献 − 私掠扣项 − 本月存在度 × 0.5% 自然衰减, 0, 100)</code>
 <ul>
   <li><strong>单座港口本地基础项</strong> = <code>0.10 + 0.30 × 天然港湾适宜度 + 建筑加成（海岸要塞每级 +0.15、海军炮台每级 +0.30） − 敌军封锁(2.0) − 冰封(2.0) − 风暴潮(0.50)</code>（例如 80% 适宜度良港无额外建筑时提供 <code>0.34</code> 点/月原始贡献，再按海区港口除数汇总）。</li>
@@ -188,7 +189,7 @@
 
 <div class="card" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
   <strong style="font-size:13.5px">关联速查与仿真工具：</strong>
-  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#manpower_sailors_maritime" class="btn-pill">人力、水手与海上存在反查</a> · <a href="ledgers.html#casus_belli" class="btn-pill">113 种宣战理由全表</a> · <a href="ledgers.html#wargoals" class="btn-pill">78 种战争目标全表</a> · <a href="directory.html#peace_treaties" class="btn-pill">72 项和平条约条款名录</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px"><a href="metrics.html#maritime_presence" class="btn-pill">海上存在 / 水手 / 人力独立反查</a> · <a href="ledgers.html#casus_belli" class="btn-pill">113 种宣战理由全表</a> · <a href="ledgers.html#wargoals" class="btn-pill">78 种战争目标全表</a> · <a href="directory.html#peace_treaties" class="btn-pill">72 项和平条约条款名录</a></div>
 </div>
 
 <nav class="ch-pager" aria-label="章节翻页">

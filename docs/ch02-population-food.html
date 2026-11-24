@@ -104,17 +104,38 @@
 <p>每个地点的居民按「<strong><button type="button" class="term" data-concept="pop_type">人口类型</button> × <button type="button" class="term" data-concept="culture">文化</button> × <button type="button" class="term" data-concept="religion">宗教</button></strong>」划分为独立的人群（<button type="button" class="term" data-concept="pop">Pops</button>），共八类人口：上层阶级包括 <button type="button" class="term" data-concept="nobles">贵族</button>、<button type="button" class="term" data-concept="clergy">教士</button>、<button type="button" class="term" data-concept="burghers">市民</button>；下层与军事劳动人口包括 <button type="button" class="term" data-concept="peasants">农民</button>、<button type="button" class="term" data-concept="rgo_pops">劳工</button>、士兵、部落民与 <button type="button" class="term" data-concept="slaves">奴隶</button>。</p>
 
 <div class="formula-box">
-<strong>核心数值一：地点人口容量（Population Capacity）计算公式与影响因素</strong> <a class="metric-jump" href="metrics.html#pop_capacity">查全部游戏修正来源 →</a><br>
-<code>地点总人口容量 = 固定基础容量之和 × (1 + 容量百分比修正之和)</code>
+<strong>① 地点人口容量（Population Capacity）</strong> <a class="metric-jump" href="metrics.html#pop_capacity">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>固定基础容量由地表植被给定：农田 <strong>100,000</strong>、草地/森林 <strong>50,000</strong>、疏林 <strong>35,000</strong>、丛林/高原 <strong>25,000</strong>、荒原 <strong>10,000</strong>、沙漠 <strong>5,000</strong>；百分比容量修正初始基准为 <strong>0%</strong>；拥挤阻尼起点为容量的 <strong>60%</strong>，满载增长归零线为 <strong>100%</strong>。<br>
+<code>地点总人口容量 = 固定基础容量之和 × (1 + 本地与全国容量百分比修正之和)</code>
 <ul>
-  <li><strong>固定基础容量来源（Flat Capacity）</strong>：地表植被决定底数——农田 <strong>100,000</strong>、草地/森林 <strong>50,000</strong>、疏林 <strong>35,000</strong>、丛林/高原 <strong>25,000</strong>、荒原 <strong>10,000</strong>、沙漠 <strong>5,000</strong>；聚落等级另加固定值——集镇 <strong>+20,000</strong>、城市 <strong>+100,000</strong>、大都市 <strong>+400,000</strong>；赤道邻近度与灌溉设施等建筑提供额外固定额。</li>
-  <li><strong>百分比容量修正（Percentage Modifiers）</strong>：每 1 点发展度 <strong>+2.5%</strong>；每 1 级满员运作建筑 <strong>+0.1%</strong>；沿海 <strong>+25%</strong>；河流按水量 1–5 档 <strong>+10% ~ +50%</strong>；集镇/城市/大都市另加 <strong>+10% / +25% / +50%</strong>；气候带（温带、地中海、亚热带大幅加成，极地与严寒干旱扣减）。</li>
-  <li><strong>拥挤度影响</strong>：当 <code>当前人口 ÷ 总人口容量</code> 超过 <strong>60%</strong> 时自然出生率开始受阻尼压缩；达到或超过 <strong>100%</strong> 时正自然增长封顶为 0，并产生强烈迁出推力。</li>
+  <li><strong>固定容量增加变化</strong>：升格集镇 <strong>+20,000</strong>、城市 <strong>+100,000</strong>、大都市 <strong>+400,000</strong>，以及赤道邻近度与灌溉水利建筑固定额。</li>
+  <li><strong>百分比容量增减变化</strong>：每 1 点发展度 <strong>+2.5%</strong>、每 1 级满员建筑 <strong>+0.1%</strong>、沿海 <strong>+25%</strong>、河流 1–5 档 <strong>+10%~+50%</strong>、集镇/城市/大都市另加 <strong>+10% / +25% / +50%</strong>、温带/亚热带气候正修正；极地与严寒干旱气候大幅扣减百分比修正。</li>
 </ul>
-<strong>核心数值二：人口自然增长与阶级晋升速度（Promotion Speed）</strong> <a class="metric-jump" href="metrics.html#pop_promotion">查全部游戏修正来源 →</a>
+</div>
+
+<div class="formula-box">
+<strong>② 人口自然增长率与预期寿命（Population Growth &amp; Life Expectancy）</strong> <a class="metric-jump" href="metrics.html#pop_growth">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>全国与本地附加人口增长率修正基准均为 <strong>0%</strong>（按年率显示、按 1/12 月结；占用 &lt;60% 容量时无阻尼，≥100% 容量时正增长封顶为 <strong>0%</strong>）；角色与人群预期寿命基准为 <strong>40 岁</strong>（<code>character_base_values = 40</code>）。
 <ul>
-  <li><strong>自然增长率（按年率显示，按月结算）</strong>：由省粮仓盈余、当地低粮价（低于基准 0.05 金币/食物）、正繁荣度、充足生活消费品、医院/修道院建筑、医药革新及战后 DIP 内阁「专注恢复」拉升；饥荒（年率 −5 个百分点）、被劫掠（持续 12 个月，年率 −0.5 个百分点）与疫病则会造成人口净减。</li>
-  <li><strong>阶级晋升（Promotion）与招工周期</strong>：新建建筑或扩建 RGO 只提供空岗位，必须等当地待业工人就位，或由农民按月「晋升」为劳工、市民、士兵、教士或贵族（预计填满月数 ≈ <code>岗位缺口人数 ÷ 当地每月可晋升人数</code>）。<strong>硬性限制</strong>：受忽视（Ignored）与受歧视（Discriminated）文化人群无法晋升上层岗位。提高晋升速度的主要手段包括：维持<strong>正稳定度</strong>（每 +1 点稳定度提供 +1% 升阶速度，+40 稳定即 +40%）、提高本地<strong>控制力</strong>与平民<strong>识字率</strong>、偏向「自由民」价值观、兴建教育建筑，以及派遣 ADM 内阁执行「鼓励城市化 / 促进人口升级」。</li>
+  <li><strong>正向增长变化</strong>：省粮仓充盈且市场粮价低于基准（0.05 金币/食物）、正繁荣度、基本生活消费品满足、医院/修道院建筑、卫生医药革新与战后 DIP 内阁「专注恢复」。</li>
+  <li><strong>负向衰减变化</strong>：省份饥荒施加 <strong>−5 个百分点/年</strong> 与寿命 −10 岁；被劫掠施加持续 12 个月 <strong>−0.5 个百分点/年</strong>；瘟疫与严冬直接削减存量人口。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>③ 人口阶级晋升速度（Pop Promotion Speed）</strong> <a class="metric-jump" href="metrics.html#pop_promotion">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>地点基础人口晋升速度为 <strong>+1 人 / 月</strong>（<code>location_base_values = 0.001 千人/月</code>），全国与本地晋升百分比修正基准均为 <strong>0%</strong>（闲置奴隶升级基准 +0.1%/月）。
+<ul>
+  <li><strong>文化准入前提</strong>：仅<strong>主流文化、已接纳文化与相容文化</strong>平民允许晋升为劳工、市民、士兵、教士或贵族；受忽视与受歧视文化人群晋升速度锁定为 <strong>0</strong>。</li>
+  <li><strong>正向提速变化</strong>：正稳定度（每 +1 点提供 <strong>+1% 晋升速度</strong>，+40 稳定即 +40%）、高本地控制力、高平民识字率、「自由民」价值观、教育建筑，以及 ADM 内阁「鼓励城市化 / 促进人口升级」。</li>
+</ul>
+</div>
+
+<div class="formula-box">
+<strong>④ 人口阶级降级速度（Pop Demotion Speed · 与晋升相互独立）</strong> <a class="metric-jump" href="metrics.html#pop_demotion">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>地点基础人口降级速度为 <strong>+100 人 / 月</strong>（<code>location_base_values = 0.10 千人/月</code>，是基础晋升速度的 100 倍），降级百分比修正基准为 <strong>0%</strong>。
+<ul>
+  <li><strong>变化规则</strong>：当上层人口或专业工人因工坊亏损停工（无补贴时每月裁员 10%）、城池损毁或饥荒（上层容量 −50%、降级速度 <strong>+50%</strong>）失去岗位支持时，按降级速度回流为平民；对暂时亏损的战略工坊开启「政府补贴」可稳岗防降级。</li>
 </ul>
 </div>
 
@@ -122,12 +143,23 @@
   <h2>02 · 人口迁徙吸引力与疫病抗性机制</h2>
   <span class="sec-en">Migration Attraction &amp; Disease Resistance Mechanics</span>
   
-<p>除自然生老病死外，同一市场内部各地点按 <strong><button type="button" class="term" data-concept="migration_attraction">迁徙吸引力</button></strong> 差值发生月度人口流动（前提是法律或阶层特权允许农民/劳工迁徙，如《平民迁徙权》开启自由流动，而农奴制法规锁死农民原地务农；奴隶不可自主迁徙）：</p>
+<div class="formula-box">
+<strong>① 人口迁徙吸引力与迁徙速度（Migration Attraction &amp; Speed）</strong> <a class="metric-jump" href="metrics.html#migration_attraction">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>地点基础迁徙吸引力为 <strong>+0.10</strong>（<code>location_base_values</code>），全国基础迁徙速度为 <strong>0.01% / 月</strong>（<code>country_base_values = 0.0001</code>）。默认迁移权限基准：贵族、教士、市民默认<strong>允许迁移</strong>；农民、劳工、士兵、部落民与奴隶默认<strong>关闭</strong>（需《平民迁徙权》、自由民法规或饥荒状态解锁）。
 <ul>
-  <li><strong>迁徙吸引力来源</strong> <a class="metric-jump" href="metrics.html#pop_growth_migration">查全部迁徙修正 →</a>：充足空缺岗位、高发展度、正繁荣度、高人口满意度、城镇与市政设施提高吸引力；人口超出容量、建筑超出免费支持上限（每超 1 级扣 −0.01 吸引力）、饥荒（−1.0）与战乱则促使人口外流。</li>
-  <li><strong>征服后的双向人口流动</strong>：地点易主后，若当地原住民在新统治国处于受歧视地位，前 <strong>12 个月</strong> 内会向同文化母国加速外逃；同时新占领地对本国主流文化居民产生持续 <strong>25 年</strong> 递减的拓殖迁入拉力。</li>
-  <li><strong>疫病传播与 <button type="button" class="term" data-concept="disease_resistance">疫病抗性</button></strong> <a class="metric-jump" href="metrics.html#disease_resistance">查全部防疫修正 →</a>：黑死病（鼠疫）、伤寒、天花、流感、疟疾及美洲大瘟疫等 8 类 <button type="button" class="term" data-concept="disease">疫病</button> 各有独立结算间隔（如每 10–15 天检定一次）与传播权重。商路密集的港口和高密度大都市最易率先输入疫情；本地与全国「疫病抗性」（自然内在抗性上限 60%，医院、药房、引水渠、充足药材供应与卫生革新可提高抗性）直接降低感染与死亡比例。疫情过后幸存人群获得临时群体免疫抗性，再按病种月衰减率缓慢消退。注意气候边界：例如疟疾在大陆性、副极地与极地气候区的环境感染率为 0。</li>
+  <li><strong>正向提升吸引力变化</strong>：空缺工坊岗位、高发展度、正繁荣度、高人口满意度、城镇特权，以及新征服地点前 <strong>25 年</strong> 对本国主流文化自带的拓殖迁入拉力（<code>SETTLER_PULL_BASE = 2.0</code>）。</li>
+  <li><strong>负向推力（迫使外流）变化</strong>：省份饥荒直接扣 <strong>−1.00 吸引力</strong> 并强制开放底层逃荒（迁徙速度 +2.5%）；建筑超出受支持上限每超 1 级扣 <strong>−0.01 吸引力</strong>；人口超容量拥挤；新割让地受歧视原住民前 <strong>12 个月</strong> 加速向母国外逃（0.2%/月）。</li>
 </ul>
+</div>
+
+<div class="formula-box">
+<strong>② 疫病抗性（Disease Resistance）</strong> <a class="metric-jump" href="metrics.html#disease_resistance">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>全国与本地疫病抗性修正初始基准均为 <strong>0%</strong>；无额外设施时人群自然内在抗性封顶上限为 <strong>60%</strong>。
+<ul>
+  <li><strong>提升抗性变化</strong>：兴建医院、药房、引水渠、检疫港建筑；保持市场「药材（Medicaments）」充足供应；研发公共卫生与医学革新；疫后幸存人群获得按病种月衰减率缓慢消退的临时群体免疫。</li>
+  <li><strong>传播与气候边界</strong>：鼠疫（黑死病）、伤寒、天花、流感、疟疾等 8 类 <button type="button" class="term" data-concept="disease">疫病</button> 按各自间隔（10–15 天）沿高吞吐港口、拥挤大都市与行军路线扩散；特定疫病受气候硬约束（如疟疾在大陆性、副极地与极地气候区的环境感染率为 0）。</li>
+</ul>
+</div>
 
 </section><section id="food-chain" class="mech-section">
   <h2>03 · 食物产出、三级粮仓调配与财政购粮账单</h2>
@@ -142,8 +174,15 @@
 • <strong>省份食物账</strong>：<code>1.18 × 5 × 本地粮食生产率(1.0) = 5.90</code> 食物/月（直接汇入所在省份粮仓，不受市场接入度折减）。
 </div>
 
+<div class="formula-box">
+<strong>粮食系统三项独立数值的基准值与修正入口：</strong><br>
+• <strong>① 食物产出效率</strong>：<span class="base-inline">基准值</span>全国与本地月食物产出修正均为 <strong>0%</strong>（同省原料生产增益基准 <strong>+10%</strong>）；平民高于 50% 满意度按 ×0.125 加成，升城、寒冬与焦土(−50%)扣减。 <a class="metric-jump" href="metrics.html#food_production">查食物产出修正 →</a><br>
+• <strong>② 人口/军队食物消耗与购粮效率</strong>：<span class="base-inline">基准值</span>每千名农民月耗 <strong>1.0 食物</strong>、上层阶级 <strong>20.0 食物</strong>，市场食物基准单价 <strong>0.05 金币</strong>，耗粮与购粮效率修正基准均为 <strong>0%</strong>（陆军征召兵自带 −75% 耗粮，佣兵 +50%，超补给上限驻军最高 +300% 耗粮）。 <a class="metric-jump" href="metrics.html#food_consumption">查耗粮与购粮修正 →</a><br>
+• <strong>③ 粮仓容量与食物腐坏</strong>：<span class="base-inline">基准值</span>每地点基础食物容量 <strong>50</strong>、大区基础容量 <strong>100</strong>，月度自然腐坏基准 <strong>0.5% / 月</strong>（攻占瞬间损毁 90% 存粮）。 <a class="metric-jump" href="metrics.html#food_granary">查粮仓与腐坏修正 →</a>
+</div>
+
 <div class="table-wrap"><table class="data-table">
-  <thead><tr><th>结算层级</th><th>收支合成规则（<code>00_defines.txt</code>）</th><th>对国库财政与人口的直接影响 <a class="metric-jump" href="metrics.html#food_supply">查食物修正 →</a></th></tr></thead>
+  <thead><tr><th>结算层级</th><th>收支合成规则（<code>00_defines.txt</code>）</th><th>对国库财政与人口的直接影响</th></tr></thead>
   <tbody>
     <tr>
       <td><strong>第一层：地点收支</strong><br><button type="button" class="term" data-concept="local_food">Local Food</button></td>
@@ -167,13 +206,26 @@
   <h2>04 · 繁荣度、战时占领损失与灾后恢复</h2>
   <span class="sec-en">Prosperity, Occupation Losses &amp; Post-War Recovery</span>
   
-<p>地点 <button type="button" class="term" data-concept="prosperity">繁荣度（Prosperity）</button> 的取值范围为 <strong>−100% 至 +100%</strong>，正负两端对经济与人口具有显著不对称影响：</p>
+<div class="formula-box">
+<strong>繁荣度与荒废恢复（Prosperity &amp; Devastation Recovery）</strong> <a class="metric-jump" href="metrics.html#prosperity">查全部游戏修正来源 →</a><br>
+<span class="base-inline">基准值</span>取值范围 <strong>−100% 至 +100%</strong>，中性分界点为 <strong>0%</strong>；地点正繁荣基础月增长为 <strong>+0.25% / 月</strong>（<code>local_monthly_prosperity</code>），正繁荣自然衰减基准为 <strong>1% / 月</strong>；负繁荣（荒废）基础自然恢复速度为 <strong>+0.25% / 月</strong>（<code>local_devastation_recovery</code>）。
 <ul>
-  <li><strong>正繁荣区间（0% 至 +100%）</strong>：在和平、食物充足、高人口满意度与特定改革（如《扩张庄园农业》每月 +0.1 个百分点）下逐月积累。在 +50% 繁荣度时，每月为发展度提供 +0.002 基础平值，并提升人口自然增长与迁入吸引力。</li>
-  <li><strong>负繁荣区间（荒废，−100% 至 0%）</strong>：直接按比例削减生产力——例如在 <strong>−50% 繁荣度</strong> 时，发展度每月倒扣 −0.002，且<strong>本地原材料产出与加工生产效率各扣减 −25%</strong>（满 −100% 时高达 −50% 生产效率！）。</li>
-  <li><strong>占领与劫掠的定量冲击</strong>：地点被敌军攻占瞬间，直接损失当地储备粮食的 <strong>90%</strong>（仅余 10%），并在满足条件时可能触发 15% 相关人口被掳为奴隶（冷却 240 天）；同时附加持续 <strong>12 个月</strong> 的「被劫掠（<code>looted</code>）」状态：年人口增长率 −0.5 个百分点、月发展度增长 −25%、繁荣度衰减 +0.10、最大损耗 +5。</li>
-  <li><strong>战后快速修复</strong>：自然恢复深度负繁荣耗时漫长；停战后指派高 DIP 大臣对受灾省份执行「<strong>专注恢复（<code>recovery_effort</code>）</strong>」，可在全省繁荣度回到 0% 前持续提供高额月度荒废修复与人口增长补偿。</li>
+  <li><strong>正繁荣区间变化（0% 至 +100%）</strong>：和平无占领、食物充裕、高人口满意度与《扩张庄园农业》改革（+0.10%/月）等持续推高繁荣度；在 +50% 繁荣度时，每月为发展度提供 <strong>+0.002 基础平值</strong>，并加速人口自然增长与迁入吸引。</li>
+  <li><strong>负繁荣区间变化（荒废，−100% 至 0%）</strong>：直接按比例削减当期产能——在 <strong>−50% 繁荣度</strong> 时，发展度每月倒扣 −0.002，且<strong>本地原材料产出与加工生产效率各扣减 −25%</strong>（满 −100% 时扣减 −50% 生产效率与原产！）。</li>
+  <li><strong>占领劫掠冲击与战后修复</strong>：地点被攻占瞬间损毁 <strong>90%</strong> 本地存粮，并附加持续 <strong>12 个月</strong> 的「被劫掠（<code>looted</code>）」状态（年人口增长 −0.5%、月发展增长 −25%、繁荣衰减 +0.10、最大损耗 +5）；停战后派高 DIP 大臣执行「<strong>专注恢复（<code>recovery_effort</code>）</strong>」可快速将负繁荣拉回 0%。</li>
 </ul>
+</div>
+
+<div class="table-wrap"><table class="data-table">
+  <thead><tr><th>对比维度</th><th>发展度（Development） <a class="metric-jump" href="metrics.html#development">发展度来源 →</a></th><th>繁荣度（Prosperity） <a class="metric-jump" href="metrics.html#prosperity">繁荣度来源 →</a></th></tr></thead>
+  <tbody>
+    <tr><td><strong>本质定位</strong></td><td>长期累积的<strong>开发存量</strong>（基础设施与城市底蕴，极难暴跌）</td><td>随和平或战火剧烈波动的<strong>当期景气/创伤状态</strong></td></tr>
+    <tr><td><strong>取值范围与基准值</strong></td><td><strong>0 – 100</strong>；普通地点月基础平值 = <strong>0 点/月</strong>，倍率修正基准 = <strong>0%</strong></td><td><strong>−100% 至 +100%</strong>（中性 0%）；正增长与荒废恢复基准均为 <strong>+0.25% / 月</strong></td></tr>
+    <tr><td><strong>核心上升驱动</strong></td><td>正繁荣度转化(0.004×比例)、ADM 内阁「发展省份」、市民识字率、沿海河谷农田倍率</td><td>和平、省粮充足、高满意度、DIP 内阁「专注恢复」（针对负区间）、庄园与市政改革</td></tr>
+    <tr><td><strong>核心下降驱动</strong></td><td>仅当繁荣度跌入负值（荒废）时才会缓慢倒扣月平值</td><td>敌军占领劫掠、围城、港口封锁、焦土战术(−5%/月)、饥荒与重大瘟疫</td></tr>
+    <tr><td><strong>对其他数值的作用</strong></td><td>每 1 点常驻给：<strong>建筑容量 +1、人口容量 +2.5%、邻近效率 +0.5%、RGO 上限 +0.1 级、建造速度 +1%、市场吸引力 +0.2</strong></td><td>正值给<strong>发展度提供月平值底数</strong>并促人口增长；负值直接扣减最高 <strong>−50% 生产效率与 −50% RGO 原产</strong></td></tr>
+  </tbody>
+</table></div>
 
 </section>
 

@@ -56,20 +56,20 @@
       <div class="content-grid wide">
         <div class="article-col">
 <section class="hero-banner">
-  <div class="eyebrow">METRIC DRIVERS &amp; 1,364 MODIFIER SOURCES · EU5 1.4.9</div>
-  <h1>核心数值影响因素拆解 &amp; 1,364 项修正来源反查器</h1>
-  <p class="subtitle">查清游戏里每一个关键数值<strong>在公式中起什么作用</strong>、<strong>受哪些系统机制驱动</strong>，并直接反查全游戏<strong>哪些建筑、社会价值观、阶层特权、政府改革、法律政策、官僚机构、城镇特权与时代革新</strong>能够提高或降低它（全部数值已按引擎规则换算为准确的百分比与人数单位）。</p>
+  <div class="eyebrow">SEPARATED METRICS · BASE VALUES · 1,364 MODIFIER SOURCES · EU5 1.4.9</div>
+  <h1>66 项独立核心数值拆解（含基准值） &amp; 1,364 项修正来源反查器</h1>
+  <p class="subtitle">所有易混淆数值（如<strong>发展度 vs 繁荣度</strong>、<strong>最大控制力 vs 月度控制力</strong>、<strong>晋升速度 vs 降级速度</strong>、<strong>围城能力 vs 要塞防御</strong>、<strong>文化影响力 vs 文化传统</strong>）均已<strong>完全拆分为独立条目</strong>：每项先标明官方 <code>country_base_values / location_base_values / 00_defines.txt</code> <strong>基准值与范围</strong>，再逐类说明正负变化，展开后<strong>按具体修正词条分栏展示来源</strong>，绝不混同。</p>
 </section>
 
 <div class="tab-bar">
-  <button type="button" class="tab-btn active" data-met-tab="flagships">31 大核心机制数值深度拆解</button>
+  <button type="button" class="tab-btn active" data-met-tab="flagships">66 项独立核心数值拆解（含基准值）</button>
   <button type="button" class="tab-btn" data-met-tab="allmods">全游戏 1,364 项修正词条全量反查</button>
 </div>
 
 <div data-met-panel="flagships">
   <div class="filter-bar">
-    <input id="fm-search" class="input-ctrl" type="search" placeholder="搜索核心数值、英文名或来源（如：生产效率、控制力、市场接入、贸易优势、王室力量、研究速度、训练度）…">
-    <select id="fm-pillar" class="select-ctrl"><option value="all">全部六大支柱 (31 项核心机制数值)</option><option value="territory">疆域与控制</option><option value="economy">人口、市场与财政</option><option value="state">政府、内阁与阶层</option><option value="culture">文化、信仰与科技</option><option value="military">军事、海权与和约</option><option value="diplomacy">外交、属国与秩序</option></select>
+    <input id="fm-search" class="input-ctrl" type="search" placeholder="搜索独立数值、基准值或来源（如：发展度、繁荣度、生产效率、最大控制力、要塞防御、训练度、识字率）…">
+    <select id="fm-pillar" class="select-ctrl"><option value="all">全部六大支柱 (66 项独立核心机制数值)</option><option value="territory">疆域与控制</option><option value="economy">人口、市场与财政</option><option value="state">政府、内阁与阶层</option><option value="culture">文化、信仰与科技</option><option value="military">军事、海权与和约</option><option value="diplomacy">外交、属国与秩序</option></select>
     <span id="fm-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
   </div>
   <div id="fm-list" class="metrics-stack"></div>
