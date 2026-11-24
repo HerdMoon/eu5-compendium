@@ -1042,9 +1042,64 @@ def humanize_catalog_record(cid, r, rich_lookup, mods_by_item, game_ctx, zh_kv):
 
 from flagship_metrics_defs import FLAGSHIP_METRICS
 
+SOURCE_GROUP_ROUTE = {
+    "building_types": ("ledgers.html#building_types", "id"),
+    "goods": ("ledgers.html#goods", "id"),
+    "unit_types": ("units.html", "unit"),
+    "estate_privileges": ("ledgers.html#estate_privileges", "id"),
+    "government_reforms": ("ledgers.html#government_reforms", "id"),
+    "laws": ("ledgers.html#laws", "id"),
+    "policy": ("directory.html#law-options", "id"),
+    "bureaucracies": ("ledgers.html#bureaucracies", "id"),
+    "cabinet_actions": ("ledgers.html#cabinet_actions", "id"),
+    "town_rights": ("ledgers.html#town_rights", "id"),
+    "advances": ("directory.html#advances", "id"),
+    "societal_values": ("ledgers.html#societal_values", "id"),
+    "religions": ("ledgers.html#religions", "id"),
+    "religious_aspects": ("directory.html#religious_aspects", "id"),
+    "religious_schools": ("directory.html#religious_schools", "id"),
+    "religious_focuses": ("directory.html#religious_focuses", "id"),
+    "religious_order_callings": ("directory.html#religious_order_callings", "id"),
+    "gods": ("directory.html#gods", "id"),
+    "parliament_issues": ("directory.html#parliament_issues", "id"),
+    "parliament_types": ("directory.html#parliament_types", "id"),
+    "traits": ("directory.html#traits", "id"),
+    "road_types": ("ledgers.html#road_types", "id"),
+    "industry_types": ("ledgers.html#industry_types", "id"),
+    "location_ranks": ("directory.html#location_ranks", "id"),
+    "topography": ("directory.html#topography", "id"),
+    "climates": ("directory.html#climates", "id"),
+    "vegetation": ("directory.html#vegetation", "id"),
+    "age": ("directory.html#age", "id"),
+    "government_types": ("ledgers.html#government_types", "id"),
+    "subject_types": ("ledgers.html#subject_types", "id"),
+    "international_organizations": ("ledgers.html#international_organizations", "id"),
+    "diseases": ("directory.html#diseases", "id"),
+    "artist_work": ("directory.html#artist_work", "id"),
+    "estate_actions": ("ledgers.html#estate_actions", "id"),
+    "character_interactions": ("ledgers.html#character_interactions", "id"),
+    "diplomatic_actions": ("ledgers.html#diplomatic_actions", "id"),
+    "casus_belli": ("ledgers.html#casus_belli", "id"),
+    "wargoals": ("ledgers.html#wargoals", "id"),
+}
+
+
+def resolve_source_href(group_key, item_id):
+    if not item_id or group_key not in SOURCE_GROUP_ROUTE:
+        return ""
+    base, mode = SOURCE_GROUP_ROUTE[group_key]
+    if mode == "unit":
+        return f"units.html#{item_id}"
+    return f"{base}?id={item_id}"
+
+
+def clean_source_zh(zh_str):
+    s = re.sub(r"\s*AUTO_MODIFIER_NAME_[A-Za-z0-9_]+:.*$", "", str(zh_str or "")).strip()
+    return s.replace("\xa0", " ")
+
 
 def build_metrics_bundle(ms, zh_kv, game_ctx):
-    """Build docs/assets/metrics-data.js for metrics.html (54 separated single-concept metrics + searchable 1,364 modifiers)."""
+    """Build docs/assets/metrics-data.js for metrics.html (66 separated single-concept metrics + searchable 1,364 modifiers)."""
     CAT_ZH = {
         "country": "国家全局修正",
         "location": "地点修正",
@@ -1076,16 +1131,21 @@ def build_metrics_bundle(ms, zh_kv, game_ctx):
                 if cond == boring:
                     cond = ""
             cond_s = cond[:90]
-            sig = (s["zh"], disp, cond_s)
+            szh = clean_source_zh(s["zh"])
+            sig = (szh, disp, cond_s)
             if sig in seen_per_group[g_zh]:
                 continue
             seen_per_group[g_zh].add(sig)
-            grouped[g_zh].append({
-                "zh": s["zh"],
+            src_entry = {
+                "zh": szh,
                 "val": disp,
                 "scope": s.get("scope", ""),
                 "cond": cond_s,
-            })
+            }
+            href = resolve_source_href(s["group"], s.get("id", ""))
+            if href:
+                src_entry["href"] = href
+            grouped[g_zh].append(src_entry)
         item = {
             "id": mk,
             "zh": minfo.get("zh", mk),

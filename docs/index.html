@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>全景总览 · 欧陆风云 V 系统图谱与速查典</title>
   <meta name="description" content="欧陆风云 V (1.4.9) 系统因果图谱、缺失核心与阶层机制补全、红线速查典">
-  <link rel="stylesheet" href="assets/styles.css?v=20261124b">
-  <script defer src="assets/glossary-data.js?v=20261124b"></script>
-  <script defer src="assets/search-index.js?v=20261124b"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261124d">
+  <script defer src="assets/glossary-data.js?v=20261124d"></script>
+  <script defer src="assets/entity-links.js?v=20261124d"></script>
+  <script defer src="assets/search-index.js?v=20261124d"></script>
   
-  <script defer src="assets/app.js?v=20261124b"></script>
-  <script defer src="assets/interactive.js?v=20261124b"></script>
+  <script defer src="assets/app.js?v=20261124d"></script>
+  <script defer src="assets/interactive.js?v=20261124d"></script>
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main">跳到正文</a>
@@ -40,7 +41,7 @@
   </div>
   <div class="nav-group">
     <div class="nav-caption">枢纽与速查工具</div>
-    <a href="index.html" class="nav-link active"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+    <a href="index.html" class="nav-link active"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="units.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>军事单位时代矩阵与特色兵种</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:#2f6b55"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
@@ -73,10 +74,10 @@
     <h3>① 66 项独立核心数值 &amp; 修正反查</h3>
     <p>发展度与繁荣度、晋升与降级、围城与要塞防御等全部拆分为独立条目，逐项标明官方基准值并按具体修正词条分栏反查。</p>
   </a>
-  <a href="ledgers.html#building_types" class="card" style="border-top:4px solid var(--p-economy);text-decoration:none;color:inherit">
-    <h3>② 22 大精排数据表 (含 501 建筑)</h3>
-    <p>建筑 501（造价/建材/雇员/运转配方/修正）、兵种 401、特权 331、法律 213、改革 379、商品 75 支持排序与展开。</p>
-  </a>
+  <div class="card" style="border-top:4px solid var(--p-economy)">
+    <h3>② 22 大精排表 &amp; 全时代兵种对比图鉴</h3>
+    <p><a href="ledgers.html#building_types" style="font-weight:600">501 建筑表</a>（造价/建材/配方/修正）、特权 331、法律 213、改革 379、17 价值观推动源，以及独立排版的 <a href="units.html" style="font-weight:600">6 时代兵种演进矩阵与 258 特色兵种对比</a>。</p>
+  </div>
   <a href="directory.html" class="card" style="border-top:4px solid var(--p-military);text-decoration:none;color:inherit">
     <h3>③ 72 类全量可读名录 &amp; 需求表</h3>
     <p>直通清晰中文重构的 23,216 条名录（3,592 革新 / 4,213 事件 / 346 配方 / 163 成立国）与 <span style="color:var(--accent-2);font-weight:600">8×75 人口商品需求矩阵</span>。</p>

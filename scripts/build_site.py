@@ -35,8 +35,9 @@ def build_sidebar(active_slug):
     tools = [
         ("index.html", "总览与导览 · Overview", "var(--accent)"),
         ("metrics.html", "核心数值与1,364修正反查", "#b52b3b"),
+        ("units.html", "军事单位时代矩阵与特色兵种", "var(--p-military)"),
         ("ledgers.html", "22 大核心速查表 (含501建筑)", "var(--p-economy)"),
-        ("directory.html", "全量 72 游戏名录库 (23,216条)", "var(--p-military)"),
+        ("directory.html", "全量 72 游戏名录库 (23,216条)", "#2f6b55"),
         ("pop-demand.html", "人口商品需求矩阵 (8阶级×75货)", "var(--p-territory)"),
         ("map.html", "交互概念因果星图 (36节点)", "var(--accent-2)"),
         ("lab.html", "红线墙 / 实算器 / 排障台", "var(--p-state)"),
@@ -97,7 +98,7 @@ def build_sidebar(active_slug):
 </aside>'''
 
 
-ASSET_VER = "v=20261124b"
+ASSET_VER = "v=20261124d"
 
 
 def wrap_page(title, desc, active_slug, page_kind, main_html, right_toc_html="", scripts=()):
@@ -114,6 +115,7 @@ def wrap_page(title, desc, active_slug, page_kind, main_html, right_toc_html="",
   <meta name="description" content="{escape(desc)}">
   <link rel="stylesheet" href="assets/styles.css?{ASSET_VER}">
   <script defer src="assets/glossary-data.js?{ASSET_VER}"></script>
+  <script defer src="assets/entity-links.js?{ASSET_VER}"></script>
   <script defer src="assets/search-index.js?{ASSET_VER}"></script>
   {extra_scripts}
   <script defer src="assets/app.js?{ASSET_VER}"></script>
@@ -302,10 +304,10 @@ def build_index(graph_bundle):
     <h3>① 66 项独立核心数值 &amp; 修正反查</h3>
     <p>发展度与繁荣度、晋升与降级、围城与要塞防御等全部拆分为独立条目，逐项标明官方基准值并按具体修正词条分栏反查。</p>
   </a>
-  <a href="ledgers.html#building_types" class="card" style="border-top:4px solid var(--p-economy);text-decoration:none;color:inherit">
-    <h3>② 22 大精排数据表 (含 501 建筑)</h3>
-    <p>建筑 501（造价/建材/雇员/运转配方/修正）、兵种 401、特权 331、法律 213、改革 379、商品 75 支持排序与展开。</p>
-  </a>
+  <div class="card" style="border-top:4px solid var(--p-economy)">
+    <h3>② 22 大精排表 &amp; 全时代兵种对比图鉴</h3>
+    <p><a href="ledgers.html#building_types" style="font-weight:600">501 建筑表</a>（造价/建材/配方/修正）、特权 331、法律 213、改革 379、17 价值观推动源，以及独立排版的 <a href="units.html" style="font-weight:600">6 时代兵种演进矩阵与 258 特色兵种对比</a>。</p>
+  </div>
   <a href="directory.html" class="card" style="border-top:4px solid var(--p-military);text-decoration:none;color:inherit">
     <h3>③ 72 类全量可读名录 &amp; 需求表</h3>
     <p>直通清晰中文重构的 23,216 条名录（3,592 革新 / 4,213 事件 / 346 配方 / 163 成立国）与 <span style="color:var(--accent-2);font-weight:600">8×75 人口商品需求矩阵</span>。</p>
@@ -601,6 +603,133 @@ def build_directory_page():
         f.write(html_out)
 
 
+def build_units_page():
+    main_html = '''
+<section class="hero-banner">
+  <div class="eyebrow">MILITARY UNITS ATLAS · 6 AGES PROGRESSION &amp; 258 UNIQUE UNITS DELTA · EU5 1.4.9</div>
+  <h1>全时代军事单位演进矩阵 &amp; 国家特色兵种进步对比图鉴</h1>
+  <p class="subtitle">直观横览<strong>六个时代各自可招募的标准常备军、征召兵与四大舰种演进路线</strong>，并逐一列出全游戏 <strong>258 项国家/文化/特殊专属兵种相比同代标准兵种的逐项数值进步与取舍（Δ）</strong>。所有关联的解锁革新、前置条件与建造/维护商品均可直接点击交叉跳转。</p>
+</section>
+
+<div class="card" style="margin-bottom:18px;padding:14px 18px">
+  <h3 style="margin:0 0 8px;font-size:15.5px">实战选兵四大核心读数维度（为什么不能只看面板人数？）</h3>
+  <div class="four-col" style="margin-bottom:0;gap:10px">
+    <div class="mod-group-box">
+      <div class="mod-group-title"><span>① 每宽等效火力（核心输出）</span></div>
+      <div style="font-size:12.5px;line-height:1.55">陆战 <code>满编千人 × 战力 ÷ 正面宽度</code>（海战 <code>舰炮 ÷ 宽度</code>）。前线宽度受地形严苛限制，同占 1.0 宽度下，大革命 3,000 人步兵(战力3)单格火力是传统时代 500 人步卒的 <strong>18 倍</strong>！</div>
+    </div>
+    <div class="mod-group-box">
+      <div class="mod-group-title"><span>② 兵种底层承伤与攻防修正</span></div>
+      <div style="font-size:12.5px;line-height:1.55">骑兵底层承伤系数仅 <strong>0.30</strong>（步兵 1.00、炮兵 1.25）；轻步/轻骑天生带 <code>兵力杀伤 -10%、士气承伤 +10%</code> 短板。特色兵种提供的 <strong>兵力/士气承伤减免（绿标负值）</strong> 与 <strong>杀伤加成</strong> 含金量最高。</div>
+    </div>
+    <div class="mod-group-box">
+      <div class="mod-group-title"><span>③ 主动性与参战填线速度</span></div>
+      <div style="font-size:12.5px;line-height:1.55">每 1 点主动性提高按日战斗首拍 <strong>+2.5% 接敌率</strong>（未接敌前排挨打额外承伤 <code>×1.10 / ×1.20</code>）。兼具重甲抗性与高主动性的特色单位（如方阵步兵、翼骑兵、长弓手）能在接战初期打出单向压制。</div>
+    </div>
+    <div class="mod-group-box">
+      <div class="mod-group-title"><span>④ 侧击倍率与专属地形特化</span></div>
+      <div style="font-size:12.5px;line-height:1.55">轻/重骑兵侧击能力高达 <strong>1.6×（+60% 侧击伤害）</strong>，但常规骑兵在山地/丛林/湿地受 <code>-10%</code> 惩罚；部分地域特色兵种在森林、丘陵、草原反享 <strong>+10%~+25%</strong> 地形伤害加成。</div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button type="button" class="tab-btn active" data-unit-tab="matrix">① 六大时代标准兵种演进矩阵</button>
+  <button type="button" class="tab-btn" data-unit-tab="uniques">② 国家/文化特色兵种进步对比 (258 项)</button>
+  <button type="button" class="tab-btn" data-unit-tab="all">③ 全量 401 单位完整检索总表</button>
+</div>
+
+<div data-unit-panel="matrix">
+  <div class="filter-bar">
+    <span style="font-size:13px;font-weight:700">选择编制序列：</span>
+    <div id="um-role-pills" style="display:flex;gap:6px;flex-wrap:wrap">
+      <button type="button" class="submod-pill active" data-um-role="land_reg">陆军 · 常备正规军</button>
+      <button type="button" class="submod-pill" data-um-role="land_levy">陆军 · 阶层征召兵</button>
+      <button type="button" class="submod-pill" data-um-role="navy">海军 · 四大舰种序列</button>
+    </div>
+    <span style="font-size:12.5px;color:var(--ink-muted)">点击矩阵内任意兵种卡片可展开完整物资维护与升级链</span>
+  </div>
+  <div id="um-matrix-wrap" class="table-wrap"></div>
+  <div id="um-selected-detail" style="margin-top:14px"></div>
+</div>
+
+<div data-unit-panel="uniques" hidden>
+  <div class="filter-bar">
+    <input id="uu-search" class="input-ctrl" type="search" placeholder="搜索国家/文化/兵种名或优势词条（如：波兰、奥斯曼、拜占庭、波希米亚、英格兰、翼骑兵、龟船、士气承伤、森林）…">
+    <select id="uu-age" class="select-ctrl">
+      <option value="all">全部六个时代</option>
+      <option value="1">① 传统时代</option>
+      <option value="2">② 文艺复兴</option>
+      <option value="3">③ 地理大发现</option>
+      <option value="4">④ 宗教改革</option>
+      <option value="5">⑤ 专制主义</option>
+      <option value="6">⑥ 革命时代</option>
+    </select>
+    <select id="uu-cat" class="select-ctrl">
+      <option value="all">全部兵种/舰种</option>
+      <option value="heavy_infantry">陆军 · 重步兵</option>
+      <option value="light_infantry">陆军 · 轻步兵</option>
+      <option value="heavy_cavalry">陆军 · 重骑兵</option>
+      <option value="light_cavalry">陆军 · 轻骑兵</option>
+      <option value="artillery">陆军 · 炮兵</option>
+      <option value="auxiliary">陆军 · 辅助辎重</option>
+      <option value="heavy_ship">海军 · 重型战舰</option>
+      <option value="light_ship">海军 · 轻型战舰</option>
+      <option value="galley">海军 · 桨帆战舰</option>
+      <option value="transport">海军 · 运输船</option>
+    </select>
+    <select id="uu-role" class="select-ctrl">
+      <option value="all">常备 + 征召 + 舰船</option>
+      <option value="reg">仅常备军 / 建造舰船</option>
+      <option value="levy">仅征召兵 / 征召船</option>
+    </select>
+    <span id="uu-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
+  </div>
+  <div id="uu-list" class="units-unique-grid"></div>
+  <div id="uu-pager" class="pager-bar" hidden></div>
+</div>
+
+<div data-unit-panel="all" hidden>
+  <div class="filter-bar">
+    <input id="ua-search" class="input-ctrl" type="search" placeholder="搜索全部 401 条单位（含 68 条底层时代模板）中文名、English、ID…">
+    <label style="font-size:12.5px;display:inline-flex;align-items:center;gap:5px;cursor:pointer">
+      <input id="ua-hide-tpl" type="checkbox" checked> 隐藏 68 条不可招募底层模板
+    </label>
+    <span id="ua-count" style="font-size:12.5px;color:var(--ink-muted)"></span>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>单位名称 / ID</th>
+          <th>时代</th>
+          <th>兵种与编制</th>
+          <th>满编/船员</th>
+          <th>战力/舰炮</th>
+          <th>宽度</th>
+          <th>每宽火力</th>
+          <th>主动/航速</th>
+          <th>定位与相比标准兵种差异</th>
+        </tr>
+      </thead>
+      <tbody id="ua-tbody"></tbody>
+    </table>
+  </div>
+  <div id="ua-pager" class="pager-bar" hidden></div>
+</div>
+'''
+    html_out = wrap_page(
+        "军事单位时代矩阵与特色兵种对比",
+        "EU5 1.4.9 六大时代陆海军标准兵种演进矩阵与 260 项国家/文化特色兵种相比标准兵种进步对比图鉴",
+        "units.html",
+        "units",
+        main_html,
+        scripts=("assets/units-data.js",),
+    )
+    with open(os.path.join(DOCS_DIR, "units.html"), "w", encoding="utf-8") as f:
+        f.write(html_out)
+
+
 def build_metrics_page(graph_bundle):
     fm_total = len(load_json("metrics_summary.json").get("flagships", []))
     pillar_opts = f'<option value="all">全部六大支柱 ({fm_total} 项独立核心机制数值)</option>' + "".join(
@@ -808,8 +937,7 @@ def build_js_bundles(graph_bundle, glossary):
     ]
     for k, lbl in LEDGER_LABELS:
         for item in ledger_summary.get(k, []):
-            q_part = quote(item["zh"]) if item.get("zh") else ""
-            href = f"ledgers.html#{k}?q={q_part}" if q_part else f"ledgers.html#{k}"
+            href = f"units.html#{item['id']}" if k == "unit_types" else f"ledgers.html#{k}?id={item['id']}"
             search_items.append({
                 "title": f"{item['zh']} ({item.get('en') or item['id']})",
                 "sub": f"{lbl} · {item.get('sub', '')}",
@@ -847,6 +975,7 @@ def main():
     build_chapters()
     build_index(graph_bundle)
     build_metrics_page(graph_bundle)
+    build_units_page()
     build_map_page(graph_bundle)
     build_lab_page(graph_bundle)
     build_ledgers_page()

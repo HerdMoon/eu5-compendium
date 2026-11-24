@@ -12,6 +12,7 @@ ORIG_ATLAS = Path(r"C:\Users\seepath\Documents\Codex\2026-11-02\x20\work\eu5-atl
 EXPECTED_HTML = [
     "index.html",
     "metrics.html",
+    "units.html",
     "ch01-territory-core.html",
     "ch02-population-food.html",
     "ch03-economy-market-trade.html",
@@ -35,6 +36,8 @@ EXPECTED_HTML = [
 EXPECTED_JS = [
     "assets/app.js",
     "assets/interactive.js",
+    "assets/entity-links.js",
+    "assets/units-data.js",
     "assets/graph-data.js",
     "assets/glossary-data.js",
     "assets/metrics-data.js",
@@ -182,9 +185,19 @@ def main() -> int:
         html_ids[fname] = set(re.findall(r'\bid="([^"]+)"', txt))
 
     # Runtime hash fragments handled dynamically by interactive.js / app.js
+    units_raw = (DOCS / "assets" / "units-data.js").read_text(encoding="utf-8")
+    units_atlas = json.loads(units_raw[units_raw.index("["):units_raw.rindex("]") + 1])
+    if len(units_atlas) != 401:
+        errors.append(f"Expected 401 units in units-data.js, found {len(units_atlas)}")
+    el_raw = (DOCS / "assets" / "entity-links.js").read_text(encoding="utf-8")
+    el_obj = json.loads(el_raw[el_raw.index("{"):el_raw.rindex("}") + 1])
+    if len(el_obj.get("exact", {})) < 6000:
+        errors.append(f"Expected >= 6000 exact entity links, found {len(el_obj.get('exact', {}))}")
+
     metrics_routes = {f["id"] for f in flagships} | {f"mod:{m['id']}" for m in modifiers}
     dynamic_routes = {
         "metrics.html": metrics_routes,
+        "units.html": {u["id"] for u in units_atlas} | {"matrix", "uniques", "all"},
         "ledgers.html": set(EXPECTED_22_LEDGERS),
         "directory.html": {cm["id"] for cm in catalog_manifest},
         "pop-demand.html": {c["id"] for c in pd_classes},
@@ -192,6 +205,40 @@ def main() -> int:
         "map.html": {n["id"] for n in graph.get("nodes", [])},
         "lab.html": {"redlines", "calc", "troubleshoot"},
     }
+
+    # Verify all entity-links.js targets resolve to real ledger/catalog/unit records
+    ledger_item_ids = {}
+    for lid in EXPECTED_22_LEDGERS:
+        ltxt = (DOCS / "assets" / "ledgers" / f"{lid}.js").read_text(encoding="utf-8")
+        larr = json.loads(ltxt[ltxt.index("["):ltxt.rindex("]") + 1])
+        ledger_item_ids[lid] = {r["id"] for r in larr}
+    cat_item_ids = {}
+    for cm in catalog_manifest:
+        ctxt = (DOCS / "assets" / "catalogs" / f"{cm['id']}.js").read_text(encoding="utf-8")
+        cobj = json.loads(ctxt[ctxt.index("{"):ctxt.rindex("}") + 1])
+        cat_item_ids[cm["id"]] = {r["id"] for r in cobj.get("records", [])}
+    unit_ids = {u["id"] for u in units_atlas}
+
+    bad_entity_hrefs = []
+    for ename, pair in el_obj.get("exact", {}).items():
+        ehref = pair[0]
+        tpage, _, tfrag = ehref.partition("#")
+        tbase, _, tqs = tfrag.partition("?")
+        if tpage == "units.html":
+            if tbase not in unit_ids:
+                bad_entity_hrefs.append((ename, ehref))
+        elif tpage == "ledgers.html":
+            tid = tqs.replace("id=", "")
+            if tbase not in ledger_item_ids or (tid and tid not in ledger_item_ids[tbase]):
+                bad_entity_hrefs.append((ename, ehref))
+        elif tpage == "directory.html":
+            tid = tqs.replace("id=", "")
+            if tbase not in cat_item_ids or (tid and tid not in cat_item_ids[tbase]):
+                bad_entity_hrefs.append((ename, ehref))
+        else:
+            bad_entity_hrefs.append((ename, ehref))
+    if bad_entity_hrefs:
+        errors.append(f"Broken entity-links.js targets ({len(bad_entity_hrefs)}): {bad_entity_hrefs[:10]}")
 
     missing_terms = set()
     dead_links = []

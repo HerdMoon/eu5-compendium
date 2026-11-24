@@ -358,6 +358,7 @@ CHAPTERS_6_10 = [
                 "title": "01 · 四种兵源对比、人力/水手建筑产出与部队族系",
                 "en": "Levies, Regulars, Mercenaries, Private Regiments & Manpower Math",
                 "html": f"""
+<p style="margin:0 0 10px"><strong>兵种横向选型与特色单位速查</strong>：打开 <a class="metric-jump" href="units.html">全时代兵种演进矩阵 &amp; 258 项国家特色兵种进步对比图鉴 →</a> 可按六个时代直观对比各兵种每宽火力、主动性、攻防修正与特色单位增值（Δ）。</p>
 <table class="data-table">
   <thead><tr><th>兵源类型</th><th>征募条件与资源池</th><th>战斗属性与补员规则</th><th>人口与财政长期影响</th></tr></thead>
   <tbody>
@@ -526,9 +527,9 @@ CHAPTERS_6_10 = [
 """
         },
         "quick_links": [
+            ("全时代兵种矩阵 & 260 特色兵种对比图鉴", "units.html"),
             ("训练度 / 军事战术 / 士气独立反查", "metrics.html#discipline"),
             ("围城能力 / 要塞防御 / 补给独立反查", "metrics.html#fort_defensive"),
-            ("401 种陆海军单位完整数值表", "ledgers.html#unit_types"),
             ("接敌概率与兵种混编计算器", "lab.html#calc"),
         ],
     },

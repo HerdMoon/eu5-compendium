@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>政体、社会价值观、改革法律、官僚与内阁人物 · 欧陆风云 V 系统图谱与速查典</title>
   <meta name="description" content="厘清五大政体资源高低端分段公式、稳定度与政治影响力的精确算法、官僚机构预算比例与固化度机制，以及人物能力如何放大 81 项内阁行动。">
-  <link rel="stylesheet" href="assets/styles.css?v=20261124b">
-  <script defer src="assets/glossary-data.js?v=20261124b"></script>
-  <script defer src="assets/search-index.js?v=20261124b"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261124d">
+  <script defer src="assets/glossary-data.js?v=20261124d"></script>
+  <script defer src="assets/entity-links.js?v=20261124d"></script>
+  <script defer src="assets/search-index.js?v=20261124d"></script>
   
-  <script defer src="assets/app.js?v=20261124b"></script>
-  <script defer src="assets/interactive.js?v=20261124b"></script>
+  <script defer src="assets/app.js?v=20261124d"></script>
+  <script defer src="assets/interactive.js?v=20261124d"></script>
 </head>
 <body data-page="chapter">
   <a class="skip-link" href="#main">跳到正文</a>
@@ -40,7 +41,7 @@
   </div>
   <div class="nav-group">
     <div class="nav-caption">枢纽与速查工具</div>
-    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
+    <a href="index.html" class="nav-link"><span class="nav-dot" style="background:var(--accent)"></span><span>总览与导览 · Overview</span></a><a href="metrics.html" class="nav-link"><span class="nav-dot" style="background:#b52b3b"></span><span>核心数值与1,364修正反查</span></a><a href="units.html" class="nav-link"><span class="nav-dot" style="background:var(--p-military)"></span><span>军事单位时代矩阵与特色兵种</span></a><a href="ledgers.html" class="nav-link"><span class="nav-dot" style="background:var(--p-economy)"></span><span>22 大核心速查表 (含501建筑)</span></a><a href="directory.html" class="nav-link"><span class="nav-dot" style="background:#2f6b55"></span><span>全量 72 游戏名录库 (23,216条)</span></a><a href="pop-demand.html" class="nav-link"><span class="nav-dot" style="background:var(--p-territory)"></span><span>人口商品需求矩阵 (8阶级×75货)</span></a><a href="map.html" class="nav-link"><span class="nav-dot" style="background:var(--accent-2)"></span><span>交互概念因果星图 (36节点)</span></a><a href="lab.html" class="nav-link"><span class="nav-dot" style="background:var(--p-state)"></span><span>红线墙 / 实算器 / 排障台</span></a><a href="glossary.html" class="nav-link"><span class="nav-dot" style="background:var(--p-culture)"></span><span>双语百科词典 (752词条)</span></a>
   </div>
   <div class="nav-group">
     <div class="nav-caption">六大支柱 · 十二章深度精讲</div>
@@ -139,22 +140,177 @@
 </div>
 
 </section><section id="societal-values" class="mech-section">
-  <h2>02 · 17 对社会价值观轴线（−100 至 +100）</h2>
-  <span class="sec-en">17 Societal Value Axes &amp; Strategic Tradeoffs</span>
+  <h2>02 · 17 对社会价值观轴线：惯性均衡公式与非事件推动因素全解</h2>
+  <span class="sec-en">17 Societal Value Axes: Inertia Equilibrium &amp; Non-Event Drift Levers</span>
   
-<p><button type="button" class="term" data-concept="societal_value">社会价值观</button> 由 17 条双极轴线组成（范围 −100 至 +100，按当前位置比例折算两端满额效果；法律、改革、特权、内阁行动与高权势阶层决定每月漂移方向）：</p>
+<p><button type="button" class="term" data-concept="societal_value">社会价值观</button> 由 17 条双极拉条组成，除随机历史事件的一次性点增减外，日常位置完全由<strong>月度双向推力与系统惯性</strong>决定。理解「为什么拉条推到一半停住不动」以及「除事件外哪些制度与国家状态在暗中拉拽拉条」，是中长期国策规划的核心：</p>
+
+<div class="formula-box">
+<strong>社会价值观拉条基准、惯性阻力与静态均衡点公式（<code>00_defines.txt</code>）</strong> <a class="metric-jump" href="ledgers.html#societal_values">查 17 轴完整非事件推动源名录 →</a><br>
+<span class="base-inline">基准值</span>每条轴线取值范围 <strong>−100（左极点满值）至 +100（右极点满值）</strong>，无偏向中性基准为 <strong>0</strong>（两端修正均按 <code>|当前位置| ÷ 100</code> 线性折算）；系统惯性缩放常数 <code>SOCIETAL_VALUE_INERTIA_SCALE = 100</code>。<br>
+<code>每月实际净位移 = (向右推力之和 P_right − 向左推力之和 P_left) − (当前位置 ÷ 100)</code><br>
+<code>无事件长期静态均衡位置 = clamp((P_right − P_left) × 100, −100, +100)</code><br>
+<strong>实战含义</strong>：当前位置本身会产生 <code>当前值 ÷ 100</code> 的反向回中惯性！例如仅靠 1 项法律政策提供 <code>+0.20/月</code> 推力，拉条移动到 <strong>20</strong> 就会与 <code>0.20</code> 惯性彻底抵消停住；想要不靠事件把一条轴线长期钉死在满端 <strong>±100</strong>，该方向的常驻月度推力净和必须达到 <strong>≥ 1.00 / 月</strong>！
+</div>
+
+<div class="callout warn">
+<strong>除随机事件外，推动价值观拉条移动的八大常驻/主动来源（全轴线通用规律）</strong>
+<ol style="margin:6px 0 0;padding-left:20px;line-height:1.65">
+  <li><strong>① 内阁主动牵引（最灵活的任意方向推手）</strong>：外交（DIP）通用内阁行动「<a class="ent-link" href="ledgers.html#cabinet_actions?id=change_societal_values">改变社会价值观</a>」可随时指定任意已解锁轴线的左端或右端，基础推动 <strong>+0.10/月</strong>，实际推力 = <code>0.10 × (1 + 0.005×君主DIP + 0.005×执行大臣DIP + 内阁效率)</code>（高能力君臣配合内阁效率可达 <code>+0.20~+0.25/月</code>）。此外特定内阁行动附带定向推动（如「统合文化组」推中央集权 <code>+0.10</code>、「培育新文化」推创新 <code>+0.10</code>、「执行沙里亚法管理」推守旧 <code>+0.10</code>）。</li>
+  <li><strong>② 国家人口结构、战争态势与宏观状态自动拉拽（<code>auto_modifiers</code>，最易被忽略的暗流）</strong>：无需颁布任何法令也会每月自动结算——
+    <strong>集权端</strong>受全国平均发展度（满额 <code>+0.20</code>）与平均控制力（满额 <code>+0.10</code>）拉动；
+    <strong>资本 vs 传统经济</strong>受市民人口占比（<code>×0.50</code>）、贸易收入相对税基（<code>+0.10</code>）与农民人口占比（<code>×0.10</code>）、破产状态（传统 <code>+0.50</code>）对拉；
+    <strong>重商 vs 自由贸易</strong>受本国持有市场中心数（每个重商 <code>+0.05</code>）与境内市场外国商人（自贸 <code>+0.025</code>）对拉；
+    <strong>创新端</strong>受本国占世界艺术品份额（最高 <code>+2.0</code>）与全国平均识字率（满额 <code>+0.10</code>）拉动；
+    <strong>好战 vs 亲善</strong>：处于战争（<code>+0.10</code>）、超出陆军规模预期（<code>+0.10</code>）、君主/储君/摄政任统帅推向好战，处于和平（<code>+0.10</code>）及要塞低于 50% 上限（<code>+0.10</code>）推向亲善；
+    <strong>进攻 vs 防御</strong>：作为战争进攻方（<code>+0.20</code>）与要塞低于 50% 上限（<code>+0.10</code>）推向进攻，作为防御方（<code>+0.10</code>）与超出要塞上限（<code>+0.10</code>）推向防御；
+    <strong>质量 vs 数量</strong>：平均陆军经验（<code>+0.20</code>）推质量，士兵人口占比（<code>+0.20</code>）推数量；
+    <strong>陆权 vs 海权</strong>：陆军传统/陆军规模/统帅君主推陆权，海军传统/海军经验/海军规模/海军将领君主推海权；
+    <strong>专制 vs 自由</strong>：高正统性（&gt;50 起最高 <code>+0.05</code>）推专制，高共和传统（&gt;50 起最高 <code>+0.10</code>）推自由。</li>
+  <li><strong>③ 阶层全国力量超过 25% 的超额自动拖拽</strong>：当阶层力量占比超过 <strong>25%</strong> 时，超额部分按 <code>×0.33</code> 产生持续月推——<strong>教士 &gt;25%</strong> 推属灵、<strong>齐米 &gt;25%</strong> 推人文、<strong>平民 &gt;25%</strong> 推自由民、<strong>哥萨克 &gt;25%</strong> 推聚焦进攻、<strong>部落 &gt;25%</strong> 推传统经济。</li>
+  <li><strong>④ 附属国数量、天主教军事修会与国际组织</strong>：每持有一个<strong>附庸、采邑、普罗尼亚、家族总督或乌奇贝伊</strong>，宗主每月自动向<strong>地方分权 +0.025</strong>（养 8 个附庸即产生 <code>+0.20/月</code> 分权推力！）；持有<strong>土司</strong>属国每个向<strong>汉化 +0.05</strong>，身处<strong>天朝</strong>国际组织向<strong>汉化 +0.10</strong>；军事修会按热忱度（<code>0.05 × 热忱</code>，热忱上限 6）推送对应价值。</li>
+  <li><strong>⑤ 法律政策（832 项政策，最核心的常驻底盘）</strong>：行政体系、法典、宫廷习俗、征召法、审查制度、教育法、贸易与宗教法下的具体政策普遍提供 <strong>+0.05 至 +0.20/月</strong>（按政策实施进度百分比折算生效）。</li>
+  <li><strong>⑥ 阶层特权（331 项特权）</strong>：每项关联特权提供常驻 <strong>+0.05 至 +0.20/月</strong>（如「农奴制经济 +0.20」「吏胥制 +0.20」「集体土地/村社自治 分权 +0.20」「士大夫文官 创新 +0.20」）。</li>
+  <li><strong>⑦ 政府改革（379 项）与议会审议期议案（161 项）</strong>：政府改革提供常驻 <strong>+0.05 至 +0.20/月</strong>；而议会正在辩论的议案在审议期内可提供高达 <strong>+0.20 至 +0.50/月</strong> 的短期强推（如「赞助大学 / 赞助书院」推创新 <code>+0.50/月</code>、「扩建军团营地 / 征兵中心」推注重数量 <code>+0.50/月</code>）。</li>
+  <li><strong>⑧ 首都特殊地标建筑、官僚机构拨款反转、宗教信条/法学派与统治者特质</strong>：首都建筑（如王宫/税务局推专制、议会大厦推自由、密码秘书处推集权、爱资哈尔大学推创新）按建筑等级与商品供应生效；<strong>官僚机构</strong>存在独特的<strong>拨款正负反转</strong>（如「中央行署」满额维护推专制主义 <code>+0.10</code>，削减预算陷入负区间反而推自由主义 <code>+0.10</code>；「马扎林法庭 / 总教法官」满维推教法主义 <code>+0.10</code>，缺维反推隐义主义 <code>+0.10</code>）；宗教信条、伊斯兰四大教法学派及统治者性格特质亦各自提供 <code>+0.05~+0.10/月</code>。</li>
+</ol>
+</div>
+
+<p style="margin-top:14px"><strong>全 17 对社会价值观轴线：两端满额效果与非事件左右推动因素对照总表</strong>（点击轴线名可直接跳转到速查表展开全部具体建筑/特权/政策/改革词条）：</p>
+<div class="table-wrap">
 <div class="table-wrap"><table class="data-table">
-  <thead><tr><th>代表性价值观轴线（全 17 对见速查表）</th><th>解锁时期 / 资格</th><th>两端核心修正取舍（满端 ±100 基准）</th></tr></thead>
+  <thead>
+    <tr>
+      <th style="min-width:145px">价值观轴线 / 时代</th>
+      <th style="min-width:210px">← 左端 (−100) 满额效果</th>
+      <th style="min-width:235px">← 推向左端的非事件主要因素</th>
+      <th style="min-width:210px">→ 右端 (+100) 满额效果</th>
+      <th style="min-width:235px">→ 推向右端的非事件主要因素</th>
+    </tr>
+  </thead>
   <tbody>
-    <tr><td><strong>中央集权 ↔ 地方分权</strong></td><td>开局通用</td><td><strong>中央集权</strong>：王室力量 +50%、邻近度效率 +20%、外交吞并速度 +33%、属国忠诚 −20；<strong>地方分权</strong>：属国忠诚 +30、阶层满意度均衡 +5%、吞并速度 −33%</td></tr>
-    <tr><td><strong>资本经济 ↔ 传统经济</strong></td><td>开局通用</td><td><strong>资本经济</strong>：全国加工生产效率 +10%、银行利率 −3%，解锁现代财政簿记改革；<strong>传统经济</strong>：强化农矿原材料产出与传统庄园经济</td></tr>
-    <tr><td><strong>农奴制 ↔ 自由民</strong></td><td>开局通用</td><td><strong>农奴制</strong>：全国原料产出 +20%、农民自主权 −33%；<strong>自由民</strong>：农民自主权 +33%、强化人口流动与平民求助稳定度收益</td></tr>
-    <tr><td><strong>守旧 ↔ 创新</strong></td><td>开局通用</td><td><strong>创新</strong>：最大识字率 +10%、接纳思潮花费 −50%，解锁《思潮之路》等科研改革；<strong>守旧</strong>：强化正统稳定与首都集权改革资格</td></tr>
-    <tr><td><strong>属灵 ↔ 人文</strong></td><td>开局通用</td><td><strong>属灵</strong>：强化人口改宗速度与正统容忍；<strong>人文</strong>：提升异端与异教容忍度、文化融合能力</td></tr>
-    <tr><td><strong>重商主义 ↔ 自由贸易</strong></td><td>宗教改革时代</td><td><strong>重商主义</strong>：最高关税上限 +50%、最高补贴上限 +50%、强化本国市场保护；<strong>自由贸易</strong>：强化跨市场商路扩展与运力</td></tr>
-    <tr><td><strong>时代与专属轴线（6 条）</strong></td><td>时代 / 宗教 / 国别</td><td>发现时代开放「注重外务 ↔ 注重内政」；专制时代开放「专制主义 ↔ 自由主义」；伊斯兰/德鲁兹等开放「隐义主义（士气/传教+10%） ↔ 教法学（科研/内阁效率+10%）」；东亚周边开放「汉化 ↔ 去汉化」；拜占庭专属「拉丁化 ↔ 罗马派」</td></tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=centralization_vs_decentralization"><strong>中央集权 ↔ 地方分权</strong></a><br><small>① 传统时代 (85 左 / 99 右)</small></td>
+      <td><strong>中央集权</strong>：王室力量 +50%、邻近度效率 +20%、吞并速度 +33%、属国忠诚 −20</td>
+      <td>平均发展度(+0.2)、平均控制力(+0.1)；内阁「统合文化组」(+0.1)；密码秘书处/锡曼卡斯档案馆；西部院；集权管理/民法等 48 项政策；吏胥制/自由城镇权等 11 项特权；统合国家政权/皇家敕令等 17 项改革</td>
+      <td><strong>地方分权</strong>：属国忠诚 +30、阶层满意度均衡 +5%、恢复 +0.2%、吞并速度 −33%</td>
+      <td><strong>每个附庸/采邑/普罗尼亚/家族总督/乌奇贝伊(+0.025)</strong>；本乡自治/流动宫廷/分权官僚等 36 项政策；村社自治/集体土地/防御工事授权等 31 项特权；代议制议会/省级税收等 25 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=traditionalist_vs_innovative"><strong>守旧 ↔ 创新</strong></a><br><small>① 传统时代 (40 左 / 48 右)</small></td>
+      <td><strong>守旧</strong>：稳定度投资 +0.1、变更政策花费 −30%、阶层均衡 +2.5%、文化传统 +100%、思潮花费 +200%</td>
+      <td>内阁「执行沙里亚法」(+0.1)；偏向罗马派(+0.1)；蒙昧群众/虔诚教育/教士参政/关闭边境等 16 项政策；宗教识字权等 7 项特权；家产式统治/出版审查等 9 项改革；狂热君主(+0.1)</td>
+      <td><strong>创新</strong>：最大识字率 +10%、接纳思潮花费 −50%、文化影响 +100%、变更政策花费 +15%</td>
+      <td>全球艺术品份额(最高+2.0)、全国平均识字率(+0.1)；内阁「培育新文化」(+0.1)；爱资哈尔大学；无审查/文化宫廷/允许耶稣会等 18 项政策；士大夫文官/城市发展补助等 8 项特权；思潮之路等 5 项改革；议会赞助大学/书院(+0.5)</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=spiritualist_vs_humanist"><strong>属灵 ↔ 人文</strong></a><br><small>① 传统时代 (61 左 / 39 右)</small></td>
+      <td><strong>属灵</strong>：人口皈依速度 +50%、正统容忍 +2、城镇教士岗位 +2%、文化同化速度 −50%、宗教敌意 +50%</td>
+      <td><strong>教士阶层力量 &gt;25%(超额×0.33)</strong>；主导宗教教士人口占比(+0.1)；朝觐事务署(+0.1)；偏向罗马派(+0.1)；神权/审判庭/国教类政策、教士特权与宗教信条（共 61 项）</td>
+      <td><strong>人文</strong>：文化同化速度 +50%、异端/异教容忍各 +1、皈依速度 −50%、宗教敌意 −50%</td>
+      <td><strong>齐米阶层力量 &gt;25%(超额×0.33)</strong>；偏向拉丁化(+0.1)；诗人与数学家学院/大图书馆/天文台等 6 座建筑；人文宫廷/无审查/宗教宽容类 18 项政策与齐米特权</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=aristocracy_vs_plutocracy"><strong>贵族政治 ↔ 财阀政治</strong></a><br><small>① 传统时代 (75 左 / 36 右)</small></td>
+      <td><strong>贵族政治</strong>：贵族力量 +50%、训练度 +10%、贵族增长 +25%、城镇贵族岗位 +1%、宫廷支出效率 −25%</td>
+      <td>主流/接纳文化贵族人口占比(+0.1)；慕尼黑王宫城堡(+0.05)；贵族宫廷/封建军役等 27 项政策；贵族土地权/协助与建议义务等 24 项贵族特权；开明贵族等 19 项改革</td>
+      <td><strong>财阀政治</strong>：市民力量 +50%、贸易建筑等级 +50%、出售效率 +5%、宫廷支出效率 +50%</td>
+      <td>内阁「斯特罗加诺夫影响力」(+0.05)；现代化为共和国/政治原则等 11 项政策；承认行会正式地位/王家自治市专员等 8 项市民特权；财阀伦理/贸易办事处网络等 11 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=serfdom_vs_free_subjects"><strong>农奴制 ↔ 自由民</strong></a><br><small>① 传统时代 (36 左 / 71 右)</small></td>
+      <td><strong>农奴制</strong>：原料产出 +20%、农民征召规模 +25%、征召恢复 +50%、建筑维护效率 +10%、贵族均衡 +10%、农民自主 −33%</td>
+      <td>地产加权/蒙昧群众等 15 项政策；农奴制经济(+0.2)/贵族土地权(+0.1)等 11 项贵族特权；普遍农奴制/法兰西封建贵族(+0.2)等 8 项改革；残暴/心狠手辣统治者</td>
+      <td><strong>自由民</strong>：人口晋升速度 +100%、农民均衡 +10%、征召作战效率 +10%、人群商品需求 +20%、农民征召规模 −25%</td>
+      <td><strong>平民阶层力量 &gt;25%(超额×0.33)</strong>；官房主义/公民美德等 28 项政策；新兴市镇法/骑士隶农等 18 项特权；世袭永佃权/全民集会等 16 项改革；唯独信心/神职清贫等信条</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=capital_economy_vs_traditional_economy"><strong>资本经济 ↔ 传统经济</strong></a><br><small>① 传统时代 (31 左 / 25 右)</small></td>
+      <td><strong>资本经济</strong>：加工生产效率 +10%、银行利率 −3%、建造效率 +20%、成熟度增长 +20%、食物产出 −20%</td>
+      <td><strong>市民人口占比(×0.50)</strong>、贸易收入相对税基(+0.1)；税务委员会(+0.1)、市监(+0.1)；包税制/自治团体服务等 12 项政策；商业顾问委员会/布料行会等 6 项市民特权</td>
+      <td><strong>传统经济</strong>：原料产出 +20%、农村 RGO 规模 +33%、人口容量 +25%、食物产出 +10%、成熟度 −25%</td>
+      <td><strong>部落阶层力量 &gt;25%(超额×0.33)</strong>、农民人口占比(+0.1)、<strong>国家破产(+0.5)</strong>；自由经济协会(+0.05)；宽税制/赐封制(+0.2)/部落认同等 12 项政策与庄园改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=individualism_vs_communalism"><strong>个人主义 ↔ 集体主义</strong></a><br><small>① 传统时代 (28 左 / 43 右)</small></td>
+      <td><strong>个人主义</strong>：陆海军士气各 +10%、人口迁徙速度 +50%、阶层满意度均衡 −2.5%</td>
+      <td>科学与人文学院/彼得堡科学院；无审查/私人宗教教育等 12 项政策；市民土地权/免除厘金等特权；大宪章/智囊参政等 6 项改革；圣经首位论/宣讲自由等 5 项新教信条</td>
+      <td><strong>集体主义</strong>：撤销特权花费 −50%、阶层均衡 +2.5%、叛军加入阈值 −5%、人口迁徙速度 −50%</td>
+      <td>贵族女子学院、舍身军；强大的社区习俗/社会契约论等 18 项政策；加深信仰(+0.2)/强制宗教统一等 9 项特权；公共救济制度/秘密检举署等 7 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=belligerent_vs_conciliatory"><strong>好战姿态 ↔ 亲善姿态</strong></a><br><small>① 传统时代 (51 左 / 29 右)</small></td>
+      <td><strong>好战姿态</strong>：战争分数效率 +25%、割地与和约敌意 −50%、造宣称 +33%、无理由宣战敌意 −30%</td>
+      <td><strong>处于战争(+0.1)</strong>、超出预期陆军规模(+0.1)、君主/储君/摄政任将领等 12 项自动状态；军事原则/长弓竞赛等 13 项政策；扩张狂热特权；压倒性攻势学说/雇佣兵登记册等 8 项改革</td>
+      <td><strong>亲善姿态</strong>：内阁效率 +10%、外交声誉 +4、割地与和约敌意 +30%、造宣称 −33%</td>
+      <td><strong>处于和平(+0.1)</strong>、低于 50% 要塞上限(+0.1)；道德原则/市民社会等 8 项政策；虔诚的外交官/减少兵役义务特权；统筹化外交事务/多语通译外交等 11 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=quality_vs_quantity"><strong>注重质量 ↔ 注重数量</strong></a><br><small>① 传统时代 (28 左 / 20 右)</small></td>
+      <td><strong>注重质量</strong>：军事战术 +0.1、陆军主动性 +25%、陆军士气恢复 +2%、陆军维护效率 −10%（更贵）</td>
+      <td>全国平均陆军经验(+0.2)；贵族征召等 15 项精英军制政策；精进骑术/先民银册等 4 项特权；普鲁士君主制/陆战队整编等 5 项改革；英雄崇拜信条(+0.1)</td>
+      <td><strong>注重数量</strong>：征召规模 +50%、陆军维护效率 +20%（减费）、单位耗粮 −10%、陆军主动性 −25%</td>
+      <td>全国士兵人口占比(+0.2)；农民征召/公民普选等 8 项政策；民兵/加伊什军团特权；普遍兵役制(+0.2)/军功授产等 6 项改革；议会「扩建军团营地/征兵中心」(+0.5)</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=offensive_vs_defensive"><strong>聚焦进攻 ↔ 聚焦防御</strong></a><br><small>① 传统时代 (24 左 / 30 右)</small></td>
+      <td><strong>聚焦进攻</strong>：围城能力 +10%、强攻能力 +10%、后勤距离 +50%、陆军移速 +10%、要塞防御 −50%</td>
+      <td><strong>哥萨克力量 &gt;25%(超额×0.33)</strong>；<strong>作为战争进攻方(+0.2)</strong>、低于 50% 要塞上限(+0.1)、陆军维护费(+0.1)；进攻姿态/骑兵作战等政策；进攻型军事学说特权</td>
+      <td><strong>聚焦防御</strong>：要塞防御 +50%、要塞上限 +50%、要塞维护效率 +40%、补员速度 +10%、参战速度 +10%、移速 −10%</td>
+      <td><strong>作为战争防御方(+0.1)</strong>、超出要塞上限(+0.1)、要塞维护费(+0.1)；舍身军(+0.1)；防御姿态/瓦兰吉卫队等 6 项政策；县区制等特权与筑城改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=land_vs_naval"><strong>陆权主义 ↔ 海权主义</strong></a><br><small>① 传统时代 (22 左 / 38 右)</small></td>
+      <td><strong>陆权主义</strong>：陆上邻近度效率 +20%、陆上贸易效率 +20%、RGO 规模 +5%、海上贸易效率 −66%</td>
+      <td>陆军传统(+0.1)、陆军规模(+0.1)、陆军维护费(+0.05)、君主具陆将身份/特质；军事宫廷/官房主义等 5 项政策；筑路权/贵族土地权特权；军事政权(+0.2)/庄园扩张等 7 项改革</td>
+      <td><strong>海权主义</strong>：海上存在 +30%、有存在海域邻近度消耗 −1、海上贸易效率 +20%、陆上贸易效率 −40%</td>
+      <td>海军传统(+0.1)、海军规模(+0.1)、海军经验/维护费(+0.05)、君主具海将身份/特质；海军总部/公海宣教等 13 项政策；船匠合同/贵族海军特权；海军政权(+0.2)/义务海军役等 15 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=outward_vs_inward"><strong>注重外务 ↔ 注重内政</strong></a><br><small>③ 地理大发现解锁 (18 左 / 18 右)</small></td>
+      <td><strong>注重外务</strong>：外交容量 +33%、每月殖民迁移 +100%、力量投射 +5、语言敌意 −50%、文化传统 −50%</td>
+      <td>内阁「擢升外籍顾问集团」(+0.05)；国外宣教/外国习俗/血统法等 11 项政策；殖民扩张/标准化封臣义务/黑箱谍报等 6 项改革</td>
+      <td><strong>注重内政</strong>：王室力量 +25%、每月控制力 +0.5%、文化传统 +50%、殖民迁移 −50%</td>
+      <td>习惯法/保护原则/奢华后宫等 13 项政策；优化文书管理/帝国法院/迟滞性外交等 4 项改革；家神信条(+0.1)</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=mercantilism_vs_free_trade"><strong>重商主义 ↔ 自由贸易</strong></a><br><small>④ 宗教改革解锁 (11 左 / 23 右)</small></td>
+      <td><strong>重商主义</strong>：市场保护 +50%、最高关税 +50%、最高补贴 +50%、商人维护效率 +20%、出口效率 −10%</td>
+      <td>持有市场中心数量(每个+0.05)；航海法案(+0.1)/禁止出口/新大陆定居等 5 项政策；库尔姆城镇法/免除盐税特权；国家市场干预/印度事务院改革</td>
+      <td><strong>自由贸易</strong>：贸易优势 +20%、市民贸易容量 +100%、贸易收入 +10%、出售效率 +5%、市场保护 −25%</td>
+      <td>市场中心拥有外国商人(+0.025)；自由贸易(+0.1)/商业宣教等 9 项政策；马格德堡权利等 4 项特权；东印度贸易公司/贸易办事处网络等 9 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=absolutism_vs_liberalism"><strong>专制主义 ↔ 自由主义</strong></a><br><small>⑤ 专制主义时代解锁 (30 左 / 17 右)</small></td>
+      <td><strong>专制主义</strong>：王室力量 +100%、撤销特权花费 −30%、政治影响力获取 +25%、阶层均衡 −5%</td>
+      <td>高正统性(+0.05)；首都王宫(+0.025)、税务局(+0.025)；<strong>中央行署满额维护(+0.1)</strong>；《利维坦》/严格审查等 16 项政策；普遍农奴制/统合国家政权等 8 项改革</td>
+      <td><strong>自由主义</strong>：阶层均衡 +5%、政治影响力获取 +25%、文化容量 +20%、议会要求支持度 −10%</td>
+      <td>高共和传统(+0.1)；首都议会大厦(+0.1)；<strong>中央行署削减预算负维护(+0.1)</strong>；《政府论》/无审查/选贤任能等 7 项政策；宪政国家(+0.2)/代议制议会等 5 项改革</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=mysticism_vs_jurisprudence"><strong>隐义主义 ↔ 教法主义</strong></a><br><small>伊斯兰 / 德鲁兹专属 (8 左 / 12 右)</small></td>
+      <td><strong>隐义主义</strong>：陆军士气 +10%、人口皈依速度 +10%</td>
+      <td>哈乃斐学派(+0.1)、马立克学派(+0.05)；自由解释权特权(+0.1)；回旋舞之乡革新(+0.1)；<strong>马扎林法庭/总教法官缺额负维护(+0.1)</strong></td>
+      <td><strong>教法主义</strong>：每月研究进度 +10%、内阁效率 +10%</td>
+      <td>罕百里学派(+0.1)、沙斐仪学派(+0.05)；<strong>马扎林法庭/总教法官满额维护(+0.1)</strong>；噶最教法区自治(+0.1)等特权；穆斯林的长官改革(+0.1)</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=sinicized_vs_unsinicized"><strong>汉化 ↔ 去汉化</strong></a><br><small>中华文化圈周边专属 (26 左 / 13 右)</small></td>
+      <td><strong>汉化</strong>：每月研究进度 +10%、立法效率 +25%、维稳效率 +66%、天朝贡品收入 +25%</td>
+      <td>身处「天朝」国际组织(+0.1)；每个土司属国(+0.05)；官学/书院各(+0.025)；汉化内阁/推广中华传统/晋用汉官等 20 项政策；建州/海西女真改革</td>
+      <td><strong>去汉化</strong>：文化传统 +50%、维稳效率 +66%、威望衰减 −0.2%、贸易容量 −20%</td>
+      <td>限制中华影响力/限制中华传统/斥退汉官等 11 项政策；部落自治特权(+0.05)；野人女真改革(+0.1)</td>
+    </tr>
+    <tr>
+      <td><a class="ent-link" href="ledgers.html#societal_values?id=latinization_vs_hellenization"><strong>拉丁化 ↔ 罗马派</strong></a><br><small>拜占庭 / 东罗马文化圈专属 (32 左 / 33 右)</small></td>
+      <td><strong>拉丁化</strong>：出售效率 +5%、预期外交支出 −20%、每月向人文/创新各 +0.1、开启拉丁复兴运动</td>
+      <td>内阁「鼓励拉丁军国主义」(+0.1)；宫廷/优势/礼仪语言为拉丁语、西欧同盟关系等 25 项状态；先贤之法改革(+0.2)；公民宗教等 5 项信条</td>
+      <td><strong>罗马派</strong>：维稳效率 +40%、正统容忍 +0.5、每月向属灵/守旧各 +0.1</td>
+      <td>内阁「推广亲希腊主义」(+0.1)；主流属罗马文化组(+0.05)、希腊语礼仪/宫廷语言等 26 项状态；腐化的军区制改革(+0.1)；奥林匹克运动会等 5 项信条</td>
+    </tr>
   </tbody>
 </table></div>
+</div>
 
 </section><section id="bureaucracy" class="mech-section">
   <h2>03 · 政府改革、法律政策与官僚机构固化机制</h2>
@@ -242,7 +398,7 @@
   <a href="ch05-estates-rebels.html" class="btn-pill">05 · 王室与阶层力量、财富消费、特权议会与叛乱检定 →</a>
 </nav>
 </div>
-        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#government-power">01 · 国家类型、等级霸权与三大核心政治指标</a><a href="#societal-values">02 · 17 对社会价值观轴线（−100 至 +100）</a><a href="#bureaucracy">03 · 政府改革、法律政策与官僚机构固化机制</a><a href="#characters-interactions">04 · 人物成长、三维能力映射与 34 项角色互动</a><a href="#cabinet-actions">05 · 内阁席位、内阁首脑与「内阁效率」完整公式</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
+        <aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list"><a href="#government-power">01 · 国家类型、等级霸权与三大核心政治指标</a><a href="#societal-values">02 · 17 对社会价值观轴线：惯性均衡公式与非事件推动因素全解</a><a href="#bureaucracy">03 · 政府改革、法律政策与官僚机构固化机制</a><a href="#characters-interactions">04 · 人物成长、三维能力映射与 34 项角色互动</a><a href="#cabinet-actions">05 · 内阁席位、内阁首脑与「内阁效率」完整公式</a><a href="#redlines-strip">本章关键红线</a><a href="#discussion-box">实战排障专栏</a></div></aside>
       </div>
     </main>
   </div>
