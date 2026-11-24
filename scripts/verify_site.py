@@ -202,7 +202,7 @@ def main() -> int:
             if href.startswith(("http://", "https://", "mailto:", "javascript:", "data:")):
                 continue
             target_file, _, frag = href.partition("#")
-            target_file = target_file or fname
+            target_file = target_file.split("?", 1)[0] or fname
             target_file = unquote(target_file)
             if target_file.startswith("assets/"):
                 if not (DOCS / target_file).exists():
@@ -239,7 +239,8 @@ def main() -> int:
         # Check local src
         for src in re.findall(r'src="([^"]+)"', txt):
             if not src.startswith(("http://", "https://")):
-                if not (DOCS / src).exists():
+                src_clean = src.split("?", 1)[0]
+                if not (DOCS / src_clean).exists():
                     dead_links.append((fname, f"src={src}", "missing src"))
 
     # Check graph_bundle.json hrefs

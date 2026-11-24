@@ -97,11 +97,14 @@ def build_sidebar(active_slug):
 </aside>'''
 
 
+ASSET_VER = "v=20261124b"
+
+
 def wrap_page(title, desc, active_slug, page_kind, main_html, right_toc_html="", scripts=()):
     sidebar = build_sidebar(active_slug)
     grid_cls = "content-grid" if right_toc_html else "content-grid wide"
     toc_block = f'<aside class="toc-panel"><div class="toc-title">本页章节目录</div><div class="toc-list">{right_toc_html}</div></aside>' if right_toc_html else ""
-    extra_scripts = "\n".join(f'<script defer src="{s}"></script>' for s in scripts)
+    extra_scripts = "\n".join(f'<script defer src="{s}?{ASSET_VER}"></script>' for s in scripts)
     return f'''<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -109,12 +112,12 @@ def wrap_page(title, desc, active_slug, page_kind, main_html, right_toc_html="",
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(title)} · 欧陆风云 V 系统图谱与速查典</title>
   <meta name="description" content="{escape(desc)}">
-  <link rel="stylesheet" href="assets/styles.css">
-  <script defer src="assets/glossary-data.js"></script>
-  <script defer src="assets/search-index.js"></script>
+  <link rel="stylesheet" href="assets/styles.css?{ASSET_VER}">
+  <script defer src="assets/glossary-data.js?{ASSET_VER}"></script>
+  <script defer src="assets/search-index.js?{ASSET_VER}"></script>
   {extra_scripts}
-  <script defer src="assets/app.js"></script>
-  <script defer src="assets/interactive.js"></script>
+  <script defer src="assets/app.js?{ASSET_VER}"></script>
+  <script defer src="assets/interactive.js?{ASSET_VER}"></script>
 </head>
 <body data-page="{escape(page_kind)}">
   <a class="skip-link" href="#main">跳到正文</a>
