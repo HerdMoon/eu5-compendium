@@ -98,7 +98,7 @@ def build_sidebar(active_slug):
 </aside>'''
 
 
-ASSET_VER = "v=20261124d"
+ASSET_VER = "v=20261124e"
 
 
 def wrap_page(title, desc, active_slug, page_kind, main_html, right_toc_html="", scripts=()):

@@ -576,14 +576,34 @@
         ],
       },
       {
-        id: "goods", grp: "econ", label: "75 商品数值", filterKey: "group",
+        id: "goods", grp: "econ", label: "75 商品产业链", filterKey: "rgo_badge", expandable: true,
         cols: [
-          { label: "商品", key: "zh", fn: (r) => `<div class="good-cell">${r.icon ? `<img class="good-icon" src="${esc(r.icon)}" alt="" loading="lazy">` : ""}<div><strong>${esc(r.zh)}</strong><br><small style="color:var(--ink-muted)">${esc(r.en)} <code>${esc(r.id)}</code></small></div></div>` },
-          { label: "分类 / 产法", key: "group", fn: (r) => `${esc(r.group)}<br><small>${esc(r.method)}</small>` },
-          { label: "基准市价", key: "price", num: true, fn: (r) => `<span class="num">${r.price}</span>` },
-          { label: "食物值", key: "food", num: true, fn: (r) => r.food > 0 ? `<span class="num pos">${r.food}</span>` : '<span class="num" style="color:var(--ink-muted)">—</span>' },
-          { label: "运输系数", key: "transport", num: true, fn: (r) => `<span class="num">${r.transport}</span>` },
-          { label: "基础月产", key: "base", num: true, fn: (r) => `<span class="num">${r.base}</span>` },
+          {
+            label: "商品（点击展开全链条）", key: "zh",
+            fn: (r) => `<div class="good-cell"><span class="row-toggle-mark">${expandedIds.has(r.id) ? "▾" : "▸"}</span>${r.icon ? `<img class="good-icon" src="${esc(r.icon)}" alt="" loading="lazy">` : ""}<div><strong>${esc(r.zh)}</strong><br><small style="color:var(--ink-muted)">${esc(r.en)} <code>${esc(r.id)}</code></small></div></div>`,
+          },
+          {
+            label: "市价 / 食 / 运", key: "price", num: true,
+            fn: (r) => `<span class="num"><strong>${r.price}</strong>金</span><br><small style="color:var(--ink-muted)">${r.food > 0 ? `<span class="pos">食${r.food}</span> · ` : ""}运${r.transport}</small>`,
+          },
+          {
+            label: "是否 RGO 产出", key: "rgo_badge",
+            fn: (r) => `${r.is_rgo === "是" ? `<span class="delta-chip pos">${esc(r.rgo_badge)}</span>` : `<span class="scope-tag">${esc(r.rgo_badge || r.group)}</span>`}${r.base > 0 ? `<br><small style="color:var(--ink-muted)">保底产出 ${r.base}</small>` : ""}`,
+          },
+          {
+            label: "是否建筑材料（施工耗材）", key: "con_bldg_count", num: true,
+            fn: (r) => r.is_con_mat === "是"
+              ? `<div><span class="delta-chip pos" style="margin-bottom:3px">是</span> <small>${linkifyEntitiesHtml(String(r.con_mat_summary || "").replace(/^是\s*·\s*/, ""), r.zh)}</small></div>`
+              : `<span class="scope-tag">否</span>`,
+          },
+          {
+            label: "什么建筑生产它（产出 / RGO增产）", key: "prod_bldg_count", num: true,
+            fn: (r) => `<small>${linkifyEntitiesHtml(r.producers_summary || "—", r.zh)}</small>`,
+          },
+          {
+            label: "什么建筑需要它（生产投入 / 日常维护）", key: "need_bldg_count", num: true,
+            fn: (r) => `<small>${linkifyEntitiesHtml(r.consumers_summary || "—", r.zh)}</small>`,
+          },
         ],
       },
       {
@@ -798,6 +818,7 @@
     let sortDir = "asc";
     let pageIdx = 0;
     let focusItemId = "";
+    let goodsQuickMode = "all";
     const PAGE_SIZE = 100;
     const expandedIds = new Set();
 
@@ -864,6 +885,26 @@
             <div style="font-size:13.2px"><strong>惯性均衡规则：</strong>拉条范围 −100~+100（中性 0），系统惯性 100；长期静态均衡位置 = <code>(右推之和 − 左推之和) × 100</code>。点击下方任意行即可并排展开左右两端全部非事件推动源（均可点击跳转）。</div>
             <a href="ch04-government-cabinet.html#societal-values" class="btn-pill">阅读第四章 8 大非事件移动规律精讲 →</a>
           </div>`;
+        } else if (curId === "goods") {
+          bannerEl.hidden = false;
+          bannerEl.innerHTML = `<div class="card" style="padding:11px 16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;border-left:4px solid var(--p-economy)">
+            <div style="font-size:13px"><strong>商品产业链快筛：</strong>点击任意商品行即可展开<strong>全部生产建筑 / 加工消耗建筑 / 维护消耗建筑 / 施工建材全表 / 军需单位</strong>，所有建筑名均可直接点击跳转。</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <button type="button" class="submod-pill ${goodsQuickMode === "all" ? "active" : ""}" data-gq="all">全部商品 (75)</button>
+              <button type="button" class="submod-pill ${goodsQuickMode === "rgo" ? "active" : ""}" data-gq="rgo">仅 RGO 产出 (53)</button>
+              <button type="button" class="submod-pill ${goodsQuickMode === "non_rgo" ? "active" : ""}" data-gq="non_rgo">仅非 RGO 制成品 (22)</button>
+              <button type="button" class="submod-pill ${goodsQuickMode === "con_mat" ? "active" : ""}" data-gq="con_mat">仅施工建筑材料 (27)</button>
+              <a href="pop-demand.html" class="btn-pill" style="font-size:12px">查 8 阶级人口消费需求 →</a>
+            </div>
+          </div>`;
+          bannerEl.querySelectorAll("[data-gq]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              goodsQuickMode = btn.getAttribute("data-gq");
+              focusItemId = "";
+              pageIdx = 0;
+              render();
+            });
+          });
         } else {
           bannerEl.hidden = true;
           bannerEl.innerHTML = "";
@@ -884,6 +925,11 @@
 
       let filtered = rows.filter((r) => {
         if (fv !== "all" && r[fk] !== fv) return false;
+        if (curId === "goods") {
+          if (goodsQuickMode === "rgo" && r.is_rgo !== "是") return false;
+          if (goodsQuickMode === "non_rgo" && r.is_rgo === "是") return false;
+          if (goodsQuickMode === "con_mat" && r.is_con_mat !== "是") return false;
+        }
         if (!q) return true;
         return JSON.stringify(r).toLowerCase().includes(q);
       });
@@ -969,6 +1015,7 @@
       sortKey = "";
       sortDir = "asc";
       pageIdx = 0;
+      goodsQuickMode = "all";
       focusItemId = targetItemId || "";
       expandedIds.clear();
       if (typeof qPrefill === "string") qEl.value = qPrefill;
